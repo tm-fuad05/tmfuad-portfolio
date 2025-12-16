@@ -8,6 +8,7 @@ import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
+import ScrollToUp from "@/components/shared/ScrollToUp";
 
 export default async function Home() {
   // Fake Loader (Render on the starting)
@@ -29,6 +30,7 @@ export default async function Home() {
       <Certification />
       <ContactMe />
       <Footer />
+      <ScrollToUp />
     </div>
   );
 }
