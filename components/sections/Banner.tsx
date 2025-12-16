@@ -59,7 +59,7 @@ const Banner = () => {
         <div className="absolute -top-38 -left-38 w-120 md:w-175 h-175 rounded-full blur-3xl bg-primary/3"></div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between gap-20 md:gap-8 items-center pt-25 md:pt-30 lg:pt-34 z-2">
+      <div className="flex flex-col md:flex-row justify-between lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
         {/* Content  */}
         <motion.div
           className="flex flex-col items-center md:items-start gap-3 md:w-7/12"
@@ -141,12 +141,12 @@ const Banner = () => {
               repeat: Infinity,
             }}
           >
-            <figure className="md:mr-11.25 w-78 h-84 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
+            <figure className="md:mr-5 w-78 h-84 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
               <div className="absolute bg-pink-200 rounded-full rounded-bl-none px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 group-hover:opacity-100 duration-300">
                 <p className="font-semibold">Hello☺️</p>
               </div>
               <Image
-                className="bg-linear-to-r from-secondary to-transparent  w-full h-full pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
+                className="bg-linear-to-r from-secondary to-transparent pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
                 src="/images/me.png"
                 fill
                 alt="Me"
@@ -162,7 +162,7 @@ const Banner = () => {
       <motion.div
         animate={{ y: [0, 30, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="pt-16 lg:pt-8 mx-auto"
+        className="pt-16 md:pt-5 lg:pt-8 mx-auto"
       >
         <Link href="#skills" className="cursor-pointer">
           <div className="relative w-20 h-28 lg:w-22 lg:h-30">

@@ -23,15 +23,15 @@ const Experience = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {expertise.map((item, index) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, skewY: 20 }}
+              whileInView={{ opacity: 1, skewY: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               key={index}
               className="group relative"
             >
               {/* Main card */}
-              <div className="relative bg-linear-to-br from-gray-500/30  to-primary/8 backdrop-blur-xl rounded-3xl p-8 border border-gray-700 overflow-hidden transition-all duration-500 group-hover:border-gray-500 ">
+              <div className="relative bg-linear-to-br from-gray-500/30  to-primary/8 backdrop-blur-xl rounded-3xl p-8 border border-gray-700 overflow-hidden transition-all duration-500 group-hover:border-gray-500 h-full">
                 {/* Metallic shine effect */}
                 <div
                   className="absolute inset-0 bg-linear-to-tr from-transparent via-primary-100/20

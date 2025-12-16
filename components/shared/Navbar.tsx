@@ -32,10 +32,10 @@ const Navbar = () => {
     <div className="relative">
       <div className="px-6 md:px-10 lg:px-16 py-4 fixed top-0 z-50 w-full">
         <div className="flex items-center justify-between rounded-2xl px-4 py-3 bg-white/5 backdrop-blur border border-primary shadow-[0_0_3px_#1e90ff,0_0_3px_#1e90ff]">
-          <figure className="relative w-10 md:w-12.5">
-            <a href="/">
-              <Image width={50} height={0} src="/images/logo2.png" alt="" />
-            </a>
+          <figure className="relative w-10 h-8 md:w-12.5 md:h-10 ">
+            <Link href="/">
+              <Image fill src="/images/logo2.png" alt="" />
+            </Link>
           </figure>
           <div>
             <nav
@@ -63,8 +63,8 @@ const Navbar = () => {
       {menuOpen && (
         <aside
           id="mob-nav"
-          className={`w-full bg-white/10 z-50 text-white fixed p-5 py-10 top-18.75 md:top-21.25 flex flex-col gap-5 items-center rounded-3xl border-2 border-t shadow[0_0_#1e90ff,0_0_3px_#1e90ff] border-primary transition-all duration-500 lg:hidden backdrop-blur-2xl  ${
-            menuOpen ? "right-0" : "-right-250 hidden"
+          className={`w-full bg-white/10 z-50 text-white fixed p-5 py-10 flex flex-col gap-5 items-center rounded-3xl border-2 border-t shadow[0_0_#1e90ff,0_0_3px_#1e90ff] border-primary transition-all duration-500 lg:hidden backdrop-blur-2xl  ${
+            menuOpen ? "top-18.75 md:top-21.25" : "-top-200"
           } `}
         >
           {navLinks}
