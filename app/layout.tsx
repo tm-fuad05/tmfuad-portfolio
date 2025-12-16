@@ -9,14 +9,11 @@ const oxanium = Oxanium({
 });
 
 export const metadata: Metadata = {
-  title: "Fuad Portfolio",
-  description: "MERN & Next.js developer portfolio website",
-  openGraph: {
-    title: "Fuad Portfolio",
-    description: "MERN & Next.js developer portfolio website",
-    url: "https://your-portfolio.com",
-    siteName: "Fuad Portfolio",
-    type: "website",
+  title: "Tanvir Mahmud Fuad",
+  description: "MERN & Next.js developer",
+  // Tab Icon
+  icons: {
+    icon: "/images/logo2.png",
   },
 };
 
