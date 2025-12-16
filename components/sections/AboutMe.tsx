@@ -40,12 +40,12 @@ const AboutMe = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="w-full h-full relative"
+          className="w-full h-[400px] md:h-[1024px] lg:h-[580px] relative"
         >
           <Image
             src="/images/aboutme.png"
             fill
-            className="w-full h-full lg:h-[580px] rounded-3xl object-cover object-top border-2 border-gray-50/20 "
+            className="rounded-3xl object-cover object-top border-2 border-gray-50/20 "
             alt=""
           />
         </motion.div>

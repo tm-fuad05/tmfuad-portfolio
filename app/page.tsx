@@ -1,6 +1,12 @@
 import AboutMe from "@/components/sections/AboutMe";
 import Banner from "@/components/sections/Banner";
+import Certification from "@/components/sections/Certification";
+import ContactMe from "@/components/sections/ContactMe";
+import Experience from "@/components/sections/Experience";
+import FAQ from "@/components/sections/FAQ";
+import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
+import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 
 export default function Home() {
@@ -12,6 +18,12 @@ export default function Home() {
       </div>
       <Skills />
       <AboutMe />
+      <Experience />
+      <Projects />
+      <FAQ />
+      <Certification />
+      <ContactMe />
+      <Footer />
     </div>
   );
 }

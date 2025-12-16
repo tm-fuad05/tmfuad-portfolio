@@ -14,6 +14,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { IoMdCloudDownload } from "react-icons/io";
 // import { Link as ScrollLink } from "react-scroll";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 const Banner = () => {
   // Download Resume
@@ -58,7 +59,7 @@ const Banner = () => {
         <div className="absolute -top-38 -left-38 w-120 md:w-175 h-175 rounded-full blur-3xl bg-primary/3"></div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between gap-20 md:gap-8 items-center pt-25 md:pt-26 lg:pt-32 z-2">
+      <div className="flex flex-col md:flex-row justify-between gap-20 md:gap-8 items-center pt-25 md:pt-30 lg:pt-34 z-2">
         {/* Content  */}
         <motion.div
           className="flex flex-col items-center md:items-start gap-3 md:w-7/12"
@@ -99,14 +100,14 @@ const Banner = () => {
           </p>
           {/* Social Links */}
           <div className="flex gap-2 text-primary">
-            {socialIcons.map((icon, idx) => (
+            {socialIcons.map((i, idx) => (
               <a
                 key={idx}
-                href={icon.link}
+                href={i.link}
                 target="_blank"
                 className="rounded-md border-2 p-1.5 hover:shadow-sm hover:shadow-primary text-xl md:text-2xl"
               >
-                {icon.icon}
+                {i.icon}
               </a>
             ))}
           </div>
@@ -140,7 +141,7 @@ const Banner = () => {
               repeat: Infinity,
             }}
           >
-            <figure className="md:mr-11.25 w-70 h-80 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
+            <figure className="md:mr-11.25 w-78 h-84 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
               <div className="absolute bg-pink-200 rounded-full rounded-bl-none px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 group-hover:opacity-100 duration-300">
                 <p className="font-semibold">Hello☺️</p>
               </div>
@@ -152,30 +153,23 @@ const Banner = () => {
               />
               {/* Iconsss */}
 
-              <RiTailwindCssFill
-                className="text-[#06b6d4] absolute -top-10 -left-5  z-1"
-                size={100}
-              />
+              <RiTailwindCssFill className="text-[#06b6d4] absolute -top-8 -left-5 text-8xl lg:-top-12 lg:-left-7 lg:text-9xl" />
             </figure>
           </motion.div>
         </motion.div>
       </div>
       {/* Scroller */}
-      {/* <motion.div
+      <motion.div
         animate={{ y: [0, 30, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="w-16 pt-8 lg:w-fit lg:pt-0 mx-auto mt-5"
+        className="pt-16 lg:pt-8 mx-auto"
       >
-        <ScrollLink
-          to="skills"
-          smooth={true}
-          duration={100}
-          offset={-100}
-          className="cursor-pointer"
-        >
-          <Image src="/images/scroll.png" alt="" />
-        </ScrollLink>
-      </motion.div> */}
+        <Link href="#skills" className="cursor-pointer">
+          <div className="relative w-20 h-28 lg:w-22 lg:h-30">
+            <Image fill src="/images/scroll.png" alt="" />
+          </div>
+        </Link>
+      </motion.div>
     </div>
   );
 };

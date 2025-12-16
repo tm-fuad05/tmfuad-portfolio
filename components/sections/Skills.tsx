@@ -1,5 +1,5 @@
 "use client";
-import SectionTitle from "../shared/SectionTitile";
+import SectionTitle from "../shared/SectionTitle";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import Image from "next/image";

@@ -63,7 +63,7 @@ const Navbar = () => {
       {menuOpen && (
         <aside
           id="mob-nav"
-          className={`bg-white/10 z-50 text-white fixed p-5 py-10 hrefp-[75px] md:hrefp-[85px] flex flex-col gap-5 w-[320px]  items-center rounded-3xl border-2 border-t shadow[0_0_#1e90ff,0_0_3px_#1e90ff] border-primary transition-all duration-500 lg:hidden backdrop-blur-2xl  ${
+          className={`w-full bg-white/10 z-50 text-white fixed p-5 py-10 top-18.75 md:top-21.25 flex flex-col gap-5 items-center rounded-3xl border-2 border-t shadow[0_0_#1e90ff,0_0_3px_#1e90ff] border-primary transition-all duration-500 lg:hidden backdrop-blur-2xl  ${
             menuOpen ? "right-0" : "-right-250 hidden"
           } `}
         >

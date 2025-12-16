@@ -1,0 +1,114 @@
+"use client";
+import { useState } from "react";
+import SectionTitle from "../shared/SectionTitle";
+import { projectCards } from "../../data/projectData";
+import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+import { LuCircleFadingArrowUp } from "react-icons/lu";
+
+const Projects = () => {
+  const tags = ["React", "Express", "MongoDB"];
+
+  type fuad = string;
+
+  const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
+
+  const toggleExpand = (id: number) => {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  return (
+    <div
+      //   initial={{ opacity: 0, y: 100 }}
+      //   whileInView={{ opacity: 1, y: 0 }}
+      //   viewport={{ once: false }}
+      //   transition={{ duration: 1, ease: "easeOut" }}
+      id="projects"
+      className="flex flex-col items-center"
+    >
+      <SectionTitle
+        title={"projects"}
+        subtitle={
+          "Explore My Projects and Discover How I Transform Ideas into Functional, Impactful Web Solutions"
+        }
+      />
+
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 px-6
+        md:px-10 lg:px-16"
+      >
+        {projectCards.map((card) => (
+          <div
+            key={card.id}
+            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400!"
+          >
+            {/* Image */}
+            <img
+              className="pb-5 border-b border-paragraph rounded-3xl rounded-b-none"
+              src={card.image}
+              alt=""
+            />
+            {/* Content */}
+            <div className="p-5 pt-2">
+              {/* Ttile & Date */}
+              <div className="flex justify-between items-center text-sm my-3">
+                <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white font-bold">
+                  {card.title}
+                </h3>
+                <p className="text-slate-100 opacity-50 text-xs font-medium">
+                  {card.date}
+                </p>
+              </div>
+              {/* Description */}
+              <p className="text-paragraph grow text-[15px]">
+                {expanded[card.id]
+                  ? card.description
+                  : card.description.slice(0, 200) + "..."}
+                {card.description.length > 40 && (
+                  <button
+                    className="text-blue-400/70 font-medium hover:opacity-60  cursor-pointer "
+                    onClick={() => toggleExpand(card.id)}
+                  >
+                    {expanded[card.id] ? "See less" : "See more"}
+                  </button>
+                )}
+              </p>
+              {/* Tags */}
+              <div className="flex gap-2 mt-3">
+                {tags.map((tag) => (
+                  <span
+                    className="
+                  px-3 py-1.5 bg-slate-700/50 rounded-full text-xs text-paragraph
+                  "
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              {/* Buttons */}
+              <div className="mt-4 flex gap-3">
+                <a href={card.live} target="_blank">
+                  <button className="px-6 py-2 bg-linear-to-r from-secondary to-primary rounded-lg text-white max-sm:text-sm md:text-md flex items-center gap-1 cursor-pointer hover:bg-linear-to-r hover:from-primary hover:to-secondary transition duration-300">
+                    Live Demo{" "}
+                    <LuCircleFadingArrowUp className="text-md rotate-45" />
+                  </button>
+                </a>
+                <a href={card.github} target="_blank">
+                  <button className="px-6 py-2 border border-secondary text-white max-sm:text-sm md:text-md font-medium rounded-lg flex items-center gap-2 cursor-pointer hover:shadow-sm hover:shadow-secondary transition duration-300">
+                    Github <FaGithub />
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+export default Projects;
