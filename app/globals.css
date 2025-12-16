@@ -2,16 +2,15 @@
 
 :root {
   --background: #0d1a26;
+  --primary: #1e90ff;
+  --secondary: #7c3aed;
+  --paragraph: #cbd5e1;
 }
 
 @theme {
-  --color-primary: #1e90ff;
-  --color-secondary: #7c3aed;
-  --color-paragraph: #cbd5e1;
-
-  --font-oxanium: "Oxanium";
-  --font-montserrat: "Montserrat";
-  --animate-spin-slow: "spin 10s linear infinite";
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-paragraph: var(--paragraph);
 }
 
 html,
@@ -19,6 +18,7 @@ body {
   overflow-x: hidden;
   background: var(--background);
   font-family: var(--font-oxanium);
+  scroll-behavior: smooth;
 }
 
 /* a.link-active {
@@ -34,7 +34,8 @@ body {
 .grid-background {
   min-height: 100vh;
   width: 100%;
-  background-color: #0d1a26; /* Deep dark background color */
+  /* background-color: #0d1a26; */
+  /* Deep dark background color */
   position: relative;
   z-index: 1;
 }
@@ -211,10 +212,6 @@ body {
 /* Glitch Effect */
 
 /* Custom border */
-
-html {
-  scroll-behavior: smooth;
-}
 
 @layer utilities {
   .text-shadow {
