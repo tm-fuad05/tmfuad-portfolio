@@ -29,16 +29,12 @@ const Certification = () => {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 lg:px-16 mb-10">
         {certifications.map((cert, index) => (
-          <motion.div
-            // initial={{ opacity: 0, y: 100 }}
-            // whileInView={{ opacity: 1, y: 0 }}
-            // viewport={{ once: false }}
-            // transition={{ duration: 0.5 }}
+          <div
             key={index}
             className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#7c3aed,0_0_10px_#7c3aed] rounded-lg hover:scale-103 transition-transform duration-300 relative group"
           >
             <figure className="relative">
-              <div className="relative w-full h-70 md:h-72 rounded-lg">
+              <div className="relative w-full h-60 md:h-72 rounded-lg">
                 <Image
                   fill
                   src={cert.img}
@@ -92,7 +88,7 @@ const Certification = () => {
                 <HiMiniArrowTopRightOnSquare className="text-lg" />
               </a>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </motion.div>

@@ -45,9 +45,9 @@ const Footer = () => {
   return (
     <footer className="bg-white dark:bg-slate-900 boxShadow rounded-xl w-full px-6 md:px-10 lg:px-16 py-10 grid-section relative">
       <div className="bg-black/50 inset-0 absolute z-[-1]"></div>
-      <div className="flex justify-center gap-[30px] flex-wrap w-full ">
+      <div className="flex justify-center gap-7.5 flex-wrap w-full ">
         <div className="flex justify-between items-center w-full">
-          <figure className="relative w-8 h-8 md:w-10 md:h-8 lg:w-16 lg:h-13 mx-auto md:mx-0">
+          <figure className="relative w-8 h-8 md:w-10 md:h-8 lg:w-16 lg:h-13 mx-auto lg:mx-0">
             <Image fill className="opacity-70" src="/images/logo2.png" alt="" />
           </figure>
           <nav
