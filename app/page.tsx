@@ -1,4 +1,6 @@
+import AboutMe from "@/components/sections/AboutMe";
 import Banner from "@/components/sections/Banner";
+import Skills from "@/components/sections/Skills";
 import Navbar from "@/components/shared/Navbar";
 
 export default function Home() {
@@ -8,6 +10,8 @@ export default function Home() {
         <Navbar />
         <Banner />
       </div>
+      <Skills />
+      <AboutMe />
     </div>
   );
 }

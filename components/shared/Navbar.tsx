@@ -10,19 +10,19 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <Link href="home" className="hover:text-primary cursor-pointer">
+      <Link href="/" className="hover:text-primary cursor-pointer">
         Home
       </Link>
-      <Link href="skills" className="hover:text-primary cursor-pointer">
+      <Link href="#skills" className="hover:text-primary cursor-pointer">
         Skills
       </Link>
-      <Link href="about-me" className="hover:text-primary cursor-pointer">
+      <Link href="#about-me" className="hover:text-primary cursor-pointer">
         About Me
       </Link>
-      <Link href="experience" className="hover:text-primary cursor-pointer">
+      <Link href="#experience" className="hover:text-primary cursor-pointer">
         Experience
       </Link>
-      <Link href="projects" className="hover:text-primary cursor-pointer">
+      <Link href="#projects" className="hover:text-primary cursor-pointer">
         Projects
       </Link>
     </>
@@ -30,16 +30,11 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <div className="px-6 md:px-10 lg:px-16 py-4 fixed hrefp-0 z-50 w-full">
+      <div className="px-6 md:px-10 lg:px-16 py-4 fixed top-0 z-50 w-full">
         <div className="flex items-center justify-between rounded-2xl px-4 py-3 bg-white/5 backdrop-blur border border-primary shadow-[0_0_3px_#1e90ff,0_0_3px_#1e90ff]">
-          <figure>
-            <a href="/" className="relative">
-              <Image
-                fill
-                className="w-10 md:w-12.5 absolute"
-                src="/images/logo2.png"
-                alt=""
-              />
+          <figure className="relative w-10 md:w-12.5">
+            <a href="/">
+              <Image width={50} height={0} src="/images/logo2.png" alt="" />
             </a>
           </figure>
           <div>
@@ -58,7 +53,7 @@ const Navbar = () => {
             </div>
           </div>
           <Link
-            href="contact-me"
+            href="#contact-me"
             className="text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
           >
             Contact

@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { IoMdCloudDownload } from "react-icons/io";
 // import { Link as ScrollLink } from "react-scroll";
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 const Banner = () => {
   // Download Resume
@@ -26,7 +26,7 @@ const Banner = () => {
 
   type SocialIcons = {
     link: string;
-    icon: ReactElement;
+    icon: ReactNode;
   };
 
   const socialIcons: SocialIcons[] = [
@@ -145,7 +145,7 @@ const Banner = () => {
                 <p className="font-semibold">Hello☺️</p>
               </div>
               <Image
-                className="bg-linear-to-r from-secondary to-transparent  w-full h-full pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-blue-500 shadow-lg border-paragraph"
+                className="bg-linear-to-r from-secondary to-transparent  w-full h-full pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
                 src="/images/me.png"
                 fill
                 alt="Me"
