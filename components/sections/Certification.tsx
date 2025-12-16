@@ -12,11 +12,11 @@ import Image from "next/image";
 
 const Certification = () => {
   return (
-    <div
-    //   initial={{ opacity: 0, y: 100 }}
-    //   whileInView={{ opacity: 1, y: 0 }}
-    //   viewport={{ once: false }}
-    //   transition={{ duration: 1, ease: "easeOut" }}
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 1, ease: "easeOut" }}
     >
       <SectionTitle
         title={"Certifications"}
@@ -27,15 +27,13 @@ const Certification = () => {
           <SlBadge className="text-white text-6xl p-3 rounded-2xl bg-linear-to-t from-secondary/90 to-primary" />
         }
       />
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 lg:px-16 mb-10"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 lg:px-16 mb-10">
         {certifications.map((cert, index) => (
-          <div
+          <motion.div
+            // initial={{ opacity: 0, y: 100 }}
+            // whileInView={{ opacity: 1, y: 0 }}
+            // viewport={{ once: false }}
+            // transition={{ duration: 0.5 }}
             key={index}
             className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#7c3aed,0_0_10px_#7c3aed] rounded-lg hover:scale-103 transition-transform duration-300 relative group"
           >
@@ -94,10 +92,10 @@ const Certification = () => {
                 <HiMiniArrowTopRightOnSquare className="text-lg" />
               </a>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 

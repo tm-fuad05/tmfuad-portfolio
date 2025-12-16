@@ -21,16 +21,36 @@ body {
   scroll-behavior: smooth;
 }
 
-/* a.link-active {
-  color: var(--color-primary);
+/* Navbar Scroll Offset */
+.section {
+  scroll-margin-top: 200px;
+}
+#about,
+#experience {
+  scroll-margin-top: 90px;
+}
+
+/* @media (min-width: 768px) {
+  .section {
+    scroll-margin-top: 200px;
+  }
+  #about,
+  #experience {
+    scroll-margin-top: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    scroll-margin-top: 200px;
+  }
+  #about,
+  #experience {
+    scroll-margin-top: 1000px;
+  }
 } */
 
-/*
- * 1. Base Setup: Ensures the container covers the viewport
- */
-/*
- * 1. Base Setup (Same as before)
- */
+/* a.link-active { color: var(--color-primary) ; } */ /* * 1. Base Setup: Ensures the container covers the viewport */ /* * 1. Base Setup (same as before) */
 .grid-background {
   min-height: 100vh;
   width: 100%;

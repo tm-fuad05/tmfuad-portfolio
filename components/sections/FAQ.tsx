@@ -13,11 +13,11 @@ const FAQ = () => {
     setIsAccordionOpen((prevIndex) => (prevIndex === index ? null : index));
 
   return (
-    <div
-      //   initial={{ opacity: 0, y: 100 }}
-      //   whileInView={{ opacity: 1, y: 0 }}
-      //   viewport={{ once: false }}
-      //   transition={{ duration: 1, ease: "easeOut" }}
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 1, ease: "easeOut" }}
       className="px-6 md:px-10 lg:px-16"
       id="faq"
     >
@@ -69,7 +69,7 @@ const FAQ = () => {
           </article>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

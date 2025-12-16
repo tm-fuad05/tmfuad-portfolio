@@ -1,32 +1,40 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [active, setActive] = useState<string>("home");
+  const sections: string[] = [
+    "home",
+    "skills",
+    "about",
+    "experience",
+    "projects",
+  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
 
-  const navLinks = (
-    <>
-      <Link href="/" className="hover:text-primary cursor-pointer">
-        Home
-      </Link>
-      <Link href="#skills" className="hover:text-primary cursor-pointer">
-        Skills
-      </Link>
-      <Link href="#about-me" className="hover:text-primary cursor-pointer">
-        About Me
-      </Link>
-      <Link href="#experience" className="hover:text-primary cursor-pointer">
-        Experience
-      </Link>
-      <Link href="#projects" className="hover:text-primary cursor-pointer">
-        Projects
-      </Link>
-    </>
-  );
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
     <div className="relative">
@@ -42,7 +50,17 @@ const Navbar = () => {
               id="nav"
               className="lg:flex gap-10 text-slate-100 font-medium text-lg hidden nav"
             >
-              {navLinks}
+              {sections.map((sec) => (
+                <Link
+                  key={sec}
+                  href={`#${sec}`}
+                  className={`capitalize hover:text-primary ${
+                    active === sec ? "text-primary" : "text-white"
+                  }`}
+                >
+                  {sec}
+                </Link>
+              ))}
             </nav>
 
             <div
@@ -53,7 +71,7 @@ const Navbar = () => {
             </div>
           </div>
           <Link
-            href="#contact-me"
+            href="#contact"
             className="text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
           >
             Contact
@@ -67,9 +85,19 @@ const Navbar = () => {
             menuOpen ? "top-18.75 md:top-21.25" : "-top-200"
           } `}
         >
-          {navLinks}
+          {sections.map((sec) => (
+            <Link
+              key={sec}
+              href={`#${sec}`}
+              className={`capitalize ${
+                active === sec ? "text-primary" : "text-white"
+              }`}
+            >
+              {sec}
+            </Link>
+          ))}
           <Link
-            href="contact-me"
+            href="#contact"
             className="text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
           >
             Contact

@@ -28,7 +28,7 @@ const AboutMe = () => {
 
   return (
     <div
-      id="about-me"
+      id="about"
       className="flex flex-col justify-center items-center px-6 md:px-10 lg:px-16"
     >
       <div className="w-full h-fit flex flex-col-reverse lg:grid lg:grid-cols-2 p-4 lg:p-6 border-2 border-primary rounded-3xl gap-5 shadow-[0_0_5px_#7c3aed,0_0_12px_#7c3aed] bg-white/5 grid-section ">

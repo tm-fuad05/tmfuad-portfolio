@@ -18,13 +18,13 @@ const Projects = () => {
   };
 
   return (
-    <div
-      //   initial={{ opacity: 0, y: 100 }}
-      //   whileInView={{ opacity: 1, y: 0 }}
-      //   viewport={{ once: false }}
-      //   transition={{ duration: 1, ease: "easeOut" }}
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 1, ease: "easeOut" }}
       id="projects"
-      className="flex flex-col items-center"
+      className="section flex flex-col items-center"
     >
       <SectionTitle
         title={"projects"}
@@ -33,16 +33,16 @@ const Projects = () => {
         }
       />
 
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 1, ease: "easeOut" }}
+      <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 px-6
         md:px-10 lg:px-16"
       >
         {projectCards.map((card) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.2, ease: "easeIn" }}
             key={card.id}
             className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400!"
           >
@@ -104,10 +104,10 @@ const Projects = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 

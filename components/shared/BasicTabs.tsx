@@ -30,7 +30,7 @@ const BasicTabs = () => {
       </ul>
       {/* Tab Content */}
       <div className=" grow ">
-        <p className="text-paragraph text-sm md:text-md lg:text-[15px]">
+        <div className="text-paragraph text-sm md:text-md lg:text-[15px]">
           {isActive === 1 && (
             <p>
               I’m{" "}
@@ -63,7 +63,7 @@ const BasicTabs = () => {
               applications.
             </p>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );

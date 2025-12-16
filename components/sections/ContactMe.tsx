@@ -4,6 +4,7 @@ import SectionTitle from "../shared/SectionTitle";
 import { motion } from "framer-motion";
 // React Icons
 import { MdSend } from "react-icons/md";
+
 import {
   Mail,
   Phone,
@@ -13,6 +14,7 @@ import {
   Twitter,
   LucideIcon,
 } from "lucide-react";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 const ContactMe = () => {
   type Icons = {
@@ -48,20 +50,21 @@ const ContactMe = () => {
     setLoading(true);
 
     try {
-      const result = await emailjs.sendForm(
-        "service_fwh8eve", // Replace with your EmailJS service ID
-        "template_60bjc2k", // Replace with your EmailJS template ID
-        form.current,
-        "vuYSD7atTVsOA0PuN" // Replace with your EmailJS public key
-      );
-
-      if (result.text === "OK") {
-        setStatus({
-          show: true,
-          success: true,
-          message: "Message sent successfully!",
-        });
-        form.current?.reset();
+      if (form.current) {
+        const result: EmailJSResponseStatus = await emailjs.sendForm(
+          "service_fwh8eve", // Replace with your EmailJS service ID
+          "template_60bjc2k", // Replace with your EmailJS template ID
+          form.current,
+          "vuYSD7atTVsOA0PuN" // Replace with your EmailJS public key
+        );
+        if (result.text === "OK") {
+          setStatus({
+            show: true,
+            success: true,
+            message: "Message sent successfully!",
+          });
+          form.current?.reset();
+        }
       }
     } catch (error) {
       setStatus({
@@ -79,13 +82,13 @@ const ContactMe = () => {
   };
 
   return (
-    <div
-      //   initial={{ opacity: 0, y: 100 }}
-      //   whileInView={{ opacity: 1, y: 0 }}
-      //   viewport={{ once: false }}
-      //   transition={{ duration: 1, ease: "easeOut" }}
-      id="contact-me"
-      className="w-full mx-auto px-6 md:px-10 lg:px-16"
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      id="contact"
+      className="section w-full mx-auto px-6 md:px-10 lg:px-16"
     >
       <SectionTitle
         title={"get in touch"}
@@ -132,7 +135,7 @@ const ContactMe = () => {
               </label>
               <textarea
                 name="message"
-                rows="4"
+                rows={4}
                 className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
                 required
               />
@@ -251,7 +254,7 @@ const ContactMe = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

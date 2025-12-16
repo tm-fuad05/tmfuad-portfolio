@@ -62,13 +62,13 @@ const Skills = () => {
   ];
 
   return (
-    <div
-      //   initial={{ opacity: 0, y: 100 }}
-      //   whileInView={{ opacity: 1, y: 0 }}
-      //   viewport={{ once: false }}
-      //   transition={{ duration: 1, ease: "easeOut" }}
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 1, ease: "easeOut" }}
       id="skills"
-      className="flex flex-col items-center"
+      className="section flex flex-col items-center"
     >
       <SectionTitle
         title={"Skills"}
@@ -98,7 +98,7 @@ const Skills = () => {
           </div>
         ))}
       </Marquee>
-    </div>
+    </motion.div>
   );
 };
 

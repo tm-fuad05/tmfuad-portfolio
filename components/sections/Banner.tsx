@@ -59,7 +59,7 @@ const Banner = () => {
         <div className="absolute -top-38 -left-38 w-120 md:w-175 h-175 rounded-full blur-3xl bg-primary/3"></div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
         {/* Content  */}
         <motion.div
           className="flex flex-col items-center md:items-start gap-3 md:w-7/12"
