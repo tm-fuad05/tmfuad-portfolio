@@ -8,31 +8,15 @@ import { ReactNode } from "react";
 import Image from "next/image";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  console.log(currentYear);
+  const currentYear: number = new Date().getFullYear();
 
-  const navlinks = (
-    <>
-      <Link href="/" className="hover:text-primary cursor-pointer">
-        Home
-      </Link>
-      <Link href="#skills" className="hover:text-primary cursor-pointer">
-        Skills
-      </Link>
-      <Link href="#about-me" className="hover:text-primary cursor-pointer">
-        About Me
-      </Link>
-      <Link href="#experience" className="hover:text-primary cursor-pointer">
-        Experience
-      </Link>
-      <Link href="#projects" className="hover:text-primary cursor-pointer">
-        Projects
-      </Link>
-      <Link href="#contact-me" className="hover:text-primary cursor-pointer">
-        Contact
-      </Link>
-    </>
-  );
+  const navLinks: string[] = [
+    "home",
+    "skills",
+    "about",
+    "experience",
+    "projects",
+  ];
 
   type SocialIcons = {
     link: string;
@@ -70,7 +54,15 @@ const Footer = () => {
             id="nav"
             className="lg:flex gap-10 text-gray-400 text-lg hidden nav"
           >
-            {navlinks}
+            {navLinks.map((nav) => (
+              <Link
+                key={nav}
+                href={`#${nav}`}
+                className="hover:text-primary capitalize"
+              >
+                {nav}
+              </Link>
+            ))}
           </nav>
         </div>
 
