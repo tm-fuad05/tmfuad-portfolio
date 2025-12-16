@@ -85,13 +85,14 @@ const Skills = () => {
               idx % 2 === 0 ? "mt-16" : "mt-0"
             }`}
           >
-            <Image
-              width={100}
-              height={100}
-              className="w-10 md:w-17.5 group-hover:scale-110 duration-300"
-              src={icon.icon}
-              alt={icon.name}
-            />
+            <figure className="relative w-10 h-10 md:w-17.5 md:h-18">
+              <Image
+                fill
+                className="group-hover:scale-110 duration-300"
+                src={icon.icon}
+                alt={icon.name}
+              />
+            </figure>
             <p className="text-center pt-2 text-xs md:text-md font-medium text-white">
               {icon.name}
             </p>
