@@ -25,10 +25,10 @@ const Navbar = () => {
             // setActive("") when arrived at contact section
             if (entry.target.id === "contact") {
               setActive("");
-              history.replaceState(null, "", `${entry.target.id}`);
+              history.replaceState(null, "", `#${entry.target.id}`);
             } else {
               setActive(entry.target.id);
-              history.replaceState(null, "", `${entry.target.id}`);
+              history.replaceState(null, "", `#${entry.target.id}`);
             }
           }
         });
