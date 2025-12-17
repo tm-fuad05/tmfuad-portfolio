@@ -141,7 +141,7 @@ const Banner = () => {
               repeat: Infinity,
             }}
           >
-            <figure className="md:mr-5 w-78 h-84 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
+            <figure className="md:mr-5 w-70 h-76 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
               <div className="absolute bg-pink-200 rounded-full rounded-bl-none px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 group-hover:opacity-100 duration-300">
                 <p className="font-semibold">Hello☺️</p>
               </div>

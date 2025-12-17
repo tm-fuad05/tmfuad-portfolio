@@ -18,7 +18,7 @@ const FAQ = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="px-6 md:px-10 lg:px-16"
+      className="section px-6 md:px-10 lg:px-16"
       id="faq"
     >
       <SectionTitle

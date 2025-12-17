@@ -17,6 +17,8 @@ const Certification = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 1, ease: "easeOut" }}
+      id="certifications"
+      className="section"
     >
       <SectionTitle
         title={"Certifications"}

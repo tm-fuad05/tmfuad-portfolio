@@ -11,12 +11,13 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-paragraph: var(--paragraph);
+  --color-background: var(--background);
 }
 
 html,
 body {
   overflow-x: hidden;
-  background: var(--background);
+  background-color: var(--background);
   font-family: var(--font-oxanium);
   scroll-behavior: smooth;
 }

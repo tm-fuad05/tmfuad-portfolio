@@ -4,6 +4,7 @@ import { RiMenuFill } from "react-icons/ri";
 import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [active, setActive] = useState<string>("home");
@@ -13,18 +14,30 @@ const Navbar = () => {
     "about",
     "experience",
     "projects",
+    "faq",
+    "certifications",
   ];
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActive(entry.target.id);
+            // setActive("") when arrived at contact section
+            if (entry.target.id === "contact") {
+              setActive("");
+            } else {
+              setActive(entry.target.id);
+              history.replaceState(null, "", `${entry.target.id}`);
+            }
           }
         });
       },
       { rootMargin: "-50% 0px -50% 0px" }
     );
+
+    // Identify Contact section
+    const unActive = document.getElementById("contact");
+    if (unActive) observer.observe(unActive);
 
     sections.forEach((id) => {
       const el = document.getElementById(id);
@@ -40,7 +53,7 @@ const Navbar = () => {
     <div className="relative">
       <div className="px-6 md:px-10 lg:px-16 py-4 fixed top-0 z-50 w-full">
         <div className="flex items-center justify-between rounded-2xl px-4 py-3 bg-white/5 backdrop-blur border border-primary shadow-[0_0_3px_#1e90ff,0_0_3px_#1e90ff]">
-          <figure className="relative w-10 h-8 md:w-12.5 md:h-10 ">
+          <figure className="relative w-10 h-7 md:w-12.5 md:h-10 ">
             <Link href="/">
               <Image fill src="/images/logo2.png" alt="" />
             </Link>
@@ -54,9 +67,9 @@ const Navbar = () => {
                 <Link
                   key={sec}
                   href={`#${sec}`}
-                  className={`capitalize hover:text-primary ${
-                    active === sec ? "text-primary" : "text-white"
-                  }`}
+                  className={`${
+                    sec === "faq" ? "uppercase" : "capitalize"
+                  } hover:text-primary ${active === sec && "text-primary"}`}
                 >
                   {sec}
                 </Link>
@@ -81,27 +94,42 @@ const Navbar = () => {
       {menuOpen && (
         <aside
           id="mob-nav"
-          className={`w-full bg-white/10 z-50 text-white fixed p-5 py-10 flex flex-col gap-5 items-center rounded-3xl border-2 border-t shadow[0_0_#1e90ff,0_0_3px_#1e90ff] border-primary transition-all duration-500 lg:hidden backdrop-blur-2xl  ${
-            menuOpen ? "top-18.75 md:top-21.25" : "-top-200"
+          className={`w-8/12 h-full bg-[#111827] z-50 text-white fixed p-5 pt-7 flex flex-col gap-2 transition-transform duration-500 lg:hidden ${
+            menuOpen ? "opacity-100" : "opacity-0"
           } `}
         >
-          {sections.map((sec) => (
-            <Link
-              key={sec}
-              href={`#${sec}`}
-              className={`capitalize ${
-                active === sec ? "text-primary" : "text-white"
-              }`}
+          <div className="flex justify-between items-center pb-3 border-b ">
+            <div className="relative w-10 h-8 md:w-12.5 md:h-10">
+              <Image fill src="/images/logo2.png" alt="" />
+            </div>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="border border-white rounded-sm p-1"
             >
-              {sec}
+              <RxCross2 size={20} />
+            </button>
+          </div>
+          <div className="flex flex-col gap-1">
+            {sections.map((sec) => (
+              <Link
+                key={sec}
+                href={`#${sec}`}
+                onClick={() => setMenuOpen(false)}
+                className={`${
+                  sec === "faq" ? "uppercase" : "capitalize"
+                } pl-2 py-2 rounded-sm ${active === sec && "bg-primary"}`}
+              >
+                {sec}
+              </Link>
+            ))}
+            <Link
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
+            >
+              Contact
             </Link>
-          ))}
-          <Link
-            href="#contact"
-            className="text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
-          >
-            Contact
-          </Link>
+          </div>
         </aside>
       )}
     </div>
