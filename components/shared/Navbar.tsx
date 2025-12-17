@@ -55,7 +55,7 @@ const Navbar = () => {
       <div className="px-6 md:px-10 lg:px-16 py-4 fixed top-0 z-50 w-full">
         <div className="flex items-center justify-between rounded-2xl px-4 py-3 bg-white/5 backdrop-blur border border-primary shadow-[0_0_3px_#1e90ff,0_0_3px_#1e90ff]">
           <figure className="relative w-10 h-7 md:w-12.5 md:h-10 ">
-            <Link href="/">
+            <Link href="#home">
               <Image fill src="/images/logo2.png" alt="" />
             </Link>
           </figure>
