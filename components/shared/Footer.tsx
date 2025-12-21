@@ -6,6 +6,7 @@ import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { ReactNode } from "react";
 import Image from "next/image";
+import { SparklesCore } from "../ui/sparkles";
 
 const Footer = () => {
   const currentYear: number = new Date().getFullYear();
@@ -43,7 +44,18 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white dark:bg-slate-900 boxShadow rounded-xl w-full px-6 md:px-10 lg:px-16 py-10 grid-section relative">
+    <footer className="bg-white dark:bg-slate-900 boxShadow rounded-xl w-full px-6 md:px-10 lg:px-16 py-10 grid-section relative ">
+      <div className="w-full absolute inset-0 -z-10">
+        <SparklesCore
+          id="sparkles-footer"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={50}
+          className="w-full h-full"
+          particleColor="#fff"
+        />
+      </div>
       <div className="bg-black/50 inset-0 absolute z-[-1]"></div>
       <div className="flex justify-center gap-7.5 flex-wrap w-full ">
         <div className="flex justify-between items-center w-full">
@@ -58,7 +70,7 @@ const Footer = () => {
               <Link
                 key={nav}
                 href={`#${nav}`}
-                className="hover:text-primary capitalize"
+                className="hover:text-main capitalize"
               >
                 {nav}
               </Link>
@@ -69,11 +81,12 @@ const Footer = () => {
         <div className="border-t dark:border-slate-700 border-gray-200 pt-5 flex flex-col items-center lg:flex-row w-full flex-wrap gap-5 justify-between">
           {/* Social Links */}
           <div className="flex gap-2 text-gray-600">
-            {socialIcons.map((icon) => (
+            {socialIcons.map((icon, idx) => (
               <a
+                key={idx}
                 href={icon.link}
                 target="_blank"
-                className="rounded-full  p-1.5 hover:shadow-sm hover:bg-primary hover:text-white text-xl md:text-2xl transition-all duration-300"
+                className="rounded-full  p-1.5 hover:shadow-sm hover:bg-main hover:text-white text-xl md:text-2xl transition-all duration-300"
               >
                 {icon.icon}
               </a>

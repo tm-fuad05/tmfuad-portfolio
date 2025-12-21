@@ -15,7 +15,7 @@ const Certification = () => {
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ duration: 1, ease: "easeOut" }}
       id="certifications"
       className="section"
@@ -26,14 +26,14 @@ const Certification = () => {
           "Industry-recognized certifications that validate my technical skills and continuous learning"
         }
         icon={
-          <SlBadge className="text-white text-6xl p-3 rounded-2xl bg-linear-to-t from-secondary/90 to-primary" />
+          <SlBadge className="text-white text-6xl p-3 rounded-2xl bg-linear-to-t from-main/90 to-main" />
         }
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 lg:px-16 mb-10">
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#7c3aed,0_0_10px_#7c3aed] rounded-lg hover:scale-103 transition-transform duration-300 relative group"
+            className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#1e90ff,0_0_10px_#1e90ff] rounded-lg hover:scale-103 transition-transform duration-300 relative group"
           >
             <figure className="relative">
               <div className="relative w-full h-60 md:h-72 rounded-lg">
@@ -59,7 +59,7 @@ const Certification = () => {
                 </h5>
               </div>
               {/* Date & ID */}
-              <div className="bg-[#162035] rounded-lg p-2 flex flex-col gap-3 w-full text-white grow">
+              <div className="rounded-lg p-2 flex flex-col gap-3 w-full text-white grow">
                 {/* Issue Date */}
                 <div className="flex items-start">
                   <MdOutlineDateRange className="inline-block mr-2 text-lg" />
@@ -84,7 +84,7 @@ const Certification = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-linear-to-l from-primary to-secondary backdrop-blur-2xl rounded-lg hover:scale-[102%] w-full py-3 flex gap-2 items-center justify-center text-sm font-semibold transition-all duration-200 cursor-pointer text-white"
+                className=" bg-linear-to-r from-main to-transparent text-white hover:to-main/50 transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
               >
                 View Credential{" "}
                 <HiMiniArrowTopRightOnSquare className="text-lg" />

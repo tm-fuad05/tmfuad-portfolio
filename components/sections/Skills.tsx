@@ -65,7 +65,7 @@ const Skills = () => {
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ duration: 1, ease: "easeOut" }}
       id="skills"
       className="section flex flex-col items-center"
@@ -81,7 +81,7 @@ const Skills = () => {
         {icons.map((icon, idx) => (
           <div
             key={idx}
-            className={` bg-linear-to-b from-primary/10 to-transparent shadow-primary/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 lg:mx- flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
+            className={` bg-linear-to-b from-main/20 to-transparent shadow-main/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 lg:mx- flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
               idx % 2 === 0 ? "mt-16" : "mt-0"
             }`}
           >

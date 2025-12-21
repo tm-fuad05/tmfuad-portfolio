@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const BasicTabs = () => {
   const [isActive, setIsActive] = useState<number>(1);
-  const tabActiveClass: string = "border-primary! text-primary! font-semibold!";
+  const tabActiveClass: string = "border-main! text-main! font-semibold!";
 
   return (
     <div className="flex flex-col gap-3 grow">

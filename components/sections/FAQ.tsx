@@ -16,7 +16,7 @@ const FAQ = () => {
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       transition={{ duration: 1, ease: "easeOut" }}
       className="section px-6 md:px-10 lg:px-16"
       id="faq"
@@ -30,7 +30,7 @@ const FAQ = () => {
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="flex flex-col w-full lg:w-1/2"
       >
@@ -42,15 +42,15 @@ const FAQ = () => {
             >
               <h2
                 className={`${
-                  isAccordionOpen === index && "text-primary!"
-                } text-white py-3 font-semibold text-[1.2rem] group-hover:text-primary transition-all duration-300 `}
+                  isAccordionOpen === index && "text-main!"
+                } text-white py-3 font-semibold text-[1.2rem] group-hover:text-main transition-all duration-300 `}
               >
                 {according.title}
               </h2>
               <p>
                 <FaChevronDown
-                  className={`text-[1.2rem] text-white transition-all duration-300 group-hover:text-primary ${
-                    isAccordionOpen === index && "rotate-180 text-primary!"
+                  className={`text-[1.2rem] text-white transition-all duration-300 group-hover:text-main ${
+                    isAccordionOpen === index && "rotate-180 text-main!"
                   }`}
                 />
               </p>

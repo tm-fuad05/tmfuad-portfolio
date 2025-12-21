@@ -5,6 +5,8 @@ import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
+import { Button as AnimatedNav } from "../ui/navbar-moving-border";
+import { SparklesCore } from "../ui/sparkles";
 
 const Navbar = () => {
   const [active, setActive] = useState<string>("home");
@@ -52,8 +54,19 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <div className="px-6 md:px-10 lg:px-16 py-4 fixed top-0 z-50 w-full">
-        <div className="flex items-center justify-between rounded-2xl px-4 py-3 bg-white/5 backdrop-blur border border-primary shadow-[0_0_3px_#1e90ff,0_0_3px_#1e90ff]">
+      <div className="px-6 md:px-10 lg:px-16 fixed top-5 z-50 w-full">
+        <AnimatedNav className="flex items-center justify-between px-4 border border-slate-800">
+          <div className="w-full absolute inset-0 -z-10">
+            <SparklesCore
+              id="sparkles-nav"
+              background="transparent"
+              minSize={0.6}
+              maxSize={1.4}
+              particleDensity={100}
+              className="w-full h-full"
+              particleColor="#2563eb"
+            />
+          </div>
           <figure className="relative w-10 h-7 md:w-12.5 md:h-10 ">
             <Link href="#home">
               <Image fill src="/images/logo2.png" alt="" />
@@ -62,7 +75,7 @@ const Navbar = () => {
           <div>
             <nav
               id="nav"
-              className="lg:flex gap-10 text-slate-100 font-medium text-lg hidden nav"
+              className="lg:flex gap-10 text-slate-100 font-medium text-lg hidden"
             >
               {sections.map((sec) => (
                 <Link
@@ -70,7 +83,9 @@ const Navbar = () => {
                   href={`#${sec}`}
                   className={`${
                     sec === "faq" ? "uppercase" : "capitalize"
-                  } hover:text-primary ${active === sec && "text-primary"}`}
+                  } before:w-0 hover:before:w-full before:bg-blue-400 before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5  hover:text-blue-400 transition-all duration-300 before:left-0 ${
+                    active === sec && "text-blue-400"
+                  }`}
                 >
                   {sec}
                 </Link>
@@ -86,16 +101,16 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
+            className="text-slate-100 font-medium text-lg px-3 py-2 bg-linear-to-r from-main to-muted/70 rounded-md hover:from-muted hover:to-main/70 cursor-pointer lg:flex hidden"
           >
             Contact
           </Link>
-        </div>
+        </AnimatedNav>
       </div>
       {menuOpen && (
         <aside
           id="mob-nav"
-          className={`w-8/12 h-full bg-[#111827] z-50 text-white fixed p-5 pt-7 flex flex-col gap-2 transition-transform duration-500 lg:hidden ${
+          className={`w-8/12 md:w-5/12 h-full bg-[#111827] z-50 text-white fixed p-5 pt-7 flex flex-col gap-2 transition-transform duration-500 lg:hidden overflow-y-auto ${
             menuOpen ? "opacity-100" : "opacity-0"
           } `}
         >
@@ -118,7 +133,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 className={`${
                   sec === "faq" ? "uppercase" : "capitalize"
-                } pl-2 py-2 rounded-sm ${active === sec && "bg-primary"}`}
+                } pl-2 py-2 rounded-sm ${active === sec && "bg-main"}`}
               >
                 {sec}
               </Link>
@@ -126,7 +141,7 @@ const Navbar = () => {
             <Link
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
+              className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-main to-muted/70 rounded-md hover:from-muted hover:to-main/70 cursor-pointer lg:hidden"
             >
               Contact
             </Link>
