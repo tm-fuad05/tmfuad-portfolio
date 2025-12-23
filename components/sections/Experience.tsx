@@ -33,10 +33,10 @@ const Experience = () => {
               {/* Main card */}
 
               <HoverLight
-                size={200}
+                size={250}
                 color="#1e90ff"
-                borderOpacity={90}
-                innerOpacity={20}
+                borderOpacity={100}
+                innerOpacity={30}
                 border={2}
                 className="h-full"
               >
