@@ -91,7 +91,7 @@ const Banner = () => {
             </h1>
           </div>
 
-          <p className="text-paragraph text-sm lg:text-lg font-normal text-center md:text-left md:pr-5">
+          <p className="text-paragraph text-sm lg:text-[16px] text-center md:text-left md:pr-5">
             I develop high-performance, secure, and user-friendly applications
             with a focus on clean architecture and seamless functionality.
             Dedicated to building innovative solutions that enhance user
