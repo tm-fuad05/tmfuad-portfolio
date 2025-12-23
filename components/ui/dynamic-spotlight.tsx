@@ -9,15 +9,19 @@ interface SpotlightProps extends React.HTMLAttributes<HTMLDivElement> {
   darkness?: number;
   revealOpacity?: number;
   fixed?: boolean;
+  initialPos?: { x: number; y: number } | null;
+  isPersist?: boolean;
 }
 
 export function DynamicSpotlight({
   children,
   className,
-  radius = 150, // Default value if no prop is passed
+  radius = 150,
   darkness = 0.3,
   revealOpacity = 0.35,
   fixed = false,
+  initialPos = null,
+  isPersist = false,
   ...props
 }: SpotlightProps) {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -29,9 +33,11 @@ export function DynamicSpotlight({
     return radius.sm;
   });
 
-  const [pos, setPos] = React.useState<{ x: number; y: number } | null>(null);
+  const [pos, setPos] = React.useState<{ x: number; y: number } | null>(
+    initialPos
+  );
   const [hover, setHover] = React.useState(false);
-  const [persist, setPersist] = React.useState(false);
+  const [persist, setPersist] = React.useState(isPersist);
 
   React.useLayoutEffect(() => {
     const updateResponsiveSettings = () => {

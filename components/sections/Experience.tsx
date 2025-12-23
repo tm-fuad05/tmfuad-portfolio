@@ -41,7 +41,7 @@ const Experience = () => {
                 className="h-full"
               >
                 {/* Content */}
-                <div className="relative backdrop-blur-xl rounded-3xl p-5 h-full bg-[#071324] border-2 border-slate-800 lg:border-none group">
+                <div className="relative backdrop-blur-xl rounded-3xl p-7 h-full bg-[#071324] border-2 border-slate-800 lg:border-none group">
                   <div className="relative z-10">
                     {/* Icon with metallic background */}
                     <div className="mb-6 inline-flex p-4 rounded-xl bg-linear-to-br from-gray-700 via-gray-800 to-gray-900 border border-gray-600 shadow-xl group-hover:shadow-gray-500/50 transition-all duration-300 group-hover:scale-110">

@@ -50,6 +50,8 @@ const Banner = () => {
       radius={{ sm: 500, md: 400, lg: 700 }}
       darkness={0.95}
       revealOpacity={0.6}
+      initialPos={{ x: 50, y: 0 }}
+      isPersist
       id="home"
       className="px-6 md:px-10 lg:px-16 flex flex-col min-h-screen pb-12 grid-background bg-[url('/images/bg.avif')] bg-cover bg-center"
     >

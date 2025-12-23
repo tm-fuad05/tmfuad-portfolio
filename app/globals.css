@@ -80,7 +80,7 @@ body {
     30,
     144,
     255,
-    0.2
+    0.5
   ); /* Slightly stronger line color for the base */
   --grid-spacing: 50px;
 
