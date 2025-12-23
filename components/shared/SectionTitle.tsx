@@ -1,6 +1,5 @@
 "use client";
 import { ReactNode } from "react";
-import { SparklesCore } from "../ui/sparkles";
 
 type SectionTitleProps = {
   title: string;

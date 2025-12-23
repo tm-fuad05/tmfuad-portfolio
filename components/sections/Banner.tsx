@@ -53,9 +53,12 @@ const Banner = () => {
       initialPos={{ x: 50, y: 0 }}
       isPersist
       id="home"
-      className="px-6 md:px-10 lg:px-16 flex flex-col min-h-screen pb-12 grid-background bg-[url('/images/bg.avif')] bg-cover bg-center"
+      className=" min-h-screen pb-22 grid-background bg-[url('/images/bg.avif')] bg-cover bg-center"
     >
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
+      {/* Overlay */}
+      <div className="absolute w-full h-30 bg-linear-to-t from-slate-950 to-transparent -bottom-22" />
+
+      <div className="px-6 md:px-10 lg:px-16 flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
         {/* Content  */}
         <motion.div
           className="flex flex-col items-center md:items-start gap-3 md:w-7/12"
