@@ -166,7 +166,7 @@ const ContactMe = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-linear-to-r from-muted to-main text-white py-2 px-4 rounded-lg hover:opacity-50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full bg-linear-to-r from-muted to-main text-white py-2 px-4 rounded-lg hover:from-main hover:to-muted transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

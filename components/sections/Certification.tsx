@@ -33,7 +33,7 @@ const Certification = () => {
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#1e90ff,0_0_10px_#1e90ff] rounded-lg hover:scale-103 transition-transform duration-300 relative group"
+            className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#1e90ff,0_0_10px_#1e90ff] rounded-lg transition-transform duration-300 relative group"
           >
             <figure className="relative">
               <div className="relative w-full h-60 md:h-72 rounded-lg">
@@ -84,7 +84,7 @@ const Certification = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" bg-linear-to-r from-main to-transparent text-white hover:to-main/50 transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
+                className=" bg-linear-to-r from-main to-muted text-white hover:scale-102 transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
               >
                 View Credential{" "}
                 <HiMiniArrowTopRightOnSquare className="text-lg" />
