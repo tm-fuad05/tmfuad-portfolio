@@ -58,7 +58,7 @@ const AboutMe = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="capitalize flex flex-col items-start gap-6"
         >
-          <h1 className="text-4xl lg:text-6xl bg-clip-text text-transparent bg-linear-to-l from-main to-white/90 md:text-3xl font-bold text-title capitalize">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-linear-to-l from-main to-white/90 font-bold text-title capitalize">
             about me
           </h1>
 
