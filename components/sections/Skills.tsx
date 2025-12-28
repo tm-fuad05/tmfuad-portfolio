@@ -81,7 +81,7 @@ const Skills = () => {
         {icons.map((icon, idx) => (
           <div
             key={idx}
-            className={` bg-linear-to-b from-main/20 to-transparent shadow-main/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
+            className={` bg-linear-to-b from-primary/20 to-transparent shadow-primary/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
               idx % 2 === 0 ? "mt-18" : "mt-0"
             }`}
           >

@@ -38,7 +38,7 @@ const Projects = () => {
         {projectCards.map((card) => (
           <div
             key={card.id}
-            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-main transition-all duration-400!"
+            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400!"
           >
             {/* Image */}
             <img
@@ -50,7 +50,7 @@ const Projects = () => {
             <div className="p-5 pt-2">
               {/* Ttile & Date */}
               <div className="flex justify-between items-center text-sm my-3">
-                <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-main to-white font-bold">
+                <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white font-bold">
                   {card.title}
                 </h3>
                 <p className="text-slate-100 opacity-50 text-xs font-medium">
@@ -87,13 +87,13 @@ const Projects = () => {
               {/* Buttons */}
               <div className="mt-4 flex gap-3">
                 <a href={card.live} target="_blank">
-                  <button className="px-6 py-2 bg-linear-to-r from-main to-muted rounded-lg text-white max-sm:text-sm md:text-md flex items-center gap-1 cursor-pointer hover:bg-linear-to-r hover:from-muted hover:to-main transition duration-300">
+                  <button className="px-6 py-2 bg-linear-to-r from-primary to-secondary rounded-lg text-white max-sm:text-sm md:text-md flex items-center gap-1 cursor-pointer hover:bg-linear-to-r hover:from-secondary hover:to-primary transition duration-300">
                     Live Demo{" "}
                     <LuCircleFadingArrowUp className="text-md rotate-45" />
                   </button>
                 </a>
                 <a href={card.github} target="_blank">
-                  <button className="px-6 py-2 border border-main text-white max-sm:text-sm md:text-md font-medium rounded-lg flex items-center gap-2 cursor-pointer hover:shadow-sm hover:shadow-main transition duration-300">
+                  <button className="px-6 py-2 border border-primary text-white max-sm:text-sm md:text-md font-medium rounded-lg flex items-center gap-2 cursor-pointer hover:shadow-sm hover:shadow-primary transition duration-300">
                     Github <FaGithub />
                   </button>
                 </a>

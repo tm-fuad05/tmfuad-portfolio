@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const BasicTabs = () => {
   const [isActive, setIsActive] = useState<number>(1);
-  const tabActiveClass: string = "border-main! text-main! font-semibold!";
+  const tabActiveClass: string = "border-primary! text-primary! font-semibold!";
 
   return (
     <div className="flex flex-col gap-3 grow">
@@ -37,7 +37,7 @@ const BasicTabs = () => {
               <strong className="text-lg lg:text-xl">Tanvir Mahmud Fuad</strong>{" "}
               — a dedicated Frontend Web Developer with a strong focus on
               creating modern, responsive, and user-friendly interfaces. I work
-              mainly with React, JavaScript, and Tailwind CSS, turning ideas
+              primaryly with React, JavaScript, and Tailwind CSS, turning ideas
               into polished digital experiences. <br />I enjoy crafting clean UI
               layouts, optimizing performance, and improving overall user
               experience through thoughtful design principles. Whether it’s

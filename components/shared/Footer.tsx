@@ -70,7 +70,7 @@ const Footer = () => {
               <Link
                 key={nav}
                 href={`#${nav}`}
-                className="hover:text-main capitalize"
+                className="hover:text-primary capitalize"
               >
                 {nav}
               </Link>
@@ -86,7 +86,7 @@ const Footer = () => {
                 key={idx}
                 href={icon.link}
                 target="_blank"
-                className="rounded-full  p-1.5 hover:shadow-sm hover:bg-main hover:text-white text-xl md:text-2xl transition-all duration-300"
+                className="rounded-full  p-1.5 hover:shadow-sm hover:bg-primary hover:text-white text-xl md:text-2xl transition-all duration-300"
               >
                 {icon.icon}
               </a>

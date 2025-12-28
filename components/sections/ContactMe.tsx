@@ -99,10 +99,10 @@ const ContactMe = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <HoverLight
             size={300}
@@ -112,7 +112,7 @@ const ContactMe = () => {
             border={2}
             className="h-full"
           >
-            <div className="h-full px-6 bg-linear-to-r from-main/10 to-main/10 border border-white/20 rounded-3xl lg:bg-black lg:border-none p-8">
+            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/20 rounded-3xl lg:bg-black lg:border-none p-8">
               <form className=" space-y-4" ref={form} onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-200">
@@ -121,7 +121,7 @@ const ContactMe = () => {
                   <input
                     type="text"
                     name="name"
-                    className="w-full p-2 border border-main text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
                     required
                   />
                 </div>
@@ -133,7 +133,7 @@ const ContactMe = () => {
                   <input
                     type="text"
                     name="subject"
-                    className="w-full p-2 border border-main text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
                     required
                   />
                 </div>
@@ -145,7 +145,7 @@ const ContactMe = () => {
                   <textarea
                     name="message"
                     rows={4}
-                    className="w-full p-2 border border-main text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
                     required
                   />
                 </div>
@@ -166,7 +166,7 @@ const ContactMe = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-linear-to-r from-muted to-main text-white py-2 px-4 rounded-lg hover:from-main hover:to-muted transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full bg-linear-to-r from-secondary to-primary text-white py-2 px-4 rounded-lg hover:from-primary hover:to-secondary transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -182,10 +182,10 @@ const ContactMe = () => {
 
         {/* Contact Information */}
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <HoverLight
             size={300}
@@ -195,15 +195,15 @@ const ContactMe = () => {
             border={2}
             className="h-full"
           >
-            <div className="h-full px-6 bg-linear-to-r from-main/10 to-main/10 border border-white/20 rounded-3xl lg:bg-black lg:border-none p-8">
+            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/20 rounded-3xl lg:bg-black lg:border-none p-8">
               <div className="relative">
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-muted/10 rounded-full blur-sm animate-pulse" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-muted/10 rounded-full blur-sm animate-pulse" />
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-secondary/10 rounded-full blur-sm animate-pulse" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-full blur-sm animate-pulse" />
 
                 <div className="relative space-y-8">
                   {/* Header */}
                   <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold bg-linear-to-r from-main to-white bg-clip-text text-transparent">
+                    <h1 className="text-4xl font-bold bg-linear-to-r from-primary to-white bg-clip-text text-transparent">
                       Contact Information
                     </h1>
                   </div>
@@ -212,7 +212,7 @@ const ContactMe = () => {
                   <div className="grid gap-6">
                     <div className="group flex items-center transform hover:scale-105 transition-all">
                       <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 w-full backdrop-blur-sm ">
-                        <Mail className="w-6 h-6 text-main" />
+                        <Mail className="w-6 h-6 text-primary" />
                         <a
                           href="mailto:tm.fuad05@gmail.com"
                           className="text-slate-100 group-hover:text-purple-400 transition-colors"
@@ -224,7 +224,7 @@ const ContactMe = () => {
 
                     <div className="group flex items-center transform hover:scale-105 transition-all">
                       <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 w-full backdrop-blur-sm">
-                        <Phone className="w-6 h-6 text-main" />
+                        <Phone className="w-6 h-6 text-primary" />
                         <a
                           href="tel:+8801622-737988"
                           className="text-slate-100 group-hover:text-purple-400 transition-colors"
@@ -236,7 +236,7 @@ const ContactMe = () => {
 
                     <div className="group flex items-center transform hover:scale-105 transition-all">
                       <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 w-full backdrop-blur-sm">
-                        <MapPin className="w-6 h-6 text-main" />
+                        <MapPin className="w-6 h-6 text-primary" />
                         <span className="text-slate-100">
                           Dhaka, Bangladesh
                         </span>
@@ -257,7 +257,7 @@ const ContactMe = () => {
                           target="_blank"
                           className="p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-all transform hover:scale-110"
                         >
-                          <i.icon size={22} className="text-main" />
+                          <i.icon size={22} className="text-primary" />
                         </a>
                       ))}
                     </div>

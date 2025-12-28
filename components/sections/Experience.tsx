@@ -21,13 +21,26 @@ const Experience = () => {
         />
 
         {/* Expertise Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          initial="hidden"
+          whileInView="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.4 } },
+          }}
+          viewport={{ once: true }}
+        >
           {expertise.map((item, index) => (
             <motion.div
-              initial={{ opacity: 0, skewY: 20 }}
-              whileInView={{ opacity: 1, skewY: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              variants={{
+                hidden: { opacity: 0, skewY: 20 },
+                show: {
+                  opacity: 1,
+                  skewY: 0,
+                  transition: { duration: 0.8, ease: "easeOut" },
+                },
+              }}
               key={index}
             >
               {/* Main card */}
@@ -62,7 +75,7 @@ const Experience = () => {
               </HoverLight>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --main: #1e90ff;
-  --muted: #7c3aed;
+  --primary: #1e90ff;
+  --secondary: #7c3aed;
   --paragraph: #cbd5e1;
   --radius: 0.625rem;
   --background: #020617;
 }
 
 @theme {
-  --color-main: var(--main);
-  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --color-paragraph: var(--paragraph);
   --color-background: var(--background);
 }
@@ -52,7 +52,7 @@ body {
   }
 }
 
-/* a.link-active { color: var(--color-main) ; } */ /* * 1. Base Setup: Ensures the container covers the viewport */ /* * 1. Base Setup (same as before) */
+/* a.link-active { color: var(--color-primary) ; } */ /* * 1. Base Setup: Ensures the container covers the viewport */ /* * 1. Base Setup (same as before) */
 .grid-background {
   min-height: 100vh;
   width: 100%;
@@ -250,7 +250,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to top, var(--color-muted), transparent);
+  background: linear-gradient(to top, var(--color-secondary), transparent);
   border-radius: 50px;
 }
 
@@ -272,8 +272,8 @@ body {
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);

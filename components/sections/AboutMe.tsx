@@ -31,7 +31,7 @@ const AboutMe = () => {
       id="about"
       className="flex flex-col justify-center items-center px-6 md:px-10 lg:px-16"
     >
-      <div className="w-full h-fit flex flex-col-reverse lg:grid lg:grid-cols-2 p-4 lg:p-6 border-2 border-main rounded-3xl gap-5 shadow-[0_0_5px_#1e90ff,0_0_12px_#1e90ff] bg-white/5 grid-section relative">
+      <div className="w-full h-fit flex flex-col-reverse lg:grid lg:grid-cols-2 p-4 lg:p-6 border-2 border-primary rounded-3xl gap-5 shadow-[0_0_5px_#1e90ff,0_0_12px_#1e90ff] bg-white/5 grid-section relative">
         <div className="bg-black/20 inset-0 rounded-3xl absolute z-[-1]"></div>
 
         {/* Profile Pic */}
@@ -58,7 +58,7 @@ const AboutMe = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="capitalize flex flex-col items-start gap-6"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-linear-to-l from-main to-white/90 font-bold text-title capitalize">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white/90 font-bold text-title capitalize">
             about me
           </h1>
 
@@ -75,7 +75,7 @@ const AboutMe = () => {
                   key={idx}
                   href={icon.link}
                   target="_blank"
-                  className="rounded-sm text-3xl border border-main shadow-[0_0_2px_#1e90ff,0_0_2px_#1e90ff] p-1.5 hover:shadow-sm hover:bg-main/50 transition-all"
+                  className="rounded-sm text-3xl border border-primary shadow-[0_0_2px_#1e90ff,0_0_2px_#1e90ff] p-1.5 hover:shadow-sm hover:bg-primary/50 transition-all"
                 >
                   {icon.icon}
                 </a>
@@ -83,12 +83,12 @@ const AboutMe = () => {
             </div>
           </div>
           {/* Quote */}
-          <div className="relative bg-linear-to-r from-main/10 to-muted/10 border border-gray-50/10 rounded-xl p-5">
-            <BiSolidQuoteLeft className="absolute text-2xl lg:text-4xl text-muted -top-2 -left-2 lg:-top-4 lg:-left-4" />
+          <div className="relative bg-linear-to-r from-primary/10 to-secondary/10 border border-gray-50/10 rounded-xl p-5">
+            <BiSolidQuoteLeft className="absolute text-2xl lg:text-4xl text-secondary -top-2 -left-2 lg:-top-4 lg:-left-4" />
             <p className="text-paragraph font-semibold">
               You’re never behind — You only pick up from where you paused.
             </p>
-            <BiSolidQuoteLeft className="absolute text-2xl lg:text-4xl text-main -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 rotate-180" />
+            <BiSolidQuoteLeft className="absolute text-2xl lg:text-4xl text-primary -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 rotate-180" />
           </div>
         </motion.div>
       </div>

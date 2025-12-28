@@ -101,7 +101,7 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium text-lg px-3 py-2 bg-linear-to-r from-main to-muted/70 rounded-md hover:from-muted hover:to-main/70 cursor-pointer lg:flex hidden"
+            className="text-slate-100 font-medium text-lg px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
           >
             Contact
           </Link>
@@ -133,7 +133,7 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 className={`${
                   sec === "faq" ? "uppercase" : "capitalize"
-                } pl-2 py-2 rounded-sm ${active === sec && "bg-main"}`}
+                } pl-2 py-2 rounded-sm ${active === sec && "bg-primary"}`}
               >
                 {sec}
               </Link>
@@ -141,7 +141,7 @@ const Navbar = () => {
             <Link
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-main to-muted/70 rounded-md hover:from-muted hover:to-main/70 cursor-pointer lg:hidden"
+              className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
             >
               Contact
             </Link>

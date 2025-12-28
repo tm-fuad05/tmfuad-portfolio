@@ -45,15 +45,15 @@ const FAQ = () => {
               >
                 <h2
                   className={`${
-                    isAccordionOpen === index && "text-main!"
-                  } text-white py-4 font-semibold text-[17px] md:text-lg lg:text-xl group-hover:text-main transition-all duration-300 `}
+                    isAccordionOpen === index && "text-primary!"
+                  } text-white py-4 font-semibold text-[17px] md:text-lg lg:text-xl group-hover:text-primary transition-all duration-300 `}
                 >
                   {according.title}
                 </h2>
                 <p>
                   <FaChevronDown
-                    className={`text-[1.2rem] text-white transition-all duration-300 group-hover:text-main ${
-                      isAccordionOpen === index && "rotate-180 text-main!"
+                    className={`text-[1.2rem] text-white transition-all duration-300 group-hover:text-primary ${
+                      isAccordionOpen === index && "rotate-180 text-primary!"
                     }`}
                   />
                 </p>

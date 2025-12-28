@@ -69,7 +69,7 @@ const Banner = () => {
           <div className="flex items-center gap-2">
             <h5 className="text-slate-100 font-medium text-[15px] md:text-lg lg:text-xl ">
               Hello, I'm Md. Tanvir Mahmud{" "}
-              <span className="bg-linear-to-r from-muted backdrop-blur text-white py-1 px-3 rounded-md rounded-bl-none ">
+              <span className="bg-linear-to-r from-secondary backdrop-blur text-white py-1 px-3 rounded-md rounded-bl-none ">
                 Fuad
               </span>
             </h5>
@@ -99,13 +99,13 @@ const Banner = () => {
           </p>
 
           {/* Social Links */}
-          <div className="flex gap-2 text-main">
+          <div className="flex gap-2 text-primary">
             {socialIcons.map((i, idx) => (
               <a
                 key={idx}
                 href={i.link}
                 target="_blank"
-                className="rounded-md border-2 p-1.5 hover:shadow-sm hover:shadow-main text-xl md:text-2xl"
+                className="rounded-md border-2 p-1.5 hover:shadow-sm hover:shadow-primary text-xl md:text-2xl"
               >
                 {i.icon}
               </a>
@@ -115,12 +115,12 @@ const Banner = () => {
           <div className="flex gap-3 mt-5">
             <button
               onClick={handlePDFDownload}
-              className=" bg-linear-to-r from-muted to-transparent text-white hover:bg-linear-to-r hover:from-main hover:to-muted transition duration-300 rounded-md px-4 py-2 font-semibold  cursor-pointer flex items-center gap-2"
+              className=" bg-linear-to-r from-secondary to-transparent text-white hover:bg-linear-to-r hover:from-primary hover:to-secondary transition duration-300 rounded-md px-4 py-2 font-semibold  cursor-pointer flex items-center gap-2"
             >
               <IoMdCloudDownload /> Resume
             </button>
             <Link href="#projects">
-              <button className=" border border-main text-white rounded-md px-4 py-2 font-semibold hover:shadow-sm hover:shadow-main cursor-pointer duration-300 capitalize flex items-center gap-2 ">
+              <button className=" border border-primary text-white rounded-md px-4 py-2 font-semibold hover:shadow-sm hover:shadow-primary cursor-pointer duration-300 capitalize flex items-center gap-2 ">
                 <MdRocketLaunch /> view projects
               </button>
             </Link>
@@ -142,11 +142,11 @@ const Banner = () => {
             }}
           >
             <figure className="md:mr-5 w-70 h-76 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
-              <div className="absolute bg-main/90 rounded-full rounded-bl-none px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 text-white group-hover:opacity-100 duration-300">
+              <div className="absolute bg-primary/90 rounded-full rounded-bl-none px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 text-white group-hover:opacity-100 duration-300">
                 <p className="font-semibold">Hello☺️</p>
               </div>
               <Image
-                className="bg-linear-to-r from-muted/80 to-transparent pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-main shadow-lg border-paragraph"
+                className="bg-linear-to-r from-secondary/80 to-primary/10 pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
                 src="/images/me.png"
                 fill
                 alt="Me"
