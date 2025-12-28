@@ -77,12 +77,12 @@ const Skills = () => {
         }
       />
 
-      <Marquee speed={30} className="pb-5">
+      <Marquee speed={80} className="pb-5">
         {icons.map((icon, idx) => (
           <div
             key={idx}
-            className={` bg-linear-to-b from-main/20 to-transparent shadow-main/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 lg:mx- flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
-              idx % 2 === 0 ? "mt-16" : "mt-0"
+            className={` bg-linear-to-b from-main/20 to-transparent shadow-main/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
+              idx % 2 === 0 ? "mt-18" : "mt-0"
             }`}
           >
             <figure className="relative w-10 h-10 md:w-17.5 md:h-18">

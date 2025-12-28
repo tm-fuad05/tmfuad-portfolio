@@ -12,7 +12,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
     <div className="relative pb-5 mb-8 flex flex-col items-center">
       <div className="absolute inset-0 w-7/12 rounded-full mx-auto blur-[60px] bg-main/15"></div>
       {icon && <div className="mb-4">{icon}</div>}
-      <h2 className="text-4xl md:text-5xl lg:text-7xl bg-clip-text text-transparent bg-linear-to-r from-white/90 to-main  font-bold text-title capitalize mb-3 -scale-z-200">
+      <h2 className="text-4xl md:text-5xl lg:text-7xl bg-clip-text text-transparent bg-linear-to-r from-white/90 to-main text-center font-bold text-title capitalize mb-3 -scale-z-200">
         {title}
       </h2>
 
