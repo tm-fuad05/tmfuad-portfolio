@@ -5,58 +5,58 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Skills = () => {
-  type Icons = {
-    icon: string;
+  interface Logo {
+    logo: string;
     name: string;
-  };
+  }
 
-  const icons: Icons[] = [
+  const logos: Logo[] = [
     {
-      icon: "/images/html.png",
+      logo: "/images/html.png",
       name: "HTML",
     },
     {
-      icon: "/images/css.png",
+      logo: "/images/css.png",
       name: "CSS",
     },
     {
-      icon: "/images/javascript.png",
+      logo: "/images/javascript.png",
       name: "Javascript",
     },
     {
-      icon: "/images/react.png",
+      logo: "/images/react.png",
       name: "React",
     },
     {
-      icon: "/images/express.png",
+      logo: "/images/express.png",
       name: "Express.Js",
     },
     {
-      icon: "/images/node.png",
+      logo: "/images/node.png",
       name: "Node.Js",
     },
     {
-      icon: "/images/typescript.png",
+      logo: "/images/typescript.png",
       name: "Typescript",
     },
     {
-      icon: "/images/mongodb.png",
+      logo: "/images/mongodb.png",
       name: "MongoDB",
     },
     {
-      icon: "/images/firebase.png",
+      logo: "/images/firebase.png",
       name: "Firebase",
     },
     {
-      icon: "/images/vscode.png",
+      logo: "/images/vscode.png",
       name: "VS Code",
     },
     {
-      icon: "/images/git.png",
+      logo: "/images/git.png",
       name: "Git",
     },
     {
-      icon: "/images/jwt.svg",
+      logo: "/images/jwt.svg",
       name: "JWT",
     },
   ];
@@ -78,7 +78,7 @@ const Skills = () => {
       />
 
       <Marquee speed={80} className="pb-5">
-        {icons.map((icon, idx) => (
+        {logos.map((logo, idx) => (
           <div
             key={idx}
             className={` bg-linear-to-b from-primary/20 to-transparent shadow-primary/50 hover:shadow-md rounded-xl px-4 py-5 md:px-6 md:py-8 group mx-2 md:mx-4 flex flex-col items-center gap-1 md:gap-2 w-26.25 md:w-40 duration-200 ${
@@ -89,12 +89,12 @@ const Skills = () => {
               <Image
                 fill
                 className="group-hover:scale-110 duration-300"
-                src={icon.icon}
-                alt={icon.name}
+                src={logo.logo}
+                alt={logo.name}
               />
             </figure>
             <p className="text-center pt-2 text-xs md:text-md font-medium text-white">
-              {icon.name}
+              {logo.name}
             </p>
           </div>
         ))}

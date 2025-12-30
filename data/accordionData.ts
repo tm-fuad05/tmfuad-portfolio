@@ -1,7 +1,7 @@
-export type AccordionData = {
+export interface AccordionData {
   title: string;
   description: string;
-};
+}
 export const accordionData: AccordionData[] = [
   {
     title: "Why did I choose web development?",

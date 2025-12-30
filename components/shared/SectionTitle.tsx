@@ -1,11 +1,11 @@
 "use client";
 import { ReactNode } from "react";
 
-type SectionTitleProps = {
+interface SectionTitleProps {
   title: string;
   subtitle: string;
   icon?: ReactNode;
-};
+}
 
 const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
   return (

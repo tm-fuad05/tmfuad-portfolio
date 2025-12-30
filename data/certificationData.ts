@@ -1,4 +1,4 @@
-export type Certifications = {
+export interface Certifications {
   img: string;
   title: string;
   platform: string;
@@ -6,7 +6,7 @@ export type Certifications = {
   credentialID: string;
   status: string;
   url: string;
-};
+}
 
 export const certifications: Certifications[] = [
   {

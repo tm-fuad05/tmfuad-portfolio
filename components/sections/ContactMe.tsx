@@ -18,10 +18,10 @@ import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import HoverLight from "../ui/hover-spotlight";
 
 const ContactMe = () => {
-  type Icons = {
+  interface Icons {
     icon: LucideIcon;
     href: string;
-  };
+  }
   const icons: Icons[] = [
     { icon: Github, href: "https://github.com/tm-fuad05" },
     {
@@ -34,11 +34,11 @@ const ContactMe = () => {
   const form = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  type Status = {
+  interface Status {
     show: boolean;
     success: boolean;
     message: string;
-  };
+  }
 
   const [status, setStatus] = useState<Status>({
     show: false,

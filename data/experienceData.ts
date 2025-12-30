@@ -8,11 +8,11 @@ import {
   LucideIcon,
 } from "lucide-react";
 
-export type Expertise = {
+export interface Expertise {
   icon: LucideIcon;
   title: string;
   description: string;
-};
+}
 ``;
 
 export const expertise: Expertise[] = [

@@ -1,4 +1,4 @@
-export type ProjectCards = {
+export interface ProjectCards {
   id: number;
   image: string;
   title: string;
@@ -6,7 +6,7 @@ export type ProjectCards = {
   date: string;
   live: string;
   github: string;
-};
+}
 
 export const projectCards = [
   {

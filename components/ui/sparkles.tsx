@@ -7,7 +7,7 @@ import { loadSlim } from "@tsparticles/slim";
 import { cn } from "@/lib/utils";
 import { motion, useAnimation } from "motion/react";
 
-type ParticlesProps = {
+interface ParticlesProps {
   id?: string;
   className?: string;
   background?: string;
@@ -17,7 +17,7 @@ type ParticlesProps = {
   speed?: number;
   particleColor?: string;
   particleDensity?: number;
-};
+}
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,

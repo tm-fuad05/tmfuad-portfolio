@@ -19,10 +19,10 @@ const Footer = () => {
     "projects",
   ];
 
-  type SocialIcons = {
+  interface SocialIcons {
     link: string;
     icon: ReactNode;
-  };
+  }
 
   const socialIcons: SocialIcons[] = [
     {

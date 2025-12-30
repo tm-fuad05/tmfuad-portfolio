@@ -21,10 +21,10 @@ const Banner = () => {
     link.click();
   };
 
-  type SocialIcons = {
+  interface SocialIcons {
     link: string;
     icon: ReactNode;
-  };
+  }
 
   const socialIcons: SocialIcons[] = [
     {
