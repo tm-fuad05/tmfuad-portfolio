@@ -49,7 +49,7 @@ const Banner = () => {
     <DynamicSpotlight
       radius={{ sm: 500, md: 400, lg: 700 }}
       darkness={0.95}
-      revealOpacity={0.6}
+      revealOpacity={0.7}
       initialPos={{ x: 50, y: 0 }}
       isPersist
       id="home"
@@ -115,7 +115,7 @@ const Banner = () => {
           <div className="flex gap-3 mt-5">
             <button
               onClick={handlePDFDownload}
-              className=" bg-linear-to-r from-secondary to-transparent text-white hover:bg-linear-to-r hover:from-primary hover:to-secondary transition duration-300 rounded-md px-4 py-2 font-semibold  cursor-pointer flex items-center gap-2"
+              className=" bg-linear-to-r from-secondary to-transparent text-white hover:bg-linear-to-r hover:from-secondary hover:to-primary transition duration-300 rounded-md px-4 py-2 font-semibold  cursor-pointer flex items-center gap-2"
             >
               <IoMdCloudDownload /> Resume
             </button>
