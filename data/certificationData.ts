@@ -6,6 +6,7 @@ export interface Certifications {
   credentialID: string;
   status: string;
   url: string;
+  color: string;
 }
 
 export const certifications: Certifications[] = [
@@ -17,6 +18,7 @@ export const certifications: Certifications[] = [
     credentialID: "WEB10-1326",
     status: "Verified",
     url: "https://drive.google.com/file/d/1s-mWpWBd0ye3GZDquGplWA9KUK_Vk07C/view?usp=drive_link",
+    color: "from-blue-500 to-cyan-500",
   },
   {
     img: "/images/certificates/10minschoolcertificate.png",
@@ -26,5 +28,6 @@ export const certifications: Certifications[] = [
     credentialID: "",
     status: "Verified",
     url: "https://drive.google.com/file/d/16fXLF7v-oYXDXBRsDz50arMJUgzkMIal/view?usp=drive_link",
+    color: "from-purple-500 to-pink-500",
   },
 ];

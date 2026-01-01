@@ -33,48 +33,53 @@ const Certification = () => {
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 p-3 shadow-[0_0_8px_#1e90ff,0_0_10px_#1e90ff] rounded-lg transition-transform duration-300 relative group"
+            className="flex flex-col gap-2 border-2 border-white/20 rounded-lg transition-transform duration-300 relative group hover:scale-103"
           >
-            <figure className="relative">
-              <div className="relative w-full h-60 md:h-72 rounded-lg">
+            <figure className="relative group">
+              <div className="relative w-full h-60 md:h-72 rounded-t-lg overflow-hidden">
                 <Image
                   fill
                   src={cert.img}
                   alt={cert.title}
-                  className="rounded-lg"
+                  className="rounded-t-lg hover:scale-107 duration-300"
                 />
               </div>
-              <div className="absolute right-2 top-2 px-2 py-1 rounded-full flex justify-center bg-green-500/95 gap-1 text-white text-xs font-semibold">
+              <div className="absolute right-2 top-2 px-2 py-1 rounded-full flex justify-center bg-green-500/95 gap-1 text-white text-xs font-semibold group-hover:animate-pulse">
                 <MdOutlineVerified size={15} />
                 <p>{cert.status}</p>
               </div>
             </figure>
-
-            <div className="flex flex-col gap-2 h-full">
+            {/* Card Body */}
+            <div className="flex flex-col gap-3 h-full p-3">
               {/* Title & Platform */}
               <div className="flex flex-col gap-1 text-white">
                 <h2 className="text-lg font-semibold">{cert.title}</h2>
                 <h5 className="text-sm">
-                  By <span className="font-semibold">{cert.platform}</span>
+                  By{" "}
+                  <span className="font-semibold text-purple-400">
+                    {cert.platform}
+                  </span>
                 </h5>
               </div>
               {/* Date & ID */}
-              <div className="rounded-lg p-2 flex flex-col gap-3 w-full text-white grow">
+              <div className="flex gap-3 w-full text-white grow">
                 {/* Issue Date */}
-                <div className="flex items-start">
-                  <MdOutlineDateRange className="inline-block mr-2 text-lg" />
-                  <div className="text-xs leading-relaxed">
-                    <p className="text-paragraph">Issue Date</p>
-                    <h6 className="font-medium">{cert.issueDate}</h6>
+                <div className="flex items-center bg-white/10 backdrop-blur-lg p-3 rounded-md w-1/2">
+                  <MdOutlineDateRange className="inline-block mr-2 text-lg text-purple-400" />
+                  <div className="leading-relaxed">
+                    <p className="text-paragraph text-xs ">Issue Date</p>
+                    <h6 className="font-medium text-sm">{cert.issueDate}</h6>
                   </div>
                 </div>
                 {/* Credential ID */}
                 {cert.credentialID && (
-                  <div className="flex items-start">
-                    <GrNotes className="inline-block mr-2 text-md" />
-                    <div className="text-xs leading-relaxed">
-                      <p className="text-paragraph">Credential ID</p>
-                      <h6 className="font-medium">{cert.credentialID}</h6>
+                  <div className="flex items-center bg-white/10 backdrop-blur-lg p-3 rounded-md w-1/2">
+                    <GrNotes className="inline-block mr-2 text-md text-green-400" />
+                    <div className="leading-relaxed">
+                      <p className="text-paragraph text-xs ">Credential ID</p>
+                      <h6 className="font-medium text-sm">
+                        {cert.credentialID}
+                      </h6>
                     </div>
                   </div>
                 )}
@@ -84,7 +89,7 @@ const Certification = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" bg-linear-to-r from-primary to-secondary text-white hover:scale-102 transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
+                className=" bg-linear-to-r from-primary to-secondary text-white hover:from-secondary hover:to-primary transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
               >
                 View Credential{" "}
                 <HiMiniArrowTopRightOnSquare className="text-lg" />

@@ -38,16 +38,17 @@ const Projects = () => {
         {projectCards.map((card) => (
           <div
             key={card.id}
-            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400!"
+            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400! overflow-hidden"
           >
             {/* Image */}
             <img
-              className="pb-5 border-b border-paragraph rounded-3xl rounded-b-none"
+              className="pb-2 rounded-t-3xl hover:scale-107 duration-300"
               src={card.image}
               alt=""
             />
+
             {/* Content */}
-            <div className="p-5 pt-2">
+            <div className="p-5 pt-0 border-t border-paragraph ">
               {/* Ttile & Date */}
               <div className="flex justify-between items-center text-sm my-3">
                 <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white font-bold">
