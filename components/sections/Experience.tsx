@@ -4,13 +4,25 @@ import SectionTitle from "../shared/SectionTitle";
 import { motion } from "framer-motion";
 import { expertise } from "@/data/experienceData";
 import HoverLight from "../ui/hover-spotlight";
+import { SparklesCore } from "../ui/sparkles";
 
 const Experience = () => {
   return (
     <div
       id="experience"
-      className="min-h-screen py-20 px-6 md:px-10 lg:px-16 bg-black rounded-t-[40px] rounded-b-[40px]"
+      className="min-h-screen py-20 px-6 md:px-10 lg:px-16 bg-black rounded-t-[40px] rounded-b-[40px] relative"
     >
+      <div className="w-full absolute inset-0 z-0">
+        <SparklesCore
+          id="sparkles-footer"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={50}
+          className="w-full h-full"
+          particleColor="#1e90ff"
+        />
+      </div>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <SectionTitle

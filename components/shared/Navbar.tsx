@@ -70,17 +70,6 @@ const Navbar = () => {
     <div className="relative">
       <div className="px-6 md:px-10 lg:px-16 fixed top-5 z-50 w-full">
         <AnimatedNav className="flex items-center justify-between px-4 border border-slate-800">
-          <div className="w-full absolute inset-0 -z-10">
-            <SparklesCore
-              id="sparkles-nav"
-              background="transparent"
-              minSize={0.6}
-              maxSize={1.4}
-              particleDensity={100}
-              className="w-full h-full"
-              particleColor="#2563eb"
-            />
-          </div>
           <figure className="relative w-10 h-7 md:w-12.5 md:h-10 ">
             <Link href="#home">
               <Image fill src="/images/logo2.png" alt="" />
@@ -125,11 +114,11 @@ const Navbar = () => {
       <aside
         ref={asideRef}
         id="mob-nav"
-        className={`w-8/12 md:w-5/12 h-full bg-[#111827] z-50 text-white fixed p-5 pt-7 flex flex-col gap-2 transition duration-300 lg:hidden overflow-y-auto ${
+        className={`w-8/12 md:w-5/12 h-full bg-[#111827] z-50 text-white fixed flex flex-col gap-2 transition duration-300 lg:hidden  ${
           menuOpen ? "translate-x-0 " : "-translate-x-200"
         } `}
       >
-        <div className="flex justify-between items-center pb-3 border-b ">
+        <div className="flex justify-between items-center p-3 border-b">
           <div className="relative w-10 h-8 md:w-12.5 md:h-10">
             <Image fill src="/images/logo2.png" alt="" />
           </div>
@@ -140,7 +129,7 @@ const Navbar = () => {
             <RxCross2 size={20} />
           </button>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 overflow-y-auto p-3">
           {sections.map((sec) => (
             <Link
               key={sec}

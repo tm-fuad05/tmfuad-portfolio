@@ -38,11 +38,11 @@ const Projects = () => {
         {projectCards.map((card) => (
           <div
             key={card.id}
-            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400! overflow-hidden"
+            className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400! overflow-hidden group"
           >
             {/* Image */}
             <img
-              className="pb-2 rounded-t-3xl hover:scale-107 duration-300"
+              className="pb-2 rounded-t-3xl group-hover:scale-107 duration-300"
               src={card.image}
               alt=""
             />
