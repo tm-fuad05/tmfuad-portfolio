@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
@@ -10,6 +10,22 @@ import { SparklesCore } from "../ui/sparkles";
 
 const Navbar = () => {
   const [active, setActive] = useState<string>("home");
+
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const asideRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (asideRef.current && !asideRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
   const sections: string[] = [
     "home",
     "skills",
@@ -49,8 +65,6 @@ const Navbar = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
     <div className="relative">
@@ -107,47 +121,47 @@ const Navbar = () => {
           </Link>
         </AnimatedNav>
       </div>
-      {menuOpen && (
-        <aside
-          id="mob-nav"
-          className={`w-8/12 md:w-5/12 h-full bg-[#111827] z-50 text-white fixed p-5 pt-7 flex flex-col gap-2 transition-transform duration-500 lg:hidden overflow-y-auto ${
-            menuOpen ? "opacity-100" : "opacity-0"
-          } `}
-        >
-          <div className="flex justify-between items-center pb-3 border-b ">
-            <div className="relative w-10 h-8 md:w-12.5 md:h-10">
-              <Image fill src="/images/logo2.png" alt="" />
-            </div>
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="border border-white rounded-sm p-1"
-            >
-              <RxCross2 size={20} />
-            </button>
+
+      <aside
+        ref={asideRef}
+        id="mob-nav"
+        className={`w-8/12 md:w-5/12 h-full bg-[#111827] z-50 text-white fixed p-5 pt-7 flex flex-col gap-2 transition duration-300 lg:hidden overflow-y-auto ${
+          menuOpen ? "translate-x-0 " : "-translate-x-200"
+        } `}
+      >
+        <div className="flex justify-between items-center pb-3 border-b ">
+          <div className="relative w-10 h-8 md:w-12.5 md:h-10">
+            <Image fill src="/images/logo2.png" alt="" />
           </div>
-          <div className="flex flex-col gap-1">
-            {sections.map((sec) => (
-              <Link
-                key={sec}
-                href={`#${sec}`}
-                onClick={() => setMenuOpen(false)}
-                className={`${
-                  sec === "faq" ? "uppercase" : "capitalize"
-                } pl-2 py-2 rounded-sm ${active === sec && "bg-primary"}`}
-              >
-                {sec}
-              </Link>
-            ))}
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="border border-white rounded-sm p-1 cursor-pointer"
+          >
+            <RxCross2 size={20} />
+          </button>
+        </div>
+        <div className="flex flex-col gap-1">
+          {sections.map((sec) => (
             <Link
-              href="#contact"
+              key={sec}
+              href={`#${sec}`}
               onClick={() => setMenuOpen(false)}
-              className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
+              className={`${
+                sec === "faq" ? "uppercase" : "capitalize"
+              } pl-2 py-2 rounded-sm ${active === sec && "bg-primary"}`}
             >
-              Contact
+              {sec}
             </Link>
-          </div>
-        </aside>
-      )}
+          ))}
+          <Link
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+            className="w-fit text-slate-100 font-medium px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:hidden"
+          >
+            Contact
+          </Link>
+        </div>
+      </aside>
     </div>
   );
 };
