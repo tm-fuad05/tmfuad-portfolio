@@ -141,18 +141,18 @@ const Banner = () => {
               repeat: Infinity,
             }}
           >
-            <figure className="md:mr-5 w-70 h-76 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600">
+            <figure className="md:mr-5 w-70 h-76 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600 bg-linear-to-r from-secondary to-primary/10 rounded-[80px]">
               <div className="absolute bg-primary/90 rounded-full rounded-bl-none px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 text-white group-hover:opacity-100 duration-300">
                 <p className="font-semibold">Hello☺️</p>
               </div>
               <Image
-                className="bg-linear-to-r from-secondary to-primary/10 pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
+                className=" pb-0 object-top  object-cover border-b-5 shadow-primary rounded-[80px] shadow-lg border-paragraph"
                 src="/images/me.png"
                 fill
                 alt="Me"
               />
               {/* Overlay */}
-              <div className="absolute inset-0 rounded-[80px] bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0  inset-y-1 rounded-[80px] bg-linear-to-t from-black/50 via-transparent to-transparent" />
 
               <RiTailwindCssFill className="text-[#06b6d4] absolute -top-8 -left-5 text-8xl lg:-top-12 lg:-left-7 lg:text-9xl" />
             </figure>
