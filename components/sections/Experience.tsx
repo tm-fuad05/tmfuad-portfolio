@@ -18,7 +18,7 @@ const Experience = () => {
           background="transparent"
           minSize={0.6}
           maxSize={1.4}
-          particleDensity={50}
+          particleDensity={20}
           className="w-full h-full"
           particleColor="#1e90ff"
         />

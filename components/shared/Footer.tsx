@@ -44,7 +44,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white dark:bg-slate-900 boxShadow rounded-xl w-full px-6 md:px-10 lg:px-16 py-10 grid-section relative ">
+    <footer className="bg-slate-900 boxShadow rounded-xl w-full px-6 md:px-10 lg:px-16 py-10 grid-section relative ">
       <div className="bg-black/50 inset-0 absolute z-[-1]"></div>
       <div className="flex justify-center gap-7.5 flex-wrap w-full ">
         <div className="flex justify-between items-center w-full">

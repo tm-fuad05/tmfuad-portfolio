@@ -63,9 +63,9 @@ const Projects = () => {
                 {expanded[card.id]
                   ? card.description
                   : card.description.slice(0, 200) + "..."}
-                {card.description.length > 40 && (
+                {card.description.length > 200 && (
                   <button
-                    className="text-blue-400/70 font-medium hover:opacity-60  cursor-pointer "
+                    className="text-blue-400/70 font-medium hover:opacity-60 cursor-pointer "
                     onClick={() => toggleExpand(card.id)}
                   >
                     {expanded[card.id] ? "See less" : "See more"}
