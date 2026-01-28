@@ -151,6 +151,8 @@ const Banner = () => {
                 fill
                 alt="Me"
               />
+              {/* Overlay */}
+              <div className="absolute inset-0 rounded-[80px] bg-linear-to-t from-black/60 via-transparent to-transparent" />
 
               <RiTailwindCssFill className="text-[#06b6d4] absolute -top-8 -left-5 text-8xl lg:-top-12 lg:-left-7 lg:text-9xl" />
             </figure>
