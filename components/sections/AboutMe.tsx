@@ -8,92 +8,106 @@ import Image from "next/image";
 
 const AboutMe = () => {
   const socialIcons = [
-    {
-      link: "https://www.linkedin.com/in/tmfuad05/",
-      icon: <FaLinkedinIn className="text-md" />,
-    },
-    {
-      link: "https://x.com/tm_fuad05",
-      icon: <FaXTwitter className="text-md" />,
-    },
-    {
-      link: "https://www.facebook.com/nafu2308",
-      icon: <FaFacebookF className="text-md" />,
-    },
-    {
-      link: "https://github.com/tm-fuad05",
-      icon: <FaGithub className="text-md" />,
-    },
+    { link: "https://www.linkedin.com/in/tmfuad05/", icon: <FaLinkedinIn /> },
+    { link: "https://x.com/tm_fuad05", icon: <FaXTwitter /> },
+    { link: "https://www.facebook.com/nafu2308", icon: <FaFacebookF /> },
+    { link: "https://github.com/tm-fuad05", icon: <FaGithub /> },
   ];
 
   return (
-    <div
-      id="about"
-      className="flex flex-col justify-center items-center px-6 md:px-10 lg:px-16"
-    >
-      <div className="w-full h-fit flex flex-col-reverse lg:grid lg:grid-cols-2 p-4 lg:p-6 border-2 border-primary rounded-3xl gap-5 shadow-[0_0_5px_#1e90ff,0_0_12px_#1e90ff] bg-white/5 grid-section relative">
-        <div className="bg-black/20 inset-0 rounded-3xl absolute z-[-1]"></div>
+    <div id="about" className="py-20 px-6 md:px-10 lg:px-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto relative">
+        {/* Decorative Background Glows */}
+        <div className="absolute top-0 -left-20 w-72 h-72 bg-primary/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 -right-20 w-72 h-72 bg-blue-600/10 blur-[120px] rounded-full" />
 
-        {/* Profile Pic */}
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="w-full h-100 md:h-256 lg:h-145 relative"
-        >
-          <Image
-            src="/images/aboutme.png"
-            fill
-            className="rounded-3xl object-cover object-top border-2 border-gray-50/20 "
-            alt=""
-          />
-        </motion.div>
+        <div className="relative w-full flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Left Side: Profile Image with Advanced Frame */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 w-full group"
+          >
+            <div className="relative aspect-4/5 w-full max-w-112.5 mx-auto">
+              {/* Outer Glow Frame */}
+              <div className="absolute inset-0 border-2 border-primary/30 rounded-[40px] translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
 
-        {/* About Me Text */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="capitalize flex flex-col items-start gap-6"
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white/90 font-bold text-title capitalize">
-            about me
-          </h1>
-
-          <BasicTabs />
-
-          {/* Contact */}
-          <div className="flex flex-col">
-            <h3 className="text-xl md:text-2xl text-white font-semibold mb-4">
-              Contact Me
-            </h3>
-            <div className="flex gap-2 text-white/80">
-              {socialIcons.map((icon, idx) => (
-                <a
-                  key={idx}
-                  href={icon.link}
-                  target="_blank"
-                  className="rounded-sm text-3xl border border-primary shadow-[0_0_2px_#1e90ff,0_0_2px_#1e90ff] p-1.5 hover:shadow-sm hover:bg-primary/50 transition-all"
-                >
-                  {icon.icon}
-                </a>
-              ))}
+              {/* Image Container */}
+              <div className="relative h-full w-full rounded-[40px] overflow-hidden border border-white/10 bg-slate-900">
+                <Image
+                  src="/images/fuad.png"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  alt="Tanvir Mahmud Fuad"
+                />
+                {/* Overlay linear */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              </div>
             </div>
-          </div>
-          {/* Quote */}
-          <div className="relative bg-linear-to-r from-primary/10 to-secondary/10 border border-gray-50/10 rounded-xl p-5">
-            <BiSolidQuoteLeft className="absolute text-2xl lg:text-4xl text-secondary -top-2 -left-2 lg:-top-4 lg:-left-4" />
-            <p className="text-paragraph font-semibold">
-              You’re never behind — You only pick up from where you paused.
-            </p>
-            <BiSolidQuoteLeft className="absolute text-2xl lg:text-4xl text-primary -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 rotate-180" />
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* Right Side: Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 flex flex-col gap-4"
+          >
+            <div className="space-y-4">
+              <h4 className="text-primary font-mono tracking-widest uppercase text-sm">
+                Introduction
+              </h4>
+              <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
+                About{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-blue-400">
+                  Me
+                </span>
+              </h2>
+            </div>
+
+            {/* Tabs Section */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-2xl lg:min-h-80 flex flex-col">
+              <BasicTabs />
+            </div>
+
+            {/* Contact & Quote Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              {/* Contact Icons */}
+              <div className="space-y-4">
+                <p className="text-gray-400 font-medium">Connect with me</p>
+                <div className="flex gap-3">
+                  {socialIcons.map((icon, idx) => (
+                    <a
+                      key={idx}
+                      href={icon.link}
+                      target="_blank"
+                      className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-900 border border-primary/30 text-white hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(30,144,255,0.1)] hover:shadow-primary/40"
+                    >
+                      <span className="text-xl">{icon.icon}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Quote Card */}
+              <div className="relative group p-6 rounded-2xl bg-linear-to-br from-white/5 to-transparent border border-white/10 overflow-hidden">
+                <div className="absolute -right-4 -bottom-4 opacity-10 group-hover:rotate-12 transition-transform duration-500">
+                  <BiSolidQuoteLeft className="text-8xl rotate-180 text-primary" />
+                </div>
+                <BiSolidQuoteLeft className="text-2xl text-primary mb-2" />
+                <p className="text-slate-300 italic font-medium relative z-10 leading-relaxed">
+                  "You’re never behind — You only pick up from where you
+                  paused."
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
-    // </div>
   );
 };
 

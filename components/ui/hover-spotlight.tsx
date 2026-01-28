@@ -46,7 +46,7 @@ export default function HoverLight({
   useLayoutEffect(() => {
     if (containerRef.current) {
       const child = containerRef.current.querySelector(
-        ":scope > div > div > div:first-child"
+        ":scope > div > div > div:first-child",
       );
       if (child) {
         setRadius(window.getComputedStyle(child).borderRadius);
@@ -65,7 +65,7 @@ export default function HoverLight({
         e.clientX >= rect.left &&
           e.clientX <= rect.right &&
           e.clientY >= rect.top &&
-          e.clientY <= rect.bottom
+          e.clientY <= rect.bottom,
       );
     };
 

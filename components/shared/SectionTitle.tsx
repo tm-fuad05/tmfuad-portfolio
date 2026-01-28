@@ -1,5 +1,6 @@
 "use client";
 import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 interface SectionTitleProps {
   title: string;
@@ -9,18 +10,49 @@ interface SectionTitleProps {
 
 const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
   return (
-    <div className="relative pb-5 mb-8 flex flex-col items-center">
-      <div className="absolute inset-0 w-7/12 rounded-full mx-auto blur-[60px] bg-primary/15"></div>
-      {icon && <div className="mb-4">{icon}</div>}
-      <h2 className="text-4xl md:text-5xl lg:text-7xl bg-clip-text text-transparent bg-linear-to-r from-white/90 to-primary text-center font-bold text-title capitalize mb-3 -scale-z-200">
-        {title}
-      </h2>
+    <div className="relative mb-20 flex flex-col items-center">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-125 h-50 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <p className="text-slate-400 text-sm md:text-md mb-4 text-center px-6 md:px-10 lg:px-16">
-        {subtitle}
-      </p>
-      <div className="flex items-center gap-2">
-        <div className="h-0.5 bg-linear-to-r from-secondary to-primary w-20 rounded-full"></div>
+      {icon && (
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 mb-6 p-4 rounded-2xl bg-slate-900 border border-white/10 shadow-2xl shadow-primary/20"
+        >
+          {icon}
+        </motion.div>
+      )}
+
+      <div className="relative z-10">
+        {/* <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl md:text-9xl lg:text-[10rem] font-black text-white/3 select-none whitespace-nowrap uppercase tracking-[0.2em]">
+          {title}
+        </h2> */}
+
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-center capitalize tracking-tight">
+          <span className="bg-clip-text text-transparent bg-linear-to-b from-white via-white to-primary/50">
+            {title}
+          </span>
+        </h2>
+      </div>
+
+      <div className="relative z-10 mt-6 max-w-2xl mx-auto text-center">
+        <p className="text-slate-400 text-base md:text-lg lg:text-xl font-light leading-relaxed px-4">
+          {subtitle}
+        </p>
+      </div>
+
+      <div className="mt-10 flex items-center gap-4">
+        <div className="h-px w-12 bg-linear-to-r from-transparent to-primary/50" />
+        <div className="flex gap-1.5">
+          <motion.div
+            animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_#1e90ff]"
+          />
+          <div className="w-2 h-2 rounded-full bg-slate-800" />
+          <div className="w-2 h-2 rounded-full bg-slate-800" />
+        </div>
+        <div className="h-px w-12 bg-linear-to-l from-transparent to-primary/50" />
       </div>
     </div>
   );

@@ -146,7 +146,7 @@ const Banner = () => {
                 <p className="font-semibold">Hello☺️</p>
               </div>
               <Image
-                className="bg-linear-to-r from-secondary/80 to-primary/10 pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
+                className="bg-linear-to-r from-secondary to-primary/10 pb-0 object-top rounded-[80px] object-cover border-b-5 shadow-primary shadow-lg border-paragraph"
                 src="/images/me.png"
                 fill
                 alt="Me"

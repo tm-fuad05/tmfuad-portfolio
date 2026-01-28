@@ -56,7 +56,7 @@ const ContactMe = () => {
           "service_fwh8eve", // Replace with your EmailJS service ID
           "template_60bjc2k", // Replace with your EmailJS template ID
           form.current,
-          "vuYSD7atTVsOA0PuN" // Replace with your EmailJS public key
+          "vuYSD7atTVsOA0PuN", // Replace with your EmailJS public key
         );
         if (result.text === "OK") {
           setStatus({
@@ -77,7 +77,7 @@ const ContactMe = () => {
       setLoading(false);
       setTimeout(
         () => setStatus({ show: false, success: false, message: "" }),
-        5000
+        5000,
       );
     }
   };
@@ -106,9 +106,9 @@ const ContactMe = () => {
         >
           <HoverLight
             size={300}
-            color="#1e90ff"
+            color="var(--primary)"
             borderOpacity={90}
-            innerOpacity={15}
+            innerOpacity={20}
             border={2}
             className="h-full"
           >
@@ -166,7 +166,7 @@ const ContactMe = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-linear-to-r from-secondary to-primary text-white py-2 px-4 rounded-lg hover:from-primary hover:to-secondary transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 text-white py-2 px-4 rounded-lg hover:from-secondary hover:to-primary transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />

@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
 :root {
-  --primary: #1e90ff;
-  --secondary: #7c3aed;
+  --primary: #2563eb;
+  --secondary: #4f46e5;
   --paragraph: #cbd5e1;
   --radius: 0.625rem;
   --background: #020617;
@@ -84,17 +85,15 @@ body {
   --grid-spacing: 50px;
 
   /* 2a. Define the Grid Pattern */
-  background-image: linear-gradient(
-      to right,
-      var(--line-color) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(to right, var(--line-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
   mask-image: 
-        /* MASK 1: Vertical Fade (Top/Bottom) */ linear-gradient(
+        /* MASK 1: Vertical Fade (Top/Bottom) */
+    linear-gradient(
       to bottom,
       transparent 0%,
       /* Top edge is fully transparent (hidden) */ white 90%,
@@ -103,7 +102,7 @@ body {
         /* Bottom edge is fully transparent (hidden) */
     ),
     /* MASK 2: Horizontal/Radial Fade (Center Focus) - Same code as before */
-      radial-gradient(
+    radial-gradient(
         circle at center,
         white 0%,
         white 25%,
@@ -118,7 +117,8 @@ body {
   -webkit-mask-composite: source-in;
 
   /* Add vendor prefixes for wider browser support */
-  -webkit-mask-image: linear-gradient(
+  -webkit-mask-image:
+    linear-gradient(
       to bottom,
       transparent 0%,
       white 10%,
@@ -177,17 +177,15 @@ body {
   --grid-spacing: 20px;
 
   /* 2a. Define the Grid Pattern */
-  background-image: linear-gradient(
-      to right,
-      var(--line-color) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(to right, var(--line-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
   mask-image: 
-        /* MASK 1: Vertical Fade (Top/Bottom) */ linear-gradient(
+        /* MASK 1: Vertical Fade (Top/Bottom) */
+    linear-gradient(
       to bottom,
       transparent 0%,
       /* Top edge is fully transparent (hidden) */ white 90%,
@@ -196,7 +194,7 @@ body {
         /* Bottom edge is fully transparent (hidden) */
     ),
     /* MASK 2: Horizontal/Radial Fade (Center Focus) - Same code as before */
-      radial-gradient(
+    radial-gradient(
         circle at center,
         white 0%,
         white 25%,
@@ -211,7 +209,8 @@ body {
   -webkit-mask-composite: source-in;
 
   /* Add vendor prefixes for wider browser support */
-  -webkit-mask-image: linear-gradient(
+  -webkit-mask-image:
+    linear-gradient(
       to bottom,
       transparent 0%,
       white 10%,
@@ -250,7 +249,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to top, var(--color-secondary), transparent);
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
   border-radius: 50px;
 }
 

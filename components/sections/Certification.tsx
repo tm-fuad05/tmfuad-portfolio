@@ -26,7 +26,7 @@ const Certification = () => {
           "Industry-recognized certifications that validate my technical skills and continuous learning"
         }
         icon={
-          <SlBadge className="text-white text-6xl p-3 rounded-2xl bg-linear-to-t from-primary/90 to-secondary" />
+          <SlBadge className="text-white text-6xl p-3 rounded-2xl bg-linear-to-b from-primary to-secondary shadow-lg shadow-blue-500/20" />
         }
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 lg:px-16 mb-10">
@@ -89,7 +89,7 @@ const Certification = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" bg-linear-to-r from-primary to-secondary text-white hover:from-secondary hover:to-primary transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
+                className="bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 text-white hover:from-secondary hover:to-primary transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
               >
                 View Credential{" "}
                 <HiMiniArrowTopRightOnSquare className="text-lg" />

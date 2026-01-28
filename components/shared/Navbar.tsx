@@ -51,7 +51,7 @@ const Navbar = () => {
           }
         });
       },
-      { rootMargin: "-50% 0px -50% 0px" }
+      { rootMargin: "-50% 0px -50% 0px" },
     );
 
     // Identify Contact section
@@ -104,7 +104,7 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium text-lg px-3 py-2 bg-linear-to-r from-primary to-secondary/70 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
+            className="text-slate-100 font-medium text-lg px-3 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
           >
             Contact
           </Link>

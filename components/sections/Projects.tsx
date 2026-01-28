@@ -88,7 +88,7 @@ const Projects = () => {
               {/* Buttons */}
               <div className="mt-4 flex gap-3">
                 <a href={card.live} target="_blank">
-                  <button className="px-6 py-2 bg-linear-to-r from-primary to-secondary rounded-lg text-white max-sm:text-sm md:text-md flex items-center gap-1 cursor-pointer hover:bg-linear-to-r hover:from-secondary hover:to-primary transition duration-300">
+                  <button className="px-6 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-lg text-white max-sm:text-sm md:text-md flex items-center gap-1 cursor-pointer hover:from-secondary hover:to-primary transition duration-300">
                     Live Demo{" "}
                     <LuCircleFadingArrowUp className="text-md rotate-45" />
                   </button>

@@ -35,10 +35,10 @@ const BasicTabs = () => {
             <p>
               I’m{" "}
               <strong className="text-lg lg:text-xl">Tanvir Mahmud Fuad</strong>{" "}
-              — a dedicated Frontend Web Developer with a strong focus on
-              creating modern, responsive, and user-friendly interfaces. I work
-              primaryly with React, JavaScript, and Tailwind CSS, turning ideas
-              into polished digital experiences. <br />I enjoy crafting clean UI
+              — a dedicated Web Developer with a strong focus on creating
+              modern, responsive, and user-friendly interfaces. I work primaryly
+              with React, JavaScript, and Tailwind CSS, turning ideas into
+              polished digital experiences. <br />I enjoy crafting clean UI
               layouts, optimizing performance, and improving overall user
               experience through thoughtful design principles. Whether it’s
               building reusable components or integrating API-driven features,
