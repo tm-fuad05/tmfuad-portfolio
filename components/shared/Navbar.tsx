@@ -1,12 +1,13 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { Button as AnimatedNav } from "../ui/navbar-moving-border";
-import { SparklesCore } from "../ui/sparkles";
+
+import { SendHorizontal } from "lucide-react";
 
 const Navbar = () => {
   const [active, setActive] = useState<string>("home");
@@ -91,9 +92,10 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium text-lg px-3 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex hidden"
+            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex justify-between items-center gap-2 hidden"
           >
-            Get In Touch
+            <SendHorizontal size={17} />
+            <span> Get In Touch</span>
           </Link>
         </AnimatedNav>
       </div>
@@ -165,7 +167,8 @@ const Navbar = () => {
           bg-linear-to-r from-primary to-blue-600 shadow-lg shadow-primary/20
           hover:shadow-primary/40 active:scale-95 transition-all duration-300"
             >
-              Get In Touch
+              <SendHorizontal size={16} />
+              <span> Get In Touch</span>
             </Link>
           </div>
         </div>
