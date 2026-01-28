@@ -37,7 +37,7 @@ const AboutMe = () => {
               {/* Image Container */}
               <div className="relative h-full w-full rounded-[40px] overflow-hidden border border-white/10 bg-slate-900">
                 <Image
-                  src="/images/fuad.png"
+                  src="/images/me.jpg"
                   fill
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                   alt="Tanvir Mahmud Fuad"
