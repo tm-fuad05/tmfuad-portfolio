@@ -126,6 +126,17 @@ const ContactMe = () => {
                     required
                   />
                 </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2 text-slate-200">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
+                    required
+                  />
+                </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-200">
