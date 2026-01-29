@@ -110,6 +110,11 @@ const Skills = () => {
       name: "Git",
       category: "Tools",
     },
+    {
+      logo: "/images/github.webp",
+      name: "Github",
+      category: "Tools",
+    },
   ];
 
   const filteredLogos =
