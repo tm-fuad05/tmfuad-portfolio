@@ -35,13 +35,13 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
         </h2>
       </div>
 
-      <div className="relative z-10 mt-6 max-w-2xl mx-auto text-center">
-        <p className="text-slate-400 text-base md:text-md lg:text-lg font-light leading-relaxed px-4">
+      <div className="relative z-10 mt-4 max-w-2xl mx-auto text-center">
+        <p className="text-slate-400 text-sm md:text-md lg:text-lg font-light leading-relaxed px-4">
           {subtitle}
         </p>
       </div>
 
-      <div className="mt-10 flex items-center gap-4">
+      <div className="mt-8 flex items-center gap-4">
         <div className="h-px w-12 bg-linear-to-r from-transparent to-primary/50" />
         <div className="flex gap-1.5">
           <motion.div
