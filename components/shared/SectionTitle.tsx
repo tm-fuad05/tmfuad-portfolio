@@ -17,7 +17,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="mb-5"
+          className="relative z-10 mb-4 p-3 rounded-2xl shadow-2xl shadow-primary/20 bg-linear-to-b from-primary to-secondary"
         >
           {icon}
         </motion.div>

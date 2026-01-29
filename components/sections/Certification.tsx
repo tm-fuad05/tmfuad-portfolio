@@ -25,9 +25,7 @@ const Certification = () => {
         subtitle={
           "Industry-recognized certifications that validate my technical skills and continuous learning"
         }
-        icon={
-          <SlBadge className="text-white text-6xl p-3 rounded-2xl bg-linear-to-b from-primary to-secondary shadow-lg shadow-blue-500/20" />
-        }
+        icon={<SlBadge className="text-white text-4xl lg:text-5xl" />}
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 lg:px-16 mb-10">
         {certifications.map((cert, index) => (
