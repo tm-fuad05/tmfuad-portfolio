@@ -33,7 +33,7 @@ const Certification = () => {
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 border-2 border-white/20 rounded-lg transition-transform duration-300 relative group hover:scale-103 group"
+            className="flex flex-col gap-2 border-2 border-white/20 rounded-lg transition-transform duration-300 relative group group"
           >
             <figure className="relative group">
               <div className="relative w-full h-60 md:h-72 rounded-t-lg overflow-hidden">

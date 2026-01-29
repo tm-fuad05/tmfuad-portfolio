@@ -82,11 +82,15 @@ const Banner = () => {
           <div>
             <h1 className="bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-500 bg-opacity-50 capitalize text-center md:text-left font-extrabold text-4xl md:text-5xl lg:text-7xl h-18.75 md:h-25 lg:h-36">
               <Typewriter
-                words={["FrontEnd developer", "MERN stack specialist"]}
+                words={[
+                  "Full Stack Web Developer",
+                  "Next.js & TypeScript Enthusiast",
+                  "Scalable Database Architect",
+                ]}
                 loop={0}
-                typeSpeed={60}
-                deleteSpeed={70}
-                delaySpeed={1000}
+                typeSpeed={40}
+                deleteSpeed={40}
+                delaySpeed={1500}
               />
             </h1>
           </div>
