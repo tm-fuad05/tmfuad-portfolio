@@ -17,101 +17,115 @@ const Skills = () => {
 
   const logos: Logo[] = [
     {
-      logo: "/images/html.png",
+      logo: "/images/icons/html.png",
       name: "HTML",
       category: "Frontend",
     },
     {
-      logo: "/images/css.png",
+      logo: "/images/icons/css.png",
       name: "CSS",
       category: "Frontend",
     },
     {
-      logo: "/images/javascript.png",
+      logo: "/images/icons/javascript.png",
       name: "Javascript",
       category: "Frontend",
     },
     {
-      logo: "/images/react.png",
+      logo: "/images/icons/typescript.png",
+      name: "Typescript",
+      category: "Frontend",
+    },
+    {
+      logo: "/images/icons/tailwind.png",
+      name: "Tailwind",
+      category: "Frontend",
+    },
+    {
+      logo: "/images/icons/react.png",
       name: "React",
       category: "Frontend",
     },
     {
-      logo: "/images/nextjs.png",
+      logo: "/images/icons/nextjs.png",
       name: "Next JS",
       category: "Frontend",
     },
     {
-      logo: "/images/typescript.png",
-      name: "Typescript",
+      logo: "/images/icons/motion.png",
+      name: "Framer Motion",
       category: "Frontend",
     },
-
     {
-      logo: "/images/node.png",
+      logo: "/images/icons/node.png",
       name: "Node.js",
       category: "Backend",
     },
     {
-      logo: "/images/express.png",
+      logo: "/images/icons/express.png",
       name: "Express.js",
       category: "Backend",
     },
     {
-      logo: "/images/jwt.svg",
+      logo: "/images/icons/jwt.svg",
       name: "JWT",
       category: "Backend",
     },
 
     {
-      logo: "/images/mongodb.png",
+      logo: "/images/icons/mongodb.png",
       name: "MongoDB",
       category: "Database",
     },
     {
-      logo: "/images/postgresql.png",
+      logo: "/images/icons/postgresql.png",
       name: "PostgreSQL",
       category: "Database",
     },
     {
-      logo: "/images/firebase.png",
+      logo: "/images/icons/firebase.png",
       name: "Firebase",
-      category: "Database",
+      category: "Authentication",
     },
 
     {
-      logo: "/images/nextauth.png",
+      logo: "/images/icons/nextauth.png",
       name: "NextAuth",
       category: "Authentication",
     },
     {
-      logo: "/images/clerk.png",
+      logo: "/images/icons/clerk.png",
       name: "Clerk",
       category: "Authentication",
     },
 
     {
-      logo: "/images/zustand.svg",
+      logo: "/images/icons/zustand.svg",
       name: "Zustand",
       category: "State & Validation",
     },
     {
-      logo: "/images/zod.png",
+      logo: "/images/icons/zod.png",
       name: "Zod",
       category: "State & Validation",
     },
     {
-      logo: "/images/vscode.png",
+      logo: "/images/icons/tanstack.png",
+      name: "Tanstack",
+      category: "State & Validation",
+    },
+    {
+      logo: "/images/icons/vscode.png",
       name: "VS Code",
       category: "Tools",
     },
     {
-      logo: "/images/git.png",
+      logo: "/images/icons/git.png",
       name: "Git",
       category: "Tools",
     },
     {
-      logo: "/images/github.webp",
+      logo: "/images/icons/github.webp",
       name: "Github",
       category: "Tools",
     },
