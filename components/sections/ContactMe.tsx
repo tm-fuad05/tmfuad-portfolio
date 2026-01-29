@@ -122,7 +122,7 @@ const ContactMe = () => {
                   <input
                     type="text"
                     name="name"
-                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
                     required
                   />
                 </div>
@@ -133,7 +133,7 @@ const ContactMe = () => {
                   <input
                     type="email"
                     name="email"
-                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
                     required
                   />
                 </div>
@@ -145,7 +145,7 @@ const ContactMe = () => {
                   <input
                     type="text"
                     name="subject"
-                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
                     required
                   />
                 </div>
@@ -157,7 +157,7 @@ const ContactMe = () => {
                   <textarea
                     name="message"
                     rows={4}
-                    className="w-full p-2 border border-primary text-slate-200 rounded-lg  outline-none"
+                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
                     required
                   />
                 </div>
