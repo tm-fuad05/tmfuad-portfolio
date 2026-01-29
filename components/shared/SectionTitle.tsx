@@ -36,7 +36,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
       </div>
 
       <div className="relative z-10 mt-6 max-w-2xl mx-auto text-center">
-        <p className="text-slate-400 text-base md:text-lg lg:text-xl font-light leading-relaxed px-4">
+        <p className="text-slate-400 text-base md:text-md lg:text-lg font-light leading-relaxed px-4">
           {subtitle}
         </p>
       </div>

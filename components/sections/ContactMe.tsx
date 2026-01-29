@@ -18,10 +18,20 @@ import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import HoverLight from "../ui/hover-spotlight";
 
 const ContactMe = () => {
+  const form = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
   interface Icons {
     icon: LucideIcon;
     href: string;
   }
+
+  const [status, setStatus] = useState<Status>({
+    show: false,
+    success: false,
+    message: "",
+  });
+
   const icons: Icons[] = [
     { icon: Github, href: "https://github.com/tm-fuad05" },
     {
@@ -31,20 +41,11 @@ const ContactMe = () => {
     { icon: Twitter, href: "https://x.com/tm_fuad05" },
   ];
 
-  const form = useRef<HTMLFormElement | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-
   interface Status {
     show: boolean;
     success: boolean;
     message: string;
   }
-
-  const [status, setStatus] = useState<Status>({
-    show: false,
-    success: false,
-    message: "",
-  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +78,7 @@ const ContactMe = () => {
       setLoading(false);
       setTimeout(
         () => setStatus({ show: false, success: false, message: "" }),
-        5000,
+        2000,
       );
     }
   };
@@ -107,12 +108,12 @@ const ContactMe = () => {
           <HoverLight
             size={300}
             color="var(--primary)"
-            borderOpacity={90}
-            innerOpacity={20}
+            borderOpacity={100}
+            innerOpacity={0}
             border={2}
             className="h-full"
           >
-            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/20 rounded-3xl lg:bg-black lg:border-none p-8">
+            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/5 rounded-3xl lg:bg-slate-950 p-8">
               <form className=" space-y-4" ref={form} onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-200">
@@ -191,11 +192,11 @@ const ContactMe = () => {
             size={300}
             color="#1e90ff"
             borderOpacity={90}
-            innerOpacity={15}
+            innerOpacity={0}
             border={2}
             className="h-full"
           >
-            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/20 rounded-3xl lg:bg-black lg:border-none p-8">
+            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/5 rounded-3xl lg:bg-slate-950 p-8">
               <div className="relative">
                 <div className="absolute -top-4 -right-4 w-32 h-32 bg-secondary/10 rounded-full blur-sm animate-pulse" />
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-full blur-sm animate-pulse" />
