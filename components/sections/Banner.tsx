@@ -47,7 +47,7 @@ const Banner = () => {
 
   return (
     <DynamicSpotlight
-      radius={{ sm: 500, md: 400, lg: 700 }}
+      radius={{ sm: 800, md: 400, lg: 700 }}
       darkness={0.95}
       revealOpacity={0.7}
       initialPos={{ x: 50, y: 0 }}
@@ -84,7 +84,7 @@ const Banner = () => {
               <Typewriter
                 words={[
                   "Full Stack Web Developer",
-                  "Next.js & TypeScript Enthusiast",
+                  "Next.js & TS Specialist",
                   "Scalable Database Architect",
                 ]}
                 loop={0}
