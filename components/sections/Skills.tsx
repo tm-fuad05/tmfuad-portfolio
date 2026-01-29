@@ -100,6 +100,16 @@ const Skills = () => {
       name: "Zod",
       category: "State & Validation",
     },
+    {
+      logo: "/images/vscode.png",
+      name: "VS Code",
+      category: "Tools",
+    },
+    {
+      logo: "/images/git.png",
+      name: "Git",
+      category: "Tools",
+    },
   ];
 
   const filteredLogos =
