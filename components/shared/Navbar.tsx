@@ -56,7 +56,7 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <div className="px-6 md:px-10 lg:px-16 fixed top-5 z-50 w-full">
+      <div className="px-6 md:px-10 lg:px-16 fixed top-5 z-40 w-full">
         <AnimatedNav className="flex items-center justify-between px-4 border border-slate-800">
           <figure className="relative w-10 h-7 md:w-12.5 md:h-10 ">
             <Link href="#home">
