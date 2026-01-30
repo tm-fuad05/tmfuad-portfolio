@@ -103,7 +103,7 @@ const Navbar = () => {
       <aside
         id="mob-nav"
         className={`fixed top-0 left-0 h-full w-3/4 max-w-sm z-50 transition-all duration-500 ease-in-out lg:hidden
-    bg-slate-950/80 backdrop-blur-2xl border-r border-white/10 shadow-2xl
+    bg-slate-950/80 backdrop-blur-2xl border-r border-white/10 shadow-2xl overflow-y-auto
     ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"}
   `}
       >
