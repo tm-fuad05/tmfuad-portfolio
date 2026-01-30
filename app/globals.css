@@ -254,7 +254,7 @@ body {
 }
 
 /* Medium Screen */
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   ::-webkit-scrollbar {
     width: 1px;
   }
