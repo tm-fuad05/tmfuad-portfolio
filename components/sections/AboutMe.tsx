@@ -60,7 +60,7 @@ const AboutMe = () => {
               <h4 className="text-primary font-mono tracking-widest uppercase text-sm">
                 Introduction
               </h4>
-              <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
                 About{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-blue-400">
                   Me
