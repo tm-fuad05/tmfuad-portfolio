@@ -1,6 +1,5 @@
 "use client";
 import SectionTitle from "../shared/SectionTitle";
-import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Tabs from "../shared/SkillsTab";
@@ -9,7 +8,7 @@ import { useState } from "react";
 interface Logo {
   logo: string;
   name: string;
-  category: string;
+  category: string | string[];
 }
 
 const Skills = () => {
@@ -69,9 +68,8 @@ const Skills = () => {
     {
       logo: "/images/icons/jwt.svg",
       name: "JWT",
-      category: "Backend",
+      category: ["Backend", "Authentication"],
     },
-
     {
       logo: "/images/icons/mongodb.png",
       name: "MongoDB",
@@ -83,11 +81,15 @@ const Skills = () => {
       category: "Database",
     },
     {
+      logo: "/images/icons/prisma.png",
+      name: "Prisma",
+      category: ["Backend", "Database"],
+    },
+    {
       logo: "/images/icons/firebase.png",
       name: "Firebase",
       category: "Authentication",
     },
-
     {
       logo: "/images/icons/nextauth.png",
       name: "NextAuth",
@@ -107,7 +109,7 @@ const Skills = () => {
     {
       logo: "/images/icons/zod.png",
       name: "Zod",
-      category: "State & Validation",
+      category: ["State & Validation", "Backend"],
     },
     {
       logo: "/images/icons/tanstack.png",
@@ -131,15 +133,19 @@ const Skills = () => {
     },
   ];
 
+  const tabList: string[] = [
+    "All",
+    ...new Set(logos.flatMap((logo) => logo.category)),
+  ];
+
   const filteredLogos =
     activeTab === "All"
       ? logos
-      : logos.filter((logo) => logo.category === activeTab);
-
-  const tabList: string[] = [
-    "All",
-    ...new Set(logos.map((tab) => tab.category)),
-  ];
+      : logos.filter((logo) =>
+          Array.isArray(logo.category)
+            ? logo.category.includes(activeTab)
+            : logo.category === activeTab,
+        );
 
   return (
     <motion.div

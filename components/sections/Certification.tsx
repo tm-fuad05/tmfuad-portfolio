@@ -31,10 +31,10 @@ const Certification = () => {
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="flex flex-col gap-2 border-2 border-white/20 rounded-lg transition-transform duration-300 relative group group"
+            className="flex flex-col gap-2 border-2 border-white/20 rounded-3xl transition-transform duration-300 relative group group"
           >
             <figure className="relative group">
-              <div className="relative w-full h-60 md:h-72 rounded-t-lg overflow-hidden">
+              <div className="relative w-full h-60 md:h-72 rounded-t-2xl overflow-hidden">
                 <Image
                   fill
                   src={cert.img}
@@ -62,7 +62,7 @@ const Certification = () => {
               {/* Date & ID */}
               <div className="flex gap-3 w-full text-white grow">
                 {/* Issue Date */}
-                <div className="flex items-center bg-white/10 backdrop-blur-lg p-3 rounded-md w-1/2">
+                <div className="flex items-center bg-white/10 backdrop-blur-lg p-3 rounded-lg w-1/2">
                   <MdOutlineDateRange className="inline-block mr-2 text-lg text-purple-400" />
                   <div className="leading-relaxed">
                     <p className="text-paragraph text-xs ">Issue Date</p>
@@ -71,7 +71,7 @@ const Certification = () => {
                 </div>
                 {/* Credential ID */}
                 {cert.credentialID && (
-                  <div className="flex items-center bg-white/10 backdrop-blur-lg p-3 rounded-md w-1/2">
+                  <div className="flex items-center bg-white/10 backdrop-blur-lg p-3 rounded-lg w-1/2">
                     <GrNotes className="inline-block mr-2 text-md text-green-400" />
                     <div className="leading-relaxed">
                       <p className="text-paragraph text-xs ">Credential ID</p>
@@ -87,7 +87,7 @@ const Certification = () => {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 text-white hover:from-secondary hover:to-primary transition duration-300 rounded-md px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
+                className="bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 text-white hover:from-secondary hover:to-primary transition duration-300 rounded-lg px-4 py-2 font-semibold cursor-pointer flex items-center justify-center gap-2"
               >
                 View Credential{" "}
                 <HiMiniArrowTopRightOnSquare className="text-lg" />

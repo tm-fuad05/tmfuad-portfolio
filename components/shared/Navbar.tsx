@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-md hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex justify-between items-center gap-2 hidden"
+            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-lg hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex justify-between items-center gap-2 hidden"
           >
             <SendHorizontal size={17} />
             <span> Get In Touch</span>
@@ -151,7 +151,6 @@ const Navbar = () => {
                 />
               </span>
 
-              {/* হোভার ইফেক্ট (v4 এনিমেটেড গ্রেডিয়েন্ট) */}
               <div
                 className={`absolute inset-0 rounded-2xl bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity`}
               />
@@ -163,7 +162,7 @@ const Navbar = () => {
             <Link
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-4 px-6 font-bold text-white rounded-xl 
+              className="flex items-center justify-center gap-2 w-full py-4 px-6 font-bold text-white rounded-lg 
           bg-linear-to-r from-primary to-blue-600 shadow-lg shadow-primary/20
           hover:shadow-primary/40 active:scale-95 transition-all duration-300"
             >

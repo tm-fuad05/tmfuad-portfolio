@@ -118,12 +118,12 @@ const Banner = () => {
           <div className="flex gap-3 mt-5">
             <button
               onClick={handlePDFDownload}
-              className=" bg-linear-to-r from-secondary to-transparent text-white hover:bg-linear-to-r hover:from-secondary hover:to-primary transition duration-300 rounded-md px-4 py-2 font-semibold  cursor-pointer flex items-center gap-2"
+              className=" bg-linear-to-r from-secondary to-transparent text-white hover:bg-linear-to-r hover:from-secondary hover:to-primary transition duration-300 rounded-lg px-4 py-2 font-semibold  cursor-pointer flex items-center gap-2"
             >
               <IoMdCloudDownload /> Resume
             </button>
             <Link href="#projects">
-              <button className=" border border-primary text-white rounded-md px-4 py-2 font-semibold hover:shadow-sm hover:shadow-primary cursor-pointer duration-300 capitalize flex items-center gap-2 ">
+              <button className=" border border-primary text-white rounded-lg px-4 py-2 font-semibold hover:shadow-sm hover:shadow-primary cursor-pointer duration-300 capitalize flex items-center gap-2 ">
                 <MdRocketLaunch /> view projects
               </button>
             </Link>

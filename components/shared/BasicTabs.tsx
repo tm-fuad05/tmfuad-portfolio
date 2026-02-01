@@ -6,7 +6,7 @@ const BasicTabs = () => {
   const tabActiveClass: string = "border-primary! text-primary! font-semibold!";
 
   return (
-    <div className="flex flex-col gap-3 grow">
+    <div className="flex flex-col gap-3 grow ">
       {/* Tab Item */}
       <ul className="flex items-center gap-5 border-b border-gray-300/30">
         <li
@@ -29,39 +29,99 @@ const BasicTabs = () => {
         </li>
       </ul>
       {/* Tab Content */}
-      <div className=" grow ">
-        <div className="text-paragraph text-sm md:text-md lg:text-[15px]">
+      <div>
+        <div className="text-paragraph text-sm md:text-md lg:text-[17px] p-1">
           {isActive === 1 && (
             <p>
               I’m{" "}
-              <strong className="text-lg lg:text-xl">Tanvir Mahmud Fuad</strong>{" "}
-              — a dedicated Web Developer with a strong focus on creating
-              modern, responsive, and user-friendly interfaces. I work primaryly
-              with React, JavaScript, and Tailwind CSS, turning ideas into
-              polished digital experiences. <br />I enjoy crafting clean UI
-              layouts, optimizing performance, and improving overall user
-              experience through thoughtful design principles. Whether it’s
-              building reusable components or integrating API-driven features,
-              I’m always excited to explore new ways to make the web more
-              intuitive and enjoyable. <br />
-              My goal is to grow as a developer, build meaningful projects, and
-              collaborate on creative, impactful solutions.
+              <strong className="text-lg lg:text-xl font-bold text-white">
+                Tanvir Mahmud Fuad
+              </strong>{" "}
+              — a Full-Stack Developer specializing in building high-performance
+              web applications using the{" "}
+              <span className="font-semibold text-blue-400">
+                MERN Stack, Next.js, and TypeScript
+              </span>
+              .
+              <br />
+              <br />
+              Currently transitioning from NoSQL to{" "}
+              <span className=" font-medium text-green-400 decoration-2">
+                PostgreSQL with Prisma ORM
+              </span>
+              , I focus on writing type-safe, scalable code and architecting
+              robust backends. I thrive on optimizing performance, crafting
+              clean UI with{" "}
+              <span className="font-semibold text-purple-400">
+                Tailwind CSS
+              </span>
+              , and delivering seamless user experiences through modern web
+              standards and thoughtful design principles.
             </p>
           )}
           {isActive === 2 && (
-            <p>
-              I specialize in building fast, scalable, and user-focused web
-              applications using the MERN Stack. My expertise includes crafting
-              clean UI/UX, structuring efficient frontend architecture, and
-              developing secure, optimized backend APIs. I’m experienced in
-              component-driven development, RESTful integrations, authentication
-              systems, and database design with MongoDB. I enjoy transforming
-              complex ideas into elegant digital solutions—focusing on
-              performance, responsiveness, and smooth user experience.
-              Continually learning and improving, I love working with modern
-              tools and best practices to deliver production-ready web
-              applications.
-            </p>
+            <div>
+              <p>
+                I am a results-driven{" "}
+                <span className="text-purple-400 font-semibold">
+                  Full-Stack Developer
+                </span>{" "}
+                focused on building high-performance, scalable web applications.
+                My technical proficiency spans across various modern tools and
+                frameworks, with a core focus on the following areas:
+              </p>
+              <br />
+              <div className="space-y-4">
+                {/* Intro Paragraph */}
+
+                {/* Expertise List */}
+                <ul className="space-y-2 list-disc pl-4">
+                  <li>
+                    <span className="text-white font-bold">Core Stack:</span>{" "}
+                    Specialized in
+                    <span className="font-medium text-white"> Next.js</span>,
+                    <span className="font-medium text-white"> React</span> and
+                    <span className="font-medium text-white"> TypeScript</span>.
+                  </li>
+
+                  <li>
+                    <span className="text-white font-bold">Backend & DB:</span>{" "}
+                    Architecting with
+                    <span className="font-medium text-white">
+                      {" "}
+                      PostgreSQL (Prisma)
+                    </span>
+                    ,<span className="font-medium text-white"> MongoDB</span>
+                    and
+                    <span className="font-medium text-white"> Node.js</span>.
+                  </li>
+
+                  <li>
+                    <span className="text-white font-bold">
+                      Auth & Security:
+                    </span>{" "}
+                    Expert in
+                    <span className="font-medium text-white"> Clerk</span>,
+                    <span className="font-medium text-white"> NextAuth</span>,
+                    <span className="font-medium text-white"> JWT</span> and
+                    <span className="font-medium text-white"> Firebase</span>.
+                  </li>
+
+                  <li>
+                    <span className="text-white font-bold">Reliability:</span>{" "}
+                    Utilizing
+                    <span className="font-medium text-white"> Zod</span> for
+                    validation,
+                    <span className="font-medium text-white">
+                      {" "}
+                      TanStack Query
+                    </span>
+                    and
+                    <span className="font-medium text-white"> Zustand</span>.
+                  </li>
+                </ul>
+              </div>
+            </div>
           )}
         </div>
       </div>

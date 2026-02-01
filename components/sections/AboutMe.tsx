@@ -69,7 +69,7 @@ const AboutMe = () => {
             </div>
 
             {/* Tabs Section */}
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-2xl lg:min-h-80 flex flex-col">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-2xl lg:min-h-76 flex flex-col">
               <BasicTabs />
             </div>
 
