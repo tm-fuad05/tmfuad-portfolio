@@ -10,7 +10,7 @@ const Experience = () => {
   return (
     <div
       id="experience"
-      className="min-h-screen py-24 px-6 md:px-10 lg:px-16 bg-black rounded-t-[60px] rounded-b-[60px] relative overflow-hidden"
+      className="min-h-screen py-24 px-6 md:px-10 lg:px-16 bg-black relative overflow-hidden"
     >
       <div className="w-full absolute inset-0 z-0">
         <SparklesCore
