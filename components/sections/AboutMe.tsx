@@ -17,10 +17,6 @@ const AboutMe = () => {
   return (
     <div id="about" className="py-20 px-6 md:px-10 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto relative">
-        {/* Decorative Background Glows */}
-        <div className="absolute top-0 -left-20 w-72 h-72 bg-primary/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-0 -right-20 w-72 h-72 bg-blue-600/10 blur-[120px] rounded-full" />
-
         <div className="relative w-full flex flex-col-reverse lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Side: Profile Image with Advanced Frame */}
           <motion.div
