@@ -83,7 +83,7 @@ const Banner = () => {
             <h1 className="bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-500 bg-opacity-50 capitalize text-center md:text-left font-extrabold text-4xl md:text-5xl lg:text-7xl h-18.75 md:h-25 lg:h-36">
               <Typewriter
                 words={[
-                  "Full Stack Web Developer",
+                  "Software Developer",
                   "Next.js & TS Specialist",
                   "Scalable Database Architect",
                 ]}
