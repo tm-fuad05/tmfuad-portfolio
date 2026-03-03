@@ -7,8 +7,6 @@ import { FaGithub } from "react-icons/fa";
 import { LuCircleFadingArrowUp } from "react-icons/lu";
 
 const Projects = () => {
-  const tags = ["React", "Express", "MongoDB"];
-
   const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
 
   const toggleExpand = (id: number) => {
@@ -74,7 +72,7 @@ const Projects = () => {
               </p>
               {/* Tags */}
               <div className="flex gap-2 mt-3">
-                {tags.map((tag, idx) => (
+                {card.tags.map((tag, idx) => (
                   <span
                     key={idx}
                     className="
