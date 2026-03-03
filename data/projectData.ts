@@ -15,6 +15,7 @@ export const projectCards = [
     title: "Vintax",
     description:
       "Vintax is a high-end, bilingual e-commerce destination that redefines modern fashion retail through a futuristic Blue-Indigo aesthetic and a seamless, high-performance interface. Built with Next.js 15, the platform features an immersive Glassmorphic UI, mega-typography, and sophisticated role-based access for Admins, Designers, and Members. Integrating secure Stripe payments, real-time data synchronization, and a community-driven fashion forum, Vintax provides a fluid, no-refresh shopping experience that perfectly blends luxury style with cutting-edge digital innovation.",
+    processing: true,
     tags: ["Next.Js", "Postgres", "Zod", "Clerk"],
     date: "12-APR-2026",
     live: "https://vintax.vercel.app/",

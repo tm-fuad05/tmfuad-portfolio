@@ -39,11 +39,14 @@ const Projects = () => {
             className="border boarder-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400! overflow-hidden group"
           >
             {/* Image */}
-            <img
-              className="pb-2 rounded-t-3xl group-hover:scale-107 duration-300"
-              src={card.image}
-              alt=""
-            />
+            <div className="relative  group-hover:scale-107 duration-300">
+              <img className="pb-2 rounded-t-3xl" src={card.image} alt="" />
+              {card?.processing && (
+                <p className="absolute bottom-2 bg-green-800 inset-x-px pl-2 pt-1 text-sm text-white font-medium text-center">
+                  In Development
+                </p>
+              )}
+            </div>
 
             {/* Content */}
             <div className="p-5 pt-0 border-t border-paragraph ">
