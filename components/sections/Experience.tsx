@@ -32,27 +32,13 @@ const Experience = () => {
           subtitle="Merging cutting-edge technology with high-performance engineering."
         />
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20"
-          initial="hidden"
-          whileInView="show"
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.1 } },
-          }}
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
           {expertise.map((item, index) => (
             <motion.div
-              variants={{
-                hidden: { opacity: 0, skewY: 20, filter: "blur(10px)" },
-                show: {
-                  opacity: 1,
-                  skewY: 0,
-                  filter: "blur(0px)",
-                  transition: { duration: 0.6 },
-                },
-              }}
+              initial={{ opacity: 0, skewY: 20 }}
+              whileInView={{ opacity: 1, skewY: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
               key={index}
               className="h-full relative"
             >
@@ -93,7 +79,7 @@ const Experience = () => {
               </HoverLight>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
