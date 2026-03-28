@@ -16,8 +16,8 @@ const Banner = () => {
   // Download Resume
   const handlePDFDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Resume.pdf";
-    link.download = "resume.pdf";
+    link.href = "/tmfuad_resume.pdf";
+    link.download = "tmfuad_resume.pdf";
     link.click();
   };
 
