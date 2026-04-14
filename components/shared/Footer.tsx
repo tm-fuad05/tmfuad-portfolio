@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
-// react icons
-
-import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { ReactNode } from "react";
 import Image from "next/image";
-import { SparklesCore } from "../ui/sparkles";
+import { socialIcons } from "../sections/Banner";
 
 const Footer = () => {
   const currentYear: number = new Date().getFullYear();
@@ -17,30 +12,6 @@ const Footer = () => {
     "about",
     "experience",
     "projects",
-  ];
-
-  interface SocialIcons {
-    link: string;
-    icon: ReactNode;
-  }
-
-  const socialIcons: SocialIcons[] = [
-    {
-      link: "https://www.linkedin.com/in/tmfuad05/",
-      icon: <FaLinkedinIn />,
-    },
-    {
-      link: "https://x.com/tm_fuad05",
-      icon: <FaXTwitter />,
-    },
-    {
-      link: "https://www.facebook.com/nafu2308",
-      icon: <FaFacebookF />,
-    },
-    {
-      link: "https://github.com/tm-fuad05",
-      icon: <FaGithub />,
-    },
   ];
 
   return (

@@ -12,6 +12,30 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { DynamicSpotlight } from "../ui/dynamic-spotlight";
 
+// Social Links
+interface SocialIcons {
+  link: string;
+  icon: ReactNode;
+}
+export const socialIcons: SocialIcons[] = [
+  {
+    link: "https://www.linkedin.com/in/tmfuad05/",
+    icon: <FaLinkedinIn />,
+  },
+  {
+    link: "https://x.com/tm_fuad05",
+    icon: <FaXTwitter />,
+  },
+  {
+    link: "https://www.facebook.com/tmfuad05",
+    icon: <FaFacebookF />,
+  },
+  {
+    link: "https://github.com/tm-fuad05",
+    icon: <FaGithub />,
+  },
+];
+
 const Banner = () => {
   // Download Resume
   const handlePDFDownload = () => {
@@ -20,30 +44,6 @@ const Banner = () => {
     link.download = "tmfuad_resume.pdf";
     link.click();
   };
-
-  interface SocialIcons {
-    link: string;
-    icon: ReactNode;
-  }
-
-  const socialIcons: SocialIcons[] = [
-    {
-      link: "https://www.linkedin.com/in/tmfuad05/",
-      icon: <FaLinkedinIn />,
-    },
-    {
-      link: "https://x.com/tm_fuad05",
-      icon: <FaXTwitter />,
-    },
-    {
-      link: "https://www.facebook.com/nafu2308",
-      icon: <FaFacebookF />,
-    },
-    {
-      link: "https://github.com/tm-fuad05",
-      icon: <FaGithub />,
-    },
-  ];
 
   return (
     <DynamicSpotlight
