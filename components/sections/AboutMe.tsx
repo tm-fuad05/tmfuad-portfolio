@@ -1,19 +1,12 @@
 "use client";
-import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import BasicTabs from "../shared/BasicTabs";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { socialIcons } from "./Banner";
 
 const AboutMe = () => {
-  const socialIcons = [
-    { link: "https://www.linkedin.com/in/tmfuad05/", icon: <FaLinkedinIn /> },
-    { link: "https://x.com/tm_fuad05", icon: <FaXTwitter /> },
-    { link: "https://www.facebook.com/nafu2308", icon: <FaFacebookF /> },
-    { link: "https://github.com/tm-fuad05", icon: <FaGithub /> },
-  ];
-
   return (
     <div id="about" className="py-20 px-6 md:px-10 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto relative">
