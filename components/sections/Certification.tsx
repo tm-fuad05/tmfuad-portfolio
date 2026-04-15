@@ -21,10 +21,10 @@ const Certification = () => {
         icon={<SlBadge className="text-white text-4xl lg:text-5xl" />}
       />
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ filter: "blur(20px)", y: 50 }}
+        whileInView={{ filter: "blur(0px)", y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         id="certifications"
         className="section"
       >

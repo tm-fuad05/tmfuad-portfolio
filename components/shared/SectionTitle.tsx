@@ -14,7 +14,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
       initial={{ filter: "blur(20px)", y: 50 }}
       whileInView={{ filter: "blur(0px)", y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       id="certifications"
       className="relative mb-20 flex flex-col items-center"
     >
@@ -31,7 +31,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
       )}
 
       <div className="relative z-10">
-        <h2 className="text-4xl md:text-5xl lg:text-8xl font-black text-center capitalize tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-center capitalize tracking-tight">
           <span className="bg-clip-text text-transparent bg-linear-to-b from-white via-white to-primary/50">
             {title}
           </span>
