@@ -10,7 +10,14 @@ interface SectionTitleProps {
 
 const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
   return (
-    <div className="relative mb-20 flex flex-col items-center">
+    <motion.div
+      initial={{ filter: "blur(20px)", y: 50 }}
+      whileInView={{ filter: "blur(0px)", y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      id="certifications"
+      className="relative mb-20 flex flex-col items-center"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-125 h-50 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
       {icon && (
@@ -24,11 +31,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
       )}
 
       <div className="relative z-10">
-        {/* <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl md:text-9xl lg:text-[10rem] font-black text-white/3 select-none whitespace-nowrap uppercase tracking-[0.2em]">
-          {title}
-        </h2> */}
-
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-center capitalize tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-8xl font-black text-center capitalize tracking-tight">
           <span className="bg-clip-text text-transparent bg-linear-to-b from-white via-white to-primary/50">
             {title}
           </span>
@@ -54,7 +57,7 @@ const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
         </div>
         <div className="h-px w-12 bg-linear-to-l from-transparent to-primary/50" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
