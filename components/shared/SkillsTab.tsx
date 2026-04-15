@@ -33,7 +33,7 @@ export default function Tabs({
               <motion.div
                 layoutId="active-pill"
                 className="absolute -inset-px rounded-lg bg-linear-to-br from-primary to-secondary  shadow-lg shadow-blue-500/20"
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.5 }}
               />
             )}
 
