@@ -22,7 +22,7 @@ const Projects = () => {
         }
       />
       <motion.div
-        initial={{ filter: "blur(20px)", y: 50 }}
+        initial={{ filter: "blur(10px)", y: 30 }}
         whileInView={{ filter: "blur(0px)", y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}

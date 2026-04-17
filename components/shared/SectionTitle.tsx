@@ -11,8 +11,8 @@ interface SectionTitleProps {
 const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
   return (
     <motion.div
-      initial={{ filter: "blur(20px)", y: 50 }}
-      whileInView={{ filter: "blur(0px)", y: 0 }}
+      initial={{ filter: "blur(10px)", opacity: 0, y: 30 }}
+      whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       id="certifications"
