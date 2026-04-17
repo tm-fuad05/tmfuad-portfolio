@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  const sections: string[] = [
+  const navLinks: string[] = [
     "home",
     "skills",
     "about",
@@ -46,7 +46,7 @@ const Navbar = () => {
     const unActive = document.getElementById("contact");
     if (unActive) observer.observe(unActive);
 
-    sections.forEach((id) => {
+    navLinks.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
@@ -68,17 +68,17 @@ const Navbar = () => {
               id="nav"
               className="lg:flex gap-10 text-slate-100 font-medium text-lg hidden"
             >
-              {sections.map((sec) => (
+              {navLinks.map((link) => (
                 <Link
-                  key={sec}
-                  href={`#${sec}`}
+                  key={link}
+                  href={`#${link}`}
                   className={`${
-                    sec === "faq" ? "uppercase" : "capitalize"
+                    link === "faq" ? "uppercase" : "capitalize"
                   } before:w-0 hover:before:w-full before:bg-blue-400 before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5  hover:text-blue-400 transition-all duration-300 before:left-0 ${
-                    active === sec && "text-blue-400"
+                    active === link && "text-blue-400"
                   }`}
                 >
-                  {sec}
+                  {link}
                 </Link>
               ))}
             </nav>
@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-lg hover:from-secondary hover:to-primary/70 cursor-pointer lg:flex justify-between items-center gap-2 hidden"
+            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-linkondary shadow-lg shadow-blue-500/20 rounded-lg hover:from-linkondary hover:to-primary/70 cursor-pointer lg:flex justify-between items-center gap-2 hidden"
           >
             <SendHorizontal size={17} />
             <span> Get In Touch</span>
@@ -128,26 +128,26 @@ const Navbar = () => {
 
         {/* ২. Nav Links Area */}
         <div className="flex flex-col gap-2 p-6 overflow-y-auto">
-          {sections.map((sec, idx) => (
+          {navLinks.map((link, idx) => (
             <Link
-              key={sec}
-              href={`#${sec}`}
+              key={link}
+              href={`#${link}`}
               onClick={() => setMenuOpen(false)}
               style={{ transitionDelay: `${idx * 50}ms` }}
               className={`
           group relative px-5 py-3 rounded-xl text-lg font-semibold transition-all duration-300
           ${
-            active === sec
+            active === link
               ? "bg-primary/20 text-primary border border-primary/20"
               : "text-slate-400 hover:bg-white/5 hover:text-white"
           }
-          ${sec === "faq" ? "uppercase" : "capitalize"}
+          ${link === "faq" ? "uppercase" : "capitalize"}
         `}
             >
               <span className="relative z-10 flex justify-between items-center">
-                {sec}
+                {link}
                 <span
-                  className={`w-1.5 h-1.5 rounded-full bg-primary transition-all duration-500 ${active === sec ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
+                  className={`w-1.5 h-1.5 rounded-full bg-primary transition-all duration-500 ${active === link ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
                 />
               </span>
 

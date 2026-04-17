@@ -175,7 +175,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 },
                 center: {
                   x: 50,
-                  y: 50,
+                  y: 30,
                   mode: "percent",
                   radius: 0,
                 },
