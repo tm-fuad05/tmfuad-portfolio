@@ -34,7 +34,7 @@ export function DynamicSpotlight({
   });
 
   const [pos, setPos] = React.useState<{ x: number; y: number } | null>(
-    initialPos
+    initialPos,
   );
   const [hover, setHover] = React.useState(false);
   const [persist, setPersist] = React.useState(isPersist);
@@ -77,8 +77,8 @@ export function DynamicSpotlight({
   const maskPosition = fixedPos
     ? "50% 50%"
     : pos
-    ? `${pos.x}px ${pos.y}px`
-    : "50% 50%";
+      ? `${pos.x}px ${pos.y}px`
+      : "50% 50%";
 
   return (
     <div

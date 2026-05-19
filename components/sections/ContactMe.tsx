@@ -84,17 +84,16 @@ const ContactMe = () => {
   };
 
   return (
-    <section>
+    <section id="contact" className="scroll-mt-0">
       <SectionTitle
         title={"get in touch"}
         subtitle={"Get in Touch and Let's Create Something Amazing"}
       />
       <motion.div
-        initial={{ filter: "blur(10px)", y: 30 }}
-        whileInView={{ filter: "blur(0px)", y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        id="contact"
         className="section w-full mx-auto px-6 md:px-10 lg:px-16"
       >
         <div className="grid md:grid-cols-2 gap-8">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Oxanium } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/lenis/SmoothScroll";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={oxanium.variable}>{children}</body>
+      <body className={oxanium.variable}>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

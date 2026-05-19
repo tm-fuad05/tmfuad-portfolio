@@ -7,6 +7,14 @@
   --paragraph: #cbd5e1;
   --radius: 0.625rem;
   --background: #020617;
+  /* fixed navbar: top-4 + bar height + small gap */
+  --nav-offset: 0rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-offset: 6.25rem;
+  }
 }
 
 @theme {
@@ -21,51 +29,32 @@ body {
   overflow-x: hidden;
   background-color: var(--background);
   font-family: var(--font-oxanium);
-  scroll-behavior: smooth;
 }
 
-/* Navbar Scroll Offset */
-.section {
-  scroll-margin-top: 200px;
+/* Navbar scroll offset (Lenis anchors read scroll-margin / scroll-padding) */
+html {
+  scroll-padding-top: var(--nav-offset);
 }
+
+#home,
+#skills,
 #about,
+#projects,
+#faq,
+#contact,
 #experience {
-  scroll-margin-top: 90px;
+  scroll-margin-top: var(--nav-offset);
 }
 
-@media (min-width: 768px) {
-  .section {
-    scroll-margin-top: 100px;
-  }
-  #about,
-  #experience {
-    scroll-margin-top: 0px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    scroll-margin-top: 200px;
-  }
-  #about,
-  #experience {
-    scroll-margin-top: 90px;
-  }
-}
-
-/* a.link-active { color: var(--color-primary) ; } */ /* * 1. Base Setup: Ensures the container covers the viewport */ /* * 1. Base Setup (same as before) */
+/* 1. Base Setup */
 .grid-background {
   min-height: 100vh;
   width: 100%;
-  /* background-color: #0d1a26; */
-  /* Deep dark background color */
   position: relative;
   z-index: 1;
 }
 
-/*
- * 2. Creating the Grid Lines and Mask
- */
+/* 2. Creating the Grid Lines and Mask */
 .grid-background::before {
   content: "";
   position: absolute;
@@ -75,70 +64,33 @@ body {
   height: 100%;
   z-index: -1;
 
-  /* --- Variables --- */
-  --line-color: rgba(
-    30,
-    144,
-    255,
-    0.5
-  ); /* Slightly stronger line color for the base */
+  --line-color: rgba(30, 144, 255, 0.4); 
   --grid-spacing: 50px;
 
-  /* 2a. Define the Grid Pattern */
   background-image:
     linear-gradient(to right, var(--line-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
+
+  -webkit-mask-image: 
+    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
+    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
   mask-image: 
-        /* MASK 1: Vertical Fade (Top/Bottom) */
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      /* Top edge is fully transparent (hidden) */ white 90%,
-      /* Fade-in completes at 10% */ white 90%,
-      /* Full visibility held until 90% */ transparent 100%
-        /* Bottom edge is fully transparent (hidden) */
-    ),
-    /* MASK 2: Horizontal/Radial Fade (Center Focus) - Same code as before */
-    radial-gradient(
-        circle at center,
-        white 0%,
-        white 25%,
-        rgba(255, 255, 255, 0.1) 70%,
-        rgba(0, 0, 0, 0) 100%
-      );
+    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
+    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
 
-  /* 3. Set the mask-composite property */
-  /* This tells the browser how to combine the two masks. */
-  /* 'luminosity' or 'source-in' are often used to blend the effects. */
-  mask-composite: intersect;
   -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 
-  /* Add vendor prefixes for wider browser support */
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      white 10%,
-      white 90%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at center,
-      white 0%,
-      white 25%,
-      rgba(255, 255, 255, 0.1) 70%,
-      rgba(0, 0, 0, 0) 100%
-    );
-  /* Animation (optional) */
-  animation: scan-move 3s linear infinite;
+  /* ✅ GPU Acceleration অন করা হয়েছে অ্যানিমেশনের জন্য */
+  will-change: transform; 
+  transform: translate3d(0,0,0);
+  animation: scan-move 4s linear infinite; 
 }
 
-/*
- * 3. Defining the Animation (Same as before)
- */
+/* 3. Defining the Animation (Optimized using transform instead of background-position if possible, but keeping it smooth) */
 @keyframes scan-move {
   0% {
     background-position: 0 0;
@@ -155,9 +107,6 @@ body {
   z-index: 1;
 }
 
-/*
- * 2. Creating the Grid Lines and Mask
- */
 .grid-section::before {
   content: "";
   position: absolute;
@@ -167,70 +116,25 @@ body {
   bottom: 0;
   z-index: -1;
 
-  /* --- Variables --- */
-  --line-color: rgba(
-    30,
-    144,
-    255,
-    0.1
-  ); /* Slightly stronger line color for the base */
+  --line-color: rgba(30, 144, 255, 0.08); 
   --grid-spacing: 20px;
 
-  /* 2a. Define the Grid Pattern */
   background-image:
     linear-gradient(to right, var(--line-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
+  -webkit-mask-image: 
+    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
+    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
   mask-image: 
-        /* MASK 1: Vertical Fade (Top/Bottom) */
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      /* Top edge is fully transparent (hidden) */ white 90%,
-      /* Fade-in completes at 10% */ white 90%,
-      /* Full visibility held until 90% */ transparent 100%
-        /* Bottom edge is fully transparent (hidden) */
-    ),
-    /* MASK 2: Horizontal/Radial Fade (Center Focus) - Same code as before */
-    radial-gradient(
-        circle at center,
-        white 0%,
-        white 25%,
-        rgba(255, 255, 255, 0.1) 70%,
-        rgba(0, 0, 0, 0) 10%
-      );
+    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
+    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
 
-  /* 3. Set the mask-composite property */
-  /* This tells the browser how to combine the two masks. */
-  /* 'luminosity' or 'source-in' are often used to blend the effects. */
-  mask-composite: intersect;
   -webkit-mask-composite: source-in;
-
-  /* Add vendor prefixes for wider browser support */
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      white 10%,
-      white 90%,
-      transparent 100%
-    ),
-    radial-gradient(
-      circle at center,
-      white 0%,
-      white 25%,
-      rgba(255, 255, 255, 0.1) 70%,
-      rgba(0, 0, 0, 0) 100%
-    );
-  /* Animation (optional) */
-  /* animation: scan-move 3s linear infinite;  */
+  mask-composite: intersect;
 }
-
-/* Glitch Effect */
-
-/* Custom border */
 
 @layer utilities {
   .text-shadow {
@@ -243,25 +147,44 @@ body {
   background: transparent;
 }
 
-/* Medium Screen */
 @media (min-width: 500px) {
   ::-webkit-scrollbar {
-    width: 1px;
+    width: 2px;
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
-    border-radius: 0;
+    background: var(--primary);
   }
 }
-/* Large Screen */
+
 @media (min-width: 1024px) {
   ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--color-primary), transparent);
+    background: linear-gradient(to bottom, var(--primary), transparent);
     border-radius: 50px;
   }
+}
+
+/* Lenis Scroll Setup - DO NOT TOUCH */
+html.lenis, html.lenis body {
+  height: auto !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 @theme inline {
@@ -282,27 +205,12 @@ body {
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {

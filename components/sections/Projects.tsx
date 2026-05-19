@@ -14,7 +14,7 @@ const Projects = () => {
   };
 
   return (
-    <section>
+    <section id="projects" className="scroll-mt-0">
       <SectionTitle
         title={"projects"}
         subtitle={
@@ -22,11 +22,10 @@ const Projects = () => {
         }
       />
       <motion.div
-        initial={{ filter: "blur(10px)", y: 30 }}
-        whileInView={{ filter: "blur(0px)", y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        id="projects"
         className="section flex flex-col items-center"
       >
         <div

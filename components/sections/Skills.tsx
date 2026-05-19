@@ -148,8 +148,7 @@ const Skills = () => {
         );
 
   return (
-    <section>
-      {" "}
+    <section id="skills" className="scroll-mt-0">
       <SectionTitle
         title={"Skills"}
         subtitle={
@@ -157,11 +156,10 @@ const Skills = () => {
         }
       />
       <motion.div
-        initial={{ filter: "blur(10px)", y: 30 }}
-        whileInView={{ filter: "blur(0px)", y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        id="skills"
         className="section flex flex-col items-center px-6 md:px-10 lg:px-16"
       >
         <Tabs

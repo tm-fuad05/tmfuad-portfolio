@@ -33,7 +33,7 @@ export function Button({
     <Component
       className={cn(
         "relative h-13 md:h-15 lg:h-19 w-full overflow-hidden bg-transparent p-px text-xl",
-        containerClassName
+        containerClassName,
       )}
       style={{
         borderRadius: borderRadius,
@@ -57,7 +57,7 @@ export function Button({
       <div
         className={cn(
           "relative flex h-full w-full items-center justify-center border border-slate-800 text-sm text-white antialiased backdrop-blur-xl",
-          className
+          className,
         )}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
@@ -69,7 +69,6 @@ export function Button({
     </Component>
   );
 }
-
 export const MovingBorder = ({
   children,
   duration = 8000,
@@ -96,11 +95,11 @@ export const MovingBorder = ({
 
   const x = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).x
+    (val) => pathRef.current?.getPointAtLength(val).x,
   );
   const y = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).y
+    (val) => pathRef.current?.getPointAtLength(val).y,
   );
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;

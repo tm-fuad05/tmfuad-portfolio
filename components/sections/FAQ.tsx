@@ -15,7 +15,7 @@ const FAQ = () => {
     setIsAccordionOpen((prevIndex) => (prevIndex === index ? null : index));
 
   return (
-    <section>
+    <section id="faq" className="scroll-mt-0">
       <SectionTitle
         title={"frequently asked questions"}
         subtitle={
@@ -28,7 +28,6 @@ const FAQ = () => {
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="section px-6 md:px-10 lg:px-16"
-        id="faq"
       >
         <div className="flex justify-between items-center">
           <motion.div
