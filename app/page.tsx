@@ -1,5 +1,6 @@
 import AboutMe from "@/components/sections/AboutMe";
 import Banner from "@/components/sections/Banner";
+import Education from "@/components/sections/Education";
 import Certification from "@/components/sections/Certification";
 import ContactMe from "@/components/sections/ContactMe";
 import Experience from "@/components/sections/Experience";
@@ -26,6 +27,7 @@ export default async function Home() {
       <AboutMe />
       {/* <Experience /> */}
       <Projects />
+      <Education />
       <FAQ />
       {/* <Certification /> */}
       <ContactMe />

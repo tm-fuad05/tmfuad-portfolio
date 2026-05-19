@@ -19,6 +19,7 @@ const Navbar = () => {
     "about",
     // "experience",
     "projects",
+    "education",
     "faq",
     // "certifications",
   ];
