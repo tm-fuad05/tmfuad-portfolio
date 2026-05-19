@@ -5,7 +5,7 @@ import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
-import { Button as AnimatedNav } from "../ui/navbar-moving-border";
+import { Button as AnimatedNav } from "@/components/ui/navbar-moving-border";
 
 import { SendHorizontal } from "lucide-react";
 
@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
           <Link
             href="#contact"
-            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-linkondary shadow-lg shadow-blue-500/20 rounded-lg hover:from-linkondary hover:to-primary/70 cursor-pointer lg:flex justify-between items-center gap-2 hidden"
+            className="text-slate-100 font-medium text-lg px-4 py-2 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 rounded-lg hover:from-secondary hover:to-primary cursor-pointer lg:flex justify-between items-center gap-2 hidden"
           >
             <SendHorizontal size={17} />
             <span> Get In Touch</span>
