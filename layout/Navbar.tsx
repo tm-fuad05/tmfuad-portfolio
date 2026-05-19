@@ -18,10 +18,10 @@ const Navbar = () => {
     "home",
     "skills",
     "about",
-    "experience",
+    // "experience",
     "projects",
     "faq",
-    "certifications",
+    // "certifications",
   ];
   useEffect(() => {
     const observer = new IntersectionObserver(

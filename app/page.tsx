@@ -25,10 +25,10 @@ export default async function Home() {
       </div>
       <Skills />
       <AboutMe />
-      <Experience />
+      {/* <Experience /> */}
       <Projects />
       <FAQ />
-      <Certification />
+      {/* <Certification /> */}
       <ContactMe />
       <Footer />
       <ScrollToUp />

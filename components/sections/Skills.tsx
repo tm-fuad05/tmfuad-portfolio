@@ -171,9 +171,9 @@ const Skills = () => {
         />
 
         <div className="py-5 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-4">
-          {filteredLogos.map((logo, idx) => (
+          {filteredLogos.map((logo) => (
             <div
-              key={idx}
+              key={`${activeTab}-${logo.name}`}
               className={`relative group flex flex-col items-center justify-center w-35 md:w-35 py-6 rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-md transition-all duration-500 ease-outhover:border-primary/50 hover:bg-primary/5 hover:-translate-y-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)]hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.2)] overflow-hidden animate-in slide-in-from-bottom-5 fade-in`}
             >
               {/* Background Glow on Hover */}
