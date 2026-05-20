@@ -11,10 +11,10 @@ interface SectionTitleProps {
 const SectionTitle = ({ title, subtitle, icon }: SectionTitleProps) => {
   return (
     <motion.div
-      initial={{ filter: "blur(15px)", opacity: 0, y: 30 }}
-      whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      // initial={{ opacity: 0, y: 30 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true }}
+      // transition={{ duration: 0.5, ease: "easeInOut" }}
       id="certifications"
       className="relative mb-20 flex flex-col items-center will-change-transform"
     >

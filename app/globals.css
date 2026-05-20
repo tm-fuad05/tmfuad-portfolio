@@ -7,14 +7,6 @@
   --paragraph: #cbd5e1;
   --radius: 0.625rem;
   --background: #020617;
-  /* fixed navbar: top-4 + bar height + small gap */
-  --nav-offset: 0rem;
-}
-
-@media (min-width: 768px) {
-  :root {
-    --nav-offset: 6.25rem;
-  }
 }
 
 @theme {
@@ -29,22 +21,6 @@ body {
   overflow-x: hidden;
   background-color: var(--background);
   font-family: var(--font-oxanium);
-}
-
-/* Navbar scroll offset (Lenis anchors read scroll-margin / scroll-padding) */
-html {
-  scroll-padding-top: var(--nav-offset);
-}
-
-#home,
-#skills,
-#about,
-#education,
-#projects,
-#faq,
-#contact,
-#experience {
-  scroll-margin-top: var(--nav-offset);
 }
 
 /* 1. Base Setup */
@@ -65,7 +41,7 @@ html {
   height: 100%;
   z-index: -1;
 
-  --line-color: rgba(30, 144, 255, 0.4); 
+  --line-color: rgba(30, 144, 255, 0.4);
   --grid-spacing: 50px;
 
   background-image:
@@ -74,21 +50,43 @@ html {
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
-
-  -webkit-mask-image: 
-    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
-    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
-  mask-image: 
-    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
-    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.1) 70%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      white 10%,
+      white 90%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at center,
+      white 0%,
+      white 25%,
+      rgba(255, 255, 255, 0.1) 70%,
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      white 10%,
+      white 90%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at center,
+      white 0%,
+      white 25%,
+      rgba(255, 255, 255, 0.1) 70%,
+      transparent 100%
+    );
 
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
 
-  /* ✅ GPU Acceleration অন করা হয়েছে অ্যানিমেশনের জন্য */
-  will-change: transform; 
-  transform: translate3d(0,0,0);
-  animation: scan-move 4s linear infinite; 
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  /* animation: scan-move 4s linear infinite; */
 }
 
 /* 3. Defining the Animation (Optimized using transform instead of background-position if possible, but keeping it smooth) */
@@ -117,7 +115,7 @@ html {
   bottom: 0;
   z-index: -1;
 
-  --line-color: rgba(30, 144, 255, 0.08); 
+  --line-color: rgba(30, 144, 255, 0.08);
   --grid-spacing: 20px;
 
   background-image:
@@ -126,12 +124,36 @@ html {
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
-  -webkit-mask-image: 
-    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
-    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
-  mask-image: 
-    linear-gradient(to bottom, transparent 0%, white 10%, white 90%, transparent 100%),
-    radial-gradient(circle at center, white 0%, white 25%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      white 10%,
+      white 90%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at center,
+      white 0%,
+      white 25%,
+      rgba(255, 255, 255, 0.05) 70%,
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      white 10%,
+      white 90%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at center,
+      white 0%,
+      white 25%,
+      rgba(255, 255, 255, 0.05) 70%,
+      transparent 100%
+    );
 
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
@@ -168,7 +190,8 @@ html {
 }
 
 /* Lenis Scroll Setup - DO NOT TOUCH */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto !important;
 }
 

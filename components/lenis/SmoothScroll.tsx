@@ -14,7 +14,7 @@ export default function SmoothScroll({
       options={{
         // Higher lerp = snappier scroll (less "floaty" lag). Do not use duration with lerp.
         lerp: 0.1,
-        duration: 1.2,
+        // duration: 1.2,
         smoothWheel: true,
         syncTouch: true,
         anchors: false,
