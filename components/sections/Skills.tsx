@@ -91,8 +91,8 @@ const Skills = () => {
       category: "Authentication",
     },
     {
-      logo: "/images/icons/nextauth.png",
-      name: "NextAuth",
+      logo: "/images/icons/betterauth.png",
+      name: "BetterAuth",
       category: "Authentication",
     },
     {
