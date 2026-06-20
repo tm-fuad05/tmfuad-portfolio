@@ -114,16 +114,18 @@ const Projects = () => {
                   </a>
 
                   {/* Server Repo */}
-                  <a
-                    href={card.githubServer}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full"
-                  >
-                    <button className="w-full py-2.5 border border-secondary/60 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-secondary/5 hover:shadow-sm hover:shadow-secondary/50 transition duration-300 whitespace-nowrap">
-                      Server <FaGithub className="text-sm flex-shrink-0" />
-                    </button>
-                  </a>
+                  {card?.githubServer && (
+                    <a
+                      href={card.githubServer}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full"
+                    >
+                      <button className="w-full py-2.5 border border-secondary/60 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-secondary/5 hover:shadow-sm hover:shadow-secondary/50 transition duration-300 whitespace-nowrap">
+                        Server <FaGithub className="text-sm flex-shrink-0" />
+                      </button>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
