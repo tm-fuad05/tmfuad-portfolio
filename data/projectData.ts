@@ -19,7 +19,8 @@ export const projectCards = [
     tags: ["Next.Js", "Postgres", "Zod", "Clerk"],
     date: "12-APR-2026",
     live: "https://vintax.vercel.app/",
-    github: "https://github.com/tm-fuad05/vintax",
+    githubClient: "https://github.com/tm-fuad05/vintax",
+    githubServer: "",
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ export const projectCards = [
     tags: ["React", "Express", "MongoDB"],
     date: "06-DEC-2024",
     live: "https://fit-rack-88a09.web.app/",
-    github: "https://github.com/tm-fuad05/fitrack-client",
+    githubClient: "https://github.com/tm-fuad05/fitrack-client",
+    githubServer: "https://github.com/tm-fuad05/fitrack-server",
   },
   {
     id: 3,
@@ -41,7 +43,8 @@ export const projectCards = [
     tags: ["React", "Express", "MongoDB"],
     date: "09-NOV-2024",
     live: "https://assignment-11-22249.web.app/",
-    github: "https://github.com/tm-fuad05/past-portals-client",
+    githubClient: "https://github.com/tm-fuad05/past-portals-client",
+    githubServer: "https://github.com/tm-fuad05/past-portals-server",
   },
   {
     id: 4,
@@ -53,5 +56,6 @@ export const projectCards = [
     date: "29-OCT-2024",
     live: "https://visa-navigator-c69e7.web.app/",
     github: "https://github.com/tm-fuad05/Visa-Navigator-client",
+    githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
   },
 ];

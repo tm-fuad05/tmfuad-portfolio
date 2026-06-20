@@ -1,9 +1,7 @@
 import AboutMe from "@/components/sections/AboutMe";
 import Banner from "@/components/sections/Banner";
 import Education from "@/components/sections/Education";
-import Certification from "@/components/sections/Certification";
 import ContactMe from "@/components/sections/ContactMe";
-import Experience from "@/components/sections/Experience";
 import FAQ from "@/components/sections/FAQ";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
@@ -25,11 +23,9 @@ export default async function Home() {
       </div>
       <Skills />
       <AboutMe />
-      {/* <Experience /> */}
       <Projects />
       <Education />
       <FAQ />
-      {/* <Certification /> */}
       <ContactMe />
       <Footer />
       <ScrollToUp />
