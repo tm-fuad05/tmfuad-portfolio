@@ -95,7 +95,7 @@ const Projects = () => {
                     rel="noreferrer"
                     className="w-full"
                   >
-                    <button className="w-full py-2.5 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/10 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-1 cursor-pointer hover:from-secondary hover:to-primary transition duration-300 whitespace-nowrap">
+                    <button className="w-full py-2.5 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/10 rounded-xl text-white text-sm font-semibold flex items-center justify-center gap-1 cursor-pointer hover:from-secondary hover:to-primary transition duration-300 whitespace-nowrap">
                       Live{" "}
                       <LuCircleFadingArrowUp className="text-sm rotate-45 flex-shrink-0" />
                     </button>
@@ -108,7 +108,7 @@ const Projects = () => {
                     rel="noreferrer"
                     className="w-full"
                   >
-                    <button className="w-full py-2.5 border border-primary/60 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-primary/5 hover:shadow-sm hover:shadow-primary/50 transition duration-300 whitespace-nowrap">
+                    <button className="w-full py-2.5 border border-primary/60 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-primary/5 hover:shadow-sm hover:shadow-primary/50 transition duration-300 whitespace-nowrap">
                       Client <FaGithub className="text-sm flex-shrink-0" />
                     </button>
                   </a>
@@ -120,7 +120,7 @@ const Projects = () => {
                     rel="noreferrer"
                     className="w-full"
                   >
-                    <button className="w-full py-2.5 border border-secondary/60 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-secondary/5 hover:shadow-sm hover:shadow-secondary/50 transition duration-300 whitespace-nowrap">
+                    <button className="w-full py-2.5 border border-secondary/60 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-secondary/5 hover:shadow-sm hover:shadow-secondary/50 transition duration-300 whitespace-nowrap">
                       Server <FaGithub className="text-sm flex-shrink-0" />
                     </button>
                   </a>
