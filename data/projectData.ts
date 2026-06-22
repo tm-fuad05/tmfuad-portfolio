@@ -42,7 +42,7 @@ export const projectCards = [
       "This web application allows users to track, manage, and interact with historical artifacts. Users can log in, add artifacts, and like artifacts while exploring detailed information about each item. The platform features dynamic authentication, private routes, and a user-friendly interface with smooth navigation, notifications, and loading states. The artifact management system supports CRUD operations, and users can see their contributions and liked artifacts.",
     tags: ["React", "Express", "MongoDB"],
     date: "09-NOV-2024",
-    live: "https://pastportals-nu.vercel.app/",
+    live: "https://pastportalsbd.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/past-portals-client",
     githubServer: "https://github.com/tm-fuad05/past-portals-server",
   },
