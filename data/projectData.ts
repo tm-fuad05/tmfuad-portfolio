@@ -54,7 +54,7 @@ export const projectCards = [
       "The Visa Navigator is a comprehensive web application designed to simplify the process of checking visa requirements, applying for visas, and tracking visa applications. It offers a user-friendly interface with features such as secure authentication (email/password and Google login), protected routes, and dynamic pages. Users can manage visa details, apply for visas, and track their applications through a personalized dashboard. The app supports CRUD operations for adding and updating visa information, with real-time notifications for successful actions. ",
     tags: ["React", "Express", "MongoDB"],
     date: "29-OCT-2024",
-    live: "https://visa-navigator-c69e7.web.app/",
+    live: "https://visorix.vercel.app/",
     github: "https://github.com/tm-fuad05/Visa-Navigator-client",
     githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
   },
