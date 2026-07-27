@@ -130,9 +130,9 @@ const AboutMe = () => {
             </div>
 
             {/* MAIN WORKBENCH GRID (Left Explorer + Right Editor) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-115">
               {/* LEFT PANEL: Interactive File Tree & Tech Status (4 cols) */}
-              <div className="lg:col-span-4 bg-[#161722]/80 border-b lg:border-b-0 lg:border-r border-white/10 p-4 sm:p-5 flex flex-col justify-between gap-6 relative">
+              <div className="hidden lg:col-span-4 bg-[#161722]/80 border-b lg:border-b-0 lg:border-r border-white/10 p-4 sm:p-5 lg:flex lg:flex-col justify-between gap-6 relative">
                 <div className="space-y-4">
                   {/* Explorer Header */}
                   <div className="flex items-center justify-between text-slate-400 text-xs font-mono tracking-wider uppercase border-b border-white/10 pb-2.5">
