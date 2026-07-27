@@ -13,8 +13,8 @@ interface HoverLightProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   size?: number;
   color?: string;
-  innerOpacity?: number; // ইনার লাইটের অপাসিটি (0-100)
-  borderOpacity?: number; // বর্ডারের অপাসিটি (0-100)
+  innerOpacity?: number;
+  borderOpacity?: number;
   border?: number;
 }
 
@@ -74,10 +74,10 @@ export default function HoverLight({
   }, [isDesktop]);
 
   // বর্ডার এবং ইনার কালার এখন প্রপস অনুযায়ী ডাইনামিক
-  const borderGradientColor = `color-mix(in srgb, ${color}, transparent ${
+  const borderlinearColor = `color-mix(in srgb, ${color}, transparent ${
     100 - borderOpacity
   }%)`;
-  const innerGradientColor = `color-mix(in srgb, ${color}, transparent ${
+  const innerlinearColor = `color-mix(in srgb, ${color}, transparent ${
     100 - innerOpacity
   }%)`;
 
@@ -97,7 +97,7 @@ export default function HoverLight({
           className="pointer-events-none absolute inset-0 z-0"
           style={{
             borderRadius: radius,
-            background: `radial-gradient(${size}px circle at ${position.x}px ${position.y}px, ${borderGradientColor}, transparent 100%)`,
+            background: `radial-gradient(${size}px circle at ${position.x}px ${position.y}px, ${borderlinearColor}, transparent 100%)`,
           }}
         />
       )}
@@ -115,7 +115,7 @@ export default function HoverLight({
             className="pointer-events-none absolute inset-0 transition-opacity duration-500 z-10"
             style={{
               opacity: isInside ? 1 : 0,
-              background: `radial-gradient(${size}px circle at ${position.x}px ${position.y}px, ${innerGradientColor}, transparent 100%)`,
+              background: `radial-linear(${size}px circle at ${position.x}px ${position.y}px, ${innerlinearColor}, transparent 100%)`,
             }}
           />
         )}

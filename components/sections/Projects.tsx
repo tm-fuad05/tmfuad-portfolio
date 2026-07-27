@@ -73,15 +73,18 @@ const Projects = () => {
                     </p>
                   </div>
 
-                  {/* Description - Implemented Cleanly with line-clamp */}
+                  {/* Description - Implemented Smooth height expansion with Framer Motion */}
                   <div className="grow">
-                    <p
-                      className={`text-paragraph text-[15px] transition-all duration-300 ${
-                        expanded[card.id] ? "" : "line-clamp-3"
-                      }`}
+                    <motion.div
+                      initial={false}
+                      animate={{ height: expanded[card.id] ? "auto" : "4.2em" }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
+                      className="overflow-hidden"
                     >
-                      {card.description}
-                    </p>
+                      <p className="text-paragraph text-[15px]">
+                        {card.description}
+                      </p>
+                    </motion.div>
                     <button
                       className="text-blue-400/80 hover:text-blue-400 font-medium cursor-pointer text-xs mt-1 underline underline-offset-2 transition-colors"
                       onClick={() => toggleExpand(card.id)}

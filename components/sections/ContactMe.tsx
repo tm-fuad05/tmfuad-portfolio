@@ -1,10 +1,9 @@
 "use client";
+
 import { useRef, useState } from "react";
 import SectionTitle from "../shared/SectionTitle";
 import { motion } from "framer-motion";
-// React Icons
 import { MdSend } from "react-icons/md";
-
 import {
   Mail,
   Phone,
@@ -17,35 +16,31 @@ import {
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 import HoverLight from "../ui/hover-spotlight";
 
+interface SocialIcon {
+  icon: LucideIcon;
+  href: string;
+}
+
+interface Status {
+  show: boolean;
+  success: boolean;
+  message: string;
+}
+
 const ContactMe = () => {
   const form = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
-  interface Icons {
-    icon: LucideIcon;
-    href: string;
-  }
-
   const [status, setStatus] = useState<Status>({
     show: false,
     success: false,
     message: "",
   });
 
-  const icons: Icons[] = [
+  const icons: SocialIcon[] = [
     { icon: Github, href: "https://github.com/tm-fuad05" },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/tmfuad05/",
-    },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/tmfuad05/" },
     { icon: Twitter, href: "https://x.com/tm_fuad05" },
   ];
-
-  interface Status {
-    show: boolean;
-    success: boolean;
-    message: string;
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,10 +49,10 @@ const ContactMe = () => {
     try {
       if (form.current) {
         const result: EmailJSResponseStatus = await emailjs.sendForm(
-          "service_fwh8eve", // Replace with your EmailJS service ID
-          "template_60bjc2k", // Replace with your EmailJS template ID
+          "service_fwh8eve",
+          "template_60bjc2k",
           form.current,
-          "vuYSD7atTVsOA0PuN", // Replace with your EmailJS public key
+          "vuYSD7atTVsOA0PuN",
         );
         if (result.text === "OK") {
           setStatus({
@@ -68,7 +63,7 @@ const ContactMe = () => {
           form.current?.reset();
         }
       }
-    } catch (error) {
+    } catch {
       setStatus({
         show: true,
         success: false,
@@ -78,199 +73,243 @@ const ContactMe = () => {
       setLoading(false);
       setTimeout(
         () => setStatus({ show: false, success: false, message: "" }),
-        2000,
+        3000,
       );
     }
   };
 
   return (
-    <section id="contact" className="scroll-mt-0">
+    <section id="contact" className="scroll-mt-12 py-16">
       <SectionTitle
         title={"get in touch"}
         subtitle={"Get in Touch and Let's Create Something Amazing"}
       />
+
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="section w-full mx-auto px-6 md:px-10 lg:px-16"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12"
       >
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Contact Form */}
-
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+          {/* ================= Contact Form Card ================= */}
           <HoverLight
-            size={300}
+            size={320}
             color="var(--primary)"
             borderOpacity={100}
             innerOpacity={0}
-            border={2}
-            className="h-full"
+            border={1.5}
+            className="h-full rounded-3xl"
           >
-            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/5 rounded-3xl lg:bg-slate-950 p-8">
-              <form className=" space-y-4" ref={form} onSubmit={handleSubmit}>
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-slate-200">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-slate-200">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
-                    required
-                  />
+            <div className="relative h-full p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
+              {/* Ambient Glow in background */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="mb-8">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    Send a Message
+                  </h3>
+                  <p className="text-sm text-slate-400 mt-1">
+                    Fill out the form below and I’ll get back to you shortly.
+                  </p>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-slate-200">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-slate-200">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="w-full p-2 ring ring-primary text-slate-200 rounded-lg  outline-none duration-300 focus:ring-2 focus:shadow-[0_0_8px_var(--primary)]"
-                    required
-                  />
-                </div>
-
-                {/* Status Message */}
-                {status.show && (
-                  <div
-                    className={`p-3 rounded-lg ${
-                      status.success
-                        ? "bg-green-100 text-green-700"
-                        : "bg-red-100 text-red-700"
-                    }`}
-                  >
-                    {status.message}
+                <form ref={form} onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider font-semibold mb-2 text-slate-300">
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="John Doe"
+                      className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
+                      required
+                    />
                   </div>
-                )}
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/20 text-white py-2 px-4 rounded-lg hover:from-secondary hover:to-primary transition duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                >
-                  {loading ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <MdSend className="w-4 h-4" />
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider font-semibold mb-2 text-slate-300">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider font-semibold mb-2 text-slate-300">
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder="Project Inquiry / Hiring"
+                      className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider font-semibold mb-2 text-slate-300">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={4}
+                      placeholder="Tell me about your project or idea..."
+                      className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20 resize-none"
+                      required
+                    />
+                  </div>
+
+                  {/* Status Toast */}
+                  {status.show && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`p-3.5 rounded-xl text-sm font-medium border ${
+                        status.success
+                          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
+                          : "bg-rose-500/10 border-rose-500/30 text-rose-400"
+                      }`}
+                    >
+                      {status.message}
+                    </motion.div>
                   )}
-                  {loading ? "Sending..." : "Send Message"}
-                </button>
-              </form>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="relative group w-full overflow-hidden rounded-xl p-[1px] font-medium transition-all duration-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-indigo-500 to-sky-400 transition-all duration-500 group-hover:opacity-90" />
+                    <div className="relative px-6 py-3.5 bg-slate-950/60 backdrop-blur-md rounded-[11px] flex items-center justify-center gap-2 text-white font-semibold group-hover:bg-transparent transition-all duration-300">
+                      {loading ? (
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <MdSend className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </>
+                      )}
+                    </div>
+                  </button>
+                </form>
+              </div>
             </div>
           </HoverLight>
 
-          {/* Contact Information */}
-
+          {/* ================= Contact Information Card ================= */}
           <HoverLight
-            size={300}
-            color="#1e90ff"
+            size={320}
+            color="#38bdf8"
             borderOpacity={90}
             innerOpacity={0}
-            border={2}
-            className="h-full"
+            border={1.5}
+            className="h-full rounded-3xl"
           >
-            <div className="h-full px-6 bg-linear-to-r from-primary/10 to-primary/10 border border-white/5 rounded-3xl lg:bg-slate-950 p-8">
-              <div className="relative">
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-secondary/10 rounded-full blur-sm animate-pulse" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary/10 rounded-full blur-sm animate-pulse" />
+            <div className="relative h-full p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
+              {/* Decorative Blur Circles */}
+              <div className="absolute -bottom-24 -right-24 w-56 h-56 bg-sky-500/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+              <div className="absolute -top-20 -left-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
-                <div className="relative space-y-8">
-                  {/* Header */}
-                  <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold bg-linear-to-r from-primary to-white bg-clip-text text-transparent">
-                      Contact Information
-                    </h1>
-                  </div>
+              <div className="relative z-10 flex flex-col h-full justify-between space-y-8">
+                {/* Header */}
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                    Contact Information
+                  </h3>
+                  <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+                    Prefer direct communication? Reach out via email, phone, or
+                    find me across social media.
+                  </p>
+                </div>
 
-                  {/* Contact details grid */}
-                  <div className="grid gap-6">
-                    <div className="group flex items-center transform hover:scale-105 transition-all">
-                      <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 w-full backdrop-blur-sm ">
-                        <Mail className="w-6 h-6 text-primary" />
-                        <a
-                          href="mailto:tm.fuad05@gmail.com"
-                          className="text-slate-100 group-hover:text-purple-400 transition-colors"
-                        >
-                          tm.fuad05@gmail.com
-                        </a>
-                      </div>
+                {/* Info List */}
+                <div className="space-y-4 my-auto">
+                  {/* Email */}
+                  <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
+                    <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Mail className="w-5 h-5" />
                     </div>
-
-                    <div className="group flex items-center transform hover:scale-105 transition-all">
-                      <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 w-full backdrop-blur-sm">
-                        <Phone className="w-6 h-6 text-primary" />
-                        <a
-                          href="tel:+8801622-737988"
-                          className="text-slate-100 group-hover:text-purple-400 transition-colors"
-                        >
-                          +880 1622-737988
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="group flex items-center transform hover:scale-105 transition-all">
-                      <div className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 w-full backdrop-blur-sm">
-                        <MapPin className="w-6 h-6 text-primary" />
-                        <span className="text-slate-100">
-                          Dhaka, Bangladesh
-                        </span>
-                      </div>
+                    <div className="flex flex-col">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                        Email
+                      </span>
+                      <a
+                        href="mailto:tm.fuad05@gmail.com"
+                        className="text-sm font-medium text-slate-200 group-hover:text-primary transition-colors"
+                      >
+                        tm.fuad05@gmail.com
+                      </a>
                     </div>
                   </div>
 
-                  {/* Social links */}
-                  <div className="pt-8">
-                    <h2 className="text-center text-slate-400 mb-4 text-sm font-medium">
-                      Connect with me
-                    </h2>
-                    <div className="flex justify-center gap-4">
-                      {icons.map((i, index) => (
-                        <a
-                          key={index}
-                          href={i.href}
-                          target="_blank"
-                          className="p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-all transform hover:scale-110"
-                        >
-                          <i.icon size={22} className="text-primary" />
-                        </a>
-                      ))}
+                  {/* Phone */}
+                  <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
+                    <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                        Phone
+                      </span>
+                      <a
+                        href="tel:+8801622-737988"
+                        className="text-sm font-medium text-slate-200 group-hover:text-primary transition-colors"
+                      >
+                        +880 1622-737988
+                      </a>
                     </div>
                   </div>
 
-                  {/* Footer message */}
-                  <div className="text-center mt-8">
-                    <p className="text-sm text-slate-400 leading-relaxed">
-                      Feel free to reach out! I'm always open to discussing new
-                      projects, creative ideas, or opportunities to be part of
-                      your visions.
-                    </p>
+                  {/* Location */}
+                  <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
+                    <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                        Location
+                      </span>
+                      <span className="text-sm font-medium text-slate-200">
+                        Dhaka, Bangladesh
+                      </span>
+                    </div>
                   </div>
+                </div>
+
+                {/* Social Links & Footer */}
+                <div className="pt-4 border-t border-white/10">
+                  <span className="block text-center text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                    Connect With Me
+                  </span>
+                  <div className="flex justify-center gap-3">
+                    {icons.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3.5 bg-slate-900/60 border border-white/10 rounded-2xl text-slate-300 hover:text-white hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0"
+                      >
+                        <item.icon size={20} />
+                      </a>
+                    ))}
+                  </div>
+
+                  <p className="text-xs text-center text-slate-500 leading-relaxed mt-6">
+                    I'm open to discussing new web development projects,
+                    architectural ideas, or potential collaborations.
+                  </p>
                 </div>
               </div>
             </div>

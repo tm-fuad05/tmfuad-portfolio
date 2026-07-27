@@ -14,6 +14,8 @@
   --color-secondary: var(--secondary);
   --color-paragraph: var(--paragraph);
   --color-background: var(--background);
+  --font-geistMono: var(--font-geistMono);
+  --font-oxanium: var(--font-oxanium);
 }
 
 html,
@@ -45,20 +47,20 @@ body {
   --grid-spacing: 50px;
 
   background-image:
-    linear-gradient(to right, var(--line-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+    linear-linear(to right, var(--line-color) 1px, transparent 1px),
+    linear-linear(to bottom, var(--line-color) 1px, transparent 1px);
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
   -webkit-mask-image:
-    linear-gradient(
+    linear-linear(
       to bottom,
       transparent 0%,
       white 10%,
       white 90%,
       transparent 100%
     ),
-    radial-gradient(
+    radial-linear(
       circle at center,
       white 0%,
       white 25%,
@@ -66,14 +68,14 @@ body {
       transparent 100%
     );
   mask-image:
-    linear-gradient(
+    linear-linear(
       to bottom,
       transparent 0%,
       white 10%,
       white 90%,
       transparent 100%
     ),
-    radial-gradient(
+    radial-linear(
       circle at center,
       white 0%,
       white 25%,
@@ -119,20 +121,20 @@ body {
   --grid-spacing: 20px;
 
   background-image:
-    linear-gradient(to right, var(--line-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line-color) 1px, transparent 1px);
+    linear-linear(to right, var(--line-color) 1px, transparent 1px),
+    linear-linear(to bottom, var(--line-color) 1px, transparent 1px);
 
   background-size: var(--grid-spacing) var(--grid-spacing);
 
   -webkit-mask-image:
-    linear-gradient(
+    linear-linear(
       to bottom,
       transparent 0%,
       white 10%,
       white 90%,
       transparent 100%
     ),
-    radial-gradient(
+    radial-linear(
       circle at center,
       white 0%,
       white 25%,
@@ -140,14 +142,14 @@ body {
       transparent 100%
     );
   mask-image:
-    linear-gradient(
+    linear-linear(
       to bottom,
       transparent 0%,
       white 10%,
       white 90%,
       transparent 100%
     ),
-    radial-gradient(
+    radial-linear(
       circle at center,
       white 0%,
       white 25%,
@@ -184,7 +186,7 @@ body {
     width: 6px;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, var(--primary), transparent);
+    background: linear-linear(to bottom, var(--primary), transparent);
     border-radius: 50px;
   }
 }

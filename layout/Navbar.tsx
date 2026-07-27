@@ -15,13 +15,10 @@ const Navbar = () => {
 
   const navLinks: string[] = [
     "home",
-    "skills",
     "about",
-    // "experience",
+    "skills",
     "projects",
     "education",
-    "faq",
-    // "certifications",
   ];
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -1,4 +1,3 @@
-import AboutMe from "@/components/sections/AboutMe";
 import Banner from "@/components/sections/Banner";
 import Education from "@/components/sections/Education";
 import ContactMe from "@/components/sections/ContactMe";
@@ -8,24 +7,25 @@ import Skills from "@/components/sections/Skills";
 import Footer from "@/layout/Footer";
 import Navbar from "@/layout/Navbar";
 import ScrollToUp from "@/components/shared/ScrollToUp";
+import AboutMe from "@/components/sections/AboutMe";
 
 export default async function Home() {
   // Fake Loader (Render on the starting)
   await new Promise((resolve) => {
-    setTimeout(resolve, 1500);
+    setTimeout(resolve, 1000);
   });
 
   return (
-    <div className="flex flex-col gap-30 lg:gap-56">
+    <div className="flex flex-col gap-30 lg:gap-35">
       <div>
         <Navbar />
         <Banner />
       </div>
-      <Skills />
       <AboutMe />
+      <Skills />
       <Projects />
       <Education />
-      <FAQ />
+      {/* <FAQ /> */}
       <ContactMe />
       <Footer />
       <ScrollToUp />

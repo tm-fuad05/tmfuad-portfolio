@@ -4,7 +4,6 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 interface SpotlightProps extends React.HTMLAttributes<HTMLDivElement> {
-  // radius এখন sm, md, lg অপশনাল অবজেক্ট নিবে
   radius?: number | { sm: number; md?: number; lg?: number };
   darkness?: number;
   revealOpacity?: number;
@@ -27,7 +26,7 @@ export function DynamicSpotlight({
   const ref = React.useRef<HTMLDivElement>(null);
 
   const [fixedPos, setfixedPos] = React.useState(fixed);
-  // Initial radius logic
+
   const [currentRadius, setCurrentRadius] = React.useState(() => {
     if (typeof radius === "number") return radius;
     return radius.sm;
@@ -43,12 +42,10 @@ export function DynamicSpotlight({
     const updateResponsiveSettings = () => {
       const width = window.innerWidth;
 
-      // Fixed Position Logic (Mobile/Tablet এ fixed থাকবে যদি fixed prop false হয়)
       if (!fixed) {
         setfixedPos(width <= 850);
       }
 
-      // Radius Breakpoint Logic
       if (typeof radius === "object") {
         if (width >= 1024 && radius.lg) {
           setCurrentRadius(radius.lg);
@@ -80,6 +77,11 @@ export function DynamicSpotlight({
       ? `${pos.x}px ${pos.y}px`
       : "50% 50%";
 
+  const maskStyle =
+    hover || persist || fixedPos
+      ? `radial-gradient(circle ${currentRadius}px at ${maskPosition}, rgba(0,0,0,${revealOpacity}) 0%, black 70%)`
+      : undefined;
+
   return (
     <div
       ref={ref}
@@ -99,14 +101,8 @@ export function DynamicSpotlight({
         className="pointer-events-none absolute inset-0 transition-all duration-300 ease-out"
         style={{
           backgroundColor: `rgba(0,0,0,${darkness})`,
-          WebkitMaskImage:
-            hover || persist || fixedPos
-              ? `radial-gradient(${currentRadius}px at ${maskPosition}, rgba(0,0,0,${revealOpacity}) 0%, black 70%)`
-              : undefined,
-          maskImage:
-            hover || persist || fixedPos
-              ? `radial-gradient(${currentRadius}px at ${maskPosition}, rgba(0,0,0,${revealOpacity}) 0%, black 70%)`
-              : undefined,
+          WebkitMaskImage: maskStyle,
+          maskImage: maskStyle,
         }}
       />
     </div>

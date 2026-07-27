@@ -28,7 +28,7 @@ export default function Tabs({
           }
         `}
           >
-            {/* Active Gradient Background */}
+            {/* Active linear Background */}
             {isActive && (
               <motion.div
                 layoutId="active-pill"

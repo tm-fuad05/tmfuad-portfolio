@@ -7,7 +7,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { IoMdCloudDownload } from "react-icons/io";
-// import { Link as ScrollLink } from "react-scroll";
 import { ReactNode } from "react";
 import Link from "next/link";
 import { DynamicSpotlight } from "../ui/dynamic-spotlight";
@@ -168,7 +167,7 @@ const Banner = () => {
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         className="pt-16 md:pt-5 lg:pt-8 "
       >
-        <Link href="#skills" className="cursor-pointer">
+        <Link href="#about" className="cursor-pointer">
           <div className="relative w-20 h-28 lg:w-22 lg:h-30 mx-auto">
             <Image fill src="/images/scroll.png" alt="" />
           </div>
