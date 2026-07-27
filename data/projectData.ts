@@ -63,7 +63,7 @@ export const projectCards = [
     image: "/images/devtech.png",
     title: "DevTech Ltd.",
     description:
-      "High-performance corporate platform using Next.js server components and complex GSAP animations.",
+      "A specialized digital agency driven by a collaborative team of developers and UI/UX designers. We design and engineer end-to-end web applications, dynamic digital products, and high-converting user interfaces, helping businesses transform complex ideas into impactful online experiences.",
     tags: ["Next.js", "Tailwind CSS", "Shadcn", "GSAP"],
     date: "17-Feb-2026",
     live: "https://www.devtechltd.xyz/",
