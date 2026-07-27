@@ -6,6 +6,7 @@ export interface ProjectCards {
   date: string;
   live: string;
   github: string;
+  githubServer?: string;
 }
 
 export const projectCards = [
@@ -20,7 +21,6 @@ export const projectCards = [
     date: "12-APR-2026",
     live: "https://vintax.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/vintax",
-    githubServer: "",
   },
   {
     id: 2,
@@ -57,5 +57,16 @@ export const projectCards = [
     live: "https://visorix.vercel.app/",
     github: "https://github.com/tm-fuad05/Visa-Navigator-client",
     githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
+  },
+  {
+    id: 5,
+    image: "/images/devtech.png",
+    title: "DevTech Ltd.",
+    description:
+      "High-performance corporate platform using Next.js server components and complex GSAP animations.",
+    tags: ["Next.js", "Tailwind CSS", "Shadcn", "GSAP"],
+    date: "17-Feb-2026",
+    live: "https://www.devtechltd.xyz/",
+    github: "https://github.com/sinu5550/devtech_agency_nextjs_client/",
   },
 ];

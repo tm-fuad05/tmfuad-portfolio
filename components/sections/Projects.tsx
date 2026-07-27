@@ -35,7 +35,7 @@ const Projects = () => {
           {projectCards.map((card) => (
             <div
               key={card.id}
-              className="border border-[2px] border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group"
+              className="border border-px border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group"
             >
               {/* Image */}
               <div className="relative group-hover:scale-107 duration-300">
@@ -59,20 +59,22 @@ const Projects = () => {
                   </p>
                 </div>
 
-                {/* Description */}
-                <p className="text-paragraph grow text-[15px]">
-                  {expanded[card.id]
-                    ? card.description
-                    : card.description.slice(0, 200) + "..."}
-                  {card.description.length > 200 && (
-                    <button
-                      className="text-blue-400/70 font-medium hover:opacity-60 cursor-pointer ml-1"
-                      onClick={() => toggleExpand(card.id)}
-                    >
-                      {expanded[card.id] ? "See less" : "See more"}
-                    </button>
-                  )}
-                </p>
+                {/* Description - Implemented Cleanly with line-clamp */}
+                <div className="grow">
+                  <p
+                    className={`text-paragraph text-[15px] transition-all duration-300 ${
+                      expanded[card.id] ? "" : "line-clamp-2"
+                    }`}
+                  >
+                    {card.description}
+                  </p>
+                  <button
+                    className="text-blue-400/80 hover:text-blue-400 font-medium cursor-pointer text-xs mt-1 underline underline-offset-2 transition-colors"
+                    onClick={() => toggleExpand(card.id)}
+                  >
+                    {expanded[card.id] ? "See less" : "See more"}
+                  </button>
+                </div>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mt-3">
