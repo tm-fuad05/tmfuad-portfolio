@@ -19,7 +19,7 @@ export const projectCards: ProjectCard[] = [
     description:
       "Vintax is a high-end, bilingual e-commerce destination that redefines modern fashion retail through a futuristic Blue-Indigo aesthetic and a seamless, high-performance interface. Built with Next.js 15, the platform features an immersive Glassmorphic UI, mega-typography, and sophisticated role-based access for Admins, Designers, and Members. Integrating secure Stripe payments, real-time data synchronization, and a community-driven fashion forum, Vintax provides a fluid, no-refresh shopping experience that perfectly blends luxury style with cutting-edge digital innovation.",
     processing: true,
-    tags: ["Next.Js", "Postgres", "Zod", "Clerk"],
+    tags: ["Next.Js", "Postgres", "Prisma", "Zustand", "BetterAuth"],
     date: "12-APR-2026",
     live: "https://vintax.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/vintax",
@@ -67,8 +67,19 @@ export const projectCards: ProjectCard[] = [
     description:
       "A specialized digital agency driven by a collaborative team of developers and UI/UX designers. We design and engineer end-to-end web applications, dynamic digital products, and high-converting user interfaces, helping businesses transform complex ideas into impactful online experiences.",
     tags: ["Next.js", "Tailwind CSS", "Shadcn", "GSAP"],
-    date: "17-Feb-2026",
+    date: "17-FEB-2026",
     live: "https://www.devtechltd.xyz/",
     githubClient: "https://github.com/tm-fuad05/devtech_agency_client",
+  },
+  {
+    id: 6,
+    image: "/images/bingo.png",
+    title: "Lingo Bingo",
+    description:
+      "Lingo Bingo is an engaging vocabulary-building web application built with React and Tailwind CSS. The app focuses on providing learners with a smooth, intuitive, and visually appealing experience while maintaining robust user authentication and state management.",
+    tags: ["React", "Tailwind CSS", "Firebase"],
+    date: "20-SEP-2026",
+    live: "https://lingo-bingo-seven.vercel.app/",
+    githubClient: "https://github.com/tm-fuad05/Lingo-Bingo",
   },
 ];
