@@ -1,7 +1,6 @@
 import Banner from "@/components/sections/Banner";
 import Education from "@/components/sections/Education";
 import ContactMe from "@/components/sections/ContactMe";
-import FAQ from "@/components/sections/FAQ";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Footer from "@/layout/Footer";
