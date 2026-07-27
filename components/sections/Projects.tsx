@@ -63,7 +63,7 @@ const Projects = () => {
                 <div className="grow">
                   <p
                     className={`text-paragraph text-[15px] transition-all duration-300 ${
-                      expanded[card.id] ? "" : "line-clamp-2"
+                      expanded[card.id] ? "" : "line-clamp-3"
                     }`}
                   >
                     {card.description}
