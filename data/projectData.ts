@@ -1,15 +1,17 @@
-export interface ProjectCards {
+export interface ProjectCard {
   id: number;
   image: string;
   title: string;
   description: string;
+  processing?: boolean;
+  tags: string[];
   date: string;
   live: string;
-  github: string;
+  githubClient: string;
   githubServer?: string;
 }
 
-export const projectCards = [
+export const projectCards: ProjectCard[] = [
   {
     id: 1,
     image: "/images/vintax.png",
@@ -55,7 +57,7 @@ export const projectCards = [
     tags: ["React", "Express", "MongoDB", "Firebase"],
     date: "29-OCT-2024",
     live: "https://visorix.vercel.app/",
-    github: "https://github.com/tm-fuad05/Visa-Navigator-client",
+    githubClient: "https://github.com/tm-fuad05/Visa-Navigator-client",
     githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
   },
   {
@@ -67,6 +69,6 @@ export const projectCards = [
     tags: ["Next.js", "Tailwind CSS", "Shadcn", "GSAP"],
     date: "17-Feb-2026",
     live: "https://www.devtechltd.xyz/",
-    github: "https://github.com/tm-fuad05/devtech_agency_client",
+    githubClient: "https://github.com/tm-fuad05/devtech_agency_client",
   },
 ];
