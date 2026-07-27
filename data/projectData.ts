@@ -67,6 +67,6 @@ export const projectCards = [
     tags: ["Next.js", "Tailwind CSS", "Shadcn", "GSAP"],
     date: "17-Feb-2026",
     live: "https://www.devtechltd.xyz/",
-    github: "https://github.com/sinu5550/devtech_agency_nextjs_client/",
+    github: "https://github.com/tm-fuad05/devtech_agency_client",
   },
 ];
