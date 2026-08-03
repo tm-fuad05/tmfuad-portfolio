@@ -117,36 +117,6 @@ const Navbar = () => {
             <SendHorizontal size={15} className="animate-pulse" />
             <span>Get In Touch</span>
           </Link>
-
-          {/* Mobile Dropdown Glass Menu */}
-          {menuOpen && (
-            <div className="absolute top-[calc(100%+0.75rem)] left-0 w-full p-5 bg-slate-950/75 backdrop-blur-lg border border-white/[0.08] rounded-2xl flex flex-col gap-4 shadow-2xl lg:hidden animate-in fade-in slide-in-from-top-4 duration-200">
-              {navLinks.map((link) => (
-                <Link
-                  key={link}
-                  href={`#${link}`}
-                  onClick={() => setMenuOpen(false)}
-                  className={`px-4 py-2.5 rounded-xl text-base font-medium transition-all duration-200 ${
-                    link === "faq" ? "uppercase" : "capitalize"
-                  } ${
-                    active === link
-                      ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
-                      : "text-slate-300 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  {link}
-                </Link>
-              ))}
-              <Link
-                href="#contact"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-center gap-2 text-white font-medium text-base py-3 bg-linear-to-r from-primary to-secondary rounded-xl mt-2"
-              >
-                <SendHorizontal size={16} />
-                <span>Get In Touch</span>
-              </Link>
-            </div>
-          )}
         </div>
       </div>
 
