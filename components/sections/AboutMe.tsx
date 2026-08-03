@@ -110,10 +110,10 @@ const AboutMe = () => {
                 />
 
                 {/* Bottom Black Gradient Overlay containing Dev Quote */}
-                <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black via-black to-transparent pt-12 sm:pt-16 pb-4 sm:pb-5 px-4 sm:px-5 flex items-center gap-2.5 sm:gap-3">
+                <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black via-black/90 to-transparent pt-12 sm:pt-16 pb-4 sm:pb-5 px-4 sm:px-5 flex items-center gap-2.5 sm:gap-3">
                   <div className="w-1 self-stretch bg-primary rounded-full shrink-0 shadow-[0_0_10px_#3b82f6]" />
                   <BiSolidQuoteLeft className="text-lg sm:text-2xl text-primary shrink-0" />
-                  <p className="text-slate-200 italic font-sans text-[11px] sm:text-sm leading-relaxed drop-shadow">
+                  <p className="text-slate-200 italic font-sans text-[13px] sm:text-[15px] leading-relaxed drop-shadow">
                     "You’re never behind — You only pick up from where you
                     paused."
                   </p>
@@ -233,7 +233,7 @@ const AboutMe = () => {
                   </div>
 
                   {/* Code Editor Body - Fixed Height Matching Expertise Tab Content */}
-                  <div className="p-4 sm:p-5 text-slate-300 leading-relaxed font-mono text-xs sm:text-sm h-[350px] overflow-x-auto relative">
+                  <div className="p-4 sm:p-5 text-slate-300 leading-relaxed font-mono text-xs sm:text-sm h-[370px] md:h-[355px] overflow-x-auto relative">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeFile}
