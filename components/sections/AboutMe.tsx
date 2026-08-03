@@ -57,22 +57,14 @@ const AboutMe = () => {
       id="about"
       className="py-20 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden relative"
     >
-      {/* Dynamic Animated Ambient Background Glows */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.35, 0.2],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute top-1/4 left-10 size-96 rounded-full bg-primary/25 blur-[140px]"
+      {/* Optimized Hardware-Accelerated Ambient Background Glows */}
+      <div
+        className="pointer-events-none absolute top-1/4 left-10 size-80 sm:size-96 rounded-full bg-primary/20 blur-[90px] transform-gpu will-change-transform animate-pulse"
+        style={{ animationDuration: "6s" }}
       />
-      <motion.div
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute bottom-1/4 right-10 size-96 rounded-full bg-purple-600/20 blur-[150px]"
+      <div
+        className="pointer-events-none absolute bottom-1/4 right-10 size-80 sm:size-96 rounded-full bg-purple-600/15 blur-[100px] transform-gpu will-change-transform animate-pulse"
+        style={{ animationDuration: "8s" }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -86,16 +78,16 @@ const AboutMe = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           {/* LEFT COLUMN: Profile Image with Premium UI Card */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-4 flex flex-col h-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="lg:col-span-4 flex flex-col h-full transform-gpu"
           >
             {/* Interactive Image Frame with Responsive Aspect Ratio & Offset Border */}
             <div className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-full group/img pr-2 pb-2 sm:pr-3.5 sm:pb-3.5">
               {/* Offset Decorative Border Frame (Closer on Small Devices to Prevent Margin Overflow) */}
-              <div className="absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5 rounded-2xl border-2 border-primary/60 group-hover/img:translate-x-0.5 group-hover/img:translate-y-0.5 sm:group-hover/img:translate-x-1 sm:group-hover/img:translate-y-1 group-hover/img:border-primary shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-500 ease-out pointer-events-none z-0" />
+              <div className="absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5 rounded-2xl border-2 border-primary/60 group-hover/img:translate-x-0.5 group-hover/img:translate-y-0.5 sm:group-hover/img:translate-x-1 sm:group-hover/img:translate-y-1 group-hover/img:border-primary shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-transform duration-300 ease-out pointer-events-none z-0 will-change-transform" />
 
               {/* Main Image Container */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden z-10 border border-white/10 shadow-2xl">
@@ -105,7 +97,7 @@ const AboutMe = () => {
                   alt="Tanvir Mahmud Fuad"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover/img:scale-105"
+                  className="object-cover object-top transition-transform duration-500 group-hover/img:scale-105 will-change-transform"
                   priority
                 />
 
@@ -124,14 +116,14 @@ const AboutMe = () => {
 
           {/* RIGHT COLUMN: Streamlined IDE Code Workbench */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-8 flex flex-col h-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="lg:col-span-8 flex flex-col h-full transform-gpu"
           >
-            <div className="relative group p-[1px] rounded-3xl bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_50px_rgba(30,144,255,0.15)] transition-all duration-700 hover:shadow-[0_0_80px_rgba(30,144,255,0.25)] h-full">
-              <div className="relative w-full h-full rounded-[23px] bg-[#12131a]/95 backdrop-blur-2xl overflow-hidden font-geistMono flex flex-col justify-between">
+            <div className="relative group p-[1px] rounded-3xl bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 hover:shadow-[0_0_50px_rgba(30,144,255,0.2)] h-full">
+              <div className="relative w-full h-full rounded-[23px] bg-[#12131a]/95 backdrop-blur-md overflow-hidden font-geistMono flex flex-col justify-between">
                 <div>
                   {/* IDE Top Header Bar */}
                   <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[#0e0f15] border-b border-white/10 relative z-10">
