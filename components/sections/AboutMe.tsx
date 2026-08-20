@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
@@ -44,12 +44,38 @@ const AboutMe = () => {
     "profile",
   );
   const [copied, setCopied] = useState(false);
+  const [isImgActive, setIsImgActive] = useState(false);
+  const [isIdeActive, setIsIdeActive] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsImgActive(false);
+        setIsIdeActive(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleCopy = () => {
     const textToCopy = activeFile === "profile" ? profileCode : expertiseCode;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleImgClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setIsImgActive((prev) => !prev);
+    }
+  };
+
+  const handleIdeClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setIsIdeActive((prev) => !prev);
+    }
   };
 
   return (
@@ -85,9 +111,18 @@ const AboutMe = () => {
             className="lg:col-span-4 flex flex-col h-full transform-gpu"
           >
             {/* Interactive Image Frame with Responsive Aspect Ratio & Offset Border */}
-            <div className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-full group/img pr-2 pb-2 sm:pr-3.5 sm:pb-3.5">
+            <div
+              onClick={handleImgClick}
+              className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-full group/img pr-2 pb-2 sm:pr-3.5 sm:pb-3.5 cursor-pointer select-none"
+            >
               {/* Offset Decorative Border Frame (Closer on Small Devices to Prevent Margin Overflow) */}
-              <div className="absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5 rounded-2xl border-2 border-primary/60 group-hover/img:translate-x-0.5 group-hover/img:translate-y-0.5 sm:group-hover/img:translate-x-1 sm:group-hover/img:translate-y-1 group-hover/img:border-primary shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-transform duration-300 ease-out pointer-events-none z-0 will-change-transform" />
+              <div
+                className={`absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5 rounded-2xl border-2 shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-300 ease-out pointer-events-none z-0 will-change-transform ${
+                  isImgActive
+                    ? "translate-x-0.5 translate-y-0.5 sm:translate-x-1 sm:translate-y-1 border-primary"
+                    : "border-primary/60 group-hover/img:translate-x-0.5 group-hover/img:translate-y-0.5 sm:group-hover/img:translate-x-1 sm:group-hover/img:translate-y-1 group-hover/img:border-primary"
+                }`}
+              />
 
               {/* Main Image Container */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden z-10 border border-white/10 shadow-2xl">
@@ -97,7 +132,9 @@ const AboutMe = () => {
                   alt="Tanvir Mahmud Fuad"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw"
-                  className="object-cover object-top transition-transform duration-500 group-hover/img:scale-105 will-change-transform"
+                  className={`object-cover object-top transition-transform duration-500 will-change-transform ${
+                    isImgActive ? "scale-105" : "group-hover/img:scale-105"
+                  }`}
                   priority
                 />
 
@@ -122,7 +159,14 @@ const AboutMe = () => {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="lg:col-span-8 flex flex-col h-full transform-gpu"
           >
-            <div className="relative group p-[1px] rounded-3xl bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 hover:shadow-[0_0_50px_rgba(30,144,255,0.2)] h-full">
+            <div
+              onClick={handleIdeClick}
+              className={`relative group p-[1px] rounded-3xl bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 h-full cursor-pointer ${
+                isIdeActive
+                  ? "shadow-[0_0_50px_rgba(30,144,255,0.2)]"
+                  : "hover:shadow-[0_0_50px_rgba(30,144,255,0.2)]"
+              }`}
+            >
               <div className="relative w-full h-full rounded-[23px] bg-[#12131a]/95 backdrop-blur-md overflow-hidden font-geistMono flex flex-col justify-between">
                 <div>
                   {/* IDE Top Header Bar */}

@@ -127,11 +127,6 @@ const Education = () => {
                         Passing Year: {activeEntry.passingYear}
                       </span>
                     )}
-
-                    <span className="text-xs font-mono text-slate-500">
-                      Milestone 0{selectedIndex + 1} of 0
-                      {educationEntries.length}
-                    </span>
                   </div>
 
                   {/* Degree Name */}

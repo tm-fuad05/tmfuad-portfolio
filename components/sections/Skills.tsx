@@ -3,7 +3,7 @@ import SectionTitle from "../shared/SectionTitle";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Tabs from "../shared/SkillsTab";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Logo {
   logo: string;
@@ -12,7 +12,26 @@ interface Logo {
 }
 
 const Skills = () => {
-  const [activeTab, setActiveTab] = useState<string>("All");
+  const [activeTab, setActiveTab] = useState("All");
+  const [activeLogo, setActiveLogo] = useState<string | null>(null);
+
+  // Function Call when resize window
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setActiveLogo(null);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleLogoClick = (name: string) => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setActiveLogo((prev) => (prev === name ? null : name));
+    }
+  };
 
   const logos: Logo[] = [
     {
@@ -172,10 +191,16 @@ const Skills = () => {
           {filteredLogos.map((logo) => (
             <div
               key={`${activeTab}-${logo.name}`}
-              className={`relative group flex flex-col items-center justify-center w-35 md:w-35 py-6 rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-md transition-all duration-500 ease-outhover:border-primary/50 hover:bg-primary/5 hover:-translate-y-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)]hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.2)] overflow-hidden animate-in slide-in-from-bottom-5 fade-in`}
+              className={`relative group flex flex-col items-center justify-center w-35 md:w-35 py-6 rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-md transition-all duration-500 ease-out hover:bg-primary/5 hover:-translate-y-2 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.2)] overflow-hidden animate-in slide-in-from-bottom-5 fade-in ${
+                activeLogo === logo.name &&
+                "bg-primary/5 -translate-y-2 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.2)]"
+              }`}
+              onClick={() => handleLogoClick(logo.name)}
             >
               {/* Background Glow on Hover */}
-              <div className="absolute -inset-px bg-linear-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              <div
+                className={`absolute -inset-px bg-linear-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl ${activeLogo === logo.name && "opacity-100"}`}
+              />
 
               {/* Logo Container */}
               <figure className="relative w-12 h-12 md:w-10 md:h-10 z-10">
@@ -193,7 +218,9 @@ const Skills = () => {
               </p>
 
               {/* Bottom Accent Line */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary rounded-full group-hover:w-full transition-all duration-500" />
+              <div
+                className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary rounded-full group-hover:w-full transition-all duration-500 ${activeLogo === logo.name && "w-full"}`}
+              />
             </div>
           ))}
         </div>

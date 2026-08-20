@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionTitle from "../shared/SectionTitle";
 import { projectCards } from "../../data/projectData";
 import { motion } from "framer-motion";
@@ -11,6 +11,24 @@ const Projects = () => {
   const [expandedTags, setExpandedTags] = useState<{ [key: number]: boolean }>(
     {},
   );
+  const [isDivActive, setIsDivActive] = useState<null | number>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsDivActive(null);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleCardClick = (index: number) => {
+    if (window.innerWidth < 1024) {
+      setIsDivActive((prev) => (prev === index ? null : index));
+    }
+  };
 
   const toggleExpand = (id: number) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -39,20 +57,25 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 px-6
         md:px-10 lg:px-16"
         >
-          {projectCards.map((card) => {
+          {projectCards.map((card, idx) => {
             const isTagsExpanded = expandedTags[card.id];
             const visibleTags = isTagsExpanded
               ? card.tags
               : card.tags.slice(0, 4);
             const remainingTagsCount = card.tags.length - 4;
-
+            const activeDiv = isDivActive === idx;
             return (
               <div
                 key={card.id}
-                className="border border-px border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group"
+                className={`border border-px border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group ${
+                  activeDiv && "shadow-xl shadow-primary"
+                }`}
+                onClick={() => handleCardClick(idx)}
               >
                 {/* Image */}
-                <div className="relative group-hover:scale-107 duration-300">
+                <div
+                  className={`relative group-hover:scale-107 duration-300 ${activeDiv && "scale-107"}`}
+                >
                   <img className="pb-2 rounded-t-3xl" src={card.image} alt="" />
                   {card?.processing && (
                     <p className="absolute bottom-2 bg-green-800 inset-x-px pl-2 pt-1 text-sm text-white font-medium text-center">
