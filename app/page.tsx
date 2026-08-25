@@ -15,7 +15,7 @@ export default async function Home() {
   });
 
   return (
-    <div className="flex flex-col gap-30 lg:gap-35">
+    <div className="flex flex-col gap-30 lg:gap-55">
       <div>
         <Navbar />
         <Banner />
@@ -24,7 +24,6 @@ export default async function Home() {
       <Skills />
       <Projects />
       <Education />
-      {/* <FAQ /> */}
       <ContactMe />
       <Footer />
       <ScrollToUp />

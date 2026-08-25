@@ -79,7 +79,7 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact" className="scroll-mt-12 py-16">
+    <section id="contact" className="scroll-mt-0">
       <SectionTitle
         title={"get in touch"}
         subtitle={"Get in Touch and Let's Create Something Amazing"}

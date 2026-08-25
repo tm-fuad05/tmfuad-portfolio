@@ -18,10 +18,7 @@ const Education = () => {
   const activeEntry = educationEntries[selectedIndex] || educationEntries[0];
 
   return (
-    <section
-      id="education"
-      className="scroll-mt-10 py-16 relative overflow-hidden"
-    >
+    <section id="education" className="scroll-mt-10 relative">
       {/* Background Ambient Glow */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96 rounded-full bg-primary/10 blur-[140px]" />
 
