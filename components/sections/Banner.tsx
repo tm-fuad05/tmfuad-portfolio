@@ -40,7 +40,7 @@ const Banner = () => {
   const handlePDFDownload = () => {
     const link = document.createElement("a");
     link.href = "/tmfuad_resume.pdf";
-    link.download = "Amar_Resume";
+    link.download = "tmfuad_resume";
     link.click();
     document.body.removeChild(link);
   };
