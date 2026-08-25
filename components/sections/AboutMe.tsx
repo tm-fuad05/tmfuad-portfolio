@@ -79,10 +79,7 @@ const AboutMe = () => {
   };
 
   return (
-    <div
-      id="about"
-      className="py-20 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden relative"
-    >
+    <div id="about" className="scroll-mt-0">
       {/* Optimized Hardware-Accelerated Ambient Background Glows */}
       <div
         className="pointer-events-none absolute top-1/4 left-10 size-80 sm:size-96 rounded-full bg-primary/20 blur-[90px] transform-gpu will-change-transform animate-pulse"

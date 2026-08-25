@@ -7,7 +7,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { IoMdCloudDownload } from "react-icons/io";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Link from "next/link";
 import { DynamicSpotlight } from "../ui/dynamic-spotlight";
 
@@ -40,8 +40,9 @@ const Banner = () => {
   const handlePDFDownload = () => {
     const link = document.createElement("a");
     link.href = "/tmfuad_resume.pdf";
-    link.download = "tmfuad_resume.pdf";
+    link.download = "Amar_Resume";
     link.click();
+    document.body.removeChild(link);
   };
 
   return (

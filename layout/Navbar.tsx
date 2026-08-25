@@ -9,9 +9,8 @@ import { RxCross2 } from "react-icons/rx";
 import { SendHorizontal } from "lucide-react";
 
 const Navbar = () => {
-  const [active, setActive] = useState<string>("home");
-
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks: string[] = [
     "home",
