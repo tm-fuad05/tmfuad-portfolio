@@ -50,15 +50,14 @@ export const projectCards: ProjectCard[] = [
   },
   {
     id: 4,
-    image: "/images/visorix.png",
-    title: "Visorix",
+    image: "/images/logiclab-dark.png",
+    title: "LogicLab.",
     description:
-      "The Visa Navigator is a comprehensive web application designed to simplify the process of checking visa requirements, applying for visas, and tracking visa applications. It offers a user-friendly interface with features such as secure authentication (email/password and Google login), protected routes, and dynamic pages. Users can manage visa details, apply for visas, and track their applications through a personalized dashboard. The app supports CRUD operations for adding and updating visa information, with real-time notifications for successful actions. ",
-    tags: ["React", "Express", "MongoDB", "Firebase"],
-    date: "29-OCT-2024",
-    live: "https://visorix.vercel.app/",
-    githubClient: "https://github.com/tm-fuad05/Visa-Navigator-client",
-    githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
+      "LogicLab is a comprehensive React & JavaScript logic showcase engineered to demonstrate essential web development patterns, custom hook architectures, and frontend algorithms. Built with React 19 and TypeScript, it serves as an interactive playground highlighting real-world UI logic—including dynamic data filtering, asynchronous event throttling/debouncing, DOM visibility observers, form validation handlers, and state persistence mechanisms.",
+    tags: ["React", "Tailwind CSS"],
+    date: "27-AUG-2026",
+    live: "https://mylogiclab.vercel.app",
+    githubClient: "https://github.com/tm-fuad05/LogicLab",
   },
   {
     id: 5,
@@ -78,8 +77,20 @@ export const projectCards: ProjectCard[] = [
     description:
       "Lingo Bingo is an engaging vocabulary-building web application built with React and Tailwind CSS. The app focuses on providing learners with a smooth, intuitive, and visually appealing experience while maintaining robust user authentication and state management.",
     tags: ["React", "Tailwind CSS", "Firebase"],
-    date: "20-SEP-2026",
+    date: "20-AUG-2024",
     live: "https://lingo-bingo-seven.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/Lingo-Bingo",
+  },
+  {
+    id: 7,
+    image: "/images/visorix.png",
+    title: "Visorix",
+    description:
+      "The Visa Navigator is a comprehensive web application designed to simplify the process of checking visa requirements, applying for visas, and tracking visa applications. It offers a user-friendly interface with features such as secure authentication (email/password and Google login), protected routes, and dynamic pages. Users can manage visa details, apply for visas, and track their applications through a personalized dashboard. The app supports CRUD operations for adding and updating visa information, with real-time notifications for successful actions. ",
+    tags: ["React", "Express", "MongoDB", "Firebase"],
+    date: "29-OCT-2024",
+    live: "https://visorix.vercel.app/",
+    githubClient: "https://github.com/tm-fuad05/Visa-Navigator-client",
+    githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
   },
 ];
