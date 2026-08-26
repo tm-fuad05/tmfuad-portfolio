@@ -58,7 +58,7 @@ const Banner = () => {
       {/* Overlay */}
       <div className="absolute w-full h-30 bg-linear-to-t from-slate-950 to-transparent -bottom-22" />
 
-      <div className="px-4 md:px-10 lg:px-16 flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
         {/* Content  */}
         <motion.div
           className="flex flex-col items-center md:items-start gap-3 md:w-7/12"

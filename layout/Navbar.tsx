@@ -52,10 +52,10 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      <div className="px-6 md:px-10 lg:px-16 fixed top-5 z-40 w-full">
+      <div className="fixed top-4 left-1/2 -translate-x-1/2 w-full max-w-7xl z-50 px-4 sm:px-6 lg:px-8 pointer-events-none">
         <div
           data-site-navbar
-          className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 flex items-center justify-between px-6 py-3 md:py-4 bg-slate-950/40 backdrop-blur-md border border-white/[0.08] rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300"
+          className="pointer-events-auto w-full flex items-center justify-between px-6 py-3 md:py-4 bg-slate-950/40 backdrop-blur-md border border-white/[0.08] rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300"
         >
           {/* Logo Section */}
           <figure className="relative w-10 h-7 md:w-12 md:h-8 transition-transform duration-300 hover:scale-105">

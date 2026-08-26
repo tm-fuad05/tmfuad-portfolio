@@ -90,7 +90,7 @@ const AboutMe = () => {
         style={{ animationDuration: "8s" }}
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="w-full max-w-7xl mx-auto relative z-10 px-6 lg:px-8">
         {/* Section Header */}
         <SectionTitle
           title="About Me"
