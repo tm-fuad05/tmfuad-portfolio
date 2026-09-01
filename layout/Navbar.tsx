@@ -15,7 +15,7 @@ const Navbar = () => {
   const navLinks: string[] = [
     "home",
     "about",
-    "skills",
+    "tech-stack",
     "projects",
     "education",
   ];
@@ -75,27 +75,30 @@ const Navbar = () => {
               id="nav"
               className="hidden lg:flex items-center gap-8 text-slate-200 font-medium text-base tracking-wide"
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link}
-                  href={`#${link}`}
-                  className={`relative py-1 transition-colors duration-300 ${
-                    link === "faq" ? "uppercase" : "capitalize"
-                  } ${
-                    active === link
-                      ? "text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"
-                      : "text-slate-300 hover:text-white"
-                  } group`}
-                >
-                  {link}
-                  {/* Premium Bottom Glow Line */}
-                  <span
-                    className={`absolute bottom-0 left-0 h-[2px] bg-linear-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-300 ${
-                      active === link ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
-                  />
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const l = undefined;
+                return (
+                  <Link
+                    key={link}
+                    href={`#${link}`}
+                    className={`relative py-1 transition-colors duration-300 ${
+                      link === "faq" ? "uppercase" : "capitalize"
+                    } ${
+                      active === link
+                        ? "text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]"
+                        : "text-slate-300 hover:text-white"
+                    } group`}
+                  >
+                    {l?.[0]} {l?.[1]}
+                    {/* Premium Bottom Glow Line */}
+                    <span
+                      className={`absolute bottom-0 left-0 h-[2px] bg-linear-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-300 ${
+                        active === link ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Mobile Menu Toggle Button */}

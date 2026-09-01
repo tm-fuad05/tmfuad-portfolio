@@ -1,8 +1,8 @@
 "use client";
-import SectionTitle from "../shared/SectionTitle";
+import SectionTitle from "@/components/shared/SectionTitle";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Tabs from "../shared/SkillsTab";
+import Tabs from "@/components/shared/SkillsTab";
 import { useState, useEffect } from "react";
 
 interface Logo {
@@ -167,10 +167,10 @@ const Skills = () => {
         );
 
   return (
-    <section id="skills" className="scroll-mt-0">
+    <section id="tech-stack" className="scroll-mt-0">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
-          title={"Skills"}
+          title={"Tech Stack"}
           subtitle={
             "A snapshot of the technologies I use to build robust and modern web applications."
           }

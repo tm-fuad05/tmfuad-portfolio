@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
-import { socialIcons } from "./Banner";
+import SectionTitle from "@/components/shared/SectionTitle";
 import {
   FileCode2,
   Copy,
@@ -18,7 +18,6 @@ import {
   Layers,
   Activity,
 } from "lucide-react";
-import SectionTitle from "../shared/SectionTitle";
 
 const profileCode = `export const developer = {
   name: "Tanvir Mahmud Fuad",

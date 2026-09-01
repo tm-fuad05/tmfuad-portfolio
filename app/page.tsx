@@ -1,12 +1,12 @@
-import Banner from "@/components/sections/Banner";
-import Education from "@/components/sections/Education";
-import ContactMe from "@/components/sections/ContactMe";
-import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
+import Banner from "@/sections/Banner";
+import Education from "@/sections/Education";
+import ContactMe from "@/sections/ContactMe";
+import Projects from "@/sections/Projects";
+import Skills from "@/sections/Skills";
 import Footer from "@/layout/Footer";
 import Navbar from "@/layout/Navbar";
 import ScrollToUp from "@/components/shared/ScrollToUp";
-import AboutMe from "@/components/sections/AboutMe";
+import AboutMe from "@/sections/AboutMe";
 
 export default async function Home() {
   // Fake Loader (Render on the starting)

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { socialIcons } from "@/components/sections/Banner";
+import { socialIcons } from "@/sections/Banner";
 
 const Footer = () => {
   const currentYear: number = new Date().getFullYear();

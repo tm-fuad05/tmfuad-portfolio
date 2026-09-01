@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import SectionTitle from "../shared/SectionTitle";
-import { projectCards } from "../../data/projectData";
+import SectionTitle from "@/components/shared/SectionTitle";
+import { projectCards } from "../data/projectData";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { LuCircleFadingArrowUp } from "react-icons/lu";

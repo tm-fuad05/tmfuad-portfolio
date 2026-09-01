@@ -9,7 +9,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { IoMdCloudDownload } from "react-icons/io";
 import { ReactNode, useEffect } from "react";
 import Link from "next/link";
-import { DynamicSpotlight } from "../ui/dynamic-spotlight";
+import { DynamicSpotlight } from "@/components/ui/dynamic-spotlight";
 
 // Social Links
 interface SocialIcons {

@@ -10,7 +10,7 @@ import {
   ChevronRight as ChevronIcon,
   Building2 as BuildingIcon,
 } from "lucide-react";
-import SectionTitle from "../shared/SectionTitle";
+import SectionTitle from "@/components/shared/SectionTitle";
 import { educationEntries, type EducationEntry } from "@/data/educationData";
 
 const Education = () => {

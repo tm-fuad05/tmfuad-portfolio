@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import SectionTitle from "../shared/SectionTitle";
+import SectionTitle from "@/components/shared/SectionTitle";
 import { motion } from "framer-motion";
 import { MdSend } from "react-icons/md";
 import {
@@ -14,7 +14,7 @@ import {
   LucideIcon,
 } from "lucide-react";
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
-import HoverLight from "../ui/hover-spotlight";
+import HoverLight from "@/components/ui/hover-spotlight";
 
 interface SocialIcon {
   icon: LucideIcon;
