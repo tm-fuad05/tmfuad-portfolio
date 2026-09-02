@@ -76,7 +76,7 @@ const Navbar = () => {
               className="hidden lg:flex items-center gap-8 text-slate-200 font-medium text-base tracking-wide"
             >
               {navLinks.map((link) => {
-                const l = undefined;
+                const l = link?.split("-");
                 return (
                   <Link
                     key={link}
