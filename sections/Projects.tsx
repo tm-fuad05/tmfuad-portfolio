@@ -1,17 +1,35 @@
 "use client";
 import { useEffect, useState } from "react";
 import SectionTitle from "@/components/shared/SectionTitle";
-import { projectCards } from "../data/projectData";
-import { motion } from "framer-motion";
+import { projectCards, ProjectCard } from "../data/projectData";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { LuCircleFadingArrowUp } from "react-icons/lu";
+import {
+  FiExternalLink,
+  FiX,
+  FiChevronLeft,
+  FiChevronRight,
+  FiInfo,
+  FiCalendar,
+  FiTag,
+} from "react-icons/fi";
+import { useLenis } from "lenis/react";
 
 const Projects = () => {
-  const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({});
   const [expandedTags, setExpandedTags] = useState<{ [key: number]: boolean }>(
     {},
   );
   const [isDivActive, setIsDivActive] = useState<null | number>(null);
+
+  // Modal State
+  const [selectedProject, setSelectedProject] = useState<ProjectCard | null>(
+    null,
+  );
+  const [[currentImageIndex, direction], setPage] = useState<[number, number]>([
+    0, 0,
+  ]);
+  const [isAutoSliding, setIsAutoSliding] = useState<boolean>(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,18 +42,87 @@ const Projects = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const lenis = useLenis();
+
+  // Handle modal body scroll lock, Lenis instance control, resetting slider index & preloading images
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+      setPage([0, 0]);
+      setIsAutoSliding(true);
+
+      // Preload images into browser memory to eliminate buffering during slide transitions
+      selectedProject.image.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    } else {
+      document.body.style.overflow = "unset";
+      lenis?.start();
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+      lenis?.start();
+    };
+  }, [selectedProject, lenis]);
+
+  // Auto Slider effect
+  useEffect(() => {
+    if (!selectedProject || !isAutoSliding || selectedProject.image.length <= 1)
+      return;
+
+    const timer = setInterval(() => {
+      setPage(([prevIndex]) => [
+        prevIndex === selectedProject.image.length - 1 ? 0 : prevIndex + 1,
+        1,
+      ]);
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [selectedProject, isAutoSliding]);
+
   const handleCardClick = (index: number) => {
     if (window.innerWidth < 1024) {
       setIsDivActive((prev) => (prev === index ? null : index));
     }
   };
 
-  const toggleExpand = (id: number) => {
-    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  const toggleTagsExpand = (id: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedTags((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const toggleTagsExpand = (id: number) => {
-    setExpandedTags((prev) => ({ ...prev, [id]: !prev[id] }));
+  const nextImage = () => {
+    if (!selectedProject) return;
+    setPage(([prev]) => [
+      prev === selectedProject.image.length - 1 ? 0 : prev + 1,
+      1,
+    ]);
+  };
+
+  const prevImage = () => {
+    if (!selectedProject) return;
+    setPage(([prev]) => [
+      prev === 0 ? selectedProject.image.length - 1 : prev - 1,
+      -1,
+    ]);
+  };
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir < 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
   };
 
   return (
@@ -59,25 +146,30 @@ const Projects = () => {
               const isTagsExpanded = expandedTags[card.id];
               const visibleTags = isTagsExpanded
                 ? card.tags
-                : card.tags.slice(0, 4);
-              const remainingTagsCount = card.tags.length - 4;
+                : card.tags.slice(0, 3);
+              const remainingTagsCount = card.tags.length - 3;
               const activeDiv = isDivActive === idx;
               return (
                 <div
                   key={card.id}
-                  className={`border border-px border-paragraph h-fit rounded-3xl flex flex-col gap-2 hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group ${
+                  className={`border border-px border-paragraph rounded-3xl flex flex-col hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group bg-slate-950/40 backdrop-blur-xs h-fit cursor-pointer ${
                     activeDiv && "shadow-xl shadow-primary"
                   }`}
-                  onClick={() => handleCardClick(idx)}
+                  onClick={() => {
+                    handleCardClick(idx);
+                    setSelectedProject(card);
+                  }}
                 >
                   {/* Image */}
                   <div
-                    className={`relative group-hover:scale-107 duration-300 ${activeDiv && "scale-107"}`}
+                    className={`relative group-hover:scale-107 duration-300 shrink-0 ${
+                      activeDiv && "scale-107"
+                    }`}
                   >
                     <img
-                      className="pb-2 rounded-t-3xl"
-                      src={card.image}
-                      alt=""
+                      className="pb-2 rounded-t-3xl w-full h-52 object-cover"
+                      src={card?.image[0]}
+                      alt={card.title}
                     />
                     {card?.processing && (
                       <p className="absolute bottom-2 bg-green-800 inset-x-px pl-2 pt-1 text-sm text-white font-medium text-center">
@@ -87,112 +179,71 @@ const Projects = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 pt-0 border-t border-paragraph flex flex-col grow">
-                    {/* Title & Date */}
-                    <div className="flex justify-between items-center text-sm my-3">
-                      <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white font-bold">
-                        {card.title}
-                      </h3>
-                      <p className="text-slate-100 opacity-50 text-xs font-medium">
-                        {card.date}
-                      </p>
-                    </div>
+                  <div className="p-5 pt-0 border-t border-paragraph/40 flex flex-col justify-between grow">
+                    <div>
+                      {/* Title & Date */}
+                      <div className="flex justify-between items-center text-sm my-3 gap-2">
+                        <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white font-bold truncate">
+                          {card.title}
+                        </h3>
+                        <p className="text-slate-100 opacity-50 text-xs font-medium shrink-0">
+                          {card.date}
+                        </p>
+                      </div>
 
-                    {/* Description - Implemented Smooth height expansion with Framer Motion */}
-                    <div className="grow">
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          height: expanded[card.id] ? "auto" : "4.2em",
-                        }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <p className="text-paragraph text-[15px]">
+                      {/* Description - Fixed height for 3 lines to ensure exact layout balance */}
+                      <div className="h-[4.2rem]">
+                        <p className="text-paragraph text-[15px] line-clamp-3 leading-relaxed">
                           {card.description}
                         </p>
-                      </motion.div>
-                      <button
-                        className="text-blue-400/80 hover:text-blue-400 font-medium cursor-pointer text-xs mt-1 underline underline-offset-2 transition-colors"
-                        onClick={() => toggleExpand(card.id)}
-                      >
-                        {expanded[card.id] ? "See less" : "See more"}
-                      </button>
+                      </div>
                     </div>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mt-3 items-center">
-                      {visibleTags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 bg-slate-700/50 rounded-full text-xs text-paragraph"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    <div>
+                      {/* Tags Container with consistent min-height */}
+                      <div className="flex flex-wrap gap-1.5 mt-4 items-center min-h-[36px]">
+                        {visibleTags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2.5 py-1 bg-slate-700/50 rounded-full text-xs text-paragraph border border-slate-600/30"
+                          >
+                            {tag}
+                          </span>
+                        ))}
 
-                      {/* ৪টার বেশি ট্যাগ থাকলে এবং এক্সপ্যান্ড করা না থাকলে +N বাটন দেখাবে */}
-                      {remainingTagsCount > 0 && !isTagsExpanded && (
-                        <button
-                          onClick={() => toggleTagsExpand(card.id)}
-                          className="px-2.5 py-1.5 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 rounded-full text-xs font-semibold cursor-pointer transition-colors"
-                        >
-                          +{remainingTagsCount}
-                        </button>
-                      )}
-
-                      {/* এক্সপ্যান্ড করা থাকলে Show Less বাটন দেখাবে */}
-                      {isTagsExpanded && card.tags.length > 4 && (
-                        <button
-                          onClick={() => toggleTagsExpand(card.id)}
-                          className="px-2.5 py-1.5 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 rounded-full text-xs font-semibold cursor-pointer transition-colors"
-                        >
-                          Less
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Premium 3-Button Row Matrix */}
-                    <div className="mt-5 grid grid-cols-3 gap-2 w-full">
-                      {/* Live Demo */}
-                      <a
-                        href={card.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full"
-                      >
-                        <button className="w-full py-2.5 bg-linear-to-br from-primary to-secondary shadow-lg shadow-blue-500/10 rounded-xl text-white text-sm font-semibold flex items-center justify-center gap-1 cursor-pointer hover:from-secondary hover:to-primary transition duration-300 whitespace-nowrap">
-                          Live{" "}
-                          <LuCircleFadingArrowUp className="text-sm rotate-45 flex-shrink-0" />
-                        </button>
-                      </a>
-
-                      {/* Client Repo */}
-                      <a
-                        href={card.githubClient}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full"
-                      >
-                        <button className="w-full py-2.5 border border-primary/60 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-primary/5 hover:shadow-sm hover:shadow-primary/50 transition duration-300 whitespace-nowrap">
-                          Client <FaGithub className="text-sm flex-shrink-0" />
-                        </button>
-                      </a>
-
-                      {/* Server Repo */}
-                      {card?.githubServer && (
-                        <a
-                          href={card.githubServer}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="w-full"
-                        >
-                          <button className="w-full py-2.5 border border-secondary/60 text-white text-sm font-semibold rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-secondary/5 hover:shadow-sm hover:shadow-secondary/50 transition duration-300 whitespace-nowrap">
-                            Server{" "}
-                            <FaGithub className="text-sm flex-shrink-0" />
+                        {remainingTagsCount > 0 && !isTagsExpanded && (
+                          <button
+                            onClick={(e) => toggleTagsExpand(card.id, e)}
+                            className="px-2.5 py-1 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 rounded-full text-xs font-semibold cursor-pointer transition-colors"
+                          >
+                            +{remainingTagsCount}
                           </button>
-                        </a>
-                      )}
+                        )}
+
+                        {/* এক্সপ্যান্ড করা থাকলে Show Less বাটন দেখাবে */}
+                        {isTagsExpanded && card.tags.length > 3 && (
+                          <button
+                            onClick={(e) => toggleTagsExpand(card.id, e)}
+                            className="px-2.5 py-1 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 rounded-full text-xs font-semibold cursor-pointer transition-colors"
+                          >
+                            Less
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Card Action Button */}
+                      <div className="mt-4 w-full">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedProject(card);
+                          }}
+                          className="w-full py-2.5 bg-primary/15 hover:bg-primary/60 text-blue-400 hover:text-white border border-blue-500/40 hover:border-primary font-semibold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-blue-500/20 transition-all duration-300 uppercase tracking-wider"
+                        >
+                          <span>See Details</span>
+                          <FiInfo className="text-base flex-shrink-0" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -201,6 +252,263 @@ const Projects = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              className="fixed inset-0 bg-black/85 backdrop-blur-md"
+            />
+
+            {/* Modal Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="relative w-full max-w-3xl bg-[#0b0f17] border border-slate-800 rounded-2xl shadow-2xl shadow-emerald-950/20 overflow-hidden z-10 my-auto max-h-[92vh] flex flex-col text-slate-200"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 z-30 p-2 bg-slate-900/80 hover:bg-slate-900/90 text-slate-200 rounded-full transition-colors cursor-pointer border border-slate-700/60 shadow-lg"
+                aria-label="Close modal"
+              >
+                <FiX className="text-lg" />
+              </button>
+
+              {/* Scrollable Modal Container */}
+              <div
+                data-lenis-prevent
+                className="overflow-y-auto scrollbar-none"
+              >
+                {/* Header Image Slider Container - Full Width */}
+                <div
+                  className="relative group w-full bg-slate-950 h-64 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
+                  onMouseEnter={() => setIsAutoSliding(false)}
+                  onMouseLeave={() => setIsAutoSliding(true)}
+                >
+                  <AnimatePresence initial={false} custom={direction}>
+                    <motion.img
+                      key={currentImageIndex}
+                      src={selectedProject.image[currentImageIndex]}
+                      alt={`${selectedProject.title} preview ${currentImageIndex + 1}`}
+                      initial={{ x: direction > 0 ? "100%" : "-100%" }}
+                      animate={{ x: "0%" }}
+                      exit={{ x: direction > 0 ? "-100%" : "100%" }}
+                      transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.15}
+                      onDragEnd={(_, info) => {
+                        const swipeThreshold = 30;
+                        if (info.offset.x < -swipeThreshold) {
+                          nextImage();
+                        } else if (info.offset.x > swipeThreshold) {
+                          prevImage();
+                        }
+                      }}
+                      className="absolute inset-0 w-full h-full object-top object-cover cursor-grab active:cursor-grabbing select-none"
+                    />
+                  </AnimatePresence>
+
+                  {/* Gradient Overlay at Bottom */}
+                  <div className="absolute z-10 inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#0b0f17] via-[#0b0f17]/40 to-transparent  pointer-events-none" />
+
+                  {/* Slider Arrows - Hidden on sm and md screens, visible on lg screens */}
+                  {selectedProject.image.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-900/90 text-white transition-all cursor-pointer border border-slate-700/50 opacity-0 group-hover:opacity-100 shadow-md z-20"
+                        aria-label="Previous image"
+                      >
+                        <FiChevronLeft className="text-lg" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-900/90 text-white transition-all cursor-pointer border border-slate-700/50 opacity-0 group-hover:opacity-100 shadow-md z-20"
+                        aria-label="Next image"
+                      >
+                        <FiChevronRight className="text-lg" />
+                      </button>
+
+                      {/* Pagination Dots - Positioned directly inside the bottom black gradient overlay */}
+                      <div className="absolute bottom-3 inset-x-0 flex justify-center items-center gap-1.5 z-20 pointer-events-auto">
+                        {selectedProject.image.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() =>
+                              setPage([
+                                index,
+                                index > currentImageIndex ? 1 : -1,
+                              ])
+                            }
+                            className={`h-0.5 rounded-full transition-all cursor-pointer ${
+                              currentImageIndex === index
+                                ? "w-6 bg-amber-400"
+                                : "w-1.5 bg-slate-400/60 hover:bg-slate-200"
+                            }`}
+                            aria-label={`Go to slide ${index + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* Content Container with Padding */}
+                <div className="p-5 sm:p-7 space-y-6">
+                  {/* Title & Main Description */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                        {selectedProject.title}
+                      </h2>
+                      <span className="text-xs font-mono text-blue-400 bg-primary/15 px-3 py-1 rounded-full border border-primary/40">
+                        {selectedProject.date}
+                      </span>
+                    </div>
+                    <p className="text-slate-400 text-sm sm:text-[15px] leading-relaxed">
+                      {selectedProject.description}
+                    </p>
+                  </div>
+
+                  {/* Key Highlights Section */}
+                  {selectedProject.keyHighlights &&
+                    selectedProject.keyHighlights.length > 0 && (
+                      <div className="space-y-3">
+                        <h3 className="text-xs font-bold text-white uppercase tracking-widest flex items-center gap-1.5">
+                          <span className="text-amber-400">⚡</span> KEY
+                          HIGHLIGHTS
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                          {selectedProject.keyHighlights.map(
+                            (highlight, index) => (
+                              <div
+                                key={index}
+                                className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3 text-xs sm:text-[13px] text-slate-300 flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                                <span>{highlight}</span>
+                              </div>
+                            ),
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                  {/* Problem It Solves & How The Idea Started (Side-by-Side Cards) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Problem It Solves */}
+                    <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 text-sm">
+                          📦
+                        </div>
+                        <h4 className="text-sm font-bold text-slate-100">
+                          Problem It Solves
+                        </h4>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        {selectedProject.problemItSolves ||
+                          selectedProject.description}
+                      </p>
+                    </div>
+
+                    {/* How The Idea Started */}
+                    <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">
+                          💡
+                        </div>
+                        <h4 className="text-sm font-bold text-slate-100">
+                          How The Idea Started
+                        </h4>
+                      </div>
+                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        {selectedProject.howIdeaStarted ||
+                          selectedProject.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Tech Stack Section */}
+                  <div className="space-y-2.5">
+                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                      TECH STACK
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-300 rounded-lg text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom Buttons Matrix */}
+                  <div className="pt-3 flex flex-wrap sm:flex-nowrap justify-end items-center gap-3 border-t border-slate-800/80">
+                    {/* GitHub Client / Source Code */}
+                    {selectedProject.githubClient && (
+                      <a
+                        href={selectedProject.githubClient}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full sm:w-auto"
+                      >
+                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                          <FaGithub className="text-base" />
+                          <span>CLIENT</span>
+                        </button>
+                      </a>
+                    )}
+
+                    {/* GitHub Server (if available) */}
+                    {selectedProject.githubServer && (
+                      <a
+                        href={selectedProject.githubServer}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full sm:w-auto"
+                      >
+                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                          <FaGithub className="text-base" />
+                          <span>SERVER</span>
+                        </button>
+                      </a>
+                    )}
+
+                    {/* Live Preview Button */}
+                    {selectedProject.live && (
+                      <a
+                        href={selectedProject.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full sm:w-auto"
+                      >
+                        <button className="w-full sm:w-auto px-6 py-2.5 bg-linear-to-r from-primary to-secondary hover:from-secondary  hover:to-primary hover:scale-[1.02] active:scale-[0.98] font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2  cursor-pointer transition-all uppercase tracking-wide">
+                          <FiExternalLink className="text-base" />
+                          <span>LIVE PREVIEW</span>
+                        </button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
