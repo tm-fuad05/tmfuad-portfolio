@@ -113,7 +113,7 @@ const AboutMe = () => {
             >
               {/* Offset Decorative Border Frame (Closer on Small Devices to Prevent Margin Overflow) */}
               <div
-                className={`absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5  border-2 shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-300 ease-out pointer-events-none z-0 will-change-transform ${
+                className={`absolute inset-0 translate-x-2 translate-y-2 sm:translate-x-3.5 sm:translate-y-3.5  border-2 shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-300 ease-out pointer-events-none z-0 will-change-transform ${
                   isImgActive
                     ? "translate-x-0.5 translate-y-0.5 sm:translate-x-1 sm:translate-y-1 border-primary"
                     : "border-primary/60 group-hover/img:translate-x-0.5 group-hover/img:translate-y-0.5 sm:group-hover/img:translate-x-1 sm:group-hover/img:translate-y-1 group-hover/img:border-primary"

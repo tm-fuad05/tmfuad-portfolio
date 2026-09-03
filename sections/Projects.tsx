@@ -150,8 +150,8 @@ const Projects = () => {
               return (
                 <div className="relative group/gparent h-fit" key={card.id}>
                   <div
-                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border border-white/8 hover:border-primary/40 h-fit cursor-pointer group/parent ${
-                      activeDiv && "border-primary/40"
+                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border hover:border-primary/40 h-fit cursor-pointer group/parent ${
+                      activeDiv ? "border-primary/40" : "border-white/8 "
                     }`}
                     onClick={() => handleCardClick(idx)}
                   >
@@ -162,7 +162,7 @@ const Projects = () => {
                       }`}
                     >
                       <img
-                        className="pb-2 w-full h-58 object-cover"
+                        className="pb-2 w-full object-cover h-full md:h-60 lg:h-57"
                         src={card?.image[0]}
                         alt={card.title}
                       />
@@ -231,7 +231,7 @@ const Projects = () => {
 
                   <button
                     onClick={() => setSelectedProject(card)}
-                    className="absolute z-10 right-0 bottom-0 bg-background w-13 h-13 border border-l-white/8 border-t-white/8 border-b-background border-r-background group-hover/gparent:border-l-primary/40 group-hover/gparent:border-t-primary/40 hover:border-t-white/8 hover:border-l-white/8 group/child transition-colors duration-300 flex justify-center items-center cursor-pointer"
+                    className={`absolute z-10 right-0 bottom-0 bg-background w-13 h-13 border  hover:border-t-white/8 hover:border-l-white/8 group/child transition-colors duration-300 flex justify-center items-center cursor-pointer ${activeDiv ? "border-l-primary/40 border-t-primary/40" : "border-l-white/8 border-t-white/8 border-b-background border-r-background"}`}
                   >
                     <ArrowUpRight
                       size={32}
@@ -248,7 +248,7 @@ const Projects = () => {
       {/* Project Details Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -264,7 +264,7 @@ const Projects = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="relative w-full max-w-3xl bg-[#0b0f17] border border-slate-800  shadow-2xl shadow-emerald-950/20 overflow-hidden z-10 my-auto max-h-[92vh] flex flex-col text-slate-200"
+              className="relative max-w-3xl bg-[#0b0f17] shadow-2xl shadow-emerald-950/20 overflow-hidden z-10 my-auto h-full lg:h-[92vh] flex flex-col text-slate-200"
             >
               {/* Close Button */}
               <button
@@ -282,7 +282,7 @@ const Projects = () => {
               >
                 {/* Header Image Slider Container - Full Width */}
                 <div
-                  className="relative group w-full bg-slate-950 h-64 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
+                  className="relative group w-full bg-slate-950 h-50 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
                   onMouseEnter={() => setIsAutoSliding(false)}
                   onMouseLeave={() => setIsAutoSliding(true)}
                 >
