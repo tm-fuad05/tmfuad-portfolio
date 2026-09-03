@@ -4,17 +4,15 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import { projectCards, ProjectCard } from "../data/projectData";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import { LuCircleFadingArrowUp } from "react-icons/lu";
+
 import {
   FiExternalLink,
   FiX,
   FiChevronLeft,
   FiChevronRight,
-  FiInfo,
-  FiCalendar,
-  FiTag,
 } from "react-icons/fi";
 import { useLenis } from "lenis/react";
+import { ArrowUpRight } from "lucide-react";
 
 const Projects = () => {
   const [expandedTags, setExpandedTags] = useState<{ [key: number]: boolean }>(
@@ -141,7 +139,7 @@ const Projects = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="section flex flex-col items-center"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 w-full items-start">
             {projectCards.map((card, idx) => {
               const isTagsExpanded = expandedTags[card.id];
               const visibleTags = isTagsExpanded
@@ -150,102 +148,96 @@ const Projects = () => {
               const remainingTagsCount = card.tags.length - 3;
               const activeDiv = isDivActive === idx;
               return (
-                <div
-                  key={card.id}
-                  className={`border border-px border-paragraph rounded-3xl flex flex-col hover:shadow-xl hover:shadow-primary transition-all duration-400 overflow-hidden group bg-slate-950/40 backdrop-blur-xs h-fit cursor-pointer ${
-                    activeDiv && "shadow-xl shadow-primary"
-                  }`}
-                  onClick={() => {
-                    handleCardClick(idx);
-                    setSelectedProject(card);
-                  }}
-                >
-                  {/* Image */}
+                <div className="relative group/gparent h-fit" key={card.id}>
                   <div
-                    className={`relative group-hover:scale-107 duration-300 shrink-0 ${
-                      activeDiv && "scale-107"
+                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border border-white/8 hover:border-primary/40 h-fit cursor-pointer group/parent ${
+                      activeDiv && "border-primary/40"
                     }`}
+                    onClick={() => handleCardClick(idx)}
                   >
-                    <img
-                      className="pb-2 rounded-t-3xl w-full h-52 object-cover"
-                      src={card?.image[0]}
-                      alt={card.title}
+                    {/* Image */}
+                    <div
+                      className={`relative group-hover/parent:scale-107 duration-300 shrink-0 ${
+                        activeDiv && "scale-107"
+                      }`}
+                    >
+                      <img
+                        className="pb-2 w-full h-58 object-cover"
+                        src={card?.image[0]}
+                        alt={card.title}
+                      />
+                      {card?.processing && (
+                        <p className="absolute bottom-2 bg-emerald-950/80 border-t border-emerald-500/30 inset-x-px pl-2 pt-1 text-sm text-emerald-400 font-medium text-center">
+                          In Development
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-5 pt-0 border-t border-white/10 flex flex-col justify-between grow">
+                      <div>
+                        {/* Title & Date */}
+                        <div className="flex justify-between items-center text-sm my-3 gap-2">
+                          <h3 className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-200 font-bold truncate">
+                            {card.title}
+                          </h3>
+                          <p className="text-slate-400 text-xs font-mono shrink-0">
+                            {card.date}
+                          </p>
+                        </div>
+
+                        {/* Description - Fixed height for 3 lines to ensure exact layout balance */}
+                        <div className="h-[4.2rem]">
+                          <p className="text-slate-300/80 text-[15px] line-clamp-3 leading-relaxed">
+                            {card.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        {/* Tags Container with consistent min-height */}
+                        <div className="flex flex-wrap gap-1.5 mt-4 items-center min-h-[36px]">
+                          {visibleTags.map((tag, idx) => (
+                            <span
+                              key={idx}
+                              className="px-2.5 py-1 bg-slate-900/90 text-xs text-slate-300 border border-white/10"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+
+                          {remainingTagsCount > 0 && !isTagsExpanded && (
+                            <button
+                              onClick={(e) => toggleTagsExpand(card.id, e)}
+                              className="px-2.5 py-1 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 text-xs font-semibold cursor-pointer transition-colors"
+                            >
+                              +{remainingTagsCount}
+                            </button>
+                          )}
+
+                          {/* এক্সপ্যান্ড করা থাকলে Show Less বাটন দেখাবে */}
+                          {isTagsExpanded && card.tags.length > 3 && (
+                            <button
+                              onClick={(e) => toggleTagsExpand(card.id, e)}
+                              className="px-2.5 py-1 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 text-xs font-semibold cursor-pointer transition-colors"
+                            >
+                              Less
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedProject(card)}
+                    className="absolute z-10 right-0 bottom-0 bg-background w-13 h-13 border border-l-white/8 border-t-white/8 border-b-background border-r-background group-hover/gparent:border-l-primary/40 group-hover/gparent:border-t-primary/40 hover:border-t-white/8 hover:border-l-white/8 group/child transition-colors duration-300 flex justify-center items-center cursor-pointer"
+                  >
+                    <ArrowUpRight
+                      size={32}
+                      className=" text-amber-400 group-hover/child:translate-x-1 group-hover/child:-translate-y-1 transition-transform duration-200"
                     />
-                    {card?.processing && (
-                      <p className="absolute bottom-2 bg-green-800 inset-x-px pl-2 pt-1 text-sm text-white font-medium text-center">
-                        In Development
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5 pt-0 border-t border-paragraph/40 flex flex-col justify-between grow">
-                    <div>
-                      {/* Title & Date */}
-                      <div className="flex justify-between items-center text-sm my-3 gap-2">
-                        <h3 className="text-2xl bg-clip-text text-transparent bg-linear-to-l from-primary to-white font-bold truncate">
-                          {card.title}
-                        </h3>
-                        <p className="text-slate-100 opacity-50 text-xs font-medium shrink-0">
-                          {card.date}
-                        </p>
-                      </div>
-
-                      {/* Description - Fixed height for 3 lines to ensure exact layout balance */}
-                      <div className="h-[4.2rem]">
-                        <p className="text-paragraph text-[15px] line-clamp-3 leading-relaxed">
-                          {card.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div>
-                      {/* Tags Container with consistent min-height */}
-                      <div className="flex flex-wrap gap-1.5 mt-4 items-center min-h-[36px]">
-                        {visibleTags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="px-2.5 py-1 bg-slate-700/50 rounded-full text-xs text-paragraph border border-slate-600/30"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-
-                        {remainingTagsCount > 0 && !isTagsExpanded && (
-                          <button
-                            onClick={(e) => toggleTagsExpand(card.id, e)}
-                            className="px-2.5 py-1 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 rounded-full text-xs font-semibold cursor-pointer transition-colors"
-                          >
-                            +{remainingTagsCount}
-                          </button>
-                        )}
-
-                        {/* এক্সপ্যান্ড করা থাকলে Show Less বাটন দেখাবে */}
-                        {isTagsExpanded && card.tags.length > 3 && (
-                          <button
-                            onClick={(e) => toggleTagsExpand(card.id, e)}
-                            className="px-2.5 py-1 bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30 rounded-full text-xs font-semibold cursor-pointer transition-colors"
-                          >
-                            Less
-                          </button>
-                        )}
-                      </div>
-
-                      {/* Card Action Button */}
-                      <div className="mt-4 w-full">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedProject(card);
-                          }}
-                          className="w-full py-2.5 bg-primary/15 hover:bg-primary/60 text-blue-400 hover:text-white border border-blue-500/40 hover:border-primary font-semibold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-blue-500/20 transition-all duration-300 uppercase tracking-wider"
-                        >
-                          <span>See Details</span>
-                          <FiInfo className="text-base flex-shrink-0" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                  </button>
                 </div>
               );
             })}
@@ -272,12 +264,12 @@ const Projects = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="relative w-full max-w-3xl bg-[#0b0f17] border border-slate-800 rounded-2xl shadow-2xl shadow-emerald-950/20 overflow-hidden z-10 my-auto max-h-[92vh] flex flex-col text-slate-200"
+              className="relative w-full max-w-3xl bg-[#0b0f17] border border-slate-800  shadow-2xl shadow-emerald-950/20 overflow-hidden z-10 my-auto max-h-[92vh] flex flex-col text-slate-200"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-30 p-2 bg-slate-900/80 hover:bg-slate-900/90 text-slate-200 rounded-full transition-colors cursor-pointer border border-slate-700/60 shadow-lg"
+                className="absolute top-4 right-4 z-30 p-2 bg-slate-900/80 hover:bg-slate-900/90 text-slate-200  transition-colors cursor-pointer border border-slate-700/60 shadow-lg"
                 aria-label="Close modal"
               >
                 <FiX className="text-lg" />
@@ -326,14 +318,14 @@ const Projects = () => {
                     <>
                       <button
                         onClick={prevImage}
-                        className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-900/90 text-white transition-all cursor-pointer border border-slate-700/50 opacity-0 group-hover:opacity-100 shadow-md z-20"
+                        className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 p-2.5  bg-slate-900/80 hover:bg-slate-900/90 text-white transition-all cursor-pointer border border-slate-700/50 opacity-0 group-hover:opacity-100 shadow-md z-20"
                         aria-label="Previous image"
                       >
                         <FiChevronLeft className="text-lg" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-900/90 text-white transition-all cursor-pointer border border-slate-700/50 opacity-0 group-hover:opacity-100 shadow-md z-20"
+                        className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 p-2.5  bg-slate-900/80 hover:bg-slate-900/90 text-white transition-all cursor-pointer border border-slate-700/50 opacity-0 group-hover:opacity-100 shadow-md z-20"
                         aria-label="Next image"
                       >
                         <FiChevronRight className="text-lg" />
@@ -350,7 +342,7 @@ const Projects = () => {
                                 index > currentImageIndex ? 1 : -1,
                               ])
                             }
-                            className={`h-0.5 rounded-full transition-all cursor-pointer ${
+                            className={`h-0.5  transition-all cursor-pointer ${
                               currentImageIndex === index
                                 ? "w-6 bg-amber-400"
                                 : "w-1.5 bg-slate-400/60 hover:bg-slate-200"
@@ -371,7 +363,7 @@ const Projects = () => {
                       <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                         {selectedProject.title}
                       </h2>
-                      <span className="text-xs font-mono text-blue-400 bg-primary/15 px-3 py-1 rounded-full border border-primary/40">
+                      <span className="text-xs font-mono text-blue-400 bg-primary/15 px-3 py-1  border border-primary/40">
                         {selectedProject.date}
                       </span>
                     </div>
@@ -393,9 +385,9 @@ const Projects = () => {
                             (highlight, index) => (
                               <div
                                 key={index}
-                                className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3 text-xs sm:text-[13px] text-slate-300 flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
+                                className="bg-slate-900/60 border border-slate-800/80  p-3 text-xs sm:text-[13px] text-slate-300 flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                                <span className="w-1.5 h-1.5  bg-primary mt-1.5 shrink-0" />
                                 <span>{highlight}</span>
                               </div>
                             ),
@@ -407,9 +399,9 @@ const Projects = () => {
                   {/* Problem It Solves & How The Idea Started (Side-by-Side Cards) */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Problem It Solves */}
-                    <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                    <div className="bg-slate-900/50 border border-slate-800/80  p-4 sm:p-5 space-y-2.5">
                       <div className="flex items-center gap-2.5">
-                        <div className="p-2 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 text-sm">
+                        <div className="p-2  bg-amber-500/10 text-amber-400 border border-amber-500/20 text-sm">
                           📦
                         </div>
                         <h4 className="text-sm font-bold text-slate-100">
@@ -423,9 +415,9 @@ const Projects = () => {
                     </div>
 
                     {/* How The Idea Started */}
-                    <div className="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-4 sm:p-5 space-y-2.5">
+                    <div className="bg-slate-900/50 border border-slate-800/80  p-4 sm:p-5 space-y-2.5">
                       <div className="flex items-center gap-2.5">
-                        <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">
+                        <div className="p-2  bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-sm">
                           💡
                         </div>
                         <h4 className="text-sm font-bold text-slate-100">
@@ -448,7 +440,7 @@ const Projects = () => {
                       {selectedProject.tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-300 rounded-lg text-xs font-medium"
+                          className="px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-300  text-xs font-medium"
                         >
                           {tag}
                         </span>
@@ -466,7 +458,7 @@ const Projects = () => {
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80  text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
                           <FaGithub className="text-base" />
                           <span>CLIENT</span>
                         </button>
@@ -481,7 +473,7 @@ const Projects = () => {
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80  text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
                           <FaGithub className="text-base" />
                           <span>SERVER</span>
                         </button>
@@ -496,7 +488,7 @@ const Projects = () => {
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto px-6 py-2.5 bg-linear-to-r from-primary to-secondary hover:from-secondary  hover:to-primary hover:scale-[1.02] active:scale-[0.98] font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2  cursor-pointer transition-all uppercase tracking-wide">
+                        <button className="w-full sm:w-auto px-6 py-2.5 bg-linear-to-r from-primary to-secondary hover:from-secondary  hover:to-primary hover:scale-[1.02] active:scale-[0.98] font-bold  text-xs sm:text-sm flex items-center justify-center gap-2  cursor-pointer transition-all uppercase tracking-wide">
                           <FiExternalLink className="text-base" />
                           <span>LIVE PREVIEW</span>
                         </button>

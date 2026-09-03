@@ -174,4 +174,3 @@ export const projectCards: ProjectCard[] = [
     githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
   },
 ];
-

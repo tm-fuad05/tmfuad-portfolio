@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 const profileCode = `export const developer = {
-  name: "Tanvir Mahmud Fuad",
+  name: "Tanvir Mahmud ",
   role: "Software Developer",
   stack: ["MERN", "Next.js", "TypeScript"],
   databaseTransition: {
@@ -81,11 +81,11 @@ const AboutMe = () => {
     <div id="about" className="scroll-mt-0">
       {/* Optimized Hardware-Accelerated Ambient Background Glows */}
       <div
-        className="pointer-events-none absolute top-1/4 left-10 size-80 sm:size-96 rounded-full bg-primary/20 blur-[90px] transform-gpu will-change-transform animate-pulse"
+        className="pointer-events-none absolute top-1/4 left-10 size-80 sm:size-96  bg-primary/20 blur-[90px] transform-gpu will-change-transform animate-pulse"
         style={{ animationDuration: "6s" }}
       />
       <div
-        className="pointer-events-none absolute bottom-1/4 right-10 size-80 sm:size-96 rounded-full bg-purple-600/15 blur-[100px] transform-gpu will-change-transform animate-pulse"
+        className="pointer-events-none absolute bottom-1/4 right-10 size-80 sm:size-96  bg-purple-600/15 blur-[100px] transform-gpu will-change-transform animate-pulse"
         style={{ animationDuration: "8s" }}
       />
 
@@ -113,7 +113,7 @@ const AboutMe = () => {
             >
               {/* Offset Decorative Border Frame (Closer on Small Devices to Prevent Margin Overflow) */}
               <div
-                className={`absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5 rounded-2xl border-2 shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-300 ease-out pointer-events-none z-0 will-change-transform ${
+                className={`absolute inset-0 translate-x-2 translate-y-3 sm:translate-x-3.5 sm:translate-y-3.5  border-2 shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-300 ease-out pointer-events-none z-0 will-change-transform ${
                   isImgActive
                     ? "translate-x-0.5 translate-y-0.5 sm:translate-x-1 sm:translate-y-1 border-primary"
                     : "border-primary/60 group-hover/img:translate-x-0.5 group-hover/img:translate-y-0.5 sm:group-hover/img:translate-x-1 sm:group-hover/img:translate-y-1 group-hover/img:border-primary"
@@ -121,11 +121,11 @@ const AboutMe = () => {
               />
 
               {/* Main Image Container */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden z-10 border border-white/10 shadow-2xl">
+              <div className="relative w-full h-full  overflow-hidden z-10 border border-white/10 shadow-2xl">
                 {/* Profile Image */}
                 <Image
                   src="/images/about_me.webp"
-                  alt="Tanvir Mahmud Fuad"
+                  alt="Tanvir Mahmud "
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw"
                   className={`object-cover object-top transition-transform duration-500 will-change-transform ${
@@ -136,7 +136,7 @@ const AboutMe = () => {
 
                 {/* Bottom Black Gradient Overlay containing Dev Quote */}
                 <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black via-black/90 to-transparent pt-12 sm:pt-16 pb-4 sm:pb-5 px-4 sm:px-5 flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-1 self-stretch bg-primary rounded-full shrink-0 shadow-[0_0_10px_#3b82f6]" />
+                  <div className="w-1 self-stretch bg-primary  shrink-0 shadow-[0_0_10px_#3b82f6]" />
                   <BiSolidQuoteLeft className="text-lg sm:text-2xl text-primary shrink-0" />
                   <p className="text-slate-200 italic font-sans text-[13px] sm:text-[15px] leading-relaxed drop-shadow">
                     "You’re never behind — You only pick up from where you
@@ -157,21 +157,21 @@ const AboutMe = () => {
           >
             <div
               onClick={handleIdeClick}
-              className={`relative group p-[1px] rounded-3xl bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 h-full cursor-pointer ${
+              className={`relative group p-[1px]  bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 h-full cursor-pointer ${
                 isIdeActive
                   ? "shadow-[0_0_50px_rgba(30,144,255,0.2)]"
                   : "hover:shadow-[0_0_50px_rgba(30,144,255,0.2)]"
               }`}
             >
-              <div className="relative w-full h-full rounded-[23px] bg-[#12131a]/95 backdrop-blur-md overflow-hidden font-geistMono flex flex-col justify-between">
+              <div className="relative w-full h-full -[23px] bg-[#12131a]/95 backdrop-blur-md overflow-hidden font-geistMono flex flex-col justify-between">
                 <div>
                   {/* IDE Top Header Bar */}
                   <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[#0e0f15] border-b border-white/10 relative z-10">
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-[0_0_8px_#ff5f56]" />
-                        <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_8px_#ffbd2e]" />
-                        <div className="w-3 h-3 rounded-full bg-[#27c93f] shadow-[0_0_8px_#27c93f]" />
+                        <div className="w-3 h-3  bg-[#ff5f56] shadow-[0_0_8px_#ff5f56]" />
+                        <div className="w-3 h-3  bg-[#ffbd2e] shadow-[0_0_8px_#ffbd2e]" />
+                        <div className="w-3 h-3  bg-[#27c93f] shadow-[0_0_8px_#27c93f]" />
                       </div>
                       <span className="hidden sm:flex items-center gap-2 text-xs font-sans text-slate-400 border-l border-white/10 pl-3">
                         <Sparkles
@@ -188,15 +188,15 @@ const AboutMe = () => {
                         className="text-primary animate-pulse"
                       />
                       <span className="hidden sm:inline">Status:</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-mono flex items-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                      <span className="px-2.5 py-0.5  bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-mono flex items-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
+                        <span className="w-1.5 h-1.5  bg-emerald-400 animate-ping" />
                         Active System
                       </span>
                     </div>
 
                     <button
                       onClick={handleCopy}
-                      className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-white/5 hover:bg-primary/20 px-3 py-1 rounded-lg transition-all border border-white/10 hover:border-primary/50 shadow-sm active:scale-95 cursor-pointer"
+                      className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-white/5 hover:bg-primary/20 px-3 py-1  transition-all border border-white/10 hover:border-primary/50 shadow-sm active:scale-95 cursor-pointer"
                     >
                       {copied ? (
                         <>
@@ -296,7 +296,7 @@ const AboutMe = () => {
                               <p className="pl-4">
                                 <span className="text-[#38bdf8]">name</span>:{" "}
                                 <span className="text-[#4ade80]">
-                                  "Tanvir Mahmud Fuad"
+                                  "Tanvir Mahmud "
                                 </span>
                                 ,
                               </p>

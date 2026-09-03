@@ -19,7 +19,7 @@ export default function Tabs({
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`
-          relative px-5 py-2.5 rounded-lg text-sm md:text-base font-medium
+          relative px-5 py-2.5  text-sm md:text-base font-medium
           transition-all duration-300 border backdrop-blur-md cursor-pointer
           ${
             isActive
@@ -32,13 +32,13 @@ export default function Tabs({
             {isActive && (
               <motion.div
                 layoutId="active-pill"
-                className="absolute -inset-px rounded-lg bg-linear-to-br from-primary to-secondary  shadow-lg shadow-blue-500/20"
+                className="absolute -inset-px  bg-linear-to-br from-primary to-secondary  shadow-lg shadow-blue-500/20"
                 transition={{ duration: 0.5 }}
               />
             )}
 
             {/* Glossy Overlay (Static or Hover) */}
-            <div className="absolute -inset-px rounded-lg bg-linear-to-tr from-white/10 to-transparent opacity-50 pointer-events-none" />
+            <div className="absolute -inset-px  bg-linear-to-tr from-white/10 to-transparent opacity-50 pointer-events-none" />
 
             <span className="relative z-10">{tab}</span>
           </button>

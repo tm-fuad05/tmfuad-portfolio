@@ -37,9 +37,9 @@ const ContactMe = () => {
   });
 
   const icons: SocialIcon[] = [
-    { icon: Github, href: "https://github.com/tm-fuad05" },
+    { icon: Github, href: "https://github.com/tm-rounded05" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/tmfuad05/" },
-    { icon: Twitter, href: "https://x.com/tm_fuad05" },
+    { icon: Twitter, href: "https://x.com/tm_rounded05" },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -101,11 +101,11 @@ const ContactMe = () => {
               borderOpacity={100}
               innerOpacity={0}
               border={1.5}
-              className="h-full rounded-3xl"
+              className="h-full "
             >
-              <div className="relative h-full p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
+              <div className="relative h-full p-6 sm:p-8 md:p-10  bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
                 {/* Ambient Glow in background */}
-                <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/20  blur-3xl pointer-events-none" />
 
                 <div className="relative z-10">
                   <div className="mb-8">
@@ -129,8 +129,8 @@ const ContactMe = () => {
                       <input
                         type="text"
                         name="name"
-                        placeholder="John Doe"
-                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
+                        placeholder="Tanvir Mahmud Fuad"
+                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10  text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
                         required
                       />
                     </div>
@@ -142,8 +142,8 @@ const ContactMe = () => {
                       <input
                         type="email"
                         name="email"
-                        placeholder="john@example.com"
-                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
+                        placeholder="tm.fua05@example.com"
+                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10  text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
                         required
                       />
                     </div>
@@ -156,7 +156,7 @@ const ContactMe = () => {
                         type="text"
                         name="subject"
                         placeholder="Project Inquiry / Hiring"
-                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
+                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10  text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20"
                         required
                       />
                     </div>
@@ -169,7 +169,7 @@ const ContactMe = () => {
                         name="message"
                         rows={4}
                         placeholder="Tell me about your project or idea..."
-                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10 rounded-xl text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20 resize-none"
+                        className="w-full px-4 py-3 bg-slate-900/60 border border-white/10  text-slate-100 placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-primary focus:ring-1 focus:ring-primary hover:border-white/20 resize-none"
                         required
                       />
                     </div>
@@ -179,7 +179,7 @@ const ContactMe = () => {
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`p-3.5 rounded-xl text-sm font-medium border ${
+                        className={`p-3.5  text-sm font-medium border ${
                           status.success
                             ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-400"
                             : "bg-rose-500/10 border-rose-500/30 text-rose-400"
@@ -193,12 +193,12 @@ const ContactMe = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="relative group w-full overflow-hidden rounded-xl p-[1px] font-medium transition-all duration-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      className="relative group w-full overflow-hidden  p-[1px] font-medium transition-all duration-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-primary via-indigo-500 to-sky-400 transition-all duration-500 group-hover:opacity-90" />
-                      <div className="relative px-6 py-3.5 bg-slate-950/60 backdrop-blur-md rounded-[11px] flex items-center justify-center gap-2 text-white font-semibold group-hover:bg-transparent transition-all duration-300">
+                      <div className="relative px-6 py-3.5 bg-slate-950/60 backdrop-blur-md -[11px] flex items-center justify-center gap-2 text-white font-semibold group-hover:bg-transparent transition-all duration-300">
                         {loading ? (
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent  animate-spin" />
                         ) : (
                           <>
                             <span>Send Message</span>
@@ -219,12 +219,12 @@ const ContactMe = () => {
               borderOpacity={90}
               innerOpacity={0}
               border={1.5}
-              className="h-full rounded-3xl"
+              className="h-full "
             >
-              <div className="relative h-full p-6 sm:p-8 md:p-10 rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
+              <div className="relative h-full p-6 sm:p-8 md:p-10  bg-slate-950/80 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-between overflow-hidden">
                 {/* Decorative Blur Circles */}
-                <div className="absolute -bottom-24 -right-24 w-56 h-56 bg-sky-500/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
-                <div className="absolute -top-20 -left-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-56 h-56 bg-sky-500/15  blur-3xl pointer-events-none animate-pulse" />
+                <div className="absolute -top-20 -left-20 w-48 h-48 bg-purple-500/10  blur-3xl pointer-events-none" />
 
                 <div className="relative z-10 flex flex-col h-full justify-between space-y-8">
                   {/* Header */}
@@ -241,8 +241,8 @@ const ContactMe = () => {
                   {/* Info List */}
                   <div className="space-y-4 my-auto">
                     {/* Email */}
-                    <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
-                      <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <div className="group relative flex items-center gap-4 p-4  bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
+                      <div className="p-3.5  bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                         <Mail className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
@@ -259,8 +259,8 @@ const ContactMe = () => {
                     </div>
 
                     {/* Phone */}
-                    <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
-                      <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <div className="group relative flex items-center gap-4 p-4  bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
+                      <div className="p-3.5  bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
@@ -277,8 +277,8 @@ const ContactMe = () => {
                     </div>
 
                     {/* Location */}
-                    <div className="group relative flex items-center gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
-                      <div className="p-3.5 rounded-xl bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                    <div className="group relative flex items-center gap-4 p-4  bg-slate-900/50 border border-white/5 hover:border-primary/40 hover:bg-slate-900/80 transition-all duration-300">
+                      <div className="p-3.5  bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
@@ -304,7 +304,7 @@ const ContactMe = () => {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-3.5 bg-slate-900/60 border border-white/10 rounded-2xl text-slate-300 hover:text-white hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0"
+                          className="p-3.5 bg-slate-900/60 border border-white/10  text-slate-300 hover:text-white hover:border-primary/50 hover:bg-primary/20 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0"
                         >
                           <item.icon size={20} />
                         </a>

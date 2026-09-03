@@ -17,12 +17,16 @@
   --font-geistMono: var(--font-geistMono);
   --font-oxanium: var(--font-oxanium);
 }
+* {
+  @apply rounded-none;
+}
 
 html,
 body {
   overflow-x: hidden;
   background-color: var(--background);
   font-family: var(--font-oxanium);
+ 
 }
 
 /* 1. Base Setup */

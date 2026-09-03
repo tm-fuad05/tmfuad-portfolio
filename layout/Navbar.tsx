@@ -7,6 +7,7 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 
 import { SendHorizontal } from "lucide-react";
+import Logo from "@/components/shared/Logo";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
@@ -55,25 +56,16 @@ const Navbar = () => {
       <div className="fixed top-4 left-1/2 -translate-x-1/2 w-full max-w-7xl z-50 px-4 sm:px-6 lg:px-8 pointer-events-none">
         <div
           data-site-navbar
-          className="pointer-events-auto w-full flex items-center justify-between px-6 py-3 md:py-4 bg-slate-950/40 backdrop-blur-md border border-white/[0.08] rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300"
+          className="relative pointer-events-auto w-full flex items-center justify-between px-6 py-3 md:py-4 bg-slate-950/40 backdrop-blur-md border border-white/8  shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300"
         >
           {/* Logo Section */}
-          <figure className="relative w-10 h-7 md:w-12 md:h-8 transition-transform duration-300 hover:scale-105">
-            <Link href="#home" className="block w-full h-full">
-              <Image
-                fill
-                src="/images/logo2.png"
-                alt="Logo"
-                className="object-contain"
-              />
-            </Link>
-          </figure>
+          <Logo />
 
           {/* Desktop Navigation */}
           <div className="flex items-center gap-8">
             <nav
               id="nav"
-              className="hidden lg:flex items-center gap-8 text-slate-200 font-medium text-base tracking-wide"
+              className="hidden lg:flex items-center gap-8 text-slate-200 font-medium text-base tracking-wide absolute left-1/2 -translate-x-1/2"
             >
               {navLinks.map((link) => {
                 const l = link?.split("-");
@@ -92,7 +84,7 @@ const Navbar = () => {
                     {l?.[0]} {l?.[1]}
                     {/* Premium Bottom Glow Line */}
                     <span
-                      className={`absolute bottom-0 left-0 h-[2px] bg-linear-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-300 ${
+                      className={`absolute bottom-0 left-0 h-[2px] bg-linear-to-r from-blue-500 to-cyan-400  transition-all duration-300 ${
                         active === link ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -104,7 +96,7 @@ const Navbar = () => {
             {/* Mobile Menu Toggle Button */}
             <div
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden text-2xl text-slate-200 hover:text-white cursor-pointer p-1.5 rounded-l transition-all duration-200"
+              className="lg:hidden text-2xl text-slate-200 hover:text-white cursor-pointer p-1.5 -l transition-all duration-200"
             >
               {/* Icon logic fixed: Show close icon when open, menu icon when closed */}
               {menuOpen ? <RiCloseLine /> : <RiMenu4Line />}
@@ -114,7 +106,7 @@ const Navbar = () => {
           {/* Action Button (CTA) */}
           <Link
             href="#contact"
-            className="hidden lg:flex items-center gap-2.5 text-white font-medium text-sm px-5 py-2.5 bg-linear-to-r from-primary to-secondary rounded-xl shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_25px_rgba(59,130,246,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-white/10"
+            className="hidden lg:flex items-center gap-2.5 text-white font-medium text-sm px-5 py-2.5 bg-linear-to-r from-primary to-secondary  shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_25px_rgba(59,130,246,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-white/10"
           >
             <SendHorizontal size={15} className="animate-pulse" />
             <span>Get In Touch</span>
@@ -123,6 +115,7 @@ const Navbar = () => {
       </div>
 
       <aside
+        data-lenis-prevent
         id="mob-nav"
         className={`fixed top-0 left-0 h-full w-3/4 max-w-sm z-50 transition-all duration-500 ease-in-out lg:hidden
     bg-slate-950/80 backdrop-blur-2xl border-r border-white/10 shadow-2xl overflow-y-auto
@@ -142,7 +135,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setMenuOpen(false)}
-            className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white transition-all hover:bg-white/10 hover:border-white/20 active:scale-90"
+            className="w-10 h-10 flex items-center justify-center  bg-white/5 border border-white/10 text-white transition-all hover:bg-white/10 hover:border-white/20 active:scale-90"
           >
             <RxCross2 size={24} />
           </button>
@@ -157,7 +150,7 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
               style={{ transitionDelay: `${idx * 50}ms` }}
               className={`
-          group relative px-5 py-3 rounded-xl text-lg font-semibold transition-all duration-300
+          group relative px-5 py-3  text-lg font-semibold transition-all duration-300
           ${
             active === link
               ? "bg-primary/20 text-primary border border-primary/20"
@@ -169,12 +162,12 @@ const Navbar = () => {
               <span className="relative z-10 flex justify-between items-center">
                 {link}
                 <span
-                  className={`w-1.5 h-1.5 rounded-full bg-primary transition-all duration-500 ${active === link ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
+                  className={`w-1.5 h-1.5  bg-primary transition-all duration-500 ${active === link ? "scale-100 opacity-100" : "scale-0 opacity-0"}`}
                 />
               </span>
 
               <div
-                className={`absolute inset-0 rounded-2xl bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity`}
+                className={`absolute inset-0  bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity`}
               />
             </Link>
           ))}
@@ -184,7 +177,7 @@ const Navbar = () => {
             <Link
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-4 px-6 font-bold text-white rounded-lg 
+              className="flex items-center justify-center gap-2 w-full py-4 px-6 font-bold text-white  
           bg-linear-to-r from-primary to-blue-600 shadow-lg shadow-primary/20
           hover:shadow-primary/40 active:scale-95 transition-all duration-300"
             >

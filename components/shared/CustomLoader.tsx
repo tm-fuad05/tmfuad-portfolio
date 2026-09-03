@@ -4,17 +4,16 @@ import Image from "next/image";
 
 const CustomLoader = () => {
   return (
-    <div className="relative w-15 h-15 md:w-20 md:h-20 lg:w-25 lg:h-25 flex justify-center items-center">
-      <div className="w-full h-full border-4 border-primary border-dashed rounded-full animate-spin" />
-      <div className="absolute">
-        <div className="relative w-8 h-5 md:w-10 md:h-8 lg:w-12 lg:h-10">
-          <Image
-            src="/images/logo2.png"
-            alt="Loading"
-            fill
-            className="animate-pulse"
-          />
-        </div>
+    <div className="fixed inset-0 z-50 bg-[#020617] flex items-center justify-center select-none">
+      {/* Absolute Pure Image Only */}
+      <div className="relative w-64 h-40 md:w-96 md:h-60 lg:w-[500px] lg:h-[300px]">
+        <Image
+          src="/images/logo2.png"
+          alt="Loading"
+          fill
+          priority
+          className="object-contain animate-[pulse_2s_ease-in-out_infinite] filter drop-shadow-[0_15px_35px_rgba(37,99,235,0.45)] drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+        />
       </div>
     </div>
   );

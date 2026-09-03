@@ -27,18 +27,18 @@ const SectionTitle = ({
       className="relative mb-16 md:mb-20 flex flex-col items-center text-center will-change-transform"
     >
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-100 h-36 bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-100 h-36 bg-primary/10 blur-[100px]  pointer-events-none" />
 
       {/* Main Title with JSX Brackets */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-2 md:gap-3">
         {icon && (
-          <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/20 text-primary hidden sm:flex items-center justify-center">
+          <div className="p-2.5  bg-primary/10 border border-primary/20 text-primary hidden sm:flex items-center justify-center">
             {icon}
           </div>
         )}
 
         {/* Top Code Component Tag Badge */}
-        <div className="relative z-10 mt-2 flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/[0.03] border border-white/10 font-mono text-xs text-slate-400 backdrop-blur-sm">
+        <div className="relative z-10 mt-2 flex items-center gap-1.5 px-3 py-1  bg-white/[0.03] border border-white/10 font-mono text-xs text-slate-400 backdrop-blur-sm">
           <span className="text-primary font-semibold">&lt;Section</span>
           <span className="text-slate-500">id=</span>
           <span className="text-emerald-400">"{sectionId}"</span>
@@ -76,7 +76,7 @@ const SectionTitle = ({
         <motion.span
           animate={{ opacity: [0.3, 1, 0.3] }}
           transition={{ duration: 1.8, repeat: Infinity }}
-          className="w-1.5 h-1.5 rounded-full bg-primary"
+          className="w-1.5 h-1.5  bg-primary"
         />
         <span className="text-slate-600">{`*/}`}</span>
         <div className="h-px w-10 md:w-16 bg-linear-to-l from-transparent to-primary/40" />
