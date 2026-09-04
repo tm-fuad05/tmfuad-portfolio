@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import SectionTitle from "@/components/shared/SectionTitle";
 import Picture from "./Picture";
-import Content from "./Content";
+import CodeBlock from "./CodeBlock";
 
 const AboutMe = () => {
   const [isImgActive, setIsImgActive] = useState(false);
@@ -57,7 +57,10 @@ const AboutMe = () => {
           <Picture isImgActive={isImgActive} handleImgClick={handleImgClick} />
 
           {/* RIGHT COLUMN: Streamlined IDE Code Workbench */}
-          <Content isIdeActive={isIdeActive} handleIdeClick={handleIdeClick} />
+          <CodeBlock
+            isIdeActive={isIdeActive}
+            handleIdeClick={handleIdeClick}
+          />
         </div>
       </div>
     </div>

@@ -59,8 +59,8 @@ const Footer = () => {
             </div>
             <p className="text-xs md:text-md lg:text-lg text-gray-600">
               &copy; <span id="currentYear">{currentYear}</span>{" "}
-              <span className="text-white font-normal">Tanvir Mahmud</span>. All
-              rights reserved.
+              <span className="text-white font-normal">Tanvir Mahmud Fuad</span>
+              . All rights reserved.
             </p>
           </div>
         </div>

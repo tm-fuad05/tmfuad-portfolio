@@ -30,7 +30,7 @@ const expertiseCode = `export const expertise = {
   reliabilityAndState: ["Zod", "TanStack Query", "Zustand"]
 };`;
 
-export default function Content({
+export default function CodeBlock({
   isIdeActive,
   handleIdeClick,
 }: {
@@ -272,7 +272,7 @@ export default function Content({
                           <span className="text-[#38bdf8]">backendAndDB</span>:
                           [
                         </p>
-                        <p className="pl-8 text-[#4ade80]">
+                        <p className="pl-8 text-[#4ade80]!">
                           "PostgreSQL (Prisma)", "MongoDB", "Node.js"
                         </p>
                         <p className="pl-4">],</p>
@@ -282,7 +282,7 @@ export default function Content({
                           </span>
                           : [
                         </p>
-                        <p className="pl-8 text-[#4ade80]">
+                        <p className="pl-8 text-[#4ade80]!">
                           "Clerk", "NextAuth", "JWT", "Firebase"
                         </p>
                         <p className="pl-4">],</p>
@@ -292,7 +292,7 @@ export default function Content({
                           </span>
                           : [
                         </p>
-                        <p className="pl-8 text-[#4ade80]">
+                        <p className="pl-8 text-[#4ade80]!">
                           "Zod", "TanStack Query", "Zustand"
                         </p>
                         <p className="pl-4">]</p>
