@@ -26,7 +26,7 @@ export default function Tabs({
             className={`w-full text-left p-4 sm:p-5  transition-all duration-300 relative overflow-hidden flex items-center justify-between border cursor-pointer ${
               isSelected
                 ? "bg-[#16161e] border-primary/50 text-white shadow-[0_0_25px_rgba(30,144,255,0.15)] scale-[1.02]"
-                : "bg-[#16161e]/50 border-white/5 text-slate-400 hover:bg-[#16161e]/80 hover:border-white/10 hover:text-slate-200"
+                : "bg-[#16161e]/50 border-white/5 text-paragraph hover:bg-[#16161e]/80 hover:border-white/10 hover:text-slate-200"
             }`}
           >
             {/* Selected Active Bar */}

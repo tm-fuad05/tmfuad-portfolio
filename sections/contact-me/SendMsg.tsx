@@ -34,7 +34,7 @@ export default function SendMsg({
             <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Send a Message
             </h3>
-            <p className="text-sm text-slate-400 mt-1">
+            <p className="text-sm text-paragraph mt-1">
               Fill out the form below and I’ll get back to you shortly.
             </p>
           </div>

@@ -151,7 +151,7 @@ const Navbar = () => {
           ${
             active === link
               ? "bg-primary/20 text-primary border border-primary/20"
-              : "text-slate-400 hover:bg-white/5 hover:text-white"
+              : "text-paragraph hover:bg-white/5 hover:text-white"
           }
           ${link === "faq" ? "uppercase" : "capitalize"}
         `}

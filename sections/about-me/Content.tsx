@@ -74,7 +74,7 @@ export default function Content({
                   <div className="w-3 h-3  bg-[#ffbd2e] shadow-[0_0_8px_#ffbd2e]" />
                   <div className="w-3 h-3  bg-[#27c93f] shadow-[0_0_8px_#27c93f]" />
                 </div>
-                <span className="hidden sm:flex items-center gap-2 text-xs font-sans text-slate-400 border-l border-white/10 pl-3">
+                <span className="hidden sm:flex items-center gap-2 text-xs font-sans text-paragraph border-l border-white/10 pl-3">
                   <Sparkles
                     size={13}
                     className="text-amber-400 animate-pulse"
@@ -117,7 +117,7 @@ export default function Content({
                 className={`relative flex items-center gap-2 px-5 py-3 text-xs sm:text-sm transition-colors cursor-pointer border-r border-white/10 ${
                   activeFile === "profile"
                     ? "text-white bg-[#13141f] font-medium"
-                    : "text-slate-400 hover:text-slate-200"
+                    : "text-paragraph hover:text-slate-200"
                 }`}
               >
                 <FileCode2 size={15} className="text-blue-400" />
@@ -135,7 +135,7 @@ export default function Content({
                 className={`relative flex items-center gap-2 px-5 py-3 text-xs sm:text-sm transition-colors cursor-pointer border-r border-white/10 ${
                   activeFile === "expertise"
                     ? "text-white bg-[#13141f] font-medium"
-                    : "text-slate-400 hover:text-slate-200"
+                    : "text-paragraph hover:text-slate-200"
                 }`}
               >
                 <FileCode2 size={15} className="text-purple-400" />
@@ -306,7 +306,7 @@ export default function Content({
           </div>
 
           {/* IDE Bottom Status & Social Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-5 py-3 bg-[#0e0f15] border-t border-white/10 text-[11px] text-slate-400 font-mono">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-5 py-3 bg-[#0e0f15] border-t border-white/10 text-[11px] text-paragraph font-mono">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1.5 text-primary font-medium">
                 <GitBranch size={13} /> main*

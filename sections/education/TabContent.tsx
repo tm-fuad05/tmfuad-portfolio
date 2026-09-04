@@ -61,7 +61,7 @@ export default function TabContent({
                   <BuildingIcon size={12} className="text-primary" />{" "}
                   Institution
                 </span>
-                <p className="text-slate-200 font-medium text-sm sm:text-base">
+                <p className="text-slate-200! font-medium text-sm sm:text-base">
                   {activeEntry.institution}
                 </p>
               </div>
@@ -70,7 +70,7 @@ export default function TabContent({
                 <span className="text-[11px] font-mono text-slate-500 uppercase flex items-center gap-1">
                   <MapPinIcon size={12} className="text-primary" /> Location
                 </span>
-                <p className="text-slate-200 font-medium text-sm sm:text-base">
+                <p className="text-slate-200! font-medium text-sm sm:text-base">
                   {activeEntry.location}
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function TabContent({
                 size={20}
                 className="text-primary shrink-0 mt-0.5"
               />
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300! leading-relaxed">
                 Focused on building a strong foundation in core software
                 engineering principles, algorithms, and practical web
                 architecture.

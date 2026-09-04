@@ -48,7 +48,7 @@ export default function Stacks({
           </figure>
 
           {/* Text Style */}
-          <p className="z-10 mt-4 text-center text-xs md:text-sm font-semibold tracking-wide text-slate-400 group-hover:text-white transition-colors duration-300 pointer-events-none">
+          <p className="z-10 mt-4 text-center text-xs md:text-sm font-semibold tracking-wide text-paragraph group-hover:text-white transition-colors duration-300 pointer-events-none">
             {logo.name.toUpperCase()}
           </p>
 

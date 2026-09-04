@@ -29,7 +29,7 @@ export default function Tabs({
           ${
             isActive
               ? "border-blue-500/50 text-white shadow-[0_0_10px_rgba(37,99,235,0.3)]"
-              : "border-white/10  text-slate-400 hover:bg-slate-900/40 hover:border-white/20"
+              : "border-white/10  text-paragraph hover:bg-slate-900/40 hover:border-white/20"
           }
         `}
           >

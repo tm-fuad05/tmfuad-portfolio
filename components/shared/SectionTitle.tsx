@@ -38,7 +38,7 @@ const SectionTitle = ({
         )}
 
         {/* Top Code Component Tag Badge */}
-        <div className="relative z-10 mt-2 flex items-center gap-1.5 px-3 py-1  bg-white/[0.03] border border-white/10 font-mono text-xs text-slate-400 backdrop-blur-sm">
+        <div className="relative z-10 mt-2 flex items-center gap-1.5 px-3 py-1  bg-white/[0.03] border border-white/10 font-mono text-xs text-paragraph backdrop-blur-sm">
           <span className="text-primary font-semibold">&lt;Section</span>
           <span className="text-slate-500">id=</span>
           <span className="text-emerald-400">"{sectionId}"</span>
@@ -51,7 +51,7 @@ const SectionTitle = ({
             &lt;
           </span>
 
-          <span className="bg-clip-text text-transparent bg-linear-to-b from-white via-slate-100 to-slate-400">
+          <span className="bg-clip-text text-transparent bg-linear-to-b from-white via-slate-100 to-paragraph">
             {title}
           </span>
 
@@ -64,7 +64,7 @@ const SectionTitle = ({
 
       {/* Subtitle */}
       <div className="relative z-10 mt-3.5 max-w-xl mx-auto">
-        <p className="text-slate-400 text-sm md:text-base font-normal leading-relaxed px-4">
+        <p className="text-paragraph text-sm md:text-base font-normal leading-relaxed px-4">
           {subtitle}
         </p>
       </div>

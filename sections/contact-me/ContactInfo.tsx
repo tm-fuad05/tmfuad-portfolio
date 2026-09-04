@@ -20,10 +20,10 @@ export default function ContactInfo({ icons }: { icons: SocialIcon[] }) {
         <div className="relative z-10 flex flex-col h-full justify-between space-y-8">
           {/* Header */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white via-slate-200 to-paragraph bg-clip-text text-transparent">
               Contact Information
             </h3>
-            <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+            <p className="text-sm text-paragraph mt-1 leading-relaxed">
               Prefer direct communication? Reach out via email, phone, or find
               me across social media.
             </p>
@@ -37,7 +37,7 @@ export default function ContactInfo({ icons }: { icons: SocialIcon[] }) {
                 <Mail className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-semibold text-paragraph uppercase tracking-wider">
                   Email
                 </span>
                 <a
@@ -55,7 +55,7 @@ export default function ContactInfo({ icons }: { icons: SocialIcon[] }) {
                 <Phone className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-semibold text-paragraph uppercase tracking-wider">
                   Phone
                 </span>
                 <a
@@ -73,7 +73,7 @@ export default function ContactInfo({ icons }: { icons: SocialIcon[] }) {
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                <span className="text-[11px] font-semibold text-paragraph uppercase tracking-wider">
                   Location
                 </span>
                 <span className="text-sm font-medium text-slate-200">
@@ -85,7 +85,7 @@ export default function ContactInfo({ icons }: { icons: SocialIcon[] }) {
 
           {/* Social Links & Footer */}
           <div className="pt-4 border-t border-white/10">
-            <span className="block text-center text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+            <span className="block text-center text-xs font-semibold text-paragraph uppercase tracking-wider mb-4">
               Connect With Me
             </span>
             <div className="flex justify-center gap-3">

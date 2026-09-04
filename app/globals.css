@@ -4,7 +4,7 @@
 :root {
   --primary: #2563eb;
   --secondary: #6366f1;
-  --paragraph: #cbd5e1;
+  --paragraph: #94a3b8;
   --radius: 0.625rem;
   --background: #020617;
 }
@@ -19,6 +19,9 @@
 }
 * {
   @apply rounded-none;
+}
+p {
+  @apply text-paragraph
 }
 
 
@@ -173,27 +176,19 @@ body {
 }
 
 /* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Scrollbar background */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-@media (min-width: 500px) {
-  ::-webkit-scrollbar {
-    width: 2px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--primary);
-  }
-}
-
-@media (min-width: 1024px) {
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: linear-linear(to bottom, var(--primary), transparent);
-    border-radius: 50px;
-  }
+/* scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  border-radius: 0px;
 }
 
 /* Lenis Scroll Setup - DO NOT TOUCH */

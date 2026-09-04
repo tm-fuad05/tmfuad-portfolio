@@ -46,28 +46,67 @@ const Projects = () => {
   const lenis = useLenis();
 
   // Handle modal body scroll lock, Lenis instance control, resetting slider index & preloading images
+  // Projects.tsx এর Scroll lock effect-এ এই পরিবর্তনটুকু করুন:
   useEffect(() => {
     if (selectedProject) {
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
       lenis?.stop();
       setPage([0, 0]);
       setIsAutoSliding(true);
 
-      // Preload images into browser memory to eliminate buffering during slide transitions
       selectedProject.image.forEach((src) => {
         const img = new Image();
         img.src = src;
       });
     } else {
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px"; // 👈 রিমুভ
       lenis?.start();
     }
 
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px";
       lenis?.start();
     };
   }, [selectedProject, lenis]);
+
+  // Phone Back Button & Escape Key Close Logic
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    // ১. মডাল ওপেন হলে হিস্টোরিতে ফেক স্টেট পুশ করবো
+    window.history.pushState({ modalOpen: true }, "");
+
+    // ২. মোবাইলে ব্যাক বাটন প্রেস করলে ট্রিগার হবে
+    const handlePopState = () => {
+      setSelectedProject(null);
+    };
+
+    // ৩. Escape কি প্রেস করলে
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key == "Backspace") {
+        setSelectedProject(null);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener("keydown", handleKeyDown);
+
+      // ৪. যদি ইউজার ব্যাক বাটনে প্রেস না করে (যেমন: মডালের X বোতামে ক্লিক করে বন্ধ করে),
+      // তাহলে পুশ করা হিস্টোরি ডুপ্লিকেট ক্লিয়ার করার জন্য ব্যাক করা হবে
+      if (window.history.state?.modalOpen) {
+        window.history.back();
+      }
+    };
+  }, [selectedProject]);
 
   // Auto Slider effect
   useEffect(() => {
@@ -153,7 +192,7 @@ const Projects = () => {
               return (
                 <div className="relative group/gparent h-fit" key={card.id}>
                   <div
-                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border hover:border-primary/40 h-fit cursor-pointer group/parent ${
+                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border hover:border-primary/40 h-fit group/parent ${
                       activeDiv ? "border-primary/40" : "border-white/8 "
                     }`}
                     onClick={() => handleCardClick(idx)}
@@ -184,14 +223,14 @@ const Projects = () => {
                           <h3 className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-200 font-bold truncate">
                             {card.title}
                           </h3>
-                          <p className="text-slate-400 text-xs font-mono shrink-0">
+                          <p className="text-paragraph text-xs font-mono shrink-0">
                             {card.date}
                           </p>
                         </div>
 
                         {/* Description - Fixed height for 3 lines to ensure exact layout balance */}
                         <div className="h-[4.2rem]">
-                          <p className="text-slate-300/80 text-[15px] line-clamp-3 leading-relaxed">
+                          <p className="text-slate-300! text-[15px] line-clamp-3 leading-relaxed">
                             {card.description}
                           </p>
                         </div>
@@ -203,7 +242,7 @@ const Projects = () => {
                           {visibleTags.map((tag, idx) => (
                             <span
                               key={idx}
-                              className="px-2.5 py-1 bg-slate-900/90 text-xs text-slate-300 border border-white/10"
+                              className="px-2.5 py-1 bg-slate-900/90 text-xs text-paragraph border border-white/10"
                             >
                               {tag}
                             </span>
@@ -284,7 +323,7 @@ const Projects = () => {
               >
                 {/* Header Image Slider Container - Full Width */}
                 <div
-                  className="relative group w-full bg-slate-950 h-70 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
+                  className="relative group w-full bg-slate-950 h-60 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
                   onMouseEnter={() => setIsAutoSliding(false)}
                   onMouseLeave={() => setIsAutoSliding(true)}
                 >
@@ -347,7 +386,7 @@ const Projects = () => {
                             className={`h-0.5  transition-all cursor-pointer ${
                               currentImageIndex === index
                                 ? "w-6 bg-amber-400"
-                                : "w-1.5 bg-slate-400/60 hover:bg-slate-200"
+                                : "w-1.5 bg-paragraph/60 hover:bg-slate-200"
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                           />
@@ -369,7 +408,7 @@ const Projects = () => {
                         {selectedProject.date}
                       </span>
                     </div>
-                    <p className="text-slate-400 text-sm sm:text-[15px] leading-relaxed">
+                    <p className="text-paragraph text-sm sm:text-[15px] leading-relaxed">
                       {selectedProject.description}
                     </p>
                   </div>
@@ -378,7 +417,7 @@ const Projects = () => {
                   {selectedProject.keyHighlights &&
                     selectedProject.keyHighlights.length > 0 && (
                       <div className="space-y-3">
-                        <h3 className="text-xs font-bold text-white uppercase tracking-widest flex items-center gap-1.5">
+                        <h3 className="text-xs font-bold text-paragraph uppercase tracking-widest flex items-center gap-1.5">
                           <span className="text-amber-400">⚡</span> KEY
                           HIGHLIGHTS
                         </h3>
@@ -387,7 +426,7 @@ const Projects = () => {
                             (highlight, index) => (
                               <div
                                 key={index}
-                                className="bg-slate-900/60 border border-slate-800/80  p-3 text-sm sm:text-[15px] text-slate-300 flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
+                                className="bg-slate-900/60 border border-slate-800/80  p-3 text-sm sm:text-[15px] text-paragraph flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
                               >
                                 <span className="w-1.5 h-1.5  bg-primary mt-1.5 shrink-0" />
                                 <span>{highlight}</span>
@@ -410,7 +449,7 @@ const Projects = () => {
                           Problem It Solves
                         </h4>
                       </div>
-                      <p className="text-sm sm:text-[15px] text-slate-400 leading-relaxed">
+                      <p className="text-sm sm:text-[15px] text-paragraph leading-relaxed">
                         {selectedProject.problemItSolves ||
                           selectedProject.description}
                       </p>
@@ -426,7 +465,7 @@ const Projects = () => {
                           How The Idea Started
                         </h4>
                       </div>
-                      <p className="text-sm sm:text-[15px] text-slate-400 leading-relaxed">
+                      <p className="text-sm sm:text-[15px] text-paragraph leading-relaxed">
                         {selectedProject.howIdeaStarted ||
                           selectedProject.description}
                       </p>
@@ -442,7 +481,7 @@ const Projects = () => {
                       {selectedProject.tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1.5 bg-slate-900 border border-slate-800 text-slate-300  text-xs font-medium"
+                          className="px-3 py-1.5 bg-slate-900 border border-slate-800 text-paragraph  text-xs font-medium"
                         >
                           {tag}
                         </span>
