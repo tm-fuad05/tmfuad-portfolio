@@ -9,8 +9,10 @@ import { RxCross2 } from "react-icons/rx";
 import { SendHorizontal } from "lucide-react";
 import Logo from "@/components/shared/Logo";
 import ButtonPrimary from "@/components/shared/ButtonPrimary";
+import { useLenis } from "lenis/react";
 
 const Navbar = () => {
+  const lenis = useLenis();
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -51,6 +53,16 @@ const Navbar = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = "auto";
+      lenis?.start();
+    }
+  }, [menuOpen, lenis]);
 
   return (
     <div className="relative">
@@ -172,7 +184,7 @@ const Navbar = () => {
           {/* ৩. Contact Button (Bottom) */}
           <div className="mt-6 pt-6 border-t border-white/15">
             <Link href="#contact" onClick={() => setMenuOpen(false)}>
-              <ButtonPrimary>
+              <ButtonPrimary sw="full">
                 <SendHorizontal size={16} />
                 <span> Get In Touch</span>
               </ButtonPrimary>
