@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SectionTitle from "@/components/shared/SectionTitle";
-import { projectCards, ProjectCard } from "../data/projectData";
+import { projectCards, ProjectCard } from "../../data/projectData";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
@@ -13,6 +13,9 @@ import {
 } from "react-icons/fi";
 import { useLenis } from "lenis/react";
 import { ArrowUpRight } from "lucide-react";
+import Button from "@/components/shared/ButtonPrimary";
+import ButtonSecondary from "@/components/shared/ButtonSecondary";
+import ButtonPrimary from "@/components/shared/ButtonPrimary";
 
 const Projects = () => {
   const [expandedTags, setExpandedTags] = useState<{ [key: number]: boolean }>(
@@ -196,7 +199,7 @@ const Projects = () => {
 
                       <div>
                         {/* Tags Container with consistent min-height */}
-                        <div className="flex flex-wrap gap-1.5 mt-4 items-center min-h-[36px]">
+                        <div className="flex flex-wrap gap-1.5 mt-4 items-center min-h-[36px] w-10/12">
                           {visibleTags.map((tag, idx) => (
                             <span
                               key={idx}
@@ -215,7 +218,6 @@ const Projects = () => {
                             </button>
                           )}
 
-                          {/* এক্সপ্যান্ড করা থাকলে Show Less বাটন দেখাবে */}
                           {isTagsExpanded && card.tags.length > 3 && (
                             <button
                               onClick={(e) => toggleTagsExpand(card.id, e)}
@@ -231,7 +233,7 @@ const Projects = () => {
 
                   <button
                     onClick={() => setSelectedProject(card)}
-                    className={`absolute z-10 right-0 bottom-0 bg-background w-13 h-13 border  hover:border-t-white/8 hover:border-l-white/8 group/child transition-colors duration-300 flex justify-center items-center cursor-pointer ${activeDiv ? "border-l-primary/40 border-t-primary/40" : "border-l-white/8 border-t-white/8 border-b-background border-r-background"}`}
+                    className={`absolute z-10 right-0 bottom-0 bg-background w-13 h-13 border group-hover/gparent:border-l-primary/40 group-hover/gparent:border-t-primary/40 hover:border-t-white/8 hover:border-l-white/8 group/child transition-colors duration-300 flex justify-center items-center cursor-pointer ${activeDiv ? "border-l-primary/40 border-t-primary/40" : "border-l-white/8 border-t-white/8 border-b-background border-r-background"}`}
                   >
                     <ArrowUpRight
                       size={32}
@@ -282,7 +284,7 @@ const Projects = () => {
               >
                 {/* Header Image Slider Container - Full Width */}
                 <div
-                  className="relative group w-full bg-slate-950 h-50 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
+                  className="relative group w-full bg-slate-950 h-70 sm:h-96 flex items-center justify-center overflow-hidden touch-pan-y"
                   onMouseEnter={() => setIsAutoSliding(false)}
                   onMouseLeave={() => setIsAutoSliding(true)}
                 >
@@ -311,7 +313,7 @@ const Projects = () => {
                   </AnimatePresence>
 
                   {/* Gradient Overlay at Bottom */}
-                  <div className="absolute z-10 inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#0b0f17] via-[#0b0f17]/40 to-transparent  pointer-events-none" />
+                  <div className="absolute z-10 inset-x-0 bottom-0 h-30 sm:h-80 bg-gradient-to-t from-[#0b0f17] via-[#0b0f17]/40 to-transparent  pointer-events-none" />
 
                   {/* Slider Arrows - Hidden on sm and md screens, visible on lg screens */}
                   {selectedProject.image.length > 1 && (
@@ -385,7 +387,7 @@ const Projects = () => {
                             (highlight, index) => (
                               <div
                                 key={index}
-                                className="bg-slate-900/60 border border-slate-800/80  p-3 text-xs sm:text-[13px] text-slate-300 flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
+                                className="bg-slate-900/60 border border-slate-800/80  p-3 text-sm sm:text-[15px] text-slate-300 flex items-start gap-2.5 hover:border-slate-700/80 transition-colors"
                               >
                                 <span className="w-1.5 h-1.5  bg-primary mt-1.5 shrink-0" />
                                 <span>{highlight}</span>
@@ -408,7 +410,7 @@ const Projects = () => {
                           Problem It Solves
                         </h4>
                       </div>
-                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                      <p className="text-sm sm:text-[15px] text-slate-400 leading-relaxed">
                         {selectedProject.problemItSolves ||
                           selectedProject.description}
                       </p>
@@ -424,7 +426,7 @@ const Projects = () => {
                           How The Idea Started
                         </h4>
                       </div>
-                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                      <p className="text-sm sm:text-[15px] text-slate-400 leading-relaxed">
                         {selectedProject.howIdeaStarted ||
                           selectedProject.description}
                       </p>
@@ -458,10 +460,10 @@ const Projects = () => {
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80  text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                        <ButtonSecondary>
                           <FaGithub className="text-base" />
                           <span>CLIENT</span>
-                        </button>
+                        </ButtonSecondary>
                       </a>
                     )}
 
@@ -473,10 +475,10 @@ const Projects = () => {
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80  text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer transition-colors">
+                        <ButtonSecondary>
                           <FaGithub className="text-base" />
                           <span>SERVER</span>
-                        </button>
+                        </ButtonSecondary>
                       </a>
                     )}
 
@@ -488,10 +490,10 @@ const Projects = () => {
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <button className="w-full sm:w-auto px-6 py-2.5 bg-linear-to-r from-primary to-secondary hover:from-secondary  hover:to-primary hover:scale-[1.02] active:scale-[0.98] font-bold  text-xs sm:text-sm flex items-center justify-center gap-2  cursor-pointer transition-all uppercase tracking-wide">
+                        <ButtonPrimary sw="full">
                           <FiExternalLink className="text-base" />
                           <span>LIVE PREVIEW</span>
-                        </button>
+                        </ButtonPrimary>
                       </a>
                     )}
                   </div>

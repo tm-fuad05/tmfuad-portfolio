@@ -1,15 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
+import { Logo } from "./TechStack";
 
 export default function Tabs({
-  tabList,
+  logos,
   activeTab,
   setActiveTab,
 }: {
-  tabList: string[];
+  logos: Logo[];
   activeTab: string;
   setActiveTab(tab: string): void;
 }) {
+  const tabList: string[] = [
+    "All",
+    ...new Set(logos?.flatMap((logo) => logo.category)),
+  ];
   return (
     <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
       {tabList.map((tab) => {

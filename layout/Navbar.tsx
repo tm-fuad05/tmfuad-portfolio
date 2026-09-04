@@ -8,6 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 
 import { SendHorizontal } from "lucide-react";
 import Logo from "@/components/shared/Logo";
+import ButtonPrimary from "@/components/shared/ButtonPrimary";
 
 const Navbar = () => {
   const [active, setActive] = useState("home");
@@ -103,21 +104,17 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Action Button (CTA) */}
-          <Link
-            href="#contact"
-            className="hidden lg:flex items-center gap-2.5 text-white font-medium text-sm px-5 py-2.5 bg-linear-to-r from-primary to-secondary  shadow-[0_4px_20px_rgba(59,130,246,0.3)] hover:shadow-[0_4px_25px_rgba(59,130,246,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-white/10"
-          >
+          <ButtonPrimary hidden={true}>
             <SendHorizontal size={15} className="animate-pulse" />
             <span>Get In Touch</span>
-          </Link>
+          </ButtonPrimary>
         </div>
       </div>
 
       <aside
         data-lenis-prevent
         id="mob-nav"
-        className={`fixed top-0 left-0 h-full w-3/4 max-w-sm z-50 transition-all duration-500 ease-in-out lg:hidden
+        className={`fixed top-0 left-0 h-full w-3/4 max-w-sm z-60 transition-all duration-500 ease-in-out lg:hidden
     bg-slate-950/80 backdrop-blur-2xl border-r border-white/10 shadow-2xl overflow-y-auto
     ${menuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0 pointer-events-none"}
   `}
@@ -174,15 +171,11 @@ const Navbar = () => {
 
           {/* ৩. Contact Button (Bottom) */}
           <div className="mt-6 pt-6 border-t border-white/15">
-            <Link
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-4 px-6 font-bold text-white  
-          bg-linear-to-r from-primary to-blue-600 shadow-lg shadow-primary/20
-          hover:shadow-primary/40 active:scale-95 transition-all duration-300"
-            >
-              <SendHorizontal size={16} />
-              <span> Get In Touch</span>
+            <Link href="#contact" onClick={() => setMenuOpen(false)}>
+              <ButtonPrimary>
+                <SendHorizontal size={16} />
+                <span> Get In Touch</span>
+              </ButtonPrimary>
             </Link>
           </div>
         </div>
@@ -192,7 +185,7 @@ const Navbar = () => {
       {menuOpen && (
         <div
           onClick={() => setMenuOpen(false)}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-500"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden transition-opacity duration-500"
         />
       )}
     </div>

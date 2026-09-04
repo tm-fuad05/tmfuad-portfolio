@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { socialIcons } from "@/sections/Banner";
+import { socialIcons } from "@/sections/hero/Hero";
 import Logo from "@/components/shared/Logo";
 
 const Footer = () => {
@@ -51,7 +51,7 @@ const Footer = () => {
                   key={idx}
                   href={icon.link}
                   target="_blank"
-                  className="  p-1.5 hover:shadow-sm hover:bg-primary hover:text-white text-xl md:text-2xl transition-all duration-300"
+                  className="  p-1.5 rounded-full! hover:shadow-sm hover:bg-primary hover:text-white text-xl md:text-2xl transition-all duration-300"
                 >
                   {icon.icon}
                 </a>

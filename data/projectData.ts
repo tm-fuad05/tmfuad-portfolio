@@ -38,7 +38,15 @@ export const projectCards: ProjectCard[] = [
       "Managing fitness sessions, booking qualified trainers, and tracking personal goals usually requires multiple fragmented tools. FitRack unifies goal tracking, trainer booking, community support, and payment management into one single platform.",
     howIdeaStarted:
       "Fitness enthusiasts often struggle to find verified trainers and manage their workout schedules seamlessly. I wanted to build a end-to-end platform where clients and certified trainers could interact, schedule sessions, and handle payments effortlessly.",
-    tags: ["React", "Express", "MongoDB", "Firebase", "Stripe", "Tailwind CSS"],
+    tags: [
+      "React",
+      "Tailwind CSS",
+      "Express",
+      "MongoDB",
+      "Firebase",
+      "JWT",
+      "Stripe",
+    ],
     date: "06-DEC-2024",
     live: "https://fitrackbd.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/fitrack-client",
@@ -66,7 +74,7 @@ export const projectCards: ProjectCard[] = [
       "Historical data and rare artifacts are often buried across scattered online archives. PastPortals provides a centralized, crowd-sourced digital museum where history buffs can catalog, preserve, and explore artifact history together.",
     howIdeaStarted:
       "My passion for history inspired me to create a web portal where community members could archive forgotten historical artifacts and discuss their historical context with enthusiasts worldwide.",
-    tags: ["React", "Express", "MongoDB", "Firebase", "Node.js"],
+    tags: ["React", "Express", "MongoDB", "Firebase", "JWT"],
     date: "09-NOV-2024",
     live: "https://pastportalsbd.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/past-portals-client",
@@ -167,7 +175,7 @@ export const projectCards: ProjectCard[] = [
       "Navigating visa requirements and application statuses across different countries is often confusing and tedious. Visorix consolidates visa details, requirements, and application tracking in one place.",
     howIdeaStarted:
       "Travelers often face confusion regarding visa requirements and application updates. Visorix was created to provide a streamlined, user-friendly portal for exploring international visa policies and tracking applications.",
-    tags: ["React", "Express", "MongoDB", "Firebase", "Node.js"],
+    tags: ["React", "Express", "MongoDB", "Firebase"],
     date: "29-OCT-2024",
     live: "https://visorix.vercel.app/",
     githubClient: "https://github.com/tm-fuad05/Visa-Navigator-client",

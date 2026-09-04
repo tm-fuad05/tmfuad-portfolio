@@ -1,0 +1,195 @@
+"use client";
+import SectionTitle from "@/components/shared/SectionTitle";
+import { motion } from "framer-motion";
+import Tabs from "@/sections/tech-stack/Tabs";
+import { useState, useEffect } from "react";
+import Stacks from "./Stacks";
+
+export interface Logo {
+  logo: string;
+  name: string;
+  category: string | string[];
+}
+
+const logos: Logo[] = [
+  {
+    logo: "/images/icons/html.png",
+    name: "HTML",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/css.png",
+    name: "CSS",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/javascript.png",
+    name: "Javascript",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/typescript.png",
+    name: "Typescript",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/tailwind.png",
+    name: "Tailwind",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/react.png",
+    name: "React",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/nextjs.png",
+    name: "Next JS",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/motion.png",
+    name: "Framer Motion",
+    category: "Frontend",
+  },
+  {
+    logo: "/images/icons/node.png",
+    name: "Node.js",
+    category: "Backend",
+  },
+  {
+    logo: "/images/icons/express.png",
+    name: "Express.js",
+    category: "Backend",
+  },
+  {
+    logo: "/images/icons/jwt.svg",
+    name: "JWT",
+    category: ["Backend", "Authentication"],
+  },
+  {
+    logo: "/images/icons/mongodb.png",
+    name: "MongoDB",
+    category: "Database",
+  },
+  {
+    logo: "/images/icons/postgresql.png",
+    name: "PostgreSQL",
+    category: "Database",
+  },
+  {
+    logo: "/images/icons/prisma.png",
+    name: "Prisma",
+    category: ["Backend", "Database"],
+  },
+  {
+    logo: "/images/icons/firebase.png",
+    name: "Firebase",
+    category: "Authentication",
+  },
+  {
+    logo: "/images/icons/betterauth.png",
+    name: "BetterAuth",
+    category: "Authentication",
+  },
+  {
+    logo: "/images/icons/clerk.png",
+    name: "Clerk",
+    category: "Authentication",
+  },
+
+  {
+    logo: "/images/icons/zustand.svg",
+    name: "Zustand",
+    category: "State & Validation",
+  },
+  {
+    logo: "/images/icons/zod.png",
+    name: "Zod",
+    category: ["State & Validation", "Backend"],
+  },
+  {
+    logo: "/images/icons/tanstack.png",
+    name: "Tanstack",
+    category: "State & Validation",
+  },
+  {
+    logo: "/images/icons/vercel.png",
+    name: "Vercel",
+    category: "Tools",
+  },
+  {
+    logo: "/images/icons/vscode.png",
+    name: "VS Code",
+    category: "Tools",
+  },
+  {
+    logo: "/images/icons/git.png",
+    name: "Git",
+    category: "Tools",
+  },
+  {
+    logo: "/images/icons/github.webp",
+    name: "Github",
+    category: "Tools",
+  },
+];
+
+const TechStack = () => {
+  const [activeTab, setActiveTab] = useState("All");
+  const [activeLogo, setActiveLogo] = useState<string | null>(null);
+
+  // Function Call when resize window
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setActiveLogo(null);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleLogoClick = (name: string) => {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
+      setActiveLogo((prev) => (prev === name ? null : name));
+    }
+  };
+
+  return (
+    <section id="tech-stack" className="scroll-mt-0">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
+        <SectionTitle
+          title={"Tech Stack"}
+          subtitle={
+            "A snapshot of the technologies I use to build robust and modern web applications."
+          }
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="section flex flex-col items-center"
+        >
+          {/* Tabs */}
+          <Tabs
+            logos={logos}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+          {/* Stacks Component */}
+          <Stacks
+            logos={logos}
+            activeLogo={activeLogo}
+            activeTab={activeTab}
+            handleLogoClick={handleLogoClick}
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default TechStack;

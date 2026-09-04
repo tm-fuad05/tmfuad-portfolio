@@ -25,8 +25,10 @@ const ScrollToUp = () => {
   return (
     <Link
       href="#home"
-      className={`fixed z-30 right-8 bottom-8 hidden md:block w-15 lg:w-16.25   bg-linear-to-b from-primary/50 to-transparent hover:-translate-y-2 cursor-pointer transition transform duration-300 ${
-        scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`fixed z-30 right-8 bottom-8 hidden md:block w-15 lg:w-16.25 rounded-full! bg-linear-to-b from-primary/50 to-transparent hover:-translate-y-2 cursor-pointer transition transform duration-300 ${
+        scrolled
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
       }`}
     >
       <Lottie animationData={up} loop={true} />
