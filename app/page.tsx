@@ -9,11 +9,6 @@ import TechStack from "@/sections/tech-stack/TechStack";
 import Hero from "@/sections/hero/Hero";
 
 export default async function Home() {
-  // Fake Loader (Render on the starting)
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  });
-
   return (
     <>
       <div className="flex flex-col gap-30 lg:gap-55">

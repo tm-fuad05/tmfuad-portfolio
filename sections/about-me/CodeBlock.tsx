@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 
 const profileCode = `export const developer = {
-  name: "Tanvir Mahmud ",
+  name: "Tanvir Mahmud Fuad",
   role: "Software Developer",
   stack: ["MERN", "Next.js", "TypeScript"],
   databaseTransition: {
@@ -74,22 +74,6 @@ export default function CodeBlock({
                   <div className="w-3 h-3  bg-[#ffbd2e] shadow-[0_0_8px_#ffbd2e]" />
                   <div className="w-3 h-3  bg-[#27c93f] shadow-[0_0_8px_#27c93f]" />
                 </div>
-                <span className="hidden sm:flex items-center gap-2 text-xs font-sans text-paragraph border-l border-white/10 pl-3">
-                  <Sparkles
-                    size={13}
-                    className="text-amber-400 animate-pulse"
-                  />
-                  tanvir-studio — workspace v2.0
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2 text-slate-300 text-xs font-sans">
-                <Terminal size={14} className="text-primary animate-pulse" />
-                <span className="hidden sm:inline">Status:</span>
-                <span className="px-2.5 py-0.5  bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-mono flex items-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.25)]">
-                  <span className="w-1.5 h-1.5  bg-emerald-400 animate-ping" />
-                  Active System
-                </span>
               </div>
 
               <button
@@ -190,7 +174,7 @@ export default function CodeBlock({
                         <p className="pl-4">
                           <span className="text-[#38bdf8]">name</span>:{" "}
                           <span className="text-[#4ade80]">
-                            "Tanvir Mahmud "
+                            "Tanvir Mahmud Fuad"
                           </span>
                           ,
                         </p>
