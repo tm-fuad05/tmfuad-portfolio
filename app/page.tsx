@@ -7,6 +7,7 @@ import ScrollToUp from "@/components/shared/ScrollToUp";
 import AboutMe from "@/sections/about-me/AboutMe";
 import TechStack from "@/sections/tech-stack/TechStack";
 import Hero from "@/sections/hero/Hero";
+import Blog from "@/sections/blog/Blog";
 
 export default async function Home() {
   return (
@@ -19,6 +20,7 @@ export default async function Home() {
         <AboutMe />
         <TechStack />
         <Projects />
+        {/* <Blog /> */}
         <Education />
         <ContactMe />
         <Footer />

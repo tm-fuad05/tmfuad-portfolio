@@ -1,85 +1,44 @@
 "use client";
+
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 interface SectionTitleProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   icon?: ReactNode;
   id?: string;
 }
 
-const SectionTitle = ({
-  title,
-  subtitle,
-  icon = "",
-  id,
-}: SectionTitleProps) => {
+const SectionTitle = ({ title, subtitle, icon, id }: SectionTitleProps) => {
   const sectionId = id || title.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       id={sectionId}
-      className="relative mb-16 md:mb-20 flex flex-col items-center text-center will-change-transform"
+      className="relative mb-14 md:mb-20 flex flex-col items-start text-left select-none w-full"
     >
-      {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-100 h-36 bg-primary/10 blur-[100px]  pointer-events-none" />
+      {/* 1. LAYERED TITLE CONTAINER (সবকিছু বামে অ্যালাইন করা) */}
 
-      {/* Main Title with JSX Brackets */}
-      <div className="relative z-10 flex flex-col items-center justify-center gap-2 md:gap-3">
-        {icon && (
-          <div className="p-2.5  bg-primary/10 border border-primary/20 text-primary hidden sm:flex items-center justify-center">
-            {icon}
-          </div>
-        )}
+      <h2 className=" text-4xl md:text-5xl lg:text-7xl font-black capitalize tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] bg-clip-text text-transparent bg-gradient-to-b from-white via-neutral-200 to-neutral-500">
+        {title}
+      </h2>
 
-        {/* Top Code Component Tag Badge */}
-        <div className="relative z-10 mt-2 flex items-center gap-1.5 px-3 py-1  bg-white/[0.03] border border-white/10 font-mono text-xs text-paragraph backdrop-blur-sm">
-          <span className="text-primary font-semibold">&lt;Section</span>
-          <span className="text-slate-500">id=</span>
-          <span className="text-emerald-400">"{sectionId}"</span>
-          <span className="text-primary font-semibold">/&gt;</span>
-        </div>
-
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black capitalize tracking-tight flex items-center font-sans">
-          {/* Opening Tag */}
-          <span className="font-mono text-primary/50 text-2xl md:text-4xl font-light select-none mr-1">
-            &lt;
-          </span>
-
-          <span className="bg-clip-text text-transparent bg-linear-to-b from-white via-slate-100 to-paragraph">
-            {title}
-          </span>
-
-          {/* Closing Tag */}
-          <span className="font-mono text-primary/50 text-2xl md:text-4xl font-light select-none ml-1">
-            /&gt;
-          </span>
-        </h2>
-      </div>
-
-      {/* Subtitle */}
-      <div className="relative z-10 mt-3.5 max-w-xl mx-auto">
-        <p className="text-paragraph text-sm md:text-base font-normal leading-relaxed px-4">
+      {/* 2. SUBTITLE (একদম বামে অ্যালাইনড) */}
+      {subtitle && (
+        <p className="relative z-10 mt-3 max-w-md text-paragraph text-sm sm:text-base font-normal leading-relaxed text-left">
           {subtitle}
         </p>
-      </div>
+      )}
 
-      {/* JSX Comment Divider */}
-      <div className="mt-6 flex items-center gap-3 font-mono text-xs text-slate-500 select-none">
-        <div className="h-px w-10 md:w-16 bg-linear-to-r from-transparent to-primary/40" />
-        <span className="text-slate-600">{`{/*`}</span>
-        <motion.span
-          animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 1.8, repeat: Infinity }}
-          className="w-1.5 h-1.5  bg-primary"
-        />
-        <span className="text-slate-600">{`*/}`}</span>
-        <div className="h-px w-10 md:w-16 bg-linear-to-l from-transparent to-primary/40" />
+      {/* 3. MINIMAL DIVIDER LINE (বামে শুরু হওয়া অ্যাকসেন্ট লাইন) */}
+      <div className="relative z-10 mt-5 flex items-center justify-start gap-1.5">
+        <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
+        <div className="h-[2px] w-16 sm:w-24 bg-gradient-to-r from-primary to-transparent rounded-full" />
       </div>
     </motion.div>
   );

@@ -171,7 +171,7 @@ const TechStack = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="section flex flex-col items-center"
+          className="section flex flex-col items-center lg:items-start"
         >
           {/* Tabs */}
           <Tabs

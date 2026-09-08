@@ -169,10 +169,9 @@ const Projects = () => {
     <section id="projects" className="scroll-mt-0">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle
-          title={"projects"}
-          subtitle={
-            "Explore My Projects and Discover How I Transform Ideas into Functional, Impactful Web Solutions"
-          }
+          title="Code In Action"
+          id="projects"
+          subtitle="Real-world web applications, production systems, and frontend patterns engineered with modern precision."
         />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
