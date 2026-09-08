@@ -192,10 +192,10 @@ const Projects = () => {
               return (
                 <div className="relative group/gparent h-fit" key={card.id}>
                   <div
-                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border hover:border-primary/40 h-fit group/parent ${
+                    className={`flex flex-col transition-all duration-300 overflow-hidden bg-[#0a0f1d] border hover:border-primary/40 h-fit group/parent cursor-pointer ${
                       activeDiv ? "border-primary/40" : "border-white/8 "
                     }`}
-                    onClick={() => handleCardClick(idx)}
+                    onClick={() => setSelectedProject(card)}
                   >
                     {/* Image */}
                     <div
@@ -270,15 +270,20 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => setSelectedProject(card)}
+                  {/* Button: Opens the live project directly in new tab */}
+                  <a
+                    href={card.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    title="View Live Project"
                     className={`absolute z-10 right-0 bottom-0 bg-background w-13 h-13 border group-hover/gparent:border-l-primary/40 group-hover/gparent:border-t-primary/40 hover:border-t-white/8 hover:border-l-white/8 group/child transition-colors duration-300 flex justify-center items-center cursor-pointer ${activeDiv ? "border-l-primary/40 border-t-primary/40" : "border-l-white/8 border-t-white/8 border-b-background border-r-background"}`}
                   >
                     <ArrowUpRight
                       size={32}
                       className=" text-amber-400 group-hover/child:translate-x-1 group-hover/child:-translate-y-1 transition-transform duration-200"
                     />
-                  </button>
+                  </a>
                 </div>
               );
             })}
