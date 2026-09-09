@@ -19,9 +19,9 @@ export default function Profile() {
           repeat: Infinity,
         }}
       >
-        <figure className="md:mr-5 w-80 h-90 md:w-70 md:h-76 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600 bg-linear-to-r from-secondary to-primary/10 rounded-[80px]!  border-white border-b-5 shadow-primary shadow-lg">
-          <div className="absolute bg-primary/90   px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 text-white group-hover:opacity-100 duration-300">
-            <p className="font-semibold">Hello☺️</p>
+        <figure className="md:mr-5 w-80 h-90 md:w-70 md:h-76 lg:w-100 lg:h-112.5 relative group rotate-5 hover:rotate-0 transition-all duration-600 bg-linear-to-r from-secondary to-primary/10 rounded-[80px]! border-white border-b-5 shadow-primary shadow-lg">
+          <div className="absolute bg-primary/90 px-4 py-2 z-1 -top-2 left-44 lg:left-52 opacity-0 group-hover:opacity-100 duration-300">
+            <p className="font-semibold text-white!">Hello!</p>
           </div>
           <Image
             className=" pb-0 object-top  object-cover  rounded-[80px]!"

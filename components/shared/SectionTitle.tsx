@@ -20,11 +20,12 @@ const SectionTitle = ({ title, subtitle, icon, id }: SectionTitleProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       id={sectionId}
+      data-section-title
       className="relative mb-14 md:mb-20 flex flex-col items-start text-left select-none w-full"
     >
       {/* 1. LAYERED TITLE CONTAINER (সবকিছু বামে অ্যালাইন করা) */}
 
-      <h2 className=" text-4xl md:text-5xl lg:text-7xl font-black capitalize tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] bg-clip-text text-transparent bg-gradient-to-b from-white via-neutral-200 to-neutral-500">
+      <h2 className="text-4xl md:text-5xl lg:text-7xl font-black capitalize tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] bg-clip-text text-transparent bg-gradient-to-b from-white via-neutral-200 to-neutral-500">
         {title}
       </h2>
 

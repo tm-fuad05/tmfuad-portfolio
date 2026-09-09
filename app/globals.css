@@ -16,6 +16,7 @@
   --color-background: var(--background);
   --font-geistMono: var(--font-geistMono);
   --font-oxanium: var(--font-oxanium);
+  --font-hind: var(--font-hind);
 }
 * {
   @apply rounded-none;
@@ -29,8 +30,7 @@ html,
 body {
   overflow-x: hidden;
   background-color: var(--background);
-  font-family: var(--font-oxanium);
- 
+  font-family: var(--font-oxanium), var(--font-hind), sans-serif;
 }
 
 /* 1. Base Setup */

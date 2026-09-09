@@ -16,7 +16,13 @@ const Navbar = () => {
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks: string[] = ["about", "tech-stack", "projects", "education"];
+  const navLinks: string[] = [
+    "about",
+    "tech-stack",
+    "projects",
+    "blog",
+    "education",
+  ];
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -25,10 +31,10 @@ const Navbar = () => {
             // setActive("") when arrived at contact section
             if (entry.target.id === "contact") {
               setActive("");
-              history.replaceState(null, "", `#${entry.target.id}`);
+              history.replaceState(null, "", `/#${entry.target.id}`);
             } else {
               setActive(entry.target.id);
-              history.replaceState(null, "", `#${entry.target.id}`);
+              history.replaceState(null, "", `/#${entry.target.id}`);
             }
           }
         });
@@ -79,7 +85,7 @@ const Navbar = () => {
                 return (
                   <Link
                     key={link}
-                    href={`#${link}`}
+                    href={`/#${link}`}
                     className={`relative py-1 transition-colors duration-300 ${
                       link === "faq" ? "uppercase" : "capitalize"
                     } ${
