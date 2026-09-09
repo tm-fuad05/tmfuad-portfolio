@@ -1,5 +1,5 @@
 "use client";
-import BlogCard from "@/app/blog/components/BlogCard";
+import BlogCard from "@/app/(public)/blog/components/BlogCard";
 import ButtonPrimary from "@/components/shared/ButtonPrimary";
 import { dummyBlogs } from "@/data/blogData";
 import { ArrowUpRight, BookOpen } from "lucide-react";

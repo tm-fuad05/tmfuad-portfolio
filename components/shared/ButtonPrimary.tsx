@@ -13,7 +13,6 @@ export default function ButtonPrimary({
 }) {
   return (
     <button
-      type="submit"
       disabled={disabled}
       className={`relative group ${hidden ? "hidden lg:block" : "block"} w-${sw} sm:w-${w} overflow-hidden p-px font-medium transition-all duration-300 active:scale-[0.99] disabled:active:scale-100 disabled:opacity-50 disabled:cursor-not-allowed  cursor-pointer`}
     >

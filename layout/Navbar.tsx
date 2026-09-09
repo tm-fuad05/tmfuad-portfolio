@@ -10,6 +10,7 @@ import { SendHorizontal } from "lucide-react";
 import Logo from "@/components/shared/Logo";
 import ButtonPrimary from "@/components/shared/ButtonPrimary";
 import { useLenis } from "lenis/react";
+import { env } from "process";
 
 const Navbar = () => {
   const lenis = useLenis();
@@ -116,10 +117,12 @@ const Navbar = () => {
             </div>
           </div>
 
-          <ButtonPrimary hidden={true}>
-            <SendHorizontal size={15} className="animate-pulse" />
-            <span>Get In Touch</span>
-          </ButtonPrimary>
+          <Link href="/#contact">
+            <ButtonPrimary hidden={true}>
+              <SendHorizontal size={15} className="animate-pulse" />
+              <span>Get In Touch</span>
+            </ButtonPrimary>
+          </Link>
         </div>
       </div>
 
