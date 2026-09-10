@@ -36,7 +36,7 @@ export default function Picture({
           {/* Profile Image */}
           <Image
             src="/images/about_me.webp"
-            alt="Tanvir Mahmud "
+            alt="Tanvir Mahmud Fuad"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw"
             className={`object-cover object-top transition-transform duration-500 will-change-transform ${
