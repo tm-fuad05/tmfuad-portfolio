@@ -70,7 +70,7 @@ export default function Content({
             href={i.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center p-1.5 text-xl md:text-2xl bg-transparent border border-blue-500 text-blue-500 shadow-[0_0_2px_var(--primary)] hover:border-blue-400 hover:text-white hover:shadow-[0_0_10px_var(--primary)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
+            className="flex items-center justify-center p-1.5 text-xl md:text-2xl bg-transparent border border-blue-500 text-blue-500 shadow-[0_0_3px_var(--primary)] hover:border-blue-400 hover:text-white hover:shadow-[0_0_10px_var(--primary)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300"
           >
             {i.icon}
           </a>
