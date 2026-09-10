@@ -76,7 +76,7 @@ const Navbar = () => {
           <Logo />
 
           {/* Desktop Navigation */}
-          <div className="flex items-center gap-8">
+          <div className="flex justify-between items-center gap-8">
             <nav
               id="nav"
               className="hidden lg:flex items-center gap-8 text-slate-200 font-medium text-base tracking-wide absolute left-1/2 -translate-x-1/2"
@@ -112,12 +112,11 @@ const Navbar = () => {
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden text-2xl text-slate-200 hover:text-white cursor-pointer p-1.5 -l transition-all duration-200"
             >
-              {/* Icon logic fixed: Show close icon when open, menu icon when closed */}
               {menuOpen ? <RiCloseLine /> : <RiMenu4Line />}
             </div>
           </div>
 
-          <Link href="/#contact">
+          <Link href="/#contact" className="hidden lg:block">
             <ButtonPrimary hidden={true}>
               <SendHorizontal size={15} className="animate-pulse" />
               <span>Get In Touch</span>
