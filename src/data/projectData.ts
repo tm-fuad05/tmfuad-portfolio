@@ -178,7 +178,7 @@ export const projectCards: ProjectCard[] = [
     tags: ["React", "Express", "MongoDB", "Firebase"],
     date: "29-OCT-2024",
     live: "https://visorix.vercel.app/",
-    githubClient: "https://github.com/tm-fuad05/Visa-Navigator-client",
-    githubServer: "https://github.com/tm-fuad05/Visa-Navigator-Server",
+    githubClient: "https://github.com/tm-fuad05/visorix-client",
+    githubServer: "https://github.com/tm-fuad05/visorix-server",
   },
 ];
