@@ -42,12 +42,12 @@ const Hero = () => {
       initialPos={{ x: 50, y: 0 }}
       isPersist
       id="home"
-      className=" min-h-screen pb-22 grid-background bg-[url('/images/bg.avif')] bg-cover bg-center"
+      className=" min-h-screen pb-22 grid-background bg-[url('/images/bg.avif')] bg-cover bg-center overflow-x-clip"
     >
       {/* Overlay */}
-      <div className="absolute w-full h-30 bg-linear-to-t from-slate-950 to-transparent -bottom-22" />
+      <div className="absolute w-full h-30 bg-linear-to-t from-slate-950 to-transparent -bottom-22 pointer-events-none" />
 
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-20 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center md:items-start lg:items-center gap-14 md:gap-8 pt-25 md:pt-30 lg:pt-34 z-2">
         {/* Content  */}
         <Content socialIcons={socialIcons} />
         {/* Profile Picture */}

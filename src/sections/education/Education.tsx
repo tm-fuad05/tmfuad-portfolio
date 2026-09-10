@@ -14,7 +14,7 @@ const Education = () => {
   return (
     <section id="education" className="scroll-mt-10 relative">
       {/* Background Ambient Glow */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96  bg-primary/10 blur-[140px]" />
+      <div className="hidden lg:block pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-96  bg-primary/10 blur-[140px]" />
 
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <SectionTitle

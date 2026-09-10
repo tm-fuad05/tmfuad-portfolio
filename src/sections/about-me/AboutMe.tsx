@@ -33,14 +33,14 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <div id="about" className="scroll-mt-0">
+    <div id="about" className="scroll-mt-0 relative overflow-hidden">
       {/* Optimized Hardware-Accelerated Ambient Background Glows */}
       <div
-        className="pointer-events-none absolute top-1/4 left-10 size-80 sm:size-96  bg-primary/20 blur-[90px] transform-gpu will-change-transform animate-pulse"
+        className="hidden lg:block pointer-events-none absolute top-1/4 left-10 size-80 sm:size-96  bg-primary/20 blur-[90px] transform-gpu will-change-transform animate-pulse"
         style={{ animationDuration: "6s" }}
       />
       <div
-        className="pointer-events-none absolute bottom-1/4 right-10 size-80 sm:size-96  bg-purple-600/15 blur-[100px] transform-gpu will-change-transform animate-pulse"
+        className="hidden lg:block pointer-events-none absolute bottom-1/4 right-10 size-80 sm:size-96  bg-purple-600/15 blur-[100px] transform-gpu will-change-transform animate-pulse"
         style={{ animationDuration: "8s" }}
       />
 

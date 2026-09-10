@@ -27,21 +27,21 @@ export default function Content({
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="flex items-center gap-2">
-        <h5 className="text-slate-100 font-medium text-[15px] md:text-lg lg:text-xl">
+      <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+        <h5 className="text-slate-100 font-medium text-sm xs:text-[15px] md:text-lg lg:text-xl text-center md:text-left">
           Hello, I'm Md. Tanvir Mahmud
-          <span className="bg-linear-to-r from-secondary backdrop-blur text-white py-1 pl-2 pr-3 ml-1">
+          <span className="bg-linear-to-r from-secondary backdrop-blur text-white py-0.5 sm:py-1 pl-2 pr-3 ml-1 inline-block">
             Fuad
           </span>
         </h5>
         <RiReactjsFill
-          className=" text-[#61DBFB] animate-[spin_4s_linear_infinite]"
-          size={30}
+          className=" text-[#61DBFB] animate-[spin_4s_linear_infinite] shrink-0"
+          size={28}
         />
       </div>
       {/* Title */}
-      <div>
-        <h1 className="bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-500 bg-opacity-50 capitalize text-center md:text-left font-extrabold text-4xl md:text-5xl lg:text-7xl h-18.75 md:h-25 lg:h-36">
+      <div className="w-full">
+        <h1 className="bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-500 bg-opacity-50 capitalize text-center md:text-left font-extrabold text-3xl xs:text-4xl md:text-5xl lg:text-7xl min-h-16 xs:min-h-18.75 md:min-h-25 lg:min-h-36">
           <Typewriter
             words={[
               "Software Developer",
@@ -55,7 +55,7 @@ export default function Content({
           />
         </h1>
       </div>
-      <p className="text-slate-300! text-sm lg:text-[16px] text-center md:text-left md:pr-5">
+      <p className="text-slate-300! text-sm lg:text-[16px] text-center md:text-left ">
         I develop high-performance, secure, and user-friendly applications with
         a focus on clean architecture and seamless functionality. Dedicated to
         building innovative solutions that enhance user experiences and drive
