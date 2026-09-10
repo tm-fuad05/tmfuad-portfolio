@@ -102,12 +102,6 @@ export default function BlogContent({
                   {...props}
                 />
               ),
-              //   p: ({ ...props }) => (
-              //     <p
-              //       className="text-slate-200 text-base sm:text-lg leading-relaxed mb-5 font-normal"
-              //       {...props}
-              //     />
-              //   ),
 
               ul: ({ ...props }) => (
                 <ul

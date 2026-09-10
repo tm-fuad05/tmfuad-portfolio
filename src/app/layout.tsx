@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Oxanium, Geist_Mono, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/lenis/SmoothScroll";
@@ -18,6 +19,12 @@ const hind_siliguri = Hind_Siliguri({
   weight: ["400", "500", "600", "700"],
   variable: "--font-hind",
 });
+
+// const googleSans = localFont({
+//   src: "./fonts/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf",
+//   variable: "--font-google-sans",
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tanvirmahmud.online"),

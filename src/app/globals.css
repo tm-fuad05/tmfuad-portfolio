@@ -17,6 +17,7 @@
   --font-geistMono: var(--font-geistMono);
   --font-oxanium: var(--font-oxanium);
   --font-hind: var(--font-hind);
+  /* --font-google-sans: var(--font-google-sans); */
 }
 * {
   @apply rounded-none;
@@ -28,9 +29,9 @@ p {
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   background-color: var(--background);
-  font-family: var(--font-oxanium), var(--font-hind), sans-serif;
+  font-family: var(--font-oxanium), var(--font-hind),sans-serif;
 }
 
 /* 1. Base Setup */
