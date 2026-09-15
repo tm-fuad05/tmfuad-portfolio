@@ -9,8 +9,10 @@ import { apiClient } from "@/lib/axios";
 import CustomLoader from "@/components/shared/CustomLoader";
 import UpdateBlogModal from "./UpdateBlog";
 import { Edit, Trash2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function BlogsTable() {
+  const router = useRouter();
   const queryClient = useQueryClient();
   const { isPending, blogs } = useBlogs();
   const [selectedBlog, setSelectedBlog] = useState<BlogItem | null>(null);
@@ -81,9 +83,10 @@ export default function BlogsTable() {
                 </td>
                 <td className="px-6">
                   <img
+                    onClick={() => router.push(`/blog/${blog._id}`)}
                     src={blog.image}
                     alt=""
-                    className="w-15 h-9 border border-slate-500/60"
+                    className="w-15 h-9 border border-slate-500/60 cursor-pointer"
                   />
                 </td>
                 <td className="py-4 px-6 font-medium text-white">
@@ -93,22 +96,20 @@ export default function BlogsTable() {
                 <td className="py-4 px-6 text-right">
                   <div className="flex items-center justify-end gap-2">
                     <button
-                      onClick={() => setSelectedBlog(blog)}
+                      onClick={(e) => {
+                        setSelectedBlog(blog);
+                        e.stopPropagation();
+                      }}
                       title="Edit"
                       className="p-2 rounded-lg text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 transition-colors cursor-pointer"
                     >
                       <Edit className="size-4" />
                     </button>
-                    {/* Modal For update blog */}
-                    <UpdateBlogModal
-                      blog={blog}
-                      selectedBlog={selectedBlog}
-                      setSelectedBlog={setSelectedBlog}
-                    />
                     <button
-                      onClick={() => {
+                      onClick={(e) => {
                         if (!blog._id) return;
                         handleDeleteBlog(blog._id);
+                        e.stopPropagation();
                       }}
                       title="Delete"
                       className="p-2 rounded-lg text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors cursor-pointer"
@@ -122,6 +123,12 @@ export default function BlogsTable() {
           </tbody>
         </table>
       </div>
+      {/* Modal For update blog */}
+      <UpdateBlogModal
+        key={selectedBlog?._id}
+        selectedBlog={selectedBlog}
+        setSelectedBlog={setSelectedBlog}
+      />
     </div>
   );
 }

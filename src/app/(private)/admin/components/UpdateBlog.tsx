@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import Swal from "sweetalert2";
@@ -8,11 +9,9 @@ import { ImageIcon, Loader2, Send, Upload, X } from "lucide-react";
 import { ChangeEvent, useRef, useState } from "react";
 
 export default function UpdateBlogModal({
-  blog,
   selectedBlog,
   setSelectedBlog,
 }: {
-  blog: BlogItem;
   selectedBlog: BlogItem | null;
   setSelectedBlog: (blog: BlogItem | null) => void;
 }) {
@@ -21,7 +20,7 @@ export default function UpdateBlogModal({
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const [imagePreview, setImagePreview] = useState<string | null>(
-    blog.image || null,
+    selectedBlog?.image || null,
   );
 
   const patchMutation = useMutation({
@@ -90,11 +89,11 @@ export default function UpdateBlogModal({
   };
 
   const formAction = (formData: FormData) => {
-    const updatedBlog = {
-      _id: blog._id,
+    const updatedBlog: BlogItem = {
+      _id: selectedBlog?._id,
       titleB: formData.get("titleB") as string,
       titleE: formData.get("titleE") as string,
-      image: imagePreview || blog.image,
+      image: imagePreview!,
       descriptionBangla: formData.get("descriptionBangla") as string,
       descriptionEnglish: formData.get("descriptionEnglish") as string,
     };
@@ -136,7 +135,7 @@ export default function UpdateBlogModal({
               <input
                 type="text"
                 name="titleE"
-                defaultValue={blog.titleE}
+                defaultValue={selectedBlog?.titleE}
                 required
                 placeholder="Enter English blog title..."
                 className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm"
@@ -151,7 +150,7 @@ export default function UpdateBlogModal({
               <input
                 type="text"
                 name="titleB"
-                defaultValue={blog.titleB}
+                defaultValue={selectedBlog?.titleB}
                 required
                 placeholder="ব্লগের বাংলা শিরোনাম লিখুন..."
                 className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm"
@@ -216,7 +215,7 @@ export default function UpdateBlogModal({
               <textarea
                 rows={5}
                 name="descriptionBangla"
-                defaultValue={blog.descriptionBangla}
+                defaultValue={selectedBlog?.descriptionBangla}
                 required
                 placeholder="বাংলা কনটেন্ট লিখুন..."
                 className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm  scrollbar-none"
@@ -231,7 +230,7 @@ export default function UpdateBlogModal({
               <textarea
                 rows={5}
                 name="descriptionEnglish"
-                defaultValue={blog.descriptionEnglish}
+                defaultValue={selectedBlog?.descriptionEnglish}
                 required
                 placeholder="Write English blog content..."
                 className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm  scrollbar-none"

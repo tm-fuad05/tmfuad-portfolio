@@ -57,6 +57,7 @@ export default function PostBlogForm() {
           showConfirmButton: false,
           timer: 1000,
         });
+        setImagePreview(null);
       }
       queryClient.invalidateQueries({ queryKey: ["blogs"] });
     },
@@ -101,7 +102,12 @@ export default function PostBlogForm() {
       </div>
 
       <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8">
-        <form ref={formRef} action={formAction} className="space-y-5">
+        <form
+          data-lenis-prevent
+          ref={formRef}
+          action={formAction}
+          className="space-y-5"
+        >
           {/* English Title */}
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-2">
@@ -187,7 +193,7 @@ export default function PostBlogForm() {
               rows={6}
               name="descriptionB"
               placeholder="বাংলা কনটেন্ট লিখুন (Markdown supported)..."
-              className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm "
+              className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm scrollbar-none"
             />
           </div>
 
@@ -200,7 +206,7 @@ export default function PostBlogForm() {
               rows={6}
               name="descriptionE"
               placeholder="Write English blog content (Markdown supported)..."
-              className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm "
+              className="w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 text-sm scrollbar-none"
             />
           </div>
 

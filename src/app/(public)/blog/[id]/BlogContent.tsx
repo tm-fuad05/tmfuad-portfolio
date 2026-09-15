@@ -59,16 +59,17 @@ export default function BlogContent({
 
       {/* HERO FEATURED IMAGE */}
       {image && (
-        <div className="relative w-full h-64 sm:h-96 md:h-[460px] overflow-hidden border border-white/10 shadow-2xl bg-slate-950 mb-12">
+        <div className="relative w-full overflow-hidden rounded-xl border border-white/10 shadow-2xl bg-slate-950 mb-12">
           <Image
             src={image}
             alt={title || "Blog cover image"}
-            fill
+            width={1200}
+            height={800}
             priority
-            className="object-cover object-top filter brightness-105"
+            className="w-full h-auto object-contain filter brightness-105"
           />
           {/* Ambient vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/30 via-transparent to-transparent pointer-events-none" />
         </div>
       )}
 
