@@ -5,9 +5,9 @@ import { Image as ImageIcon, Loader2, Send, Upload, X } from "lucide-react";
 import { BlogItem } from "@/sections/blog/BlogCards";
 import { apiClient } from "@/lib/axios";
 import Swal from "sweetalert2";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export default function PostBlogForm() {
-  const [loading, setLoading] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -42,13 +42,42 @@ export default function PostBlogForm() {
     }
   };
 
+  const queryClient = useQueryClient();
+  const postMutation = useMutation({
+    mutationFn: async (newBlog: BlogItem) => {
+      const res = await apiClient.post("/api/blogs", newBlog);
+      return res.data;
+    },
+    onSuccess: (data) => {
+      if (data) {
+        Swal.fire({
+          position: "center",
+          title: "Posted successfully",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      }
+      queryClient.invalidateQueries({ queryKey: ["blogs"] });
+    },
+    onError: (error) => {
+      Swal.fire({
+        position: "center",
+        title: "Error",
+        text: `${error?.message}`,
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    },
+  });
+
   const formAction = async (formData: FormData) => {
     if (!imagePreview) {
       alert("Select an image");
       return;
     }
 
-    setLoading(true);
     const newBlog: BlogItem = {
       titleE: formData.get("titleE") as string,
       titleB: formData.get("titleB") as string,
@@ -57,21 +86,7 @@ export default function PostBlogForm() {
       descriptionEnglish: formData.get("descriptionE") as string,
     };
 
-    try {
-      const res = await apiClient.post("/api/blogs", newBlog);
-      if (res.data.success) {
-        alert("Posted Successfully!");
-        formRef?.current?.reset();
-        setImagePreview(null);
-      } else {
-        alert(res.data.error || "Failed to post blog");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+    postMutation.mutate(newBlog);
   };
 
   return (
@@ -193,10 +208,10 @@ export default function PostBlogForm() {
           <div className="pt-2">
             <button
               type="submit"
-              disabled={loading}
+              disabled={postMutation.isPending}
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary text-white rounded-xl text-sm font-semibold transition-all cursor-pointer shadow-lg shadow-primary/20"
             >
-              {loading ? (
+              {postMutation.isPending ? (
                 <>
                   <Loader2 className="size-4 animate-spin" />
                   <span>Publishing...</span>

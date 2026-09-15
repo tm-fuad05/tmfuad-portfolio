@@ -1,5 +1,4 @@
 import SectionTitle from "@/components/shared/SectionTitle";
-import axios from "axios";
 import BlogCards from "./BlogCards";
 import { getBlogs } from "@/data/blogsData";
 
