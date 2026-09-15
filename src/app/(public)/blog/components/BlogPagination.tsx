@@ -2,7 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-interface PaginationProps {
+interface BlogPaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
@@ -12,7 +12,7 @@ export default function BlogPagination({
   currentPage,
   totalPages,
   onPageChange,
-}: PaginationProps) {
+}: BlogPaginationProps) {
   if (totalPages <= 1) return null;
 
   return (

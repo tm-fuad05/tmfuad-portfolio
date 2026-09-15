@@ -1,16 +1,14 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 import { RiMenu4Line } from "react-icons/ri";
 import Link from "next/link";
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
-
 import { SendHorizontal } from "lucide-react";
 import Logo from "@/components/shared/Logo";
 import ButtonPrimary from "@/components/shared/ButtonPrimary";
 import { useLenis } from "lenis/react";
-import { env } from "process";
 
 const Navbar = () => {
   const lenis = useLenis();

@@ -4,25 +4,18 @@ import { notFound } from "next/navigation";
 import Navbar from "@/layout/Navbar";
 import Footer from "@/layout/Footer";
 import ScrollToUp from "@/components/shared/ScrollToUp";
-import { dummyBlogs } from "@/data/blogData";
-
-import {
-  ArrowLeft,
-  Clock,
-  Sparkles,
-  BookOpen,
-  ArrowRight,
-  Code2,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import BlogContent from "./BlogContent";
+import { getBlogs } from "@/data/blogsData";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const blogs = await getBlogs();
   const { id } = await params;
-  const blog = dummyBlogs?.find((b) => b.id === parseInt(id));
+  const blog = blogs?.find((b) => b._id === id);
 
   if (!blog) {
     return {
@@ -41,15 +34,16 @@ export default async function BlogDetails({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const blogs = await getBlogs();
   const { id } = await params;
-  const blog = dummyBlogs.find((b) => b.id === parseInt(id));
+  const blog = blogs.find((b) => b._id === id);
 
   if (!blog) {
     notFound();
   }
 
   // Related / Next posts
-  const otherBlogs = dummyBlogs.filter((b) => b.id !== blog.id).slice(0, 3);
+  const otherBlogs = blogs.filter((b) => b._id !== blog._id).slice(0, 3);
 
   return (
     <main className="min-h-screen bg-[#020617] text-white flex flex-col justify-between">
@@ -66,10 +60,6 @@ export default async function BlogDetails({
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span>Back to all articles</span>
             </Link>
-
-            <span className="text-xs font-mono text-slate-500 uppercase">
-              Article #{blog.id}
-            </span>
           </div>
 
           {/*  */}
@@ -104,8 +94,8 @@ export default async function BlogDetails({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {otherBlogs.map((other) => (
                 <Link
-                  key={other.id}
-                  href={`/blog/${other.id}`}
+                  key={other._id}
+                  href={`/blog/${other._id}`}
                   className="group flex flex-col bg-[#0a0f1d] border border-white/10 hover:border-primary/50 overflow-hidden transition-all duration-300"
                 >
                   <div className="relative w-full h-40 bg-slate-950 overflow-hidden">

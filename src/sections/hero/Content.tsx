@@ -30,7 +30,7 @@ export default function Content({
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
         <h5 className="text-slate-100 font-medium text-sm xs:text-[15px] md:text-lg lg:text-xl text-center md:text-left">
           Hello, I'm Md. Tanvir Mahmud
-          <span className="bg-linear-to-r from-secondary backdrop-blur text-white py-0.5 sm:py-1 pl-2 pr-3 ml-1 inline-block">
+          <span className="bg-linear-to-r from-secondary backdrop-blur text-white py-px pl-2 pr-3 ml-1 inline-block">
             Fuad
           </span>
         </h5>

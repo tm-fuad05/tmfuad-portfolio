@@ -10,7 +10,7 @@ interface SectionTitleProps {
   id?: string;
 }
 
-const SectionTitle = ({ title, subtitle, icon, id }: SectionTitleProps) => {
+const SectionTitle = ({ title, subtitle, id }: SectionTitleProps) => {
   const sectionId = id || title.toLowerCase().replace(/\s+/g, "-");
 
   return (

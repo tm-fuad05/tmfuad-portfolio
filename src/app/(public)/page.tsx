@@ -9,7 +9,7 @@ import TechStack from "@/sections/tech-stack/TechStack";
 import Hero from "@/sections/hero/Hero";
 import Blog from "@/sections/blog/Blog";
 
-export default async function Home() {
+export default function Home() {
   return (
     <>
       <div className="flex flex-col gap-30 lg:gap-55">

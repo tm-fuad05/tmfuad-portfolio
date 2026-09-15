@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { BlogItem } from "@/data/blogData";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { BlogItem } from "@/sections/blog/BlogCards";
 
 interface BlogCardProps {
   item: BlogItem;
@@ -57,5 +56,5 @@ export default function BlogCard({ item, index, disabled }: BlogCardProps) {
     return cardContent;
   }
 
-  return <Link href={`/blog/${item.id}`}>{cardContent}</Link>;
+  return <Link href={`/blog/${item._id}`}>{cardContent}</Link>;
 }

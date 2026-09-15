@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -5,9 +6,9 @@ import { useRouter } from "next/navigation";
 import CustomLoader from "@/components/shared/CustomLoader";
 import Logo from "@/components/shared/Logo";
 import AdminSidebar from "./components/AdminSidebar";
-import ManageBlogsTable from "./components/ManageBlogsTable";
 import PostBlogForm from "./components/PostBlogForm";
 import { Menu } from "lucide-react";
+import ManageBlogs from "./components/ManageBlogs";
 
 export default function AdminPage() {
   const router = useRouter();
@@ -56,7 +57,7 @@ export default function AdminPage() {
 
       {/* Main Content Area */}
       <main className="flex-1 p-6 md:p-10 overflow-y-auto">
-        {activeTab === "manage" ? <ManageBlogsTable /> : <PostBlogForm />}
+        {activeTab === "manage" ? <ManageBlogs /> : <PostBlogForm />}
       </main>
     </div>
   );

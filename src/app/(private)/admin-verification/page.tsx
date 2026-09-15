@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Lock, Eye, EyeOff, ShieldCheck, ArrowRight } from "lucide-react";
+import { Lock, ShieldCheck, ArrowRight } from "lucide-react";
 import { VerifyAdminPassword } from "@/app/actions/auth";
 import { useRouter } from "next/navigation";
 

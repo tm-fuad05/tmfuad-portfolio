@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Oxanium, Geist_Mono, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/lenis/SmoothScroll";
+import TanStackProvider from "@/provider/TanStackProvider";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -106,7 +107,9 @@ export default function RootLayout({
       <body
         className={`${oxanium.variable} ${geist_mono.variable} ${hind_siliguri.variable}`}
       >
-        <SmoothScroll>{children}</SmoothScroll>
+        <TanStackProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </TanStackProvider>
       </body>
     </html>
   );

@@ -1,9 +1,11 @@
 import SectionTitle from "@/components/shared/SectionTitle";
-import { dummyBlogs } from "@/data/blogData";
+import axios from "axios";
 import BlogCards from "./BlogCards";
+import { getBlogs } from "@/data/blogsData";
 
-export default function Blog() {
-  console.log(dummyBlogs.length);
+export default async function Blog() {
+  const blogs = await getBlogs();
+
   return (
     <section id="blog" className="scroll-mt-20">
       <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
@@ -13,7 +15,7 @@ export default function Blog() {
           subtitle="Read my latest articles, web development insights, and technical guides."
           id="blog"
         />
-        <BlogCards />
+        <BlogCards blogs={blogs} />
       </div>
     </section>
   );
