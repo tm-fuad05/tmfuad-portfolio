@@ -5,8 +5,9 @@ import Swal from "sweetalert2";
 import { apiClient } from "@/lib/axios";
 import { BlogItem } from "@/sections/blog/BlogCards";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { ImageIcon, Loader2, Send, Upload, X } from "lucide-react";
-import { ChangeEvent, useRef, useState } from "react";
+import { Loader2, Send, X } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import ImageUploader from "@/components/shared/ImageUploader";
 
 export default function UpdateBlogModal({
   selectedBlog,
@@ -17,11 +18,15 @@ export default function UpdateBlogModal({
 }) {
   const queryClient = useQueryClient();
   const formRef = useRef<HTMLFormElement | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const [imagePreview, setImagePreview] = useState<string | null>(
+  const [imageUrl, setImageUrl] = useState<string | null>(
     selectedBlog?.image || null,
   );
+  const [isUploading, setIsUploading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setImageUrl(selectedBlog?.image || null);
+  }, [selectedBlog]);
 
   const patchMutation = useMutation({
     mutationFn: async (updatedBlog: Partial<BlogItem>) => {
@@ -60,40 +65,12 @@ export default function UpdateBlogModal({
     },
   });
 
-  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-
-    if (!file) return;
-
-    if (file.size > 2 * 1024 * 1024) {
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Image size crosses 2 MB",
-        showConfirmButton: false,
-        timer: 1000,
-      });
-      if (fileInputRef.current) fileInputRef.current.value = "";
-      return;
-    }
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => setImagePreview(reader.result as string);
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleRemoveImage = () => {
-    setImagePreview(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
-
   const formAction = (formData: FormData) => {
     const updatedBlog: BlogItem = {
       _id: selectedBlog?._id,
       titleB: formData.get("titleB") as string,
       titleE: formData.get("titleE") as string,
-      image: imagePreview!,
+      image: imageUrl!,
       descriptionBangla: formData.get("descriptionBangla") as string,
       descriptionEnglish: formData.get("descriptionEnglish") as string,
     };
@@ -157,54 +134,18 @@ export default function UpdateBlogModal({
               />
             </div>
 
-            {/* Image File Input & Preview */}
+            {/* Image File Input & Preview (Cloudinary) */}
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2 flex items-center gap-2">
-                <ImageIcon className="size-4 text-primary" />
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Featured Cover Image
               </label>
-
-              {imagePreview ? (
-                <div className="relative w-full h-52 rounded-xl overflow-hidden border border-slate-700 group">
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    className="w-full h-full object-cover"
-                  />
-                  <button
-                    type="button"
-                    onClick={handleRemoveImage}
-                    className="absolute top-3 right-3 p-1.5 bg-rose-600/80 hover:bg-rose-600 text-white rounded-lg backdrop-blur-sm transition-all shadow-lg"
-                    title="Remove Image"
-                  >
-                    <X className="size-4" />
-                  </button>
-                </div>
-              ) : (
-                <label className="flex flex-col items-center justify-center w-full h-44 border-2 border-dashed border-slate-700 hover:border-primary/60 rounded-2xl cursor-pointer bg-slate-950/50 hover:bg-slate-900/40 transition-all group">
-                  <div className="flex flex-col items-center justify-center pt-5 pb-6 text-slate-400 group-hover:text-slate-300">
-                    <div className="p-3 rounded-full bg-slate-800/80 mb-3 group-hover:bg-primary/20 group-hover:text-primary transition-colors">
-                      <Upload className="size-6" />
-                    </div>
-                    <p className="mb-1 text-sm font-medium">
-                      <span className="text-primary font-semibold">
-                        Click to upload
-                      </span>{" "}
-                      or drag and drop
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      PNG, JPG, WEBP (Max 2MB)
-                    </p>
-                  </div>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    className="hidden"
-                  />
-                </label>
-              )}
+              <ImageUploader
+                isUploading={isUploading}
+                setIsUploading={setIsUploading}
+                defaultImage={imageUrl}
+                onImageUploaded={(url) => setImageUrl(url)}
+                onImageRemoved={() => setImageUrl(null)}
+              />
             </div>
 
             {/* Bangla Description */}
@@ -248,7 +189,7 @@ export default function UpdateBlogModal({
               </button>
               <button
                 type="submit"
-                disabled={patchMutation.isPending}
+                disabled={patchMutation.isPending || isUploading}
                 className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl text-sm font-semibold transition-all shadow-lg shadow-primary/20"
               >
                 {patchMutation.isPending ? (

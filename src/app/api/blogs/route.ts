@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import client from "@/lib/dbConnect";
-import { CommandSucceededEvent, ObjectId } from "mongodb";
+import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
-import { takeCoverage } from "v8";
+import cloudinary from "@/lib/cloudinary";
 
 // Blog Collection from mongodb
 const blogCollection = client.db("portfolioDB").collection("blogs");
@@ -64,22 +64,68 @@ export async function POST(req: NextRequest) {
   }
 }
 
+// Helper function: ক্লাউডিনারি থেকে ছবি ডিলিট করা
+async function deleteCloudinaryImage(imageUrl: string | undefined | null) {
+  if (
+    !imageUrl ||
+    typeof imageUrl !== "string" ||
+    !imageUrl.includes("res.cloudinary.com")
+  ) {
+    return;
+  }
+
+  try {
+    const splitUrl = imageUrl.split("/upload/");
+    if (splitUrl.length > 1) {
+      const afterUpload = splitUrl[1];
+      const parts = afterUpload.split("/");
+      // প্রথম পার্ট যদি ভার্সন (v123...) হয় তাহলে বাদ যাবে
+      if (parts[0].startsWith("v") && !isNaN(Number(parts[0].substring(1)))) {
+        parts.shift();
+      }
+      const publicIdWithExt = parts.join("/");
+      const publicId = publicIdWithExt.substring(
+        0,
+        publicIdWithExt.lastIndexOf("."),
+      );
+
+      if (publicId) {
+        await cloudinary.uploader.destroy(publicId);
+      }
+    }
+  } catch (cloudErr: any) {
+    console.error("Cloudinary delete helper error:", cloudErr.message);
+  }
+}
+
 export async function PATCH(req: NextRequest) {
   try {
     const body = await req.json();
     const { _id, ...updatedData } = body;
 
-    if (!body) {
+    if (!body || !_id) {
       return NextResponse.json(
         {
           success: false,
-          error: "No updated blog to change!",
+          error: "No updated blog or ID to change!",
         },
         { status: 400 },
       );
     }
 
     const filter = { _id: new ObjectId(_id as string) };
+
+    // ১. আগের ব্লগটি ডাটাবেজ থেকে খুঁজে দেখা
+    const existingBlog = await blogCollection.findOne(filter);
+
+    // ২. যদি নতুন ইমেজ পাঠানো হয় এবং তা আগের ইমেজের চেয়ে আলাদা হয়, তবে আগেরটি ক্লাউডিনারি থেকে মুছে ফেলা হবে
+    if (
+      updatedData.image &&
+      existingBlog?.image &&
+      updatedData.image !== existingBlog.image
+    ) {
+      await deleteCloudinaryImage(existingBlog.image);
+    }
 
     const updatedDoc = {
       $set: updatedData,
@@ -121,8 +167,17 @@ export async function DELETE(req: NextRequest) {
       );
     }
 
+    const blogObjectId = new ObjectId(id as string);
+
+    // ১. প্রথমে ব্লগটি খুঁজে বের করে ক্লাউডিনারি থেকে ছবি ডিলিট করা
+    const blogToDelete = await blogCollection.findOne({ _id: blogObjectId });
+    if (blogToDelete?.image) {
+      await deleteCloudinaryImage(blogToDelete.image);
+    }
+
+    // ২. ডাটাবেজ থেকে ব্লগ ডিলিট করা
     const result = await blogCollection.deleteOne({
-      _id: new ObjectId(id as string),
+      _id: blogObjectId,
     });
 
     return NextResponse.json(

@@ -6,16 +6,15 @@ import Footer from "@/layout/Footer";
 import ScrollToUp from "@/components/shared/ScrollToUp";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import BlogContent from "./BlogContent";
-import { getBlogs } from "@/data/blogsData";
+import { getBlogById, getBlogs } from "@/data/blogsData";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const blogs = await getBlogs();
   const { id } = await params;
-  const blog = blogs?.find((b) => b._id === id);
+  const blog = await getBlogById(id);
 
   if (!blog) {
     return {
@@ -24,8 +23,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${blog.title} | Tanvir Mahmud Fuad`,
-    description: blog.title,
+    title: `${blog.titleE} | Tanvir Mahmud Fuad`,
+    description: blog.titleE,
   };
 }
 
@@ -36,14 +35,13 @@ export default async function BlogDetails({
 }) {
   const blogs = await getBlogs();
   const { id } = await params;
-  const blog = blogs.find((b) => b._id === id);
+  const blog = await getBlogById(id);
 
   if (!blog) {
     notFound();
   }
 
-  // Related / Next posts
-  const otherBlogs = blogs.filter((b) => b._id !== blog._id).slice(0, 3);
+  const otherBlogs = blogs.filter((b) => b._id !== id).slice(0, 3);
 
   return (
     <main className="min-h-screen bg-[#020617] text-white flex flex-col justify-between">
@@ -103,6 +101,7 @@ export default async function BlogDetails({
                       src={other.image}
                       alt={other.titleE || other.title || "Blog article"}
                       fill
+                      priority
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

@@ -30,6 +30,7 @@ export default function BlogCard({ item, index, disabled }: BlogCardProps) {
         src={item.image}
         alt={item.titleE || item.title || "Blog post thumbnail"}
         fill
+        priority
         className="object-cover object-top filter brightness-95 group-hover:brightness-105 group-hover:scale-108 transition-all duration-700 ease-out"
       />
 

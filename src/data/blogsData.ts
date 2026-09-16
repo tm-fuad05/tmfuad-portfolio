@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { cache } from "react";
 import client from "@/lib/dbConnect";
 import { BlogItem } from "@/sections/blog/BlogCards";
+import { ObjectId } from "mongodb";
 
 const blogCollection = client.db("portfolioDB").collection("blogs");
 
@@ -20,3 +22,8 @@ export async function getBlogs(): Promise<BlogItem[]> {
     return [];
   }
 }
+
+export const getBlogById = cache(async (id: string) => {
+  const blog = await blogCollection.findOne({ _id: new ObjectId(id) });
+  return blog;
+});
