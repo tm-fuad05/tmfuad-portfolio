@@ -15,7 +15,7 @@ export function proxy(req: NextRequest) {
       });
     }
 
-    if (pathname.startsWith("/api/")) {
+    if (!pathname.startsWith("/api/")) {
       return NextResponse.rewrite(new URL(`/api${pathname}`, req.url));
     }
   }
@@ -50,5 +50,5 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/:path*"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
