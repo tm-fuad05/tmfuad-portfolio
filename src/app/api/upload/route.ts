@@ -1,8 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import cloudinary from "@/lib/cloudinary";
+import { verifySession } from "../verifySession";
 
 export async function POST(req: NextRequest) {
+  if (!(await verifySession())) {
+    return NextResponse.json(
+      { success: false, error: "Unauthorized access!" },
+      { status: 401 },
+    );
+  }
   try {
     const formData = await req.formData();
     const file = formData.get("file") as File | null;

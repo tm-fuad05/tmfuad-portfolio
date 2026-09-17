@@ -3,6 +3,7 @@ import client from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import cloudinary from "@/lib/cloudinary";
+import { verifySession } from "../verifySession";
 
 // Blog Collection from mongodb
 const blogCollection = client.db("portfolioDB").collection("blogs");
@@ -29,6 +30,12 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  if (!(await verifySession())) {
+    return NextResponse.json(
+      { success: false, error: "Unauthorized access!" },
+      { status: 401 },
+    );
+  }
   try {
     const blog = await req.json();
 
@@ -99,6 +106,12 @@ async function deleteCloudinaryImage(imageUrl: string | undefined | null) {
 }
 
 export async function PATCH(req: NextRequest) {
+  if (!(await verifySession())) {
+    return NextResponse.json(
+      { success: false, error: "Unauthorized access!" },
+      { status: 401 },
+    );
+  }
   try {
     const body = await req.json();
     const { _id, ...updatedData } = body;
@@ -154,6 +167,12 @@ export async function PATCH(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  if (!(await verifySession())) {
+    return NextResponse.json(
+      { success: false, error: "Unauthorized access!" },
+      { status: 401 },
+    );
+  }
   try {
     const { id } = await req.json();
 

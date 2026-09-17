@@ -1,7 +1,6 @@
-import React from "react";
-import Link from "next/link";
 import Logo from "@/components/shared/Logo";
 import { FileText, PlusCircle, Home, X } from "lucide-react";
+import Logout from "./Logout";
 
 interface AdminSidebarProps {
   activeTab: "manage" | "post";
@@ -91,16 +90,8 @@ export default function AdminSidebar({
             </button>
           </nav>
         </div>
-
-        {/* Bottom Button: Back to Main Page */}
         <div className="pt-6 border-t border-slate-800">
-          <Link
-            href="/"
-            className="w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl text-sm font-medium text-slate-300 bg-slate-800/80 hover:bg-slate-800 hover:text-white border border-slate-700/60 transition-all shadow-sm group"
-          >
-            <Home className="size-4 text-slate-400 group-hover:text-primary transition-colors" />
-            <span>Go to Main Site</span>
-          </Link>
+          <Logout />
         </div>
       </aside>
     </>
