@@ -143,7 +143,7 @@ export default function CodeBlock({
             </div>
 
             {/* Code Editor Body - Fixed Height Matching Expertise Tab Content */}
-            <div className="p-4 sm:p-5 text-slate-300 leading-relaxed font-mono text-xs sm:text-sm h-[385px] md:h-[355px] overflow-x-auto relative">
+            <div className="p-4 sm:p-5 text-slate-300 leading-relaxed font-mono text-xs sm:text-sm h-[385px] md:h-[355px] overflow-x-auto relative scrollbar-none">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeFile}
