@@ -1,12 +1,15 @@
 "use server";
 
 import { cookies } from "next/headers";
+import bcrypt from "bcryptjs";
 
 export async function VerifyAdminPassword(input: string) {
   const adminPass = process.env.ADMIN_PASS;
   const secret = process.env.SECRET_KEY;
 
-  if (input === adminPass) {
+  const isMatch = await bcrypt.compare(input, adminPass!);
+
+  if (isMatch) {
     const cookieStore = await cookies();
     cookieStore.set("admin_session", secret as string, {
       httpOnly: true,
@@ -17,7 +20,7 @@ export async function VerifyAdminPassword(input: string) {
         process.env.NODE_ENV === "production"
           ? ".tanvirmahmud.online"
           : undefined,
-      maxAge: 3600 * 24,
+      maxAge: 3600 * 2,
     });
     return { success: true };
   } else {

@@ -34,7 +34,7 @@ const Footer = () => {
               {navLinks.map((nav) => (
                 <Link
                   key={nav}
-                  href={`#${nav}`}
+                  href={`/#${nav}`}
                   className="hover:text-primary capitalize"
                 >
                   {nav}
