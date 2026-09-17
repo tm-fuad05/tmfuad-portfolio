@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Lock, ShieldCheck, ArrowRight } from "lucide-react";
-import { VerifyAdminPassword } from "@/app/actions/auth";
+import { VerifyAdminPassword } from "@/app/actions/adminVerification";
 import { useRouter } from "next/navigation";
 
 export default function AdminVerification() {
@@ -16,8 +16,8 @@ export default function AdminVerification() {
     const res = await VerifyAdminPassword(password);
 
     if (res.success) {
-      sessionStorage.setItem("isAdmin", "true");
       router.replace("/admin");
+      router.refresh();
     } else {
       setError(res?.error);
     }

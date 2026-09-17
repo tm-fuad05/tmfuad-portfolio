@@ -1,9 +1,6 @@
-/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import CustomLoader from "@/components/shared/CustomLoader";
+import { useState } from "react";
 import Logo from "@/components/shared/Logo";
 import AdminSidebar from "./components/AdminSidebar";
 import PostBlogForm from "./components/PostBlogForm";
@@ -11,24 +8,8 @@ import { Menu } from "lucide-react";
 import ManageBlogs from "./components/ManageBlogs";
 
 export default function AdminPage() {
-  const router = useRouter();
-  const [isAuthorized, setIsAuthorized] = useState(false);
   const [activeTab, setActiveTab] = useState<"manage" | "post">("manage");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const isAdmin = sessionStorage?.getItem("isAdmin");
-
-    if (isAdmin !== "true") {
-      router.replace("/admin-verification");
-    } else {
-      setIsAuthorized(true);
-    }
-  }, [router]);
-
-  if (!isAuthorized) {
-    return <CustomLoader />;
-  }
 
   return (
     <div className="min-h-screen bg-[#020617] text-white flex flex-col md:flex-row relative">
