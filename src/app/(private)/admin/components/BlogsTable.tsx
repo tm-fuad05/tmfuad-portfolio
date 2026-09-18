@@ -20,7 +20,7 @@ export default function BlogsTable() {
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
       if (!id) return;
-      const res = await apiClient.delete("/blogs", { data: { id } });
+      const res = await apiClient.delete("/api/blogs", { data: { id } });
       return res.data;
     },
     onSuccess: (data) => {
