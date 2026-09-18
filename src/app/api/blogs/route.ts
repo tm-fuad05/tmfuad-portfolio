@@ -4,6 +4,7 @@ import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import cloudinary from "@/lib/cloudinary";
 import { verifySession } from "../verifySession";
+import { revalidatePath } from "next/cache";
 
 // Blog Collection from mongodb
 const blogCollection = client.db("portfolioDB").collection("blogs");
@@ -50,6 +51,11 @@ export async function POST(req: NextRequest) {
     }
 
     const result = await blogCollection.insertOne(blog);
+
+    // Clear Cache
+    revalidatePath("/");
+    revalidatePath("/blog");
+
     return NextResponse.json(
       {
         success: result.insertedId,
@@ -145,6 +151,11 @@ export async function PATCH(req: NextRequest) {
     };
 
     const result = await blogCollection.updateOne(filter, updatedDoc);
+
+    // Clear Cache
+    revalidatePath("/");
+    revalidatePath("/blog");
+
     return NextResponse.json(
       {
         success: result.modifiedCount > 0,
@@ -198,6 +209,10 @@ export async function DELETE(req: NextRequest) {
     const result = await blogCollection.deleteOne({
       _id: blogObjectId,
     });
+
+    // Clear Cache
+    revalidatePath("/");
+    revalidatePath("/blog");
 
     return NextResponse.json(
       {
