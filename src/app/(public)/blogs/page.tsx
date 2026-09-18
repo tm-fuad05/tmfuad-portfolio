@@ -6,7 +6,7 @@ import BlogList from "./components/BlogList";
 import { getBlogs } from "@/data/blogsData";
 import { Metadata } from "next";
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: "Blogs | Tanvir Mahmud Fuad",
 };
 

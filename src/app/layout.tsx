@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Oxanium, Geist_Mono, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/lenis/SmoothScroll";
