@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
     const result = await blogCollection.insertOne(blog);
 
     // Clear Cache
-    // revalidatePath("/");
-    // revalidatePath("/blogs");
+    revalidatePath("/");
+    revalidatePath("/blogs");
 
     return NextResponse.json(
       {
