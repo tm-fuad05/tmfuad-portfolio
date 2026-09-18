@@ -3,6 +3,7 @@ import { cache } from "react";
 import client from "@/lib/dbConnect";
 import { BlogItem } from "@/sections/blog/BlogCards";
 import { ObjectId } from "mongodb";
+import axios from "axios";
 
 const blogCollection = client.db("portfolioDB").collection("blogs");
 
@@ -18,9 +19,10 @@ export async function getBlogs(): Promise<BlogItem[]> {
     //   descriptionEnglish: blog.descriptionEnglish,
     // }));
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`);
-    const { data } = await res.json();
-    return data;
+    const res = await axios.get<{ data: BlogItem[] }>(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`,
+    );
+    return res.data.data;
   } catch (error: any) {
     console.error("Blogs get Error:", error.message);
     return [];

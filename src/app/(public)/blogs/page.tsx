@@ -4,6 +4,11 @@ import ScrollToUp from "@/components/shared/ScrollToUp";
 import BlogHeader from "./components/BlogHeader";
 import BlogList from "./components/BlogList";
 import { getBlogs } from "@/data/blogsData";
+import { Metadata } from "next";
+
+export const metaData: Metadata = {
+  title: "Blogs | Tanvir Mahmud Fuad",
+};
 
 export default async function BlogPage() {
   const blogs = await getBlogs();

@@ -3,7 +3,7 @@ import ButtonPrimary from "@/components/shared/ButtonPrimary";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import BlogCard from "@/app/(public)/blog/components/BlogCard";
+import BlogCard from "@/app/(public)/blogs/components/BlogCard";
 
 export interface BlogItem {
   _id?: string;
@@ -47,7 +47,7 @@ export default function BlogCards({ blogs }: { blogs: BlogItem[] }) {
           className={`absolute inset-x-0 bottom-0 h-44 sm:h-52 md:h-56 lg:h-60 bg-gradient-to-t from-background via-background/95 to-transparent flex flex-col items-center justify-end pb-6 sm:pb-8 z-30 pointer-events-none`}
         >
           <div className="pointer-events-auto shadow-2xl">
-            <Link href="/blog">
+            <Link href="/blogs">
               <ButtonPrimary>
                 <BookOpen size={16} />
                 <span>See All Blogs</span>
@@ -58,7 +58,7 @@ export default function BlogCards({ blogs }: { blogs: BlogItem[] }) {
         </div>
       ) : (
         <div className="w-fit mx-auto">
-          <Link href="/blog">
+          <Link href="/blogs">
             <ButtonPrimary>
               <BookOpen size={16} />
               <span>See All Blogs</span>
