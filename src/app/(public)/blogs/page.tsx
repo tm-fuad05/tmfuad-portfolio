@@ -7,7 +7,7 @@ import { getBlogs } from "@/data/blogsData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blogs | Tanvir Mahmud Fuad",
+  title: "Blogs",
 };
 
 export default async function BlogPage() {

@@ -18,12 +18,12 @@ export async function generateMetadata({
 
   if (!blog) {
     return {
-      title: "Blog Not Found | Tanvir Mahmud Fuad",
+      title: "Blog Not Found",
     };
   }
 
   return {
-    title: `${blog.titleE} | Tanvir Mahmud Fuad`,
+    title: blog.titleE,
     description: blog.titleE,
   };
 }
