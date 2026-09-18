@@ -52,7 +52,7 @@ export default async function BlogDetails({
           {/*  TOP BREADCRUMB & BACK BUTTON */}
           <div className="flex items-center justify-between gap-4 mb-8">
             <Link
-              href="/blog"
+              href="/blogs"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-400 hover:text-primary transition-colors group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
