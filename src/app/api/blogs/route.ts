@@ -155,6 +155,7 @@ export async function PATCH(req: NextRequest) {
     // Clear Cache
     revalidatePath("/");
     revalidatePath("/blog");
+    revalidatePath(`/blog/${_id}`);
 
     return NextResponse.json(
       {
@@ -213,6 +214,7 @@ export async function DELETE(req: NextRequest) {
     // Clear Cache
     revalidatePath("/");
     revalidatePath("/blog");
+    revalidatePath(`/blog/${id}`);
 
     return NextResponse.json(
       {
