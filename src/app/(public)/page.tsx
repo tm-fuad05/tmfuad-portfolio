@@ -9,6 +9,8 @@ import TechStack from "@/sections/tech-stack/TechStack";
 import Hero from "@/sections/hero/Hero";
 import Blog from "@/sections/blog/Blog";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

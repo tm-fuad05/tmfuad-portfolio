@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
 
 export function proxy(req: NextRequest) {
@@ -14,6 +15,14 @@ export function proxy(req: NextRequest) {
     if (!adminCookie || adminCookie !== secret) {
       return NextResponse.redirect(new URL("/admin-verification", req.url));
     }
+  }
+
+  if (
+    pathname === "/admin-verification" &&
+    adminCookie &&
+    adminCookie === secret
+  ) {
+    return NextResponse.redirect(new URL("/admin", req.url));
   }
 
   // ২. API সিকিউরিটি চেক (মেন ডোমেইন /api/* অথবা সাবডোমেইন api.* উভয়ের জন্যই)

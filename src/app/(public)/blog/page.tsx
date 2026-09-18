@@ -5,6 +5,8 @@ import BlogHeader from "./components/BlogHeader";
 import BlogList from "./components/BlogList";
 import { getBlogs } from "@/data/blogsData";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage() {
   const blogs = await getBlogs();
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import ButtonSecondary from "@/components/shared/ButtonSecondary";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -45,7 +46,7 @@ export default function Content({
           <Typewriter
             words={[
               "Software Developer",
-              "Next.js & TS Specialist",
+              "Secure Systems Specialist",
               "Scalable Database Architect",
             ]}
             loop={0}
