@@ -8,15 +8,19 @@ const blogCollection = client.db("portfolioDB").collection("blogs");
 
 export async function getBlogs(): Promise<BlogItem[]> {
   try {
-    const blogs = await blogCollection.find().toArray();
-    return blogs.map((blog) => ({
-      _id: blog._id.toString(),
-      titleE: blog.titleE,
-      titleB: blog.titleB,
-      image: blog.image,
-      descriptionBangla: blog.descriptionBangla,
-      descriptionEnglish: blog.descriptionEnglish,
-    }));
+    // const blogs = await blogCollection.find().toArray();
+    // return blogs.map((blog) => ({
+    //   _id: blog._id.toString(),
+    //   titleE: blog.titleE,
+    //   titleB: blog.titleB,
+    //   image: blog.image,
+    //   descriptionBangla: blog.descriptionBangla,
+    //   descriptionEnglish: blog.descriptionEnglish,
+    // }));
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`);
+    const { data } = await res.json();
+    return data;
   } catch (error: any) {
     console.error("Blogs get Error:", error.message);
     return [];
