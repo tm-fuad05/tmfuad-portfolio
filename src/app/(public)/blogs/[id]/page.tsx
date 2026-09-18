@@ -93,7 +93,7 @@ export default async function BlogDetails({
               {otherBlogs.map((other) => (
                 <Link
                   key={other._id}
-                  href={`/blog/${other._id}`}
+                  href={`/blogs/${other._id}`}
                   className="group flex flex-col bg-[#0a0f1d] border border-white/10 hover:border-primary/50 overflow-hidden transition-all duration-300"
                 >
                   <div className="relative w-full h-40 bg-slate-950 overflow-hidden">

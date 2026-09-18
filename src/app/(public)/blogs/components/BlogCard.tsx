@@ -57,5 +57,5 @@ export default function BlogCard({ item, index, disabled }: BlogCardProps) {
     return cardContent;
   }
 
-  return <Link href={`/blog/${item._id}`}>{cardContent}</Link>;
+  return <Link href={`/blogs/${item._id}`}>{cardContent}</Link>;
 }

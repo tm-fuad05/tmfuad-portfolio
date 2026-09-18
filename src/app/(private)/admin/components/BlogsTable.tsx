@@ -83,7 +83,7 @@ export default function BlogsTable() {
                 </td>
                 <td className="px-6">
                   <img
-                    onClick={() => router.push(`/blog/${blog._id}`)}
+                    onClick={() => router.push(`/blogs/${blog._id}`)}
                     src={blog.image}
                     alt=""
                     className="w-15 h-9 border border-slate-500/60 cursor-pointer"
