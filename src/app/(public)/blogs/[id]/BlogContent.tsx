@@ -103,6 +103,7 @@ export default function BlogContent({
                   {...props}
                 />
               ),
+              p: ({ ...props }) => <p className="text-slate-200!" {...props} />,
 
               ul: ({ ...props }) => (
                 <ul
@@ -126,7 +127,7 @@ export default function BlogContent({
                 />
               ),
               hr: ({ ...props }) => (
-                <hr className=" border-white/10" {...props} />
+                <hr className=" border-white/13" {...props} />
               ),
               code: ({ ...props }) => (
                 <code
