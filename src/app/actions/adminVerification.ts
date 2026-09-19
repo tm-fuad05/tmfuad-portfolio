@@ -2,13 +2,14 @@
 
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
+import { redirect } from "next/navigation";
 
 export async function VerifyAdminPassword(input: string) {
   const cookieStore = await cookies();
   const adminPass = process.env.ADMIN_PASS;
   const secret = process.env.SECRET_KEY;
 
-  const attempts = Number(cookieStore.get("login_attempts")?.value || 0);
+  let attempts = Number(cookieStore.get("login_attempts")?.value || 0);
 
   if (attempts >= 5) {
     return {
@@ -41,8 +42,8 @@ export async function VerifyAdminPassword(input: string) {
     });
     return { success: true };
   } else {
-    const nextAttempts = attempts + 1;
-    cookieStore.set("login_attempts", nextAttempts.toString() as string, {
+    attempts += 1;
+    cookieStore.set("login_attempts", attempts.toString() as string, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",

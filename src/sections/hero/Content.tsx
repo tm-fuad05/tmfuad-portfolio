@@ -42,7 +42,7 @@ export default function Content({
       </div>
       {/* Title */}
       <div className="w-full">
-        <h1 className="bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-500 bg-opacity-50 capitalize text-center md:text-left font-extrabold text-3xl xs:text-4xl md:text-5xl lg:text-7xl min-h-16 xs:min-h-18.75 md:min-h-25 lg:min-h-36">
+        <h1 className="bg-clip-text text-transparent bg-linear-to-b from-neutral-200 to-neutral-500 bg-opacity-50 capitalize text-center md:text-left font-extrabold text-3xl md:text-5xl lg:text-7xl min-h-18 md:min-h-25 lg:min-h-36">
           <Typewriter
             words={[
               "Software Developer",

@@ -76,7 +76,7 @@ export default async function BlogDetails({
               Published on <span className="text-white">portfolio/blog</span>
             </span>
             <Link
-              href="/blog"
+              href="/blogs"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-primary/50 text-white text-xs font-semibold tracking-wider uppercase transition-colors"
             >
               <span>Explore More Articles</span>
