@@ -15,7 +15,7 @@ export default function Logout() {
         title: "Logged out",
         icon: "success",
         showConfirmButton: false,
-        timer: 1000,
+        timer: 1300,
       });
       replace("/");
       refresh();

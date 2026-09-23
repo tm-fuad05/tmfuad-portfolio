@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Swal from "sweetalert2";
@@ -30,7 +31,7 @@ export default function BlogsTable() {
           icon: "success",
           title: "Successfully deleted",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1300,
         });
       }
       queryClient.invalidateQueries({ queryKey: ["blogs"] });
@@ -96,9 +97,8 @@ export default function BlogsTable() {
                 <td className="py-4 px-6 text-right">
                   <div className="flex items-center justify-end gap-2">
                     <button
-                      onClick={(e) => {
+                      onClick={() => {
                         setSelectedBlog(blog);
-                        e.stopPropagation();
                       }}
                       title="Edit"
                       className="p-2 rounded-lg text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 transition-colors cursor-pointer"
@@ -106,10 +106,9 @@ export default function BlogsTable() {
                       <Edit className="size-4" />
                     </button>
                     <button
-                      onClick={(e) => {
+                      onClick={() => {
                         if (!blog._id) return;
                         handleDeleteBlog(blog._id);
-                        e.stopPropagation();
                       }}
                       title="Delete"
                       className="p-2 rounded-lg text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 transition-colors cursor-pointer"

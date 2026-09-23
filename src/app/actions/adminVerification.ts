@@ -2,7 +2,6 @@
 
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
-import { redirect } from "next/navigation";
 
 export async function VerifyAdminPassword(input: string) {
   const cookieStore = await cookies();

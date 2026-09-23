@@ -3,7 +3,7 @@ import client from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 import cloudinary from "@/lib/cloudinary";
-import { verifySession } from "../verifySession";
+import { verifyAdminCookie } from "../verifyAdminCookie";
 import { revalidatePath } from "next/cache";
 
 // Blog Collection from mongodb
@@ -31,12 +31,16 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  if (!(await verifySession())) {
+  if (!(await verifyAdminCookie())) {
     return NextResponse.json(
-      { success: false, error: "Unauthorized access!" },
+      {
+        success: false,
+        message: "Unauthorized: Admin authorization required.",
+      },
       { status: 401 },
     );
   }
+
   try {
     const blog = await req.json();
 
@@ -112,9 +116,12 @@ async function deleteCloudinaryImage(imageUrl: string | undefined | null) {
 }
 
 export async function PATCH(req: NextRequest) {
-  if (!(await verifySession())) {
+  if (!(await verifyAdminCookie())) {
     return NextResponse.json(
-      { success: false, error: "Unauthorized access!" },
+      {
+        success: false,
+        message: "Unauthorized: Admin authorization required.",
+      },
       { status: 401 },
     );
   }
@@ -179,9 +186,12 @@ export async function PATCH(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  if (!(await verifySession())) {
+  if (!(await verifyAdminCookie())) {
     return NextResponse.json(
-      { success: false, error: "Unauthorized access!" },
+      {
+        success: false,
+        message: "Unauthorized: Admin authorization required.",
+      },
       { status: 401 },
     );
   }

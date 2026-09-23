@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { AnimatePresence, motion } from "framer-motion";
 import {
   Check,
@@ -6,8 +7,6 @@ import {
   Cpu,
   FileCode2,
   GitBranch,
-  Sparkles,
-  Terminal,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -58,7 +57,7 @@ export default function CodeBlock({
     >
       <div
         onClick={handleIdeClick}
-        className={`relative group p-[1px]  bg-gradient-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 h-full cursor-pointer ${
+        className={`relative group p-px  bg-linear-to-b from-white/20 via-primary/30 to-purple-500/20 shadow-[0_0_30px_rgba(30,144,255,0.12)] transition-shadow duration-300 h-full cursor-pointer ${
           isIdeActive
             ? "shadow-[0_0_50px_rgba(30,144,255,0.2)]"
             : "hover:shadow-[0_0_50px_rgba(30,144,255,0.2)]"
@@ -109,7 +108,7 @@ export default function CodeBlock({
                 {activeFile === "profile" && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-400 via-primary to-cyan-400 shadow-[0_0_12px_#3b82f6]"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-blue-400 via-primary to-cyan-400 shadow-[0_0_12px_#3b82f6]"
                   />
                 )}
               </button>
@@ -127,14 +126,14 @@ export default function CodeBlock({
                 {activeFile === "expertise" && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-linear-to-r from-purple-500 via-pink-500 to-indigo-400 shadow-[0_0_12px_#c084fc]"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-purple-500 via-pink-500 to-indigo-400 shadow-[0_0_12px_#c084fc]"
                   />
                 )}
               </button>
             </div>
 
             {/* Breadcrumb Path */}
-            <div className="flex items-center gap-1.5 px-5 py-2 text-[11px] text-slate-500 border-b border-white/5 font-mono bg-white/[0.01]">
+            <div className="flex items-center gap-1.5 px-5 py-2 text-[11px] text-slate-500 border-b border-white/5 font-mono bg-white/1">
               <span>src</span>
               <ChevronRight size={12} className="text-slate-600" />
               <span>content</span>
@@ -143,7 +142,7 @@ export default function CodeBlock({
             </div>
 
             {/* Code Editor Body - Fixed Height Matching Expertise Tab Content */}
-            <div className="p-4 sm:p-5 text-slate-300 leading-relaxed font-mono text-xs sm:text-sm h-[385px] md:h-[355px] overflow-x-auto relative scrollbar-none">
+            <div className="p-4 sm:p-5 text-slate-300 leading-relaxed font-mono text-xs sm:text-sm h-96.25 md:h-88.75 overflow-x-auto relative scrollbar-none">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeFile}

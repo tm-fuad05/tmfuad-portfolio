@@ -46,8 +46,8 @@ export default function Content({
           <Typewriter
             words={[
               "Software Developer",
-              "Next.js & TS Specialist",
-              "Secure Auth & Database Architect",
+              "Next.js, TS, Postgres & MERN",
+              "REST API & Secure Auth",
             ]}
             loop={0}
             typeSpeed={40}

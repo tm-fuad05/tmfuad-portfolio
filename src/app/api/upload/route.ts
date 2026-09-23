@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import cloudinary from "@/lib/cloudinary";
-import { verifySession } from "../verifySession";
+import { verifyAdminCookie } from "../verifyAdminCookie";
 
 export async function POST(req: NextRequest) {
-  if (!(await verifySession())) {
+  if (!(await verifyAdminCookie())) {
     return NextResponse.json(
-      { success: false, error: "Unauthorized access!" },
+      {
+        success: false,
+        message: "Unauthorized: Admin authorization required.",
+      },
       { status: 401 },
     );
   }

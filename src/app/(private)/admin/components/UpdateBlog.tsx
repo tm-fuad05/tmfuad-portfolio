@@ -29,18 +29,18 @@ export default function UpdateBlogModal({
   }, [selectedBlog]);
 
   const patchMutation = useMutation({
-    mutationFn: async (updatedBlog: Partial<BlogItem>) => {
+    mutationFn: async (updatedBlog: BlogItem) => {
       const res = await apiClient.patch("/api/blogs", updatedBlog);
-      return res.data;
+      return res?.data;
     },
     onSuccess: (data) => {
-      if (data.success) {
+      if (data?.success) {
         Swal.fire({
           position: "center",
           icon: "success",
           title: "Successfully updated",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1300,
         });
       } else {
         Swal.fire({
@@ -48,7 +48,7 @@ export default function UpdateBlogModal({
           icon: "warning",
           title: "Nothing has changed",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1300,
         });
       }
       queryClient.invalidateQueries({ queryKey: ["blogs"] });
@@ -60,7 +60,7 @@ export default function UpdateBlogModal({
         icon: "error",
         title: error.message || "Something went wrong",
         showConfirmButton: false,
-        timer: 1000,
+        timer: 1300,
       });
     },
   });

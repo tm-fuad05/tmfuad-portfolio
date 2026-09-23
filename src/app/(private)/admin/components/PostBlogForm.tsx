@@ -14,21 +14,24 @@ export default function PostBlogForm() {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const queryClient = useQueryClient();
+
+  // Post Mutation
   const postMutation = useMutation({
     mutationFn: async (newBlog: BlogItem) => {
       const res = await apiClient.post("/api/blogs", newBlog);
-      return res.data;
+      return res?.data;
     },
     onSuccess: (data) => {
-      if (data) {
+      if (data?.success) {
         Swal.fire({
           position: "center",
           title: "Posted successfully",
           icon: "success",
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1300,
         });
         setImageUrl(null);
+        formRef.current?.reset();
       }
       queryClient.invalidateQueries({ queryKey: ["blogs"] });
     },
@@ -39,7 +42,7 @@ export default function PostBlogForm() {
         text: `${error?.message}`,
         icon: "error",
         showConfirmButton: false,
-        timer: 1000,
+        timer: 1300,
       });
     },
   });
