@@ -18,10 +18,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 2,
     image: [
-      "/images/fitrack/cover.png",
-      "/images/fitrack/1.png",
-      "/images/fitrack/2.png",
-      "/images/fitrack/3.png",
+      "/images/fitrack/cover.webp",
+      "/images/fitrack/1.webp",
+      "/images/fitrack/2.webp",
+      "/images/fitrack/3.webp",
     ],
     title: "FitRack",
     description:
@@ -55,10 +55,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 3,
     image: [
-      "/images/pastportals/cover.png",
-      "/images/pastportals/1.png",
-      "/images/pastportals/2.png",
-      "/images/pastportals/3.png",
+      "/images/pastportals/cover.webp",
+      "/images/pastportals/1.webp",
+      "/images/pastportals/2.webp",
+      "/images/pastportals/3.webp",
     ],
     title: "PastPortals",
     description:
@@ -84,10 +84,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 4,
     image: [
-      "/images/logiclab/cover.png",
-      "/images/logiclab/1.png",
-      "/images/logiclab/2.png",
-      "/images/logiclab/3.png",
+      "/images/logiclab/cover.webp",
+      "/images/logiclab/1.webp",
+      "/images/logiclab/2.webp",
+      "/images/logiclab/3.webp",
     ],
     title: "LogicLab.",
     description:
@@ -112,10 +112,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 5,
     image: [
-      "/images/devtech/cover.png",
-      "/images/devtech/1.png",
-      "/images/devtech/2.png",
-      "/images/devtech/3.png",
+      "/images/devtech/cover.webp",
+      "/images/devtech/1.webp",
+      "/images/devtech/2.webp",
+      "/images/devtech/3.webp",
     ],
     title: "DevTech Ltd.",
     description:
@@ -140,10 +140,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 6,
     image: [
-      "/images/lingobingo/cover.png",
-      "/images/lingobingo/1.png",
-      "/images/lingobingo/2.png",
-      "/images/lingobingo/3.png",
+      "/images/lingobingo/cover.webp",
+      "/images/lingobingo/1.webp",
+      "/images/lingobingo/2.webp",
+      "/images/lingobingo/3.webp",
     ],
     title: "Lingo Bingo",
     description:
@@ -168,10 +168,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 7,
     image: [
-      "/images/visorix/cover.png",
-      "/images/visorix/1.png",
-      "/images/visorix/2.png",
-      "/images/visorix/3.png",
+      "/images/visorix/cover.webp",
+      "/images/visorix/1.webp",
+      "/images/visorix/2.webp",
+      "/images/visorix/3.webp",
     ],
     title: "Visorix",
     description:

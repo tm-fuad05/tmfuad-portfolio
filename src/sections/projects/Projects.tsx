@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 import { useEffect, useState } from "react";
 import SectionTitle from "@/components/shared/SectionTitle";
@@ -200,17 +201,20 @@ const Projects = () => {
                   >
                     {/* Image */}
                     <div
-                      className={`relative group-hover/parent:scale-107 duration-300 shrink-0 ${
+                      className={`relative group-hover/parent:scale-107 duration-300 shrink-0 w-full h-52 md:h-60 lg:h-57 overflow-hidden pb-2 ${
                         activeDiv && "scale-107"
                       }`}
                     >
-                      <img
-                        className="pb-2 w-full object-cover h-full md:h-60 lg:h-57"
+                      <Image
+                        fill
+                        className="object-cover pb-2"
                         src={card?.image[0]}
                         alt={card.title}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority={idx < 3}
                       />
                       {card?.processing && (
-                        <p className="absolute bottom-2 bg-emerald-950/80 border-t border-emerald-500/30 inset-x-px pl-2 pt-1 text-sm text-emerald-400 font-medium text-center">
+                        <p className="absolute bottom-2 bg-emerald-950/80 border-t border-emerald-500/30 inset-x-px pl-2 pt-1 text-sm text-emerald-400 font-medium text-center z-10">
                           In Development
                         </p>
                       )}
@@ -221,7 +225,7 @@ const Projects = () => {
                       <div>
                         {/* Title & Date */}
                         <div className="flex justify-between items-center text-sm my-3 gap-2">
-                          <h3 className="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-200 font-bold truncate">
+                          <h3 className="text-xl md:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-200 font-bold truncate">
                             {card.title}
                           </h3>
                           <p className="text-paragraph text-xs font-mono shrink-0">
@@ -231,7 +235,7 @@ const Projects = () => {
 
                         {/* Description - Fixed height for 3 lines to ensure exact layout balance */}
                         <div className="h-[4.2rem]">
-                          <p className="text-slate-300! text-[15px] line-clamp-3 leading-relaxed">
+                          <p className="text-slate-300! text-[13px] md:text-[15px] line-clamp-3 leading-relaxed">
                             {card.description}
                           </p>
                         </div>

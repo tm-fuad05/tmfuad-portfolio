@@ -12,11 +12,10 @@ export default function SmoothScroll({
     <ReactLenis
       root
       options={{
-        // Higher lerp = snappier scroll (less "floaty" lag). Do not use duration with lerp.
-        lerp: 0.1,
-        // duration: 1.2,
+        lerp: 0.08,
         smoothWheel: true,
-        syncTouch: true,
+        syncTouch: false,
+        touchMultiplier: 1.5,
         anchors: false,
       }}
     >
