@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { projectCards, ProjectCard } from "../../data/projectData";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 
 import {
@@ -13,7 +14,6 @@ import {
 } from "react-icons/fi";
 import { useLenis } from "lenis/react";
 import { ArrowUpRight } from "lucide-react";
-import Button from "@/components/shared/ButtonPrimary";
 import ButtonSecondary from "@/components/shared/ButtonSecondary";
 import ButtonPrimary from "@/components/shared/ButtonPrimary";
 
@@ -58,8 +58,10 @@ const Projects = () => {
       setIsAutoSliding(true);
 
       selectedProject.image.forEach((src) => {
-        const img = new Image();
-        img.src = src;
+        if (typeof window !== "undefined") {
+          const img = new window.Image();
+          img.src = src;
+        }
       });
     } else {
       document.body.style.overflow = "unset";
@@ -332,10 +334,8 @@ const Projects = () => {
                   onMouseLeave={() => setIsAutoSliding(true)}
                 >
                   <AnimatePresence initial={false} custom={direction}>
-                    <motion.img
+                    <motion.div
                       key={currentImageIndex}
-                      src={selectedProject.image[currentImageIndex]}
-                      alt={`${selectedProject.title} preview ${currentImageIndex + 1}`}
                       initial={{ x: direction > 0 ? "100%" : "-100%" }}
                       animate={{ x: "0%" }}
                       exit={{ x: direction > 0 ? "-100%" : "100%" }}
@@ -351,8 +351,17 @@ const Projects = () => {
                           prevImage();
                         }
                       }}
-                      className="absolute inset-0 w-full h-full object-top object-cover cursor-grab active:cursor-grabbing select-none"
-                    />
+                      className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing select-none"
+                    >
+                      <Image
+                        fill
+                        src={selectedProject.image[currentImageIndex]}
+                        alt={`${selectedProject.title} preview ${currentImageIndex + 1}`}
+                        sizes="(max-width: 768px) 100vw, 768px"
+                        priority
+                        className="object-top object-cover pointer-events-none"
+                      />
+                    </motion.div>
                   </AnimatePresence>
 
                   {/* Gradient Overlay at Bottom */}
