@@ -18,10 +18,10 @@ export const projectCards: ProjectCard[] = [
   {
     id: 2,
     image: [
+      "/images/fitrack/cover.png",
       "/images/fitrack/1.png",
       "/images/fitrack/2.png",
       "/images/fitrack/3.png",
-      "/images/fitrack/4.png",
     ],
     title: "FitRack",
     description:
@@ -55,6 +55,7 @@ export const projectCards: ProjectCard[] = [
   {
     id: 3,
     image: [
+      "/images/pastportals/cover.png",
       "/images/pastportals/1.png",
       "/images/pastportals/2.png",
       "/images/pastportals/3.png",
@@ -82,7 +83,12 @@ export const projectCards: ProjectCard[] = [
   },
   {
     id: 4,
-    image: ["/images/logiclab/1.png", "/images/logiclab/2.png"],
+    image: [
+      "/images/logiclab/cover.png",
+      "/images/logiclab/1.png",
+      "/images/logiclab/2.png",
+      "/images/logiclab/3.png",
+    ],
     title: "LogicLab.",
     description:
       "LogicLab is a comprehensive React & JavaScript logic showcase engineered to demonstrate essential web development patterns, custom hook architectures, and frontend algorithms.",
@@ -105,7 +111,12 @@ export const projectCards: ProjectCard[] = [
   },
   {
     id: 5,
-    image: ["/images/devtech.png"],
+    image: [
+      "/images/devtech/cover.png",
+      "/images/devtech/1.png",
+      "/images/devtech/2.png",
+      "/images/devtech/3.png",
+    ],
     title: "DevTech Ltd.",
     description:
       "A specialized digital agency driven by a collaborative team of developers and UI/UX designers. We design and engineer end-to-end web applications, dynamic digital products, and high-converting user interfaces.",
@@ -129,6 +140,7 @@ export const projectCards: ProjectCard[] = [
   {
     id: 6,
     image: [
+      "/images/lingobingo/cover.png",
       "/images/lingobingo/1.png",
       "/images/lingobingo/2.png",
       "/images/lingobingo/3.png",
@@ -156,6 +168,7 @@ export const projectCards: ProjectCard[] = [
   {
     id: 7,
     image: [
+      "/images/visorix/cover.png",
       "/images/visorix/1.png",
       "/images/visorix/2.png",
       "/images/visorix/3.png",
