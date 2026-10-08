@@ -207,6 +207,7 @@ const Projects = () => {
                     >
                       <Image
                         fill
+                        quality={95}
                         className="object-cover pb-2"
                         src={card?.image[0]}
                         alt={card.title}
@@ -359,6 +360,7 @@ const Projects = () => {
                     >
                       <Image
                         fill
+                        quality={95}
                         src={selectedProject.image[currentImageIndex]}
                         alt={`${selectedProject.title} preview ${currentImageIndex + 1}`}
                         sizes="(max-width: 768px) 100vw, 768px"
