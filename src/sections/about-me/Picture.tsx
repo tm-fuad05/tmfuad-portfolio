@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { BiSolidQuoteLeft } from "react-icons/bi";
@@ -35,12 +36,12 @@ export default function Picture({
         <div className="relative w-full h-full  overflow-hidden z-10 border border-white/10 shadow-2xl">
           {/* Profile Image */}
           <Image
-            src="/images/about_me.webp"
+            src="/images/aboutme.jpeg"
             alt="Tanvir Mahmud Fuad"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw"
-            className={`object-cover object-top transition-transform duration-500 will-change-transform ${
-              isImgActive ? "scale-105" : "group-hover/img:scale-105"
+            className={`object-cover object-top transition-transform duration-500 will-change-transform scale-135 ${
+              isImgActive ? "scale-145" : "group-hover/img:scale-145"
             }`}
             priority
           />
