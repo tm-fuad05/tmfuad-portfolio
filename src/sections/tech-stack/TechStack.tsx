@@ -13,29 +13,14 @@ export interface Logo {
 
 const logos: Logo[] = [
   {
-    logo: "/images/icons/html.png",
-    name: "HTML",
-    category: "Frontend",
-  },
-  {
-    logo: "/images/icons/css.png",
-    name: "CSS",
-    category: "Frontend",
-  },
-  {
     logo: "/images/icons/javascript.png",
     name: "Javascript",
-    category: "Frontend",
+    category: ["Frontend", "Backend"],
   },
   {
     logo: "/images/icons/typescript.png",
     name: "Typescript",
-    category: "Frontend",
-  },
-  {
-    logo: "/images/icons/tailwind.png",
-    name: "Tailwind",
-    category: "Frontend",
+    category: ["Frontend", "Backend"],
   },
   {
     logo: "/images/icons/react.png",
@@ -45,6 +30,11 @@ const logos: Logo[] = [
   {
     logo: "/images/icons/nextjs.png",
     name: "Next JS",
+    category: ["Frontend", "Backend"],
+  },
+  {
+    logo: "/images/icons/tailwind.png",
+    name: "Tailwind",
     category: "Frontend",
   },
   {
@@ -63,11 +53,6 @@ const logos: Logo[] = [
     category: "Backend",
   },
   {
-    logo: "/images/icons/jwt.svg",
-    name: "JWT",
-    category: ["Backend", "Authentication"],
-  },
-  {
     logo: "/images/icons/mongodb.png",
     name: "MongoDB",
     category: "Database",
@@ -78,50 +63,64 @@ const logos: Logo[] = [
     category: "Database",
   },
   {
+    logo: "/images/icons/neon.png",
+    name: "Neon",
+    category: "Database",
+  },
+  {
+    logo: "/images/icons/monogoose.webp",
+    name: "Mongoose",
+    category: ["Backend", "Database", "ODM & ORM"],
+  },
+  {
     logo: "/images/icons/prisma.png",
     name: "Prisma",
-    category: ["Backend", "Database"],
+    category: ["Backend", "Database", "ODM & ORM"],
+  },
+  {
+    logo: "/images/icons/supabase.svg",
+    name: "Supabase",
+    category: ["Backend", "Database", "Authentication"],
   },
   {
     logo: "/images/icons/firebase.png",
     name: "Firebase",
-    category: "Authentication",
+    category: ["Backend", "Database", "Authentication"],
   },
   {
-    logo: "/images/icons/betterauth.png",
+    logo: "/images/icons/jwt.svg",
+    name: "JWT",
+    category: ["Backend", "Authentication"],
+  },
+  {
+    logo: "/images/icons/betterauth.webp",
     name: "BetterAuth",
-    category: "Authentication",
+    category: ["Backend", "Authentication"],
   },
   {
     logo: "/images/icons/clerk.png",
     name: "Clerk",
-    category: "Authentication",
+    category: ["Frontend", "Authentication"],
   },
-
   {
     logo: "/images/icons/zustand.svg",
     name: "Zustand",
-    category: "State & Validation",
-  },
-  {
-    logo: "/images/icons/zod.png",
-    name: "Zod",
-    category: ["State & Validation", "Backend"],
+    category: ["Frontend", "State & Validation"],
   },
   {
     logo: "/images/icons/tanstack.png",
     name: "Tanstack",
-    category: "State & Validation",
+    category: ["Frontend", "State & Validation"],
   },
   {
-    logo: "/images/icons/vercel.png",
-    name: "Vercel",
-    category: "Tools",
+    logo: "/images/icons/zod.png",
+    name: "Zod",
+    category: ["Frontend", "Backend", "State & Validation"],
   },
   {
-    logo: "/images/icons/vscode.png",
-    name: "VS Code",
-    category: "Tools",
+    logo: "/images/icons/postman.png",
+    name: "Postman",
+    category: ["Backend", "Tools"],
   },
   {
     logo: "/images/icons/git.png",
@@ -131,6 +130,21 @@ const logos: Logo[] = [
   {
     logo: "/images/icons/github.webp",
     name: "Github",
+    category: "Tools",
+  },
+  {
+    logo: "/images/icons/vercel.png",
+    name: "Vercel",
+    category: "Tools",
+  },
+  {
+    logo: "/images/icons/render.jpg",
+    name: "Render",
+    category: "Tools",
+  },
+  {
+    logo: "/images/icons/netlify.webp",
+    name: "Netlify",
     category: "Tools",
   },
 ];
