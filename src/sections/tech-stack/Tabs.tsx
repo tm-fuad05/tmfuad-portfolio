@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Logo } from "./TechStack";
+import { Logo } from "@/data/techStackData";
 
 export default function Tabs({
   logos,

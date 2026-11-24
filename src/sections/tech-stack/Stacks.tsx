@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Logo } from "./TechStack";
+import { Logo } from "@/data/techStackData";
 
 export default function Stacks({
   activeTab,
